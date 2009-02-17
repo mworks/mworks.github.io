@@ -1,6 +1,6 @@
 ---
 layout: default
-title: The MonkeyWorks Application Suite
+title: The MonkeyWorks Suite
 ---
 
 This project <a href="http://github.com/monkeyworks-project/monkeyworks-project.github.com">The MonkeyWorks Application Suite</a> is awesome.
