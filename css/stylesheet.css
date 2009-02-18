@@ -1,5 +1,6 @@
 html {
-	background: #1e1e1e;
+	/*background: #1e1e1e;*/
+	background: #666;
 }
 body {
 /*  background: transparent url("http://macromates.com/images/site/bg_body") repeat-y 50% 0px;*/
@@ -26,15 +27,24 @@ html>body #wrapper {
 
 #header {
 	position: relative;
-	background: #aaa;
+	background: #444;
+	/*background: #0B0B61;*/
 	height: 113px;
 }
 #header h1 {
 	position: absolute;
-	left: 60px;
+	left: 30px;
 	top: 40px;
 	width: 380px;
 	height: 50px;
+	cursor: pointer;
+	color: white;
+}
+
+#header img {
+	position: absolute;
+	left: 560px;
+	top: 30px;
 	cursor: pointer;
 	color: white;
 }
@@ -58,7 +68,8 @@ html>body #wrapper {
 	text-shadow: 0px 2px 4px #000;
 }
 #navigation li a {
-	color: #5b5b5b;
+    color: #ddd;
+	/*color: #5b5b5b;*/
 	text-decoration: none;
 }
 
@@ -92,8 +103,8 @@ html>body #content {
 	padding: 25px;
 	width: auto;
 	height: auto;
-	max-width: 430px;
-	min-height: 584px; /* (64+2*20+2)*6 - 2 - 2*25 */
+	max-width: 460px;
+	min-height: 484px; /* (64+2*20+2)*6 - 2 - 2*25 */
 	background: #fff;
 }
 #content :first-child {
@@ -107,8 +118,8 @@ html>body #content {
 	margin: 0;
 	padding: 0;
 	top: 0px;
-	left: 480px;
-	width: 270px;
+	left: 510px;
+	width: 240px;
 	background-color: #e8eaea;
 	position: absolute;
 }
