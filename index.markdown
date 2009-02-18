@@ -13,7 +13,7 @@ MonkeyWorks is a suite of applications and libraries for designing and running r
 
 
 ### Is MonkeyWorks Finished? Can I use it? ###
-You can download MonkeyWorks, but do so at your own risk.  MonkeyWorks is an open source project at a _very early stage of development_.  The creators provide no warranty whatsoever for this software, and make no guarantees that the software won't ruin your computer, insult your mother, or write nasty _Nature_ News and Views articles about you behind your back.  You should make no assumptions that any part of MW actually works, and if you do decide to use it, you should test your experiments thoroughly to ensure that they actually work the way you expect them to.
+You can download MonkeyWorks, but do so at your own risk.  MonkeyWorks is an open source project at a _very early stage of development_.  The creators make no warranty whatsoever for this software, and make no guarantees that the software won't ruin your computer, insult your mother, or write nasty _Nature_ News and Views articles about you behind your back.  You should make no assumptions that any part of MW actually works, and if you do decide to use it, you should test your experiments thoroughly to ensure that they actually work the way you expect them to. *We are not responsible.*
 
 It is also important to note that while we're generally willing to be helpful, we can't be in the business of providing support for anyone who downloads software off of this site.  Bottom line: unless someone has explicitly told you that they would help support you, you should consider yourself on your own.
 

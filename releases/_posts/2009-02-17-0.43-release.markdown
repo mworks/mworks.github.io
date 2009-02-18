@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 0.43 Release
+title: 0.43 Release is coming
 ---
 
-This is a *test* of using Jekyll to do categories other than posts
+The 0.43 Release is imminent and will represent the first packaged release since MW moved to GitHub.
