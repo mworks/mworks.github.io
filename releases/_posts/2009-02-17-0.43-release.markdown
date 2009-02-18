@@ -1,0 +1,6 @@
+---
+layout: post
+title: 0.43 Release
+---
+
+This is a *test* of using Jekyll to do categories other than posts
