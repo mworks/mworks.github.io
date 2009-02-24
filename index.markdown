@@ -6,11 +6,11 @@ title: The MonkeyWorks Project
 ## Welcome ##
 Welcome to the website for the project page for the MonkeyWorks Application Suite, hosted on <a href="http://github.com">GitHub</a>.
 
+<br/><br/>
 
 ##Frequently asked questions##
 ### What is MonkeyWorks? ###
 MonkeyWorks is a suite of applications and libraries for designing and running realtime experiments, particularly in the domains of psychology and neurophysiology.  It provides high-level tools for specifying an experimental flow (e.g. hierarchical constructs such as "blocks" and "trials", as well as finite state machine constructs such as "states" and transition logic).  In addition, it enables fine control over a wide range of input and output devices, such as monitors, data acquisition systems, and general purpose IO (GPIO) devices.  It was originally created for doing visual neurophysiology experiments, but was designed with flexibility and extensibility in mind.
-<br/><br/>
 
 ### Is MonkeyWorks Finished? Can I use it? ###
 You can download MonkeyWorks, but do so at your own risk.  MonkeyWorks is an open source project at a _very early stage of development_.  The creators make no warranty whatsoever for this software, and make no guarantees that the software won't ruin your computer, insult your mother, or write nasty _Nature_ News and Views articles about you behind your back.  You should make no assumptions that any part of MW actually works, and if you do decide to use it, you should test your experiments thoroughly to ensure that they actually work the way you expect them to. *We are not responsible.*
