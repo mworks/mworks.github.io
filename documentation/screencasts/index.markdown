@@ -1,12 +1,13 @@
 ---
 layout: post
-title: MW Screencasts
+title: MW Screencast Tutorials
 ---
 
-### Screencast Tutorials ###
 
 One of the easiest ways to learn how to do something is to watch someone else doing it.
 
-#### Introducing MonkeyWorks ####
+### Introducing MonkeyWorks ###
+author: _David Cox_
 
 A brief introduction to the features of MW.  [quicktime mov format](http://public.coxlab.org/mw/Tutorial1.mov)
+
