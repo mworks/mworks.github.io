@@ -19,11 +19,11 @@ It is also important to note that while we're generally willing to be helpful, w
 
 ### Assuming that I've read the above warning, how do I get started? ###
 
-- __If you want to try using MW:__ You can download a nightly (bleeding edge) installer or named release (e.g. "0.43") under the releases tab on the right.
+__If you want to try using MW:__ You can download a nightly (bleeding edge) installer or named release (e.g. "0.43") under the releases tab on the right.
 
-- __If you want to browse the code:__ checkout our pages on [github](http://github.com/monkeyworks-project).  GitHub makes it very easy to browse through code, without incurring the hassle of a full checkout. 
+__If you want to browse the code:__ checkout our pages on [github](http://github.com/monkeyworks-project).  GitHub makes it very easy to browse through code, without incurring the hassle of a full checkout. 
 
-- __If you are interested in seriously playing with the MW code base:__ the place to start is the [mw build repository](http://github.com/monkeyworks-project/mw_build/tree/master). There, you'll find instructions on how to automatically checkout the project in its entirety, along with some guidance on how to build everything.
+__If you are interested in seriously playing with the MW code base:__ the place to start is the [mw build repository](http://github.com/monkeyworks-project/mw_build/tree/master). There, you'll find instructions on how to automatically checkout the project in its entirety, along with some guidance on how to build everything.
 
 ### How can I help improve MonkeyWorks? ###
 Right now, if you're using MW, the most helpful thing you can do is to [report bugs](http://monkeyworks.lighthouse.com) as you find them (see also the "Issue Tracking" sidebar to the right).  The key to productively reporting issues is to provide as much info as possible (e.g. what where you doing when a crash happened, or what experiment caused the crash).  If you really want to be helpful, doing a bit of detective work and coming up with the minimal experiment that exposes a problem will result in the bug being fixed much faster.
