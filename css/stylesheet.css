@@ -146,6 +146,18 @@ html>body #content {
 	text-decoration: underline;
 }
 
+#sidebar ul {
+	margin: 0px;
+	padding: 0 0 0 15px;
+	list-style: none;
+}
+#sidebar li {
+	/*display: inline;*/
+	list-style: circle;
+	margin: 0;
+	padding: 0 0 0 0px;
+}
+
 #footer {
 	position: relative;
 	margin: 0;
