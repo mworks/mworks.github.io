@@ -114,6 +114,14 @@ html>body #content {
 	margin-top: 0px;
 }
 
+#content li {
+	/*display: inline;*/
+    border: 1px solid #333;
+	margin: 3px;
+	padding: 5px;
+}
+
+
 #sidebar {
 	margin: 0;
 	padding: 0;
@@ -186,4 +194,5 @@ html>body #content {
 #footer .right {
 	float: right;
 }
+
 
