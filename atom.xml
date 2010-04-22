@@ -4,22 +4,22 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>The MonkeyWorks Application Suite</title>
- <link href="http://monkeyworks-project.github.com/monkeyworks-project.github.com/atom.xml" rel="self"/>
- <link href="http://monkeyworks-project.github.com/monkeyworks-project.github.com/"/>
+ <title>The mworks Application Suite</title>
+ <link href="http://mworks-project.github.com/mworks-project.github.com/atom.xml" rel="self"/>
+ <link href="http://mworks-project.github.com/mworks-project.github.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://monkeyworks-project.github.com/monkeyworks-project.github.com/</id>
+ <id>http://mworks-project.github.com/mworks-project.github.com/</id>
  <author>
    <name>Dr Nic Williams</name>
-   <email>monkeyworks-projectwilliams@gmail.com</email>
+   <email>mworks-projectwilliams@gmail.com</email>
  </author>
 
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://monkeyworks-project.github.com/monkeyworks-project.github.com{{ post.url }}"/>
+   <link href="http://mworks-project.github.com/mworks-project.github.com{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://monkeyworks-project.github.com/monkeyworks-project.github.com{{ post.id }}</id>
+   <id>http://mworks-project.github.com/mworks-project.github.com{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}
