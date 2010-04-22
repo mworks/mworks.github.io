@@ -1,6 +1,0 @@
----
-layout: post
-title: 0.43 Release is coming
----
-
-The 0.43 Release is imminent and will represent the first packaged release since MW moved to GitHub.
