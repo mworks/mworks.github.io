@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Welcome to 'The mworks Application Suite'
+title: Welcome to 'The MWorks Application Suite'
 ---
 
-The mworks Application Suite is going to be an awesome project.
+The MWorks Application Suite is going to be an awesome project.
