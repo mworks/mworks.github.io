@@ -2,4 +2,4 @@
 
 This repository contains the source for the MW project website, which is automatically converted by GitHub into a static site via [Jekyll](http://github.com/mojombo/jekyll).
 
-If you wish to view the actual site itself, please go [here](http://mworks-project.github.com).
+If you wish to view the actual site itself, please go [here](http://mworks-project.org/).

@@ -6,8 +6,6 @@ title: The MWorks Project
 ## Welcome ##
 Welcome to the website for the project page for the MWorks Application Suite, hosted on <a href="http://github.com/">GitHub</a>.
 
-<br/><br/>
-
 ##Frequently asked questions##
 ### What is MWorks? ###
 MWorks is a suite of applications and libraries for designing and running realtime experiments, particularly in the domains of psychology and neurophysiology.  It provides high-level tools for specifying an experimental flow (e.g. hierarchical constructs such as "blocks" and "trials", as well as finite state machine constructs such as "states" and transition logic).  In addition, it enables fine control over a wide range of input and output devices, such as monitors, data acquisition systems, and general purpose IO (GPIO) devices.  It was originally created for doing visual neurophysiology experiments, but was designed with flexibility and extensibility in mind.
