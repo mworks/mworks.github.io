@@ -1,0 +1,14 @@
+---
+layout: post
+title: New support site
+---
+
+The new MWorks [support site](http://help.mworks-project.org/) is now
+up and running.  This is the place to go to submit all bug reports,
+feature requests, and general help/support inquiries.
+
+If there are MWorks bugs you've been waiting to report, please head
+over to the support site and [create a new
+discussion](http://help.mworks-project.org/discussion/new).  (If you
+have more than one issue to report, please create a separate
+discussion for each one.)
