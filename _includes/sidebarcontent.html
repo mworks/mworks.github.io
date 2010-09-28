@@ -1,40 +1,20 @@
 <div class="item">
-<!-- Download    -->
-<h4>Releases</h4>
-{% for post in site.categories.releases %}
-<a href="{{ post.url p}}">{{post.title}}</a><br/>
-{% endfor %}
-<br/>
-<a href="http://dicarlo-mwdev.mit.edu/mw/MWorks-NIGHTLY.dmg">Nightly (Bleeding Edge) Installer</a>
-</div>
-<div class="item">
-<!-- Tickets   -->
-<h4>Issue Tracking</h4>
-<ul>
-<li><a href="http://mworks.lighthouseapp.com/projects/23612-mworks-client/tickets">Client</a></li>
-<li><a href="http://mworks.lighthouseapp.com/projects/23611-mworks-server/tickets">Server</a></li>
-<li><a href="http://mworks.lighthouseapp.com/projects/23613-mworks-editor/tickets">Editor</a></li>
-<li><a href="http://mworks.lighthouseapp.com/projects/23610-mworks-core/tickets">Core Components</a></li>
-</ul>
-</div>
-<div class="item">
-<!-- Blog   -->
-<h4><a href="atom.xml" id="rss_feed" name="rss_feed">Blog Posts</a></h4>
-<p>
-	<ul>
-  {% for post in site.posts %} 
-    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-	</ul>
-</p>
-</div>
-<div class="item">
 <h4>Documentation</h4>
 <ul>
-<li><a href="http://help.mworks-project.org/">Support Site</a></li>
+<li><a href="http://help.mworks-project.org/faqs">FAQ / Knowledge Base</a></li>
 <li><a href="/documentation/screencasts">Screencasts</a></li>
 <li><a href="/documentation/userdocs">User Documentation</a></li>
 <li><a href="/documentation/developerdocs">Developer Documentation</a></li>
 <li><a href="https://wikis.mit.edu/confluence/display/MWorks/Home">Old Documentation (not up to date)</a></li>
 </ul>
+</div>
+<div class="item">
+<h4>News</h4>
+<p>
+	<ul>
+  {% for post in site.posts %} 
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+	</ul>
+</p>
 </div>
