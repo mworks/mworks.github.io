@@ -67,6 +67,9 @@ html>body #wrapper {
 	padding: 0 0 0 25px;
 	text-shadow: 0px 2px 4px #000;
 }
+#navigation li img {
+	margin: 2px 25px 2px 0;
+}
 #navigation li a {
     color: #ddd;
 	/*color: #5b5b5b;*/
