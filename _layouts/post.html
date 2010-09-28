@@ -2,6 +2,8 @@
 
 <h2>{{ page.title }}</h2>
 
+<p class="post_meta">{{ page.date | date: "%A, %B %d, %Y" }}</p>
+
 {{ content }}
 
 {% include footer.html %}
