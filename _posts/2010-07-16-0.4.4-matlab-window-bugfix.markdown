@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fix for MWorks 0.4.4 MATLAB window problems
+title: Fix for 0.4.4 MATLAB window problems
 ---
 
 We recently
