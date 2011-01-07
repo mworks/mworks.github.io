@@ -7,11 +7,11 @@ MWorks 0.4.4 is [now
 available](http://github.com/downloads/mworks-project/mw_suite/MWorks-0.4.4.dmg).
 For a summary of what's new, see the release notes below.
 
-Release Notes
-=============
 
-General
--------
+### Release Notes ###
+
+
+#### General
 
 * Project name changed from "MonkeyWorks" to "MWorks" in recognition
   of its successful application to non-monkey experimental subjects
@@ -29,8 +29,7 @@ General
   MWorks" script can remove new installation and restore old one
 
 
-Core
-----
+#### Core
 
 * Streamlined IODevice base class.  Old base class still available as
   LegacyIODevice.
@@ -63,8 +62,7 @@ Core
   replicate-wise tag names
 
 
-Server
-------
+#### Server
 
 * Croak if more than one plugin tries to define a factory with the
   same XML signature
@@ -73,23 +71,20 @@ Server
   all the way to the bottom
 
 
-Client
-------
+#### Client
 
 * Improved experiment file selector
 * List recent experiments from most to least recent
 * Don't crash when "Load" is pressed with no experiment selected
 
 
-Editor
-------
+#### Editor
 
 * Added deferred property to image stimuli
 * Added custom inspectors for Start/Stop IO and Report actions
 
 
-Core Plugins
-------------
+#### Core Plugins
 
 * Improved performance of DriftingGratingStimulus (no longer spawns 60
   threads per second)
@@ -100,15 +95,13 @@ Core Plugins
 * NEW: Xcode project template for core plugin
 
 
-Python Tools
-------------
+#### Python Tools
 
 * NEW: Python bindings for data file indexer/reader
 * NEW: Python bridge client plugin
 
 
-MATLAB Tools
-------------
+#### MATLAB Tools
 
 * Client window and data tools now support both 32- and 64-bit MATLAB
 * Client window now displays MATLAB console output (contributed by

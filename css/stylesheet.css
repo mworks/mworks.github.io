@@ -37,15 +37,18 @@ html>body #wrapper {
 	top: 40px;
 	width: 380px;
 	height: 50px;
-	cursor: pointer;
 	color: white;
+}
+
+#header h1 a {
+    color: white;
+    text-decoration: none;
 }
 
 #header img {
 	position: absolute;
 	left: 560px;
 	top: 30px;
-	cursor: pointer;
 	color: white;
 }
 
@@ -132,6 +135,10 @@ html>body #content {
 
 #content li h5 {
     color: #999;
+}
+
+#content li p {
+    margin-bottom: 0;
 }
 
 #sidebar {
