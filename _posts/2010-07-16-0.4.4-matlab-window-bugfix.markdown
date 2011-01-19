@@ -10,7 +10,7 @@ couple show-stopping bugs.
 
 If you've installed MWorks 0.4.4 and plan on using the MATLAB window,
 you should download the [bugfix
-installer](http://github.com/downloads/mworks-project/mw_suite/MWorksMATLABWindow-0.4.4-bugfix2.zip).
+installer](https://github.com/downloads/mworks-project/mw_suite/MWorksMATLABWindow-0.4.4-bugfix2.zip).
 After unpacking the zip file, run the script `Install.command` (double
 click the icon in the Finder) to install the fixed MATLAB window.
 
