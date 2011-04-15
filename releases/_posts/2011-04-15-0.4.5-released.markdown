@@ -1,0 +1,142 @@
+---
+layout: post
+title: MWorks 0.4.5 Released
+---
+
+MWorks 0.4.5 is [now
+available](https://github.com/downloads/mworks-project/mw_suite/MWorks-0.4.5.dmg).
+For details on what's changed, see the release notes below.
+
+
+### Core
+
+* Added general dynamic-stimulus infrastructure, for use by drifting grating, movie, and other time-dependent stimuli
+* Experiment XML files can now be run through a user-specified preprocessor program before parsing ([more info](http://help.mworks-project.org/discussions/questions/26#comment_5790180))
+* Specifying a negative value for `display_to_use` in `setup_variables.xml` now instructs the system to use only the mirror window, even if a secondary display is available
+* Updated fullscreen OpenGL display code to use Apple's recommended approach for Mac OS X 10.6
+* Core now uses system Core Video framework to drive stimulus display updates, which keeps updates in sync with the display's refresh cycle.  Greatly improves the performance of dynamic stimuli, especially when multiple instances are on screen simultaneously.
+* Stimulus display updates are now announced upon completion of the graphics buffer swap (previously, they were announced when rendering completed, which could precede the stimulus' appearance on screen by as much as one or two display refresh periods) ([more info](http://help.mworks-project.org/kb/timing/relationship-between-stimulus-announce-time-and-display-time)) 
+* Stimulus draw announcement data is now generated immediately after drawing each stimulus (rather than waiting for the whole display update to complete), so that the announcement more accurately reflects the state of the stimulus when drawn
+* Core now attempts to prevent display sleep when there's a fullscreen stimulus display
+* If the environment variable MWORKS_WRITE_MESSAGES_TO_STDERR is set, all global messages are echoed to the standard error stream (useful for catching messages emitted during server startup)
+* Added SHA-1 hash of image file to image stimulus announcement ([details](http://help.mworks-project.org/kb/stimuli/using-the-file-hash-to-verify-an-image-stimulus))
+* Reduced image stimulus memory usage
+* Added unload_stimulus action (mainly useful for managing memory usage in experiments with a large number of image stimuli)
+* FIXED: Experiments that included more than 95.4 MB of images or other files failed to load
+* Fixed bug that caused "Pulse Variable" action to consistently crash the server
+* Added filename expansion to list replicator ([more info](http://help.mworks-project.org/kb/stimuli/creating-a-stimulus-group-from-a-folder-of-images))
+* Experiment parser now handles variable data types more carefully, which enables better support for string variables and use of string values in list replicators
+* Many improvements to error reporting, including better human-readable error messages
+* Experiment parser now provides more informative error messages when range replicator parameters fail to parse
+* Improved detection and handling of ambiguous component references
+* Experiment loading now fails with an error message if the default value for a variable is incompatible with its declared type (e.g. 1.2 for an integer variable)
+* Added an `#allowAltFailover` standard variable (default = true = same behavior as before) that determines whether failing over to an alt object (e.g. failing over to a dummy I/O device when the real one is not available) presents as an error or a warning
+* Fixed bugs that could prevent I/O devices from being released on experiment close
+* Added new function to expression parser, `refreshRate()`, which returns the main display's refresh rate in Hz
+* Re-enabled usage of take_calibration_sample action
+* Fixed a bunch of bad memory-management code in calibrator-related classes, which could lead to server crashes
+* Fixed some OpenAL-related memory issues
+* Added optional "cancel" parameter to "Schedule Actions" action; when set to a variable name, setting the variable to a true value cancels the scheduled actions
+* Eliminated cancel_scheduled_action action (which didn't work anyway)
+* MWorks now installs a `mworks.pth` file so users don't have to manually add the MWorks Python module directory to `PYTHONPATH`.  The file is installed under `/Library/Python` for Python 2.6 and 2.7.
+* MWorks Python modules can now be imported by multiple Python installations (e.g. system, python.org, EPD)
+* Added new "accumulating" event conduit with Python bindings
+* Added time field to Python binding for events
+
+
+### Server
+
+* Added a simple "Setup Variables..." option to the main menu to open the `setup_variables.xml` file
+* Console message time stamps no longer include fractional seconds (fixes issue where times would become negative after server had been running a while)
+* Fixed chicken-and-egg bug wherein network preferences could not be changed unless they had already been set
+
+
+### Client
+
+* Locations and sizes of plugin windows are now saved and restored between sessions
+* Experiment chooser panel now opens in last visited directory
+* Experiment loading page now dismisses when packaging or sending the experiment fails
+* Fixed issue that prevented MATLAB from automatically launching X11
+
+
+### Editor
+
+* Extended search operation to all attributes
+* Editor now strips `_id` attributes (which it uses internally) when saving experiment XML files
+* Added "Expand All" menu item, which expands all nodes in the experiment outline
+* Enabled click-through in experiment outline and inspector and library panels
+* FIXED: Values of checkbox-based attributes were written in the XML as 1E0/0E0 instead of 1/0
+* Variables can now be of type "string"
+* Added a regular text field for image file path (which allows using paths that contain range or list replicator variables)
+* Added definitions for list_replicator and unload_stimulus
+* Corrected definition for "List" paradigm component, which actually created a trial
+* Added definitions for end_calibration_average_and_ignore and linear_eye_calibrator.  Updated/corrected definitions for other calibration-related elements.
+* Corrected definitions for selection variable and "Reset Selections" action
+* Updated definition of "Schedule Actions" action
+* Added definition for "Assert" action
+
+
+### Core Plugins
+
+* NEW: image directory movie stimulus ([more info](http://help.mworks-project.org/discussions/questions/26#comment_5898153))
+* NEW: white noise background stimulus ([example](https://github.com/mworks-project/mw_examples/raw/master/Tests/Stimulus/WhiteNoiseBackground/Basic.xml))
+* Drifting grating's "alpha_multiplier" property now actually affects the grating's appearance (contributed by Mark Histed)
+* Added Gaussian mask parameters "std_dev" and "mean" to editor definition for drifting grating
+* Removed unused "statistics_reporting" and "error_reporting" parameters from drifting grating
+* Added "loop" parameter to movie stimulus; if set to a non-zero value, movie will repeat indefinitely
+* Added "ended" parameter to movie stimulus; if "ended" contains a variable name, the variable will be set to 1 after the last frame has displayed
+* Cleaned up and modernized movie stimulus code
+* Loading/unloading a movie now loads/unloads all of its frames
+* Added current frame's draw announcement, as well as values of "stimulus_group" and "loop" parameters, to movie draw announcement
+* Removed unused "movie_stats" and "error_reporting" parameters from movie stimulus
+* Drifting grating and movie stimulus now use core dynamic stimulus facilities
+* Drifting grating and movie stimulus now draw only when playing (previously, if the stimulus was queued but not playing, updating the display would cause the first frame to be drawn)
+* Drifting grating and movie stimulus now issue an error if the requested frame rate is incompatible with the display refresh rate
+* Fixed bug in ITC ADC waveform input channel that caused server to crash when closing experiment
+* FIXED: In some cases, closing one ITC-18-using experiment and opening another required restarting the server
+* ITC-18 ready indicator light is now turned on/off when the device is opened/closed
+* Added editor definition for ITC-18 word output channel
+* Updated editor definitions for circle and rectangle stimuli to reflect the fact that the transparency parameter is called "alpha_multiplier", not "contrast"
+
+
+### Client Plugins
+
+* Reworked eye window so that it uses a reasonable amount of CPU time
+* Changing eye window options no longer requires a "return" key press
+* Variables window now supports setting variables to string (i.e. non-numeric) values
+* FIXED: CPU architecture mismatch between MWClient and external Python process prevented Python script bridge from functioning
+* FIXED: Python script bridge caused a delay when quitting MWClient (even when it wasn't used)
+* Python script bridge now lists recent Python scripts from most to least recently used
+* FIXED: MATLAB window crashed MWClient
+* Eliminated "same name as a MATLAB builtin" warnings in MATLAB window
+* MATLAB window now suppresses MATLAB splash screen
+
+
+### Data File Tools
+
+* FIXED: Reading all events from a data file crashed Python or MATLAB
+* FIXED: Data files couldn't be opened unless they were on the boot volume
+* Date files are now opened read-only (allows reading/indexing of write-protected files)
+* Various low-level and internal improvements to Python data file tools (contributed by Ha Hong)
+* Python classes are now defined in a more `help()`-friendly way
+* MATLAB getEvents function can now be invoked with only a filename
+* Fixed some typos in MATLAB function usage messages
+
+
+### Miscellaneous
+
+* Fixed various memory leaks
+* Disabled various debugging statements, which were polluting system log files and making it hard to track down genuine issues
+
+
+### Core and Plugin Development
+
+* Development files are no longer installed by default and must be explicitly selected in the installer
+* Streamlined stimulus-related APIs
+* Updated stimulus "freezing" mechanism to make plugin development easier
+* Updates to support use of the OpenGL Extension Wrangler Library (GLEW) and GLSL shaders
+* Minor improvements to MWorks Core Plugin Xcode project template
+* Added a new script (`build_mworks`) that builds all of MWorks from scratch
+* Updated, enhanced, and expanded automated test suite
+* Various improvements to runners for unit and marionette tests
+* Updated to newer versions of most third-party libraries
