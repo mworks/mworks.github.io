@@ -1,0 +1,22 @@
+---
+layout: post
+title: 0.5 Development
+---
+
+Now that MWorks 0.4.5 has [been released](/releases/2011/04/22/0.4.5-released.html), we'll be targeting our ongoing development efforts toward version 0.5.
+
+As the version-number bump suggests, release 0.5 will include more substantial changes than other recent releases.  While most of these changes will be under-the-hood improvements and optimizations, a few of them may result in incompatibility with existing experiments and third-party plugins.  Specifically:
+
+* The experiment parser will become more rigorous about validating component parameters.  In particular, if a component definition includes unrecognized parameters, the experiment will fail to load.
+
+  This is good, because it means MWorks will now issue an error if you misspell a parameter name, rather than silently ignoring the parameter as it does now.  However, it also means that experiments that include old, currently-unsupported parameters will need to be updated.  Here are the most common problem parameters that will need to be replaced or removed:
+
+  * Multiple components: `contrast` (replace with `alpha_multiplier`) and `affine_transform` (remove)
+  * Drifting grating: `statistics_reporting` and `error_reporting` (remove)
+  * Movie: `movie_stats` and `error_reporting` (remove)
+
+* In order to enable more intelligent handling of component parameters, 0.5 will introduce new APIs for describing and registering components.  To take advantage of these facilities, third-party plugins will have to be updated to make use of the new APIs.
+
+* A significant number of core classes are slated for API cleanup and modernization.  This may require corresponding changes to third-party components (e.g. method signatures may need to change to match those of base classes).
+
+These changes will begin appearing in the nightly build very soon.  Therefore, if you've become accustomed to using the nightly for developing and running your experiments, you probably should get out of that habit (at least for the near future) and use 0.4.5 instead.  If necessary, we will issue 0.4.5.x releases to address critical bugs or other major issues that can't wait until the final 0.5 release.
