@@ -4,7 +4,7 @@ title: MWorks 0.4.5 Released
 ---
 
 MWorks 0.4.5 is [now
-available](https://github.com/downloads/mworks-project/mw_suite/MWorks-0.4.5.dmg).
+available](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.4.5.dmg).
 For details on what's changed, see the release notes below.
 
 
@@ -79,7 +79,7 @@ For details on what's changed, see the release notes below.
 ### Core Plugins
 
 * NEW: image directory movie stimulus ([more info](http://help.mworks-project.org/discussions/questions/26#comment_5898153))
-* NEW: white noise background stimulus ([example](https://github.com/mworks-project/mw_examples/raw/master/Tests/Stimulus/WhiteNoiseBackground/Basic.xml))
+* NEW: white noise background stimulus ([example](https://raw.github.com/mworks/mworks/master/examples/Tests/Stimulus/WhiteNoiseBackground/Basic.xml))
 * Drifting grating's "alpha_multiplier" property now actually affects the grating's appearance (contributed by Mark Histed)
 * Added Gaussian mask parameters "std_dev" and "mean" to editor definition for drifting grating
 * Removed unused "statistics_reporting" and "error_reporting" parameters from drifting grating

@@ -8,6 +8,6 @@ If you wish to view the actual site itself, please go [here](http://mworks-proje
 
 To test changes to the MWorks website locally, [install Jekyll](https://github.com/mojombo/jekyll/wiki/Install) on your machine, `cd` to the top level of this repository, and run
 
-    jekyll --server
+    jekyll --auto --server
 
 You can then [visit the test site](http://localhost:4000/) to verify your changes before publishing.

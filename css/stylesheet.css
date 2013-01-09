@@ -133,6 +133,10 @@ html>body #content {
     text-decoration: none;
 }
 
+#content li a:hover {
+    text-decoration: underline;
+}
+
 #content li h5 {
     color: #999;
 }

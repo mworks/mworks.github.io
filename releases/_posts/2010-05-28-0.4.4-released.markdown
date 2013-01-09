@@ -4,7 +4,7 @@ title: MWorks 0.4.4 Released
 ---
 
 MWorks 0.4.4 is [now
-available](https://github.com/downloads/mworks-project/mw_suite/MWorks-0.4.4.dmg).
+available](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.4.4.dmg).
 For a summary of what's new, see the release notes below.
 
 
