@@ -1,4 +1,9 @@
+# These are set by GitHub and cannot be changed
 safe: true
 lsi: false
 pygments: true
+
+# These can be changed
 markdown: rdiscount
+permalink: /news/:year/:month/:day/:title
+exclude: CNAME README.markdown
