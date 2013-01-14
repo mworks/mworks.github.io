@@ -1,40 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width = 750">
-    <link rel="stylesheet" type="text/css" href="/css/stylesheet.css" charset="utf-8">
-    <link rel="alternate" title="The MWorks Project" type="application/atom+xml" href="/atom.xml" />
     <title>{{ page.title }}</title>
+    <link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Coda:400,800" rel="stylesheet" type="text/css" />
+    <link href="/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="alternate" title="The MWorks Project" type="application/atom+xml" href="/atom.xml" />
   </head>
-  <body id="intro">
-    <div id="wrapper">
-      <div id="header">
-        <h1><a href="/">The MWorks Project</a></h1>
-	<img src="/img/monkeys.png" alt="The MWorks Monkeys" width="150" height="69" align="right" />
-      </div>
-      <div id="navigation">
+  <body>
+    <div id="menu-wrapper">
+      <div id="menu">
         <ul>
-          <li>
-            <a href="{{ site.posts.first.url }}">News</a>
-          </li>
-          <li>
-            <a href="/downloads/">Downloads</a>
-          </li>
-          <li>
-            <a href="http://help.mworks-project.org/">Support</a>
-          </li>
-          <li>
-            <a href="http://mworks.lighthouseapp.com/tickets?q=state%3Anew+state%3Aopen+state%3Apending&filter=">Issue Tracking</a>
-          </li>
-          <li>
-            <a href="https://github.com/mworks/mworks">Source</a>
-          </li>
-	  <li style="float:right">
-	    <a href="/atom.xml"><img src="/img/feed.png" alt="Atom Feed" width="12" height="12" /></a>
-	  </li>
+          <li class="current_page_item"><a href="/">Home</a></li>
+          <li><a href="{{ site.posts.first.url }}">News</a></li>
+          <li><a href="/downloads/">Downloads</a></li>
+          <li><a href="http://help.mworks-project.org/">Support</a></li>
+          <li><a href="http://mworks.lighthouseapp.com/tickets?q=state%3Anew+state%3Aopen+state%3Apending&filter=">Issue Tracking</a></li>
+          <li><a href="https://github.com/mworks/mworks">Source</a></li>
         </ul>
-      </div>
-      <div id="page_body">
-        <div id="content">
+      </div><!-- end #menu -->
+    </div>
+    <div id="header-wrapper">
+      <div id="header">
+        <div id="logo">
+          <h1><a href="/">The <span>MWorks</span> Project</a></h1>
+          <p>Realtime experiment design and control</p>
+        </div>
+      </div><!-- end #header -->
+    </div>
+    <div id="wrapper">
+      <div id="page">
+        <div id="page-bgtop">
+          <div id="page-bgbtm">
+            <div id="content">

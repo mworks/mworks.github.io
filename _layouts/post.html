@@ -1,18 +1,18 @@
 {% include header.html %}
 
-<h2>{{ page.title }}</h2>
-
-<p class="post_meta">{{ page.date | date: "%A, %B %d, %Y" }}</p>
-
-{{ content }}
-
-<p>
-{% if page.next %} 
-<a href="{{ page.next.url }}">&laquo; Newer</a>
-{% endif %}
-{% if page.previous %} 
-<a href="{{ page.previous.url }}">Older &raquo;</a>
-{% endif %}
-</p>
+              <div class="post">
+                <h2 class="title">{{ page.title }}</h2>
+                <p class="meta">
+                  <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
+                  <!--span class="posted">Posted by <a href="#">Someone</a></span-->
+                </p>
+                <div style="clear: both;">&nbsp;</div>
+                <div class="entry">
+                  {{ content }}
+                  <p class="links">
+                    {% if page.next %}<a href="{{ page.next.url }}">&laquo;&nbsp;Newer</a>{% endif %}{% if page.next and page.previous %}&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;{% endif %}{% if page.previous %}<a href="{{ page.previous.url }}">Older&nbsp;&raquo;</a>{% endif %}
+                  </p>
+                </div>
+              </div>
 
 {% include footer.html %}
