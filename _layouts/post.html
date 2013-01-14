@@ -6,4 +6,13 @@
 
 {{ content }}
 
+<p>
+{% if page.next %} 
+<a href="{{ page.next.url }}">&laquo; Newer</a>
+{% endif %}
+{% if page.previous %} 
+<a href="{{ page.previous.url }}">Older &raquo;</a>
+{% endif %}
+</p>
+
 {% include footer.html %}
