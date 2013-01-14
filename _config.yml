@@ -5,5 +5,5 @@ pygments: true
 
 # These can be changed
 markdown: rdiscount
-permalink: /news/:year/:month/:day/:title
+permalink: pretty
 exclude: CNAME README.markdown
