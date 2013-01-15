@@ -9,33 +9,33 @@
                   </p>
                 </li>
                 <li>
-                  <h2>Downloads</h2>
+                  <a href="/atom.xml" title="MWorks News Feed"><img src="/images/feed.png" alt="Feed Icon" width="14" height="14" /></a>
+                  <h2>Latest News</h2>
                   <ul>
-                    <li><a href="/downloads/">Releases</a></li>
-                    <li><a href="http://dicarlo-mwdev.mit.edu/mw/MWorks-NIGHTLY.dmg">Nightly Build</a> (bleeding edge)</li>
+                    {% for post in site.posts limit:3 %} 
+                    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                    {% endfor %}
                   </ul>
                 </li>
                 <li>
-                  <h2>Support</h2>
-                  <ul>
-                    <li><a href="http://help.mworks-project.org/discussion/new">Report Issues / Ask Questions</a></li>
-                    <li><a href="http://help.mworks-project.org/discussions">Browse Discussions</a></li>
-                  </ul>
+                  <h2>Mailing List</h2>
+                  <p>
+                    Stay up to date by joining our <a href="http://mailman.mit.edu/mailman/listinfo/mworks-users">mailing list</a>.
+                  </p>
                 </li>
                 <li>
                   <h2>Documentation</h2>
                   <ul>
                     <li><a href="http://help.mworks-project.org/kb">FAQ / Knowledge Base</a></li>
                     <li><a href="/documentation/screencasts">Screencasts</a></li>
-                    <li><a href="https://wikis.mit.edu/confluence/display/MWorks/Home">Old Documentation</a> (not up to date)</li>
+                    <li><a href="https://wikis.mit.edu/confluence/display/MWorks/Home">Old documentation</a> (not up to date)</li>
                   </ul>
                 </li>
                 <li>
-                  <h2>Latest News</h2>
+                  <h2>Development</h2>
                   <ul>
-                    {% for post in site.posts limit:5 %} 
-                    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-                    {% endfor %}
+                    <li><a href="http://mworks.lighthouseapp.com/tickets?q=state%3Anew+state%3Aopen+state%3Apending&filter=">Issue tracker</a></li>
+                    <li><a href="https://github.com/mworks/mworks">Source code</a></li>
                   </ul>
                 </li>
               </ul>

@@ -13,11 +13,11 @@ It is also important to note that while we're generally willing to be helpful, w
 
 ## Assuming that I've read the above warning, how do I get started? ##
 
-__If you want to try using MW:__ You can download a nightly (bleeding edge) installer or named release (e.g. "0.4.5") under the Downloads tab on the right.
+__If you want to try using MW:__ You can [download](/downloads/) a nightly (bleeding edge) installer or official release.
 
-__If you want to browse the code:__ checkout our pages on [GitHub](https://github.com/mworks/mworks).  GitHub makes it very easy to browse through code, without incurring the hassle of a full checkout. 
+__If you want to browse the code:__ Check out our pages on [GitHub](https://github.com/mworks/mworks).  GitHub makes it very easy to browse through code, without incurring the hassle of a full checkout. 
 
-__If you are interested in seriously playing with the MW code base:__ you'll probably need some help to get started.  Please [contact support](http://help.mworks-project.org/discussion/new), and we'll get you going.
+__If you are interested in seriously playing with the MW code base:__ You'll probably need some help to get started.  Please [contact support](http://help.mworks-project.org/discussion/new), and we'll get you going.
 
 ## How can I help improve MWorks? ##
 Right now, if you're using MW, the most helpful thing you can do is to [report bugs](http://help.mworks-project.org/discussion/new) as you find them.  The key to productively reporting issues is to provide as much info as possible (e.g. what where you doing when a crash happened, or what experiment caused the crash).  If you really want to be helpful, doing a bit of detective work and coming up with the minimal experiment that exposes a problem will result in the bug being fixed much faster.

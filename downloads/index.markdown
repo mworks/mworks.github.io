@@ -3,6 +3,10 @@ layout: default
 title: MWorks Downloads
 ---
 
+## Nightly Build ##
+
+* [MWorks nightly build](http://dicarlo-mwdev.mit.edu/mw/MWorks-NIGHTLY.dmg)
+
 ## Latest Release ##
 
 * [MWorks 0.4.5](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.4.5.dmg)

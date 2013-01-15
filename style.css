@@ -253,6 +253,11 @@ a:hover {
     padding: 0;
 }
 
+#sidebar li img {
+    float: right;
+    margin-top: 5px;
+}
+
 #sidebar li ul {
     margin: 0px 0px;
     padding-bottom: 50px;
