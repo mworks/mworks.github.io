@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Looking back on 2010, forward to 2011
+author: cstawarz
 ---
 
 
@@ -52,6 +53,3 @@ Looking ahead, along with continued maintenance and general development, we have
 Finally, I'd like to note that we anticipate making some changes to how we handle MWorks releases in the coming year.  In addition to periodic "blessed" releases (e.g. 0.4.4), we plan to begin putting more emphasis on rolling, incremental releases.  This stems from the observation that the nightly build is already the go-to release for most new users (and all users who want to take advantage of recent enhancements and fixes without waiting for the next official release).  By producing regular builds that are more release-like (mainly by subjecting them to a wider array of automated tests and assigning them distinct version numbers, e.g. 0.4.5.dev-20110107), we hope to allow more people to use the "latest and greatest" code with confidence.
 
 If you'd like to share your thoughts about the release process (or any other aspect of MWorks development), please don't hesitate to [start a discussion](http://help.mworks-project.org/discussion/new).
-
-
-— Chris Stawarz (for the MWorks team)

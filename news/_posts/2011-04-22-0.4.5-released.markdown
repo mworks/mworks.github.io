@@ -1,6 +1,7 @@
 ---
 layout: post
 title: MWorks 0.4.5 Released
+author: cstawarz
 ---
 
 MWorks 0.4.5 is [now

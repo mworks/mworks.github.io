@@ -4,7 +4,11 @@
                 <h2 class="title">{{ page.title }}</h2>
                 <p class="meta">
                   <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
-                  <!--span class="posted">Posted by <a href="#">Someone</a></span-->
+                  {% for author in site.authors %}
+                  {% if author.id == page.author %}
+                  <span class="posted">Posted by <a href="{{ author.url }}">{{ author.fullname }}</a></span>
+                  {% endif %}
+                  {% endfor %}
                 </p>
                 <div style="clear: both;">&nbsp;</div>
                 <div class="entry">

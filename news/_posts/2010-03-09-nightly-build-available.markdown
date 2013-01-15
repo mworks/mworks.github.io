@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Nightly build now available
+author: cstawarz
 ---
 
 For those interested in trying out the latest MWorks code, an

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: New support site
+author: cstawarz
 ---
 
 The new MWorks [support site](http://help.mworks-project.org/) is now

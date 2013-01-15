@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 0.5 Development
+author: cstawarz
 ---
 
 Now that MWorks 0.4.5 has [been released]({% post_url 2011-04-22-0.4.5-released %}), we'll be targeting our ongoing development efforts toward version 0.5.

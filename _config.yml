@@ -1,9 +1,30 @@
-# These are set by GitHub and cannot be changed
+#
+# Options that are set by GitHub and cannot be changed
+#
+
 safe: true
 lsi: false
 pygments: true
 
-# These can be changed
+
+#
+# Options that can be changed
+#
+
 markdown: rdiscount
 permalink: pretty
 exclude: CNAME README.markdown
+
+
+#
+# Custom site data
+#
+
+authors:
+  - id: cstawarz
+    fullname: Christopher Stawarz
+    url: https://github.com/cstawarz
+
+  - id: davidcox
+    fullname: David Cox
+    url: https://github.com/davidcox
