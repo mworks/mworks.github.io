@@ -11,6 +11,7 @@ pygments: true
 # Options that can be changed
 #
 
+url: http://mworks-project.org
 markdown: rdiscount
 permalink: pretty
 exclude: CNAME README.markdown
