@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 0.4.4 Release is coming
+title: 0.4.4 release is coming
 author: davidcox
 ---
 
-The 0.4.4 Release is imminent and will represent the first packaged release since MW moved to GitHub.
+The 0.4.4 release is imminent and will represent the first packaged release since MWorks moved to GitHub.

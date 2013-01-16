@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MWorks 0.4.4 Released
+title: MWorks 0.4.4 released
 author: cstawarz
 ---
 
