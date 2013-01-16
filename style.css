@@ -166,6 +166,10 @@ dt {
     width: 640px;
 }
 
+#content ul ul {
+    margin-bottom: 15px;
+}
+
 .default h2 {
     margin-top: 25px;
     margin-bottom: 12px;
