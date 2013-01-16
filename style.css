@@ -7,11 +7,9 @@ body {
     color: #3B3B3B;
 }
 
-h1, h2, h3 {
+h1, h2, h3, dt {
     margin: 0px;
     padding: 0px;
-    /*letter-spacing: -2px;*/
-    /*text-transform: uppercase;*/
     font-family: 'Arvo', serif;
     font-weight: normal;
     color: #3B3B3B;
@@ -25,17 +23,14 @@ h2 {
     font-size: 2.4em;
 }
 
-h3 {
+h3, dt {
     margin-bottom: 10px;
     font-size: 1.6em;
 }
 
-p, ul, ol {
+p, ul, ol, dl {
     margin-top: 0;
     line-height: 180%;
-}
-
-ul, ol {
 }
 
 a {
@@ -43,13 +38,16 @@ a {
     color: #E74E37;
 }
 
-a:hover {
+dl {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+dt {
+    margin-top: 20px;
 }
 
 /* Header */
-
-#header-wrapper {
-}
 
 #header {
     clear: both;
@@ -152,9 +150,6 @@ a:hover {
     color: #FFFFFF;
 }
 
-#menu .current_page_item a {
-}
-
 /* Page */
 
 #page {
@@ -182,12 +177,6 @@ a:hover {
     border-bottom: 1px dashed #D8D8D8;
 }
 
-.post-bgtop {
-}
-
-.post-bgbtm {
-}
-
 .post .title {
     height: 38px;
     margin-bottom: 10px;
@@ -213,9 +202,6 @@ a:hover {
 
 .post .meta .posted {
     float: right;
-}
-
-.post .meta a {
 }
 
 .post .entry {
@@ -300,27 +286,6 @@ a:hover {
 
 #sidebar a:hover {
     text-decoration: underline;
-}
-
-/* Calendar */
-
-#calendar {
-}
-
-#calendar_wrap {
-    padding: 20px;
-}
-
-#calendar table {
-    width: 100%;
-}
-
-#calendar tbody td {
-    text-align: center;
-}
-
-#calendar #next {
-    text-align: right;
 }
 
 /* Footer */
