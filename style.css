@@ -7,6 +7,10 @@ body {
     color: #3B3B3B;
 }
 
+#body-wrapper {
+    min-width: 1100px;
+}
+
 h1, h2, h3, dt {
     margin: 0px;
     padding: 0px;

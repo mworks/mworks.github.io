@@ -1,53 +1,54 @@
-            </div><!-- end #content -->
-            <div id="sidebar">
-              <ul>
-                <li>
-                  <h2>About</h2>
-                  <p>
-                    MWorks is a suite of applications and libraries for designing and running realtime experiments,
-                    particularly in the domains of psychology and neurophysiology.
-                  </p>
-                </li>
-                <li>
-                  <a href="/atom.xml" title="MWorks News Feed"><img src="/images/feed.png" alt="Feed Icon" width="14" height="14" /></a>
-                  <h2>Latest News</h2>
-                  <ul>
-                    {% for post in site.posts limit:3 %} 
-                    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-                    {% endfor %}
-                  </ul>
-                </li>
-                <li>
-                  <h2>Mailing List</h2>
-                  <p>
-                    Stay up to date by joining our <a href="http://mailman.mit.edu/mailman/listinfo/mworks-users">mailing list</a>.
-                  </p>
-                </li>
-                <li>
-                  <h2>Documentation</h2>
-                  <ul>
-                    <li><a href="http://help.mworks-project.org/kb">FAQ / Knowledge Base</a></li>
-                    <li><a href="/documentation/screencasts">Screencasts</a></li>
-                    <li><a href="https://wikis.mit.edu/confluence/display/MWorks/Home">Old documentation</a> (not up to date)</li>
-                  </ul>
-                </li>
-                <li>
-                  <h2>Development</h2>
-                  <ul>
-                    <li><a href="http://mworks.lighthouseapp.com/tickets?q=state%3Anew+state%3Aopen+state%3Apending&amp;filter=">Issue tracker</a></li>
-                    <li><a href="https://github.com/mworks/mworks">Source code</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div><!-- end #sidebar -->
-            <div style="clear: both;">&nbsp;</div>
+              </div><!-- end #content -->
+              <div id="sidebar">
+                <ul>
+                  <li>
+                    <h2>About</h2>
+                    <p>
+                      MWorks is a suite of applications and libraries for designing and running realtime experiments,
+                      particularly in the domains of psychology and neurophysiology.
+                    </p>
+                  </li>
+                  <li>
+                    <a href="/atom.xml" title="MWorks News Feed"><img src="/images/feed.png" alt="Feed Icon" width="14" height="14" /></a>
+                    <h2>Latest News</h2>
+                    <ul>
+                      {% for post in site.posts limit:3 %} 
+                      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Mailing List</h2>
+                    <p>
+                      Stay up to date by joining our <a href="http://mailman.mit.edu/mailman/listinfo/mworks-users">mailing list</a>.
+                    </p>
+                  </li>
+                  <li>
+                    <h2>Documentation</h2>
+                    <ul>
+                      <li><a href="http://help.mworks-project.org/kb">FAQ / Knowledge Base</a></li>
+                      <li><a href="/documentation/screencasts">Screencasts</a></li>
+                      <li><a href="https://wikis.mit.edu/confluence/display/MWorks/Home">Old documentation</a> (not up to date)</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h2>Development</h2>
+                    <ul>
+                      <li><a href="http://mworks.lighthouseapp.com/tickets?q=state%3Anew+state%3Aopen+state%3Apending&amp;filter=">Issue tracker</a></li>
+                      <li><a href="https://github.com/mworks/mworks">Source code</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div><!-- end #sidebar -->
+              <div style="clear: both;">&nbsp;</div>
+            </div>
           </div>
-        </div>
-      </div><!-- end #page -->
+        </div><!-- end #page -->
+      </div>
+      <div id="footer">
+        <p>Copyright © {{ site.posts.last.date | date: "%Y" }}-{{ site.time | date: "%Y" }} <a href="/">The MWorks Project</a>.<br/>Design by <a href="http://www.freecsstemplates.org">FCT</a>. Hosted on <a href="https://github.com/">GitHub</a>.</p>
+      </div><!-- end #footer -->
     </div>
-    <div id="footer">
-      <p>Copyright © {{ site.posts.last.date | date: "%Y" }}-{{ site.time | date: "%Y" }} <a href="/">The MWorks Project</a>.<br/>Design by <a href="http://www.freecsstemplates.org">FCT</a>. Hosted on <a href="https://github.com/">GitHub</a>.</p>
-    </div><!-- end #footer -->
     <script type="text/javascript" charset="utf-8">
       Tender = {
         hideToggle: true,
