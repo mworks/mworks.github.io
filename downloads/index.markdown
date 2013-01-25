@@ -9,7 +9,7 @@ title: MWorks Downloads
   <dt><a href="http://dicarlo-mwdev.mit.edu/mw/MWorks-NIGHTLY.dmg">Nightly build</a></dt>
   <dd>
     "Bleeding edge" distribution.  Generated nightly from the latest
-    <a href="https://github.com/dicarlolab-mworks/mw_suite">source code</a>.
+    <a href="https://github.com/mworks/mw_suite">source code</a>.
   </dd>
 
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.4.5.dmg">Release 0.4.5</a></dt>
