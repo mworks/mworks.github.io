@@ -1,0 +1,218 @@
+---
+layout: post
+title: MWorks 0.5 released
+author: cstawarz
+---
+
+MWorks 0.5 is [now
+available](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.5.dmg).  Highlights of this release include:
+
+* [EyeLink 1000](http://www.sr-research.com/EL_1000.html) support (contributed by Philipp Schwedhelm)
+* Experiment pausing
+* Improved display update and dynamic stimulus performance
+* Improved experiment parsing and validation
+* Server-side event conduit
+* Support for the [ITC-18](http://www.heka.com/physio/equipment/interfaces/itc18.html) in 64-bit mode
+
+Note that MWorks now requires Mac OS X 10.7 "Lion" or later.  In addition, the [MATLAB](http://www.mathworks.com/products/matlab/) tools now require MATLAB R2011a or later.
+
+For a full list of changes in this release, please see the release notes below.
+
+
+### Core
+
+#### Experiment Parser
+
+* Improved parameter validation for many components
+
+* Exceptions thrown in the parser when loading saved variables are now caught
+
+* Range replicator parameters "from", "to", and "step" can now be arbitrary expressions
+
+#### Expression Parser
+
+* Selection variables now support integer range expressions in the values list (e.g. "1:3" is equivalent to "1,2,3")
+
+* The expression "sel[n]", where "sel" is a selection variable, now returns the "n"th tentative (i.e. non-accepted) selection.  If "n" is less than zero or greater than the number of tentative selections, the expression evaluates to 0 and logs an error message.
+
+* Added format() function, which provides printf-style string formatting
+
+* Added ceil(), floor(), and round() functions
+
+* refreshRate() now returns a more precise estimate of the main display's refresh rate
+
+* Fixed crash when parsing a binary logical expression with non-constant operands
+
+* Various improvements to input validation and parser robustness
+
+#### State System
+
+* Experiment pausing is now supported.  Pausing an experiment suspends state system execution and stimulus presentation until the experiment is resumed; I/O devices are not affected.
+
+* Task system states now behave more like other paradigm components and can be interrupted while executing the action list
+
+* Uninterruptible paradigm components now work as intended.  Requests to pause or stop the experiment while the state system is in an uninterruptible state will be deferred until execution of the state completes.
+
+#### Actions
+
+* New actions: pause/resume/stop experiment, pause/unpause dynamic stimulus
+
+* Wait action is now interruptible.  Requests to pause or stop the experiment  while a wait is active now execute immediately.
+
+* Assertion action's "message" parameter is now optional; if omitted, a default message containing the condition string is used
+
+* Added "stop_on_failure" parameter to assertion action; if set to true, the experiment automatically stops if the assertion fails
+
+* Removed previously deprecated play/stop movie actions
+
+#### Visual Stimuli
+
+* Improved stimulus display update performance
+
+* Improved accuracy of stimulus announcement times.  Stimulus announcements are now time stamped with the operating system's estimate of when the rendered frame will appear on screen.
+
+* Added a proxy I/O device for the stimulus display that enables load-time setting of the default background color
+
+* Added a configuration option to suppress #announceStimulus events (which are completely redundant with #stimDisplayUpdate)
+
+* Added #warnOnSkippedRefresh standard variable, which controls whether a warning is emitted when the stimulus presentation skips a display refresh cycle (on by default)
+
+* Non-integer display refresh rates are now handled correctly
+
+* Eliminated a potential deadlock during stimulus display updates
+
+* Stimulus display code now protects OpenGL contexts against concurrent usage by multiple threads
+
+* With the exception of movies, dynamic stimuli no longer support the "frames_per_second" parameter.  Instead, they redraw on every display refresh.
+
+* Dynamic stimuli (including movies) now support an "autoplay" parameter.  A non-playing dynamic stimulus with autoplay set to true will automatically start playing the first time it draws (i.e. during the first stimulus display update after it's queued).
+
+* Ensure that movie ended notification is set even if the last frame is skipped
+
+* Movie "frames_per_second" parameter no longer has a default value (i.e. it must be set by the experiment).  A frame rate that is incompatible with the display refresh rate now raises a warning instead of an error.
+
+* Added frame list stimulus, which is similar to a movie but always presents its frames at the refresh rate of the display.  Unlike movies, frames are never skipped, even if the stimulus display misses a refresh cycle.
+
+#### I/O Devices
+
+* Added EyeLink 1000 interface, which communicates with the device via TCP/IP (contributed by Philipp Schwedhelm)
+
+* Added 64-bit support to ITC-18 interface
+
+* Fixed NE-500 serial communications (old version wasn't waiting for or parsing responses)
+
+* FIXED: MSSW gamepad was reporting "up" presses via the "down" variable (and vice versa)
+
+* MSSW gamepad now dynamically determines the range of values associated with D-pad events (instead of assuming the value is an unsigned 7-bit integer)
+
+#### Event Conduits
+
+* Added server-side event conduit, which allows external programs to receive events from and send events to the server
+
+* Conduits can now pass events between 32- and 64-bit processes
+
+* Improvements to allow querying of available event codes and to prevent infinite loops/hangs if unknown events are requested
+
+* Support (optional) correction of conduit-remote event timestamps to local timebase
+
+* Eliminated some potential deadlocks
+
+* Improved error reporting
+
+#### Other
+
+* Fixed a potentially massive leak of Mach ports, which could lead to system slowdown and/or server crashes
+
+* Time stamp RESERVED_TERMINATION_CODE events using the same time base and units as other events (i.e. in microseconds since server startup)
+
+
+### Applications
+
+#### General
+
+* "MWorks Help" menu item now launches help.mworks-project.org
+
+* Position and size of client and server windows are now saved and restored between sessions
+
+#### Client
+
+* Added preference to control whether plugin windows are automatically closed when the experiment is closed or the client disconnects (defaults to YES to preserve previous behavior)
+
+* Added option to save and restore open plugin windows between sessions (defaults to NO to preserve previous behavior)
+
+* Pause button is now functional and will pause/resume a running experiment
+
+* Expanded groups in variables window now stay open when a new codec is received (e.g. when an experiment is loaded or unloaded)
+
+* Pressing TAB while editing a value in the variables window now moves focus to and begins editing in the next row
+
+* Added "Scroll to bottom on output" option to Python bridge window
+
+* Python bridge now automatically terminates running script at client shutdown
+
+#### Server
+
+* Added a standard "Edit" menu, which enables use of text copying/selection keyboard shortcuts in the console window
+
+* Eliminated many duplicate messages in the console
+
+#### Editor
+
+* Added interruptible="YES" to templates for protocol, block, trial, and list
+
+* Improved ITC-18 component templates
+
+* Fixed crash when setting "Property" to empty string then anything else
+
+
+### Python Tools
+
+* Python tools are now built against Python 2.7
+
+* Strings with embedded NUL characters are now handled correctly
+
+* Fixed a memory leak when converting an MWorks dictionary to a Python dict
+
+* Added MWKFile.get_events_iter, which returns an iterator over the selected events.  Events are read into RAM one at a time, which enables processing of large event files with minimal memory usage.
+
+* MWKFile now supports the context management protocol: `__enter__` opens the file, and `__exit__` closes it
+
+* mworks.pth files are no longer installed under /Library/Python (major OS upgrades remove the contents of that directory, which suggests that non-Apple software shouldn't install files there)
+
+* Added support for numpy boolean, integer, and floating-point scalar types to Python-to-MWorks data converter
+
+* Various minor improvements
+
+
+### MATLAB Tools
+
+* MATLAB data tools and client window now require MATLAB R2011a or later (and therefore are 64-bit only)
+
+* MATLAB data tools have been almost completely rewritten.  Improvements include better and more robust data conversion, reduced memory usage, and more helpful parameter validation and error reporting.
+
+* If an MWorks dictionary cannot be converted into a valid MATLAB structure array, it will be converted into a containers.Map object if possible, a fallback structure array otherwise
+
+* MWorks strings with embedded NUL characters are now converted into MATLAB uint8 arrays
+
+* getEvents will now optionally return event codes, times, and values in three separate arrays
+
+
+### Development
+
+* MWorks is now built with clang and linked against libc++
+
+* Compiler code optimization is now enabled
+
+* New component infrastructure greatly improves parameter specification and validation and eliminates the need for factory classes.  Plugin developers are strongly encouraged to update their code to take advantage of the new infrastructure.
+
+* Upgraded to new versions of several supporting libraries:
+
+  * boost: 1.45.0 -> 1.51.0
+  * jpeg: 8b -> 9
+  * libpng: 1.2.44 -> 1.2.50
+  * tiff: 3.9.4 -> 3.9.7
+  * Narrative: 0.1.0 -> 0.1.2
+
+* Installer once again installs development files by default
+
+* Core plugin Xcode template is no longer included in the installer package (because it's incompatible with Xcode 4)
