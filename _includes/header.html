@@ -13,7 +13,7 @@
       <div id="menu-wrapper">
         <div id="menu">
           <ul>
-            <li{% if page.url == '/index.html' %} class="current_page_item"{% endif %}><a href="/">Home</a></li>
+            <li{% if page.url == '/' %} class="current_page_item"{% endif %}><a href="/">Home</a></li>
             <li{% if page.url contains '/downloads/' %} class="current_page_item"{% endif %}><a href="/downloads/">Downloads</a></li>
             <li{% if page.url contains '/documentation/' %} class="current_page_item"{% endif %}><a id="support_link" href="http://help.mworks-project.org/">Support</a></li>
             <li{% if page.url contains '/news/' %} class="current_page_item"{% endif %}><a href="{{ site.posts.first.url }}">News</a></li>
