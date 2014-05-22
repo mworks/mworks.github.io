@@ -1,0 +1,143 @@
+---
+layout: post
+title: MWorks 0.5.1 released
+author: cstawarz
+---
+
+MWorks 0.5.1 is [now
+available](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.5.1.dmg).  Highlights of this release include:
+
+* Support for [National Instruments](http://www.ni.com/) data acquisition (NI-DAQ) devices
+* Support for touchscreen input
+* A new interface to [USB HID](http://en.wikipedia.org/wiki/USB_human_interface_device_class) class devices (including keyboards)
+* Improved support for variables with list/array values
+
+For a full list of changes in this release, please see the release notes below.
+
+
+### Core
+
+#### Expression Parser
+
+* If the value of variable `var` is a list, then the expression `var[n]` now returns the `n`th element of the list.  If `n` is out of bounds or the value of `var` is not a list, the expression evaluates to zero and logs an error message.
+
+* Added `nextFrameTime` function, which returns the anticipated output time (in microseconds) of the frame that the stimulus display is currently rendering
+
+* Added `numAccepted` function, which takes the name of a selectable object (as a string) and returns the number of accepted selections that have been made on it
+
+* The expression parser now accepts single-quoted string literals, e.g. `'foo'` is now valid and equivalent to `"foo"`
+
+* Load-time error messages from selection variable indexing expressions are now suppressed
+
+#### Variables
+
+* All experiment-defined (i.e. non-system) variables are now included in a new group named "# EXPERIMENT VARIABLES"
+
+* The default value of a variable can now be a list.  To create a list-valued variable, set the variable's `type` parameter to `list` and its default value to a sequence of comma-separated values (e.g. `1,2.0,"three"`) and/or integer range expressions (e.g. `1:3`).
+
+* Added `advance_on_accept` parameter to selection variables.  When set to `YES`, accepting selections automatically advances the variable to the next value (default is `NO` to preserve compatibility).
+
+* System variable `#annouceTrial` is now (correctly) named `#announceTrial`
+
+* Removed unused system variable `#beamPosition`
+
+* Fixed a potential crash involving frozen variables
+
+#### Actions
+
+* Added a conditional branching ("if/else") action, which can contain one or more conditional ("if") actions.  When it runs, it executes the first conditional whose condition is true (or none if all conditions are false) and then stops.
+
+* Added a "Wait for Condition" action, which causes the experiment to wait until a condition (i.e. expression) becomes true or a timeout occurs
+
+* Variable assignment actions now throw a load-time error if the assignment target is not writable
+
+* "Wait" and "Start Timer" now throw a load-time error if given an invalid `duration_units` parameter value
+
+* "Send Stimulus to Back" now actually moves a stimulus to the back of the display queue.  (Previously, it did the same thing as "Bring Stimulus to Front".)
+
+#### Visual Stimuli
+
+* Improved drawing of circle/ellipse stimuli; in particular, small circles are now much smoother
+
+* Image file, fixation point, ellipse, and rectangle stimuli now include `alpha_multiplier` in their draw announcements
+
+* Freezing/unfreezing a fixation point now freezes/unfreezes the position and width parameters of its underlying square region trigger
+
+#### Sound Stimuli
+
+* Sounds now automatically pause/unpause/stop with the state system
+
+* Sound announcements now include the current amplitude
+
+#### I/O Devices
+
+* Added an interface to National Instruments data acquisition (NI-DAQ) devices.  Supports analog input, analog waveform output, digital input/output, and digital edge counting on a variety of [USB and PCIe devices](http://help.mworks-project.org/kb/io-devices/setup-for-using-ni-daq-devices).
+
+* Added a new interface to [USB human interface device](http://en.wikipedia.org/wiki/USB_human_interface_device_class) (HID) class devices.  Supports low-level input on many common HID class devices, including keyboards, gamepads, and joysticks ([examples](https://github.com/dicarlolab-mworks/USBHID/tree/master/USBHID/Tests/USBHID)).
+
+* Added support for mice, touchscreens, and other pointing devices.  Enables, for example, simulation of subject gaze via mouse pointer location or selection of target stimuli by click or touch.
+
+#### Event Conduits
+
+* Server-side conduit now shuts down properly when experiment is closed
+
+* Finalizing an event stream conduit now unregisters all callbacks
+
+* Eliminated a potential deadlock
+
+#### Other
+
+* Reduced event I/O latency
+
+* Alternative clock, scheduler, and state system plugins can now be specified in the configuration file (via a new `#realtimeComponents` variable)
+
+* Added a new clock plugin (HighPrecisionClock) that supports more precise wait/sleep intervals (and, thereby, more accurate firing times for scheduled actions) than the old clock.  Currently, it is not used by default but can be enabled via the `#realtimeComponents` variable.
+
+* Fixed issue where server started using 100% of a CPU core after an event file was closed
+
+* The experiment parser now supports [XInclude](http://en.wikipedia.org/wiki/XInclude) substitutions in experiment files ([details](http://help.mworks-project.org/discussions/suggestions/73#comment_26876908))
+
+* Added `#allowAltFailover` and `#realtimeComponents` to example configuration files
+
+
+### Applications
+
+#### Client
+
+* Client can now be configured to reconnect to the most recently used server automatically at startup
+
+* Default server URL is now set to the most recently used server
+
+* Recent servers list is now sorted from most to least recently used
+
+* Recent experiment list is now limited to at most 20 items
+
+* Variables window now displays groups by order of first appearance in the experiment file
+
+* Variables window now preserves group expansion state between sessions
+
+* Terminating a Python bridge script now also destroys the underlying event stream conduit
+
+* Fixed potential deadlock in MATLAB window
+
+#### Server
+
+* Server can now be configured to open a local client instance and/or the console window at startup
+
+#### Editor
+
+* The editor now strips XML comments and extraneous text when opening an existing experiment file.  This enables viewing (but *not* re-saving) experiment files that contain these elements.
+
+* Added `amplitude` parameter to template for sound stimulus
+
+* Disabled many unnecessary messages that were being logged to the system console
+
+
+### Python Tools
+
+* Added methods for running and stopping the application main loop to the Python conduits (primarily to improve support for interactive [matplotlib](http://matplotlib.org/) figures)
+
+
+### Development
+
+* MWorks now defines a custom namespace for Boost (`mworks_boost`) to avoid conflicts when linking against third-party software (e.g. MATLAB) that embeds a different version of Boost
