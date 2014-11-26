@@ -1,6 +1,6 @@
 # Source for the MWorks Project Website #
 
-This repository contains the source for the MWorks project website, which is automatically converted by GitHub into a static site via [Jekyll](http://github.com/mojombo/jekyll).
+This repository contains the source for the MWorks project website, which is automatically converted by GitHub into a static site via [Jekyll](http://jekyllrb.com/).
 
 If you wish to view the actual, live site, please go [here](http://mworks-project.org/).
 

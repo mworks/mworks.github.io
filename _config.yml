@@ -4,7 +4,6 @@
 
 safe: true
 lsi: false
-pygments: true
 
 
 #
@@ -13,6 +12,7 @@ pygments: true
 
 url: http://mworks-project.org
 markdown: rdiscount
+highlighter: pygments
 permalink: pretty
 exclude: [CNAME, README.markdown]
 
