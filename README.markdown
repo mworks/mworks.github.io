@@ -6,8 +6,8 @@ If you wish to view the actual, live site, please go [here](http://mworks-projec
 
 ## Local testing ##
 
-To test changes to the MWorks website locally, [install Jekyll](http://jekyllrb.com/docs/installation/) on your machine, `cd` to the top level of this repository, and run
+To test changes to the MWorks website locally, [install Jekyll](https://help.github.com/articles/using-jekyll-with-pages/) on your machine, `cd` to the top level of this repository, and run
 
-    jekyll server --watch
+    bundle exec jekyll serve
 
 You can then [visit the test site](http://localhost:4000/) to verify your changes before publishing.
