@@ -14,7 +14,7 @@ url: http://mworks-project.org
 markdown: rdiscount
 highlighter: pygments
 permalink: pretty
-exclude: [CNAME, README.markdown]
+exclude: [CNAME, README.markdown, Gemfile, Gemfile.lock]
 
 
 #
