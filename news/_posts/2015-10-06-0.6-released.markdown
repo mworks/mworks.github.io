@@ -1,0 +1,200 @@
+---
+layout: post
+title: MWorks 0.6 released
+author: cstawarz
+---
+
+MWorks 0.6 is [now
+available](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.6.dmg).  Highlights of this release include:
+
+* "Workspace" files for saving and restoring client state
+* [Open Ephys](http://www.open-ephys.org) integration
+* A new moving dots stimulus
+* Support for embedded [Python](https://www.python.org) code execution
+* Eye window enhancements
+* Better support for list and dictionary values
+* A graphical user interface for MWorks configuration
+
+Note that MWorks now requires OS X 10.8 "Mountain Lion" or later.  In addition, the [MATLAB](http://www.mathworks.com/products/matlab/) tools now require MATLAB R2012b or later.
+
+Also, be aware that several client plugins are now 64-bit only and will not load when MWClient is run in 32-bit mode.  All core plugins are still compatible with both 32- and 64-bit MWServer instances.
+
+For a full list of changes in this release, please see the release notes below.
+
+
+### Core
+
+#### Variables
+
+* Variables can now have type "any", in which case the `default_value` string is passed directly to the expression parser, which evaluates it like any other expression, and the result is assigned to the variable as is, without any type casting
+
+* A variable defined in a named folder is now automatically added to a group of the same name (unless it has an explicit `groups` attribute, which takes precedence)
+
+* Variable group names can now contain commas (name must be enclosed in double quotes)
+
+* Added a new system variable, `#loadedExperiment`, which holds the full XML source of the currently-loaded experiment (ensuring that said source is stored in the event file)
+
+* Selection variables now accept "sequential" as a synonym for "sequential_ascending"
+
+* If a saved variable set includes a variable that has subsequently been deleted, MWorks will now issue an error message but continue to process the remaining variables normally
+
+* Individual variables can now be excluded from the data file (but *not* other event streams) on a per-experiment basis by adding `exclude_from_data_file="YES"` to the variable definition
+
+
+#### Expression Parser
+
+* Expression parser now supports list literals (comma-separated expression lists enclosed in square brackets, e.g. `[1, 2.2, "three"]`) and dictionary literals (comma-separated lists of key/value pairs enclosed in curly brackets, e.g. `{"a": 1, "b": 2.2}`)
+
+* Expression parser now supports subscripting of dictionary-valued variables
+
+* Expression parser now allows any expression to be the target of a subscripting operation; selection variable subscripting is no longer supported (use `selection` function instead)
+
+* Division of one boolean/integer value by another now returns a float-valued result; consequently, all number/number division expressions now produce a floating-point result
+
+* Added `selection` function, which takes the name of a selection variable and an integer "n" and returns the "n"th tentative (i.e. non-accepted) selection on the variable
+
+* Added `exp_rand` function, which returns random values drawn from a (optionally truncated) exponential distribution
+
+* Added `min` and `max` functions, which take two values and return the smaller or larger one, respectively
+
+* Reworked expression parser internals to use MWorks' native `Datum` class for all operations
+
+
+#### Actions
+
+* Experiments can now execute embedded Python code via two new actions: `run_python_file`, which takes the path to a Python source file and executes it, and `run_python_string`, which executes a string of Python code ([details](http://help.mworks-project.org/discussions/questions/590))
+
+* Canceling a scheduled actions instance now cancels the associated scheduler task immediately (previously, cancellation was deferred until the next execution pass)
+
+* `update_stimulus_display` now (optionally) reports the predicted output time of the frame in which the update will take effect
+
+
+#### Visual Stimuli
+
+* Added moving dots stimulus
+
+* Added circular fixation point stimulus
+
+* Added a new optional parameter, `repeats`, to movie and frame list stimuli.  If provided, it should evaluate to a positive integer specifying the number of times to repeat the movie.
+
+* Added a new optional parameter, `ending`, to frame list stimulus.  If provided, it should specify the name of variable to be set to true when the last frame is about to be presented.  Watching for this variable to become true gives the experiment an opportunity to queue up another frame list, whose first frame will immediately follow the last frame of the current one.
+
+* Autoplaying dynamic stimuli now automatically stop when dequeued
+
+* Drifting grating now renders with correct spatial frequency when height > width
+
+
+#### Stimulus Display
+
+* Stimulus display now renders each frame only once, on an offscreen framebuffer, and then copies that single framebuffer to the main and mirror displays as needed
+
+* Main and mirror windows are now updated on separate threads, meaning mirror window updates can no longer block the stimulus display
+
+* Added `announce_stimuli_on_implicit_updates` parameter to stimulus display device.  If set to "NO" (the default is "YES"), then for non-explicit display updates (e.g. those requested by a dynamic stimulus), `#announceStimulus` events will be suppressed, and `#stimDisplayUpdate` events will contain only the number of stimuli displayed instead of a list of stimulus announcements.
+
+* Removed option to disable redrawing stimulus display on every refresh, as all GPUs supported by OS X 10.8 support the required OpenGL extension
+
+* Fixed stimulus display failures under OS X 10.11
+
+
+#### I/O Devices
+
+* Added [Open Ephys](http://www.open-ephys.org) interface, which performs clock synchronization with the OE GUI and (optionally) adds OE spike events to the MWorks event stream ([details](http://help.mworks-project.org/discussions/questions/594#comment_37826059))
+
+* Added Blackrock LED driver interface
+
+* Improved NE-500 interface:
+
+  * Pump response timeout is now a configurable parameter (`response_timeout`)
+  * Interface now issues a warning when pump returns an alarm response
+  * Fixed potential overflow of receive buffer
+  * Improved error handling
+
+* Fixed issue where EyeLink 1000 interface sometimes failed to receive pupil coordinates
+
+* USB HID device initialization now fails if multiple matching devices are found.  Added `preferred_location_id` attribute to support selection of preferred device from multiple candidates.
+
+* NIDAQ interface now supports dynamic analog voltage output and digital word output
+
+* When a read or write operation fails, the NIDAQ interface now logs its type (analog input, digital output, etc.)
+
+* Eye calibrator sample announcements now contain the correct values for sampled and desired data (previously, those fields contained copies of the calibrated data)
+
+* Eye calibrators now use [SGELSD](http://www.netlib.org/lapack/explore-html/da/db8/sgelsd_8f.html) from LAPACK to perform fits.  Fitting uses a machine- and dataset-dependent RCOND value.
+
+
+#### Other
+
+* Reduced likelihood of unexpected server termination leaving a data file in an unreadable state.  Improved ability of data file tools to read incomplete files.
+
+* Fixed crash when protocol and task system have the same name
+
+* Error and warning messages now include XML line numbers (when available/applicable)
+
+* Scarab "Session Failure" error messages now include more details
+
+* MWorks version and current date/time are now announced when an experiment starts
+
+
+### Applications
+
+#### General
+
+* Applications are now individually [code signed](https://developer.apple.com/library/mac/documentation/Security/Conceptual/CodeSigningGuide/Introduction/Introduction.html).  (In the previous release, only the installer was code signed.)
+
+
+#### Client
+
+* Client state can now be saved to and restored from a single file called a "workspace".  Configuration details in workspace files include connected server, experiment file, saved variable set, and client plugin window settings.  Workspace files are stored in [JSON](http://json.org) format and can be opened, closed, and saved via MWClient's "File" menu.
+
+* Client will now automatically open a data file when starting an experiment (unless one is already open); this is enabled by default but can be disabled in MWClient's preferences
+
+* Open/close experiment button is now disabled while an experiment is running
+
+* Significantly enhanced eye window:
+
+  * Primary plot is now scrolled by clicking and dragging with the mouse or trackpad
+  * Added secondary plot of monitored variables versus time
+  * Added support for plotting a pair of auxiliary analog inputs and up to two digital inputs
+  * Resetting the window now removes only eye samples (*not* stimulus outlines).  In addition, it resets the scale to maximum and returns the origin to the center.
+  * Now draws a rectangle marking the stimulus display bounds
+  * Now takes rotation into account when drawing stimulus outlines
+  * Outlines for ellipse stimuli are now ellipses
+  * Now handles movie stimuli correctly
+  * Now draws outlines of all stimuli that announce standard name, position, and size data
+  * Added label indicating width in degrees of scale slider
+  * Cosmetic improvements
+
+* Variables window now uses MWorks expression parser to parse input values.  String values are now displayed in enclosing quotes.
+
+* MATLAB window no longer resets itself when MWorks event file is created
+
+* Behavioral window now remembers user-specified variable names
+
+* Eye window and calibrator window are now 64-bit only
+
+
+#### Server
+
+* MWServer's preferences window now provides a graphical interface to all settings stored in `setup_variables.xml`.  Configuration changes made via the preferences window are stored in the user-specific configuration file (in `$HOME/Library/Application Support/MWorks/Configuration`).
+
+
+#### Editor
+
+* New variables now have type "any" by default
+
+* Added a separate group for filters and calibrators in the library panel
+
+
+### Development
+
+* C++ source files are now compiled under the C++11 standard
+
+* Upgraded to new versions of several supporting libraries:
+
+  * boost: 1.51.0 ➞ 1.59.0
+  * cppunit: 1.12.1 ➞ 1.13.2
+  * jpeg: 9 ➞ 9a
+  * libpng: 1.2.50 ➞ 1.2.52
+
+* Added [ZeroMQ](http://zeromq.org) to supporting libraries
