@@ -9,7 +9,7 @@ title: MWorks Downloads
   <dt><a href="http://dicarlo-mwdev.mit.edu/mw/MWorks-NIGHTLY.dmg">Nightly build</a></dt>
   <dd>
     "Bleeding edge" distribution.  Generated nightly from the latest
-    <a href="https://github.com/mworks/mw_suite">source code</a>.  Requires OS X 10.8 or later.
+    <a href="https://github.com/mworks/mw_suite">source code</a>.  Requires OS X 10.9 or later.
   </dd>
 
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.6.dmg">Release 0.6</a></dt>
