@@ -2,17 +2,24 @@
 # Options that are set by GitHub and cannot be changed
 #
 
-safe: true
 lsi: false
+safe: true
+incremental: false
+highlighter: rouge
+gist:
+   noscript: false
 
 
 #
 # Options that can be changed
 #
 
-url: http://mworks-project.org
-markdown: rdiscount
-highlighter: pygments
+kramdown:
+    input: GFM
+    hard_wrap: false
+gems:
+  - jekyll-coffeescript
+  - jekyll-paginate
 permalink: pretty
 exclude: [CNAME, README.markdown, Gemfile, Gemfile.lock]
 
@@ -21,6 +28,7 @@ exclude: [CNAME, README.markdown, Gemfile, Gemfile.lock]
 # Custom site data
 #
 
+url: http://mworks-project.org
 authors:
   - id: cstawarz
     fullname: Christopher Stawarz
