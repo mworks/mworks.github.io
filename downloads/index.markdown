@@ -6,7 +6,7 @@ title: MWorks Downloads
 ## MWorks Installer Packages ##
 
 <dl>
-  <dt><a href="http://dicarlo-mwdev.mit.edu/mw/MWorks-NIGHTLY.dmg">Nightly build</a></dt>
+  <dt><a href="https://s3.amazonaws.com/mworks-downloads/nightly/MWorks-NIGHTLY.dmg">Nightly build</a></dt>
   <dd>
     "Bleeding edge" distribution.  Generated nightly from the latest
     <a href="https://github.com/mworks/mw_suite">source code</a>.  Requires OS X 10.9 or later.
