@@ -16,7 +16,7 @@ To start, here are the highlights of our achievements from the past year:
 * Set up a new [support site](http://help.mworks-project.org/)
 * Revived the core and client plugins maintained by the DiCarlo lab
 * Revived and revamped the nightly build and test regimen
-* Released [MWorks 0.4.4]({% post_url 2010-05-28-0.4.4-released %})
+* Released [MWorks 0.4.4]({% post_url news/2010-05-28-0.4.4-released %})
 * Greatly improved the performance of dynamic stimuli (movies, drifting gratings)
 * Developed two new plugins (dynamics random dots, white noise background)
 * Handled 61 [support cases](http://help.mworks-project.org/discussions)

@@ -6,7 +6,7 @@ If you wish to view the actual, live site, please go [here](http://mworks-projec
 
 ## Local testing ##
 
-To test changes to the MWorks website locally, [install Jekyll](https://help.github.com/articles/using-jekyll-with-pages/) on your machine, `cd` to the top level of this repository, and run
+To test changes to the MWorks website locally, [install Jekyll](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/#step-2-install-jekyll-using-bundler) on your machine, `cd` to the top level of this repository, and run
 
     bundle exec jekyll serve
 

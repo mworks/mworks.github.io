@@ -8,10 +8,12 @@ incremental: false
 highlighter: rouge
 gist:
    noscript: false
+kramdown:
+   math_engine: mathjax
 
 
 #
-# Options that can be changed
+# Options with defaults set by GitHub that can be changed
 #
 
 kramdown:
@@ -20,6 +22,12 @@ kramdown:
 gems:
   - jekyll-coffeescript
   - jekyll-paginate
+
+
+#
+# Other options
+#
+
 permalink: pretty
 exclude: [CNAME, README.markdown, Gemfile, Gemfile.lock]
 

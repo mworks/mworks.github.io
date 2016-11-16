@@ -4,7 +4,7 @@ title: 0.5 development
 author: cstawarz
 ---
 
-Now that MWorks 0.4.5 has [been released]({% post_url 2011-04-22-0.4.5-released %}), we'll be targeting our ongoing development efforts toward version 0.5.
+Now that MWorks 0.4.5 has [been released]({% post_url news/2011-04-22-0.4.5-released %}), we'll be targeting our ongoing development efforts toward version 0.5.
 
 As the version-number bump suggests, release 0.5 will include more substantial changes than other recent releases.  While most of these changes will be under-the-hood improvements and optimizations, a few of them may result in incompatibility with existing experiments and third-party plugins.  Specifically:
 

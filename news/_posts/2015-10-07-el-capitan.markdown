@@ -9,9 +9,9 @@ Now that [OS X 10.11 (El Capitan)](https://en.wikipedia.org/wiki/OS_X_El_Capitan
 
 ### MWorks compatibility
 
-Under El Capitan, [MWorks 0.5.1]({% post_url 2014-05-22-0.5.1-released %}) exhibits serious issues with the stimulus display, which essentially render it unusable.  If you are currently running MWorks 0.5.1 or earlier and are unwilling or unable to upgrade, **do not install El Capitan**.
+Under El Capitan, [MWorks 0.5.1]({% post_url news/2014-05-22-0.5.1-released %}) exhibits serious issues with the stimulus display, which essentially render it unusable.  If you are currently running MWorks 0.5.1 or earlier and are unwilling or unable to upgrade, **do not install El Capitan**.
 
-The stimulus display issues are fixed in [MWorks 0.6]({% post_url 2015-10-06-0.6-released %}).  If you want to use MWorks on a Mac running El Capitan, you *must* use version 0.6 or later.
+The stimulus display issues are fixed in [MWorks 0.6]({% post_url news/2015-10-06-0.6-released %}).  If you want to use MWorks on a Mac running El Capitan, you *must* use version 0.6 or later.
 
 
 ### Device driver restrictions
