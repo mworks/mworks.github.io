@@ -7,9 +7,9 @@ safe: true
 incremental: false
 highlighter: rouge
 gist:
-   noscript: false
+    noscript: false
 kramdown:
-   math_engine: mathjax
+    math_engine: mathjax
 
 
 #
@@ -28,8 +28,9 @@ gems:
 # Other options
 #
 
+exclude: [CNAME, Gemfile, Gemfile.lock, README.markdown]
+include: [_sources, _static]  # For Sphinx-generated docs
 permalink: pretty
-exclude: [CNAME, README.markdown, Gemfile, Gemfile.lock]
 
 
 #
