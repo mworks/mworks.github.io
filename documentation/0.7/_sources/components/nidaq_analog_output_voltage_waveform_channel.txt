@@ -1,0 +1,67 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: NIDAQ Analog Output Voltage Waveform Channel
+   single: Input/Output; NIDAQ Analog Output Voltage Waveform Channel
+
+.. _NIDAQ Analog Output Voltage Waveform Channel:
+
+NIDAQ Analog Output Voltage Waveform Channel
+============================================
+
+
+Description
+-----------
+Generates a periodic analog output voltage signal on a `NIDAQ Device`
+
+
+
+Signature
+---------
+``iochannel/nidaq_analog_output_voltage_waveform``
+
+
+Required Parameters
+-------------------
+
+channel_number
+^^^^^^^^^^^^^^
+:Example: ``0``
+
+Analog output channel number (``0`` for AO0, ``1`` for AO1, etc.)
+
+
+range_min
+^^^^^^^^^
+:Example: ``-10.0``
+
+Waveform minimum (volts)
+
+range_max
+^^^^^^^^^
+:Example: ``10.0``
+
+Waveform maximum (volts)
+
+waveform
+^^^^^^^^
+:Options: ``sinusoid``, ``square``, ``triangle``, ``sawtooth``
+
+Waveform type
+
+period
+^^^^^^
+:Example: ``500ms``
+
+Waveform period (microseconds)
+
+offset
+^^^^^^
+:Example: ``0ms``
+
+Waveform time offset (microseconds).  Determines the initial phase of the waveform.
+
+

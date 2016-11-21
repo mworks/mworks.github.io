@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Variable &#8212; MWorks 0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MWorks 0.7 documentation" href="../index.html" />
+    <link rel="up" title="Variables" href="variables.html" />
+    <link rel="prev" title="Selection Variable" href="selection_variable.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="variable">
+<span id="index-0"></span><span id="id1"></span><h1>Variable<a class="headerlink" href="#variable" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>A general-purpose variable, used to store experiment parameters, collect results, and mediate the transfer of data between components</p>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">variable</span></code></p>
+</div>
+<div class="section" id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="default-value">
+<h3>default_value<a class="headerlink" href="#default-value" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Initial value assigned to the variable when the experiment is loaded</p>
+</div>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scope">
+<h3>scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Options:</th><td class="field-body"><code class="docutils literal"><span class="pre">global</span></code>, <code class="docutils literal"><span class="pre">local</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">global</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Controls the visibility of changes made to the variable&#8217;s value.</p>
+<p>If a variable has local scope, then changes to its value are visible
+only within the <a class="reference internal" href="paradigm_components.html#paradigm-components"><span class="std std-ref">paradigm component</span></a> in which the
+assignment was made.  These local changes persist between executions of
+the paradigm component.</p>
+<p>If a variable has global scope, changes to its value are visible
+everywhere.</p>
+</div>
+<div class="section" id="logging">
+<h3>logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Options:</th><td class="field-body"><code class="docutils literal"><span class="pre">never</span></code>, <code class="docutils literal"><span class="pre">when_changed</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">when_changed</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Determines when the variable&#8217;s value is written to the event stream (and thereby the data file)</p>
+</div>
+<div class="section" id="persistant">
+<h3>persistant<a class="headerlink" href="#persistant" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">NO</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal"><span class="pre">YES</span></code>, then the variable&#8217;s value is included in saved variable sets created via MWClient</p>
+</div>
+<div class="section" id="exclude-from-data-file">
+<h3>exclude_from_data_file<a class="headerlink" href="#exclude-from-data-file" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">NO</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal"><span class="pre">YES</span></code>, then the variable&#8217;s value is <em>not</em> written to the data file. Other event stream listeners (e.g. MWClient, client- and server-side conduits) continue to receive its value.</p>
+</div>
+<div class="section" id="groups">
+<h3>groups<a class="headerlink" href="#groups" title="Permalink to this headline">¶</a></h3>
+<p>Comma-separated list containing the names of groups to which the variable belongs.  Variable groups are displayed as expandable sections in MWClient&#8217;s variables window.</p>
+</div>
+</div>
+<div class="section" id="deprecated-parameters">
+<h2>Deprecated Parameters<a class="headerlink" href="#deprecated-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="type">
+<h3>type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Options:</th><td class="field-body"><code class="docutils literal"><span class="pre">any</span></code>, <code class="docutils literal"><span class="pre">boolean</span></code>, <code class="docutils literal"><span class="pre">integer</span></code>, <code class="docutils literal"><span class="pre">float</span></code>, <code class="docutils literal"><span class="pre">string</span></code>, <code class="docutils literal"><span class="pre">list</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">any</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Controls how the content of <a class="reference internal" href="#default-value">default_value</a> is interpreted.  When set to <code class="docutils literal"><span class="pre">any</span></code> (recommended), the default value is parsed like a normal expression, and the parser infers its type.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Variable</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#default-value">default_value</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#scope">scope</a></li>
+<li><a class="reference internal" href="#logging">logging</a></li>
+<li><a class="reference internal" href="#persistant">persistant</a></li>
+<li><a class="reference internal" href="#exclude-from-data-file">exclude_from_data_file</a></li>
+<li><a class="reference internal" href="#groups">groups</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deprecated-parameters">Deprecated Parameters</a><ul>
+<li><a class="reference internal" href="#type">type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Component Reference</a><ul>
+  <li><a href="variables.html">Variables</a><ul>
+      <li>Previous: <a href="selection_variable.html" title="previous chapter">Selection Variable</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, The MWorks Project.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

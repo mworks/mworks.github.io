@@ -1,0 +1,21 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Component Reference:
+
+Component Reference
+===================
+
+.. toctree::
+   :maxdepth: 1
+
+   actions
+   filters
+   input_output
+   optimizers_and_variable_monitors
+   paradigm_components
+   stimuli
+   transitions
+   variables

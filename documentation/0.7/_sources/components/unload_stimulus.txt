@@ -1,0 +1,34 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Unload Stimulus
+   single: Actions; Unload Stimulus
+
+.. _Unload Stimulus:
+
+Unload Stimulus
+===============
+
+
+Description
+-----------
+Explicitly unload a stimulus object, thereby releasing any memory or other resources used by the stimulus.  This is useful when the ``deferred`` parameter on the stimulus is set to ``yes`` or ``explicit``.
+
+
+
+Signature
+---------
+``action/unload_stimulus``
+
+
+Required Parameters
+-------------------
+
+stimulus
+^^^^^^^^
+
+Stimulus to unload
+

@@ -1,0 +1,52 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Assert
+   single: Actions; Assert
+
+.. _Assert:
+
+Assert
+======
+
+
+Description
+-----------
+Tests a boolean condition.  If the condition evaluates to false, reports an error with the specified message.
+
+
+
+Signature
+---------
+``action/assert``
+
+
+Required Parameters
+-------------------
+
+condition
+^^^^^^^^^
+
+Condition expression
+
+
+
+Optional Parameters
+-------------------
+
+message
+^^^^^^^
+
+Error message to report if the assertion fails.  If omitted, a default message containing the condition expression is used.
+
+
+stop_on_failure
+^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the experiment will automatically stop if the assertion fails
+
+

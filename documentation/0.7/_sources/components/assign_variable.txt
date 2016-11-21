@@ -1,0 +1,38 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Assign Variable
+   single: Actions; Assign Variable
+
+.. _Assign Variable:
+
+Assign Variable
+===============
+
+
+Description
+-----------
+Assign a value to a variable
+
+
+Signature
+---------
+``action/assignment``
+
+
+Required Parameters
+-------------------
+
+variable
+^^^^^^^^
+
+Variable name
+
+value
+^^^^^
+
+Value to assign
+

@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NE-500 Syringe Pump &#8212; MWorks 0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MWorks 0.7 documentation" href="../index.html" />
+    <link rel="up" title="Input/Output" href="input_output.html" />
+    <link rel="next" title="NE-500 Syringe Pump Network" href="ne_500_syringe_pump_network.html" />
+    <link rel="prev" title="MSSW Gamepad" href="mssw_gamepad.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ne-500-syringe-pump">
+<span id="index-0"></span><span id="id1"></span><h1>NE-500 Syringe Pump<a class="headerlink" href="#ne-500-syringe-pump" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Used for interfacing to a specific pump within a <a class="reference internal" href="ne_500_syringe_pump_network.html#ne-500-syringe-pump-network"><span class="std std-ref">NE-500 Syringe Pump Network</span></a></p>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">iochannel/ne500</span></code></p>
+</div>
+<div class="section" id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="capability">
+<h3>capability<a class="headerlink" href="#capability" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">00</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Network address of pump (0 to 99)</p>
+</div>
+<div class="section" id="syringe-diameter">
+<h3>syringe_diameter<a class="headerlink" href="#syringe-diameter" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">15.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Syringe diameter (millimeters)</p>
+</div>
+<div class="section" id="flow-rate">
+<h3>flow_rate<a class="headerlink" href="#flow-rate" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">5</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Pumping rate (units given by <a class="reference internal" href="#rate-unit">rate_unit</a>)</p>
+</div>
+<div class="section" id="variable">
+<h3>variable<a class="headerlink" href="#variable" title="Permalink to this headline">¶</a></h3>
+<p>Variable from which to read the volume to dispense.  Assigning a nonzero value to the variable causes MWorks to prepare the pump&#8217;s onboard dispensing program (updating rate, volume, and direction as needed). If the pump network is <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">enabled</span></a>, pumping will then begin.</p>
+</div>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="rate-unit">
+<h3>rate_unit<a class="headerlink" href="#rate-unit" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Options:</th><td class="field-body"><code class="docutils literal"><span class="pre">UM</span></code>, <code class="docutils literal"><span class="pre">MM</span></code>, <code class="docutils literal"><span class="pre">UH</span></code>, <code class="docutils literal"><span class="pre">MH</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">MM</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Units of <a class="reference internal" href="#flow-rate">flow_rate</a>.  The options are uL/min, mL/min, uL/hr, and mL/hr.</p>
+</div>
+<div class="section" id="volume-unit">
+<h3>volume_unit<a class="headerlink" href="#volume-unit" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Options:</th><td class="field-body"><code class="docutils literal"><span class="pre">UL</span></code>, <code class="docutils literal"><span class="pre">ML</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Volume units.</p>
+<p>If omitted, volume units are determined by <a class="reference internal" href="#syringe-diameter">syringe_diameter</a>.  If the
+syringe diameter is less than or equal to 14mm, UL is used.  Otherwise,
+ML is used.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NE-500 Syringe Pump</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#capability">capability</a></li>
+<li><a class="reference internal" href="#syringe-diameter">syringe_diameter</a></li>
+<li><a class="reference internal" href="#flow-rate">flow_rate</a></li>
+<li><a class="reference internal" href="#variable">variable</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#rate-unit">rate_unit</a></li>
+<li><a class="reference internal" href="#volume-unit">volume_unit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Component Reference</a><ul>
+  <li><a href="input_output.html">Input/Output</a><ul>
+      <li>Previous: <a href="mssw_gamepad.html" title="previous chapter">MSSW Gamepad</a></li>
+      <li>Next: <a href="ne_500_syringe_pump_network.html" title="next chapter">NE-500 Syringe Pump Network</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, The MWorks Project.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

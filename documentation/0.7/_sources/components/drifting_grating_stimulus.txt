@@ -1,0 +1,146 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Drifting Grating Stimulus
+   single: Stimuli; Drifting Grating Stimulus
+
+.. _Drifting Grating Stimulus:
+
+Drifting Grating Stimulus
+=========================
+
+
+Description
+-----------
+A drifting grating stimulus
+
+
+Signature
+---------
+``stimulus/drifting_grating``
+
+
+Required Parameters
+-------------------
+
+spatial_frequency
+^^^^^^^^^^^^^^^^^
+:Example: ``0``
+
+Spatial frequency (cycles per degree)
+
+speed
+^^^^^
+:Example: ``1``
+
+Drift speed (degrees per second)
+
+grating_type
+^^^^^^^^^^^^
+:Options: ``sinusoid``, ``square``, ``triangle``, ``sawtooth``
+
+Grating type
+
+mask
+^^^^
+:Options: ``rectangle``, ``ellipse``, ``gaussian``
+
+Mask type
+
+x_size
+^^^^^^
+:Example: ``5.0``
+
+Horizontal size (degrees)
+
+y_size
+^^^^^^
+:Example: ``5.0``
+
+Vertical size (degrees)
+
+
+
+Optional Parameters
+-------------------
+
+direction
+^^^^^^^^^
+:Default: ``0.0``
+
+Direction of drift (degrees)
+
+starting_phase
+^^^^^^^^^^^^^^
+:Default: ``0.0``
+
+Starting phase (degrees)
+
+grating_sample_rate
+^^^^^^^^^^^^^^^^^^^
+:Default: ``32``
+
+Number of samples to generate when computing grating values
+
+inverted
+^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, sawtooth gratings will start high instead of low
+
+
+std_dev
+^^^^^^^
+:Default: ``1.0``
+
+Standard deviation of Gaussian mask
+
+mean
+^^^^
+:Default: ``0.0``
+
+Mean of Gaussian mask
+
+x_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Horizontal center position (degrees)
+
+y_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Vertical center position (degrees)
+
+rotation
+^^^^^^^^
+:Default: ``0.0``
+
+Rotation (degrees)
+
+alpha_multiplier
+^^^^^^^^^^^^^^^^
+:Default: ``1.0``
+
+Controls the transparency of the stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+
+deferred
+^^^^^^^^
+:Options: ``no``, ``yes``, ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+autoplay
+^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus will start playing automatically (as if by an implicit `Play Dynamic Stimulus` action) after it has been `queued <Queue Stimulus>` and `Update Stimulus Display` has been invoked.  It will also stop playing automatically (as if by an implicit `Stop Dynamic Stimulus` action) after it has been `dequeued <Dequeue Stimulus>` and `Update Stimulus Display` is invoked.
+
+

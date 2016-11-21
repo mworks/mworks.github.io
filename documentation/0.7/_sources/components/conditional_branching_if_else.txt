@@ -1,0 +1,24 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Conditional Branching (If/Else)
+   single: Actions; Conditional Branching (If/Else)
+
+.. _Conditional Branching (If/Else):
+
+Conditional Branching (If/Else)
+===============================
+
+
+Description
+-----------
+Given a list of `Conditionally Execute Actions` ("if") actions, executes the first one whose condition is true, or none if all conditions are false.  To implement an unconditional "else" action, add a conditional with an always-true condition at the end of the list.
+
+
+
+Signature
+---------
+``action/if_else``

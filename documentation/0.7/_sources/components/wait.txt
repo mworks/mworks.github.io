@@ -1,0 +1,57 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Wait
+   single: Actions; Wait
+
+.. _Wait:
+
+Wait
+====
+
+
+Description
+-----------
+Pause for a specified amount of time.
+
+*Note*: This action is not intended for precise coordination of timed
+events. For a greater degree of temporal control, use a `Task System` with a
+timer object and a `Timer Expired Transition`.
+
+
+
+Signature
+---------
+``action/wait``
+
+
+Required Parameters
+-------------------
+
+duration
+^^^^^^^^
+:Example: ``1.0``
+
+Duration
+
+
+
+Optional Parameters
+-------------------
+
+duration_units
+^^^^^^^^^^^^^^
+:Options: ``us``, ``ms``, ``s``
+:Default: ``us``
+
+Duration units
+
+timebase
+^^^^^^^^
+
+If set to the name of a `timebase <Set Timebase>`, the expiration time will be measured relative to that timebase.  If omitted, the current time will be used as the timebase.
+
+

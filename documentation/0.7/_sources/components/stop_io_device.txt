@@ -1,0 +1,34 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Stop IO Device
+   single: Actions; Stop IO Device
+
+.. _Stop IO Device:
+
+Stop IO Device
+==============
+
+
+Description
+-----------
+Disable an `I/O device <Input/Output>`.  Most I/O devices will stop performing input/output tasks when stopped.
+
+
+
+Signature
+---------
+``action/stop_device_io``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Name of the I/O device to disable
+

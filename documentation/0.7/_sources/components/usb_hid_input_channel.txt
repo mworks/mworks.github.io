@@ -1,0 +1,38 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: USB HID Input Channel
+   single: Input/Output; USB HID Input Channel
+
+.. _USB HID Input Channel:
+
+USB HID Input Channel
+=====================
+
+
+Description
+-----------
+Input channel on a `USB HID Device`
+
+
+
+Signature
+---------
+``iochannel/usbhid_generic_input_channel``
+
+
+Required Parameters
+-------------------
+
+usage_page
+^^^^^^^^^^
+
+usage
+^^^^^
+
+value
+^^^^^
+

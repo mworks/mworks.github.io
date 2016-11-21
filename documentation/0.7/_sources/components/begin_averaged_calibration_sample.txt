@@ -1,0 +1,34 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Begin Averaged Calibration Sample
+   single: Actions; Begin Averaged Calibration Sample
+
+.. _Begin Averaged Calibration Sample:
+
+Begin Averaged Calibration Sample
+=================================
+
+
+Description
+-----------
+Instruct a calibrator object to start computing an average of its input value(s)
+
+
+
+Signature
+---------
+``action/begin_calibration_average``
+
+
+Required Parameters
+-------------------
+
+calibrator
+^^^^^^^^^^
+
+Name of the calibrator
+

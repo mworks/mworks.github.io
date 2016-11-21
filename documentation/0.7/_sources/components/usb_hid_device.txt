@@ -1,0 +1,54 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: USB HID Device
+   single: Input/Output; USB HID Device
+
+.. _USB HID Device:
+
+USB HID Device
+==============
+
+
+Description
+-----------
+Interface to a `USB human interface device <https://en.wikipedia.org/wiki/USB_human_interface_device_class>`_ (HID) class device
+
+
+
+Signature
+---------
+``iodevice/usbhid_generic``
+
+
+Required Parameters
+-------------------
+
+usage_page
+^^^^^^^^^^
+
+usage
+^^^^^
+
+
+
+Optional Parameters
+-------------------
+
+preferred_location_id
+^^^^^^^^^^^^^^^^^^^^^
+:Default: ``0``
+
+log_all_input_values
+^^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+

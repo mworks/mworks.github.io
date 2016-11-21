@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Linear Eye Calibrator &#8212; MWorks 0.7 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.7',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="MWorks 0.7 documentation" href="../index.html" />
+    <link rel="up" title="Filters" href="filters.html" />
+    <link rel="next" title="Input/Output" href="input_output.html" />
+    <link rel="prev" title="Eye Monitor" href="eye_monitor.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="linear-eye-calibrator">
+<span id="index-0"></span><span id="id1"></span><h1>Linear Eye Calibrator<a class="headerlink" href="#linear-eye-calibrator" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>An I/O calibrator specially tailored for eye movement signals.  Uses a first-order (linear) fit function.</p>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">calibrator/linear_eye_calibrator</span></code></p>
+</div>
+<div class="section" id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="eyeh-raw">
+<h3>eyeh_raw<a class="headerlink" href="#eyeh-raw" title="Permalink to this headline">¶</a></h3>
+<p>Variable from which to read the raw (input) horizontal eye position</p>
+</div>
+<div class="section" id="eyev-raw">
+<h3>eyev_raw<a class="headerlink" href="#eyev-raw" title="Permalink to this headline">¶</a></h3>
+<p>Variable from which to read the raw (input) vertical eye position</p>
+</div>
+<div class="section" id="eyeh-calibrated">
+<h3>eyeh_calibrated<a class="headerlink" href="#eyeh-calibrated" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store the calibrated (output) horizontal eye position</p>
+</div>
+<div class="section" id="eyev-calibrated">
+<h3>eyev_calibrated<a class="headerlink" href="#eyev-calibrated" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store the calibrated (output) vertical eye position</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Linear Eye Calibrator</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#eyeh-raw">eyeh_raw</a></li>
+<li><a class="reference internal" href="#eyev-raw">eyev_raw</a></li>
+<li><a class="reference internal" href="#eyeh-calibrated">eyeh_calibrated</a></li>
+<li><a class="reference internal" href="#eyev-calibrated">eyev_calibrated</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Component Reference</a><ul>
+  <li><a href="filters.html">Filters</a><ul>
+      <li>Previous: <a href="eye_monitor.html" title="previous chapter">Eye Monitor</a></li>
+      <li>Next: <a href="input_output.html" title="next chapter">Input/Output</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, The MWorks Project.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.8</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
