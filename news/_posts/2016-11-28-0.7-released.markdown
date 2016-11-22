@@ -1,0 +1,212 @@
+---
+layout: post
+title: MWorks 0.7 released
+author: cstawarz
+---
+
+MWorks 0.7 is [now
+available](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.7.dmg).  Highlights of this release include:
+
+* A new [user manual](/documentation/0.7/)
+* A new [text stimulus](/documentation/0.7/components/text_stimulus.html)
+* A new [video stimulus](/documentation/0.7/components/video_stimulus.html)
+* Support for [Firmata-compatible devices](/documentation/0.7/components/firmata_device.html) (e.g. [Arduino](https://www.arduino.cc/))
+* Support for [ISCAN eye trackers](/documentation/0.7/components/iscan_device.html)
+* Support for assigning to sub-elements of list and dictionary-valued variables
+* Filtering and streamlined editing in the variables window
+* A client-side console window
+
+Note that MWorks now requires OS X 10.9 "Mavericks" or later.  In addition, the [MATLAB](http://www.mathworks.com/products/matlab/) tools now require MATLAB R2013a or later.
+
+Also, please be aware that MWorks no longer includes 32-bit binaries.  All applications, frameworks, libraries, and plugins are now 64-bit only.
+
+For a full list of changes in this release, please see the release notes below.
+
+
+### Documentation
+
+* A new, [Sphinx](http://www.sphinx-doc.org/)-based user manual is available ([online](/documentation/0.7/) and locally).  Currently, the manual includes a [component reference](/documentation/0.7/components/), which describes all available experiment components and their parameters.  More content will be added in the future.
+
+* Local documentation can be accessed via the "Help" menu in MWServer, MWClient, and MWEditor
+
+
+### Core
+
+#### Variables
+
+* Experiments can now assign to sub-elements of list and dictionary-valued variables.  Specifically, the ``variable`` parameter of [assignment actions](/documentation/0.7/components/assign_variable.html) can include one or more square-bracket-enclosed subscript expressions (e.g. ``x[0]["foo"]``) that indicate the sub-element to which to assign a new value.  Assigning past the end of a list causes the intervening elements to be filled with "undefined" values.
+
+* Local variable scoping once again works [as intended](http://help.mworks-project.org/discussions/questions/54#comment_15244932)
+
+* If omitted from the experiment XML, variable parameters ``type`` and ``scope`` now default to ``any`` and ``global``, respectively
+
+* Variables now accept only ``never`` and ``when_changed`` for their ``logging`` parameter (the other options were never implemented and resulted in no logging)
+
+* If omitted from the experiment XML, variable parameter ``logging`` now defaults to ``when_changed`` (instead of ``never``)
+
+* Selection variable parameters ``selection``, ``nsamples``, and ``sampling_method`` now default to ``sequential``, ``1``, and ``cycles``, respectively
+
+
+#### Paradigm Components
+
+* [Protocol](/documentation/0.7/components/protocol.html), [Block](/documentation/0.7/components/block.html), [List](/documentation/0.7/components/list.html), and [Trial](/documentation/0.7/components/trial.html) parameters ``selection``, ``nsamples``, and ``sampling_method`` now default to ``sequential``, ``1``, and ``cycles``, respectively
+
+* [Task System](/documentation/0.7/components/task_system.html) and [Task System State](/documentation/0.7/components/task_system_state.html) now announce local variables (to the event stream and event file) when entered
+
+* Removed unused ``description`` parameter from all paradigm components
+
+* Improved parameter validation in paradigm components
+
+
+#### Actions
+
+* Added Blackrock LED Driver [Prepare](/documentation/0.7/components/prepare_blackrock_led_driver.html) action
+
+* Added Blackrock LED Driver [Read Temperatures](/documentation/0.7/components/read_blackrock_led_driver_temperatures.html) action.  Temperatures are no longer updated automatically and must be explicitly requested by the experiment.
+
+* [Scheduled actions](/documentation/0.7/components/schedule_actions.html) are now canceled automatically when the experiment stops
+
+* [Bring Stimulus to Front](/documentation/0.7/components/bring_stimulus_to_front.html) and [Send Stimulus to Back](/documentation/0.7/components/send_stimulus_to_back.html) now work on stimulus group elements (previously they had no effect)
+
+* [Live Queue Stimulus](/documentation/0.7/components/live_queue_stimulus.html) now respects ``explicit`` stimulus loading
+
+
+#### Visual Stimuli
+
+* Added [Text Stimulus](/documentation/0.7/components/text_stimulus.html) for displaying dynamically-generated text
+
+* Added [Video Stimulus](/documentation/0.7/components/video_stimulus.html) for playing video files
+
+* The main display refresh rate is now announced (to the server console and event stream) when an experiment starts
+
+* MWorks now issues an error about and refuses to draw non-loaded stimuli
+
+
+#### I/O Devices
+
+* Added [Firmata](/documentation/0.7/components/firmata_device.html) interface for performing digital I/O with [Arduino](https://www.arduino.cc/) boards and other compatible hardware
+
+* Added support for [ISCAN](/documentation/0.7/components/iscan_device.html) eye trackers
+
+* Added [Open Ephys Network Events Client](/documentation/0.7/components/open_ephys_network_events_client.html)
+
+* [NE-500](/documentation/0.7/components/ne_500_syringe_pump.html)
+  
+  * Support connection via a USB-to-serial adapter
+  
+  * Allow user to set units for rate and volume
+  
+  * Send all pumping parameters during pump initialization and re-send them only if they change
+  
+  * Updating the output variable now (potentially) uploads the rate, volume, and direction settings even if the device   is not active; however, infusion/withdrawal still happens only when the device is active
+  
+  * Added option to disable logging of command I/O
+
+  * Strip control characters from command and response strings before logging them
+
+* [Mouse Input](/documentation/0.7/components/mouse_input_device.html)
+
+  * Can now receive input from the mirror window (instead of the main stimulus display)
+  
+  * Fixes to cursor hiding
+
+
+#### Other
+
+* [Eye Monitor](/documentation/0.7/components/eye_monitor.html)
+
+  * Make computed velocity components available to experiments
+  
+  * Removed the "advanced" eye monitor, as it was never fully implemented and didn't do any more than the "basic" one
+
+* [Timers](/documentation/0.7/components/start_timer.html) no longer spawn a new thread to expire themselves
+
+* Support saving data files to subdirectories of the data file directory (achieved by including the sub-path as part of the data file name)
+
+* Correctly load resource files identified by client-side absolute paths from server-side experiment storage
+
+
+### Applications
+
+#### Client
+
+* Console window is now available in MWClient
+
+* Added search field to variables window.  Typing text in to the search field filters the variables list to include only variables whose name includes the text.  Pressing the TAB key when in the search field jumps to and begins editing the first matched variable (and shift-TAB jumps to the last match).
+
+* MATLAB window now supports ["cleanup" functions](http://help.mworks-project.org/discussions/questions/613#comment_40963449)
+
+* Prevent deadlock when changing MATLAB script while experiment is running
+
+* When connecting to an already-open experiment, MWClient now shows the most recently used variable set
+
+* When displaying the location of calibration samples, the eye window now uses calibrated coordinates (obtained by applying the current calibration to the raw sample coordinates), instead of the raw sample coordinates
+
+
+#### Server
+
+* Moved MWServer's network settings in to its main preferences window
+
+* Allow selection of MWServer's listening port
+
+* Replaced MWServer's "Network" toolbar button with a "Preferences" one, and removed its "Network" menu
+
+* Removed "File" and "Actions" menus from MWServer, as the functionality they offered is provided by MWClient
+
+* Removed "Use high-precision clock" option from MWServer's preferences window, as the alternative clock is no longer
+available
+
+* Console window now persists its "Scroll to bottom on message" and "Alert on error" settings
+
+
+#### Installer
+
+* Installer disk image is now signed (in addition to the installer itself and installed apps)
+
+* Installer now always backs up previous installation (to prevent custom plugins that require recompilation from causing crashes)
+
+
+### Internals/Development
+
+* All binaries are now 64-bit only
+
+* Most Objective-C code now uses [Automatic Reference Counting](http://clang.llvm.org/docs/AutomaticReferenceCounting.html) (ARC)
+
+* MWorks is now built against the latest macOS SDK, using ``-Wpartial-availability`` (available as of Xcode 7.3) to catch unintended usage of APIs not available on all supported OS versions
+
+* Added a [script](https://github.com/mworks/mworks/blob/7a9cac6e7f1cdab1ece197a3655ddb275b8d35f3/build/convert_mwlibrary_to_mwcomponents) that converts MWLibrary.xml to MWComponents.yaml.  The latter is ingested to generate the [component reference](/documentation/0.7/components/).
+
+* Upgraded to new versions of several supporting libraries:
+
+  * boost: 1.59.0 ➞ 1.62.0
+  * jpeg: 9a ➞ 9b
+  * libpng: 1.2.52 ➞ 1.2.56
+  * zeromq: 4.1.3 ➞ 4.1.6
+
+* Added [msgpack](https://github.com/msgpack/msgpack-c) to supporting libs
+
+* Inter-app event I/O now uses [ZeroMQ](http://zeromq.org/) and [MessagePack](http://msgpack.org/) instead of Scarab.  Scarab is now used only for reading/writing event files.
+
+* Datum no longer uses ScarabDatum internally.  Instead, Datum instances are converted to/from ScarabDatum instances as needed.
+
+* Replaced constructors/methods of Datum and Event for converting from/to ScarabDatum's with standalone conversion functions
+
+* Many changes and improvements to the implementation and API of Datum
+
+* ComponentInfo now supports ignored parameters
+
+* Added [SerialPort](https://github.com/mworks/mworks/blob/7a9cac6e7f1cdab1ece197a3655ddb275b8d35f3/core/Core/Utilities/SerialPort.hpp) class
+
+* Removed MachClock.  Requests for it now return HighPrecisionClock.
+
+* Added SimpleClock, which is used by MWClient and, unlike HighPrecisionClock, does not use a real-time thread
+
+* Added Clock::yield, which waits for a minimal (but non-zero) time interval
+
+* Added ColoredTransformStimulus, which derives from BasicTransformStimulus and now serves as the base class for RectangleStimulus and CircleStimulus
+
+* Added [DynamicStimulusBase](https://github.com/mworks/mworks/blob/7a9cac6e7f1cdab1ece197a3655ddb275b8d35f3/core/Core/Stimuli/DynamicStimuli/StandardDynamicStimulus.h) template class, which performs the same functions as StandardDynamicStimulus but takes the base stimulus type as a template parameter.  StandardDynamicStimulus is now an instantiation of DynamicStimulusBase (using Stimulus as the base stimulus type).
+
+* Stimulus::needDraw now takes the StimulusDisplay instance as a parameter
+
+* Previously empty Stimulus methods load/unload now set/clear the ``loaded`` flag

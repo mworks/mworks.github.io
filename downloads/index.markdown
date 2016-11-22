@@ -12,9 +12,14 @@ title: MWorks Downloads
     <a href="https://github.com/mworks/mw_suite">source code</a>.  Requires OS X 10.9 or later.
   </dd>
 
+  <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.7.dmg">Release 0.7</a></dt>
+  <dd>
+    Current release.  Recommended for most users.  Requires OS X 10.9 or later.
+  </dd>
+
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.6.dmg">Release 0.6</a></dt>
   <dd>
-    Current release.  Recommended for most users.  Requires OS X 10.8 or later.
+    Previous release.  Requires OS X 10.8 or later.
   </dd>
 
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.5.1.dmg">Release 0.5.1</a></dt>
