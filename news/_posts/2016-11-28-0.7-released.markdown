@@ -36,7 +36,7 @@ For a full list of changes in this release, please see the release notes below.
 
 * Experiments can now assign to sub-elements of list and dictionary-valued variables.  Specifically, the ``variable`` parameter of [assignment actions](/documentation/0.7/components/assign_variable.html) can include one or more square-bracket-enclosed subscript expressions (e.g. ``x[0]["foo"]``) that indicate the sub-element to which to assign a new value.  Assigning past the end of a list causes the intervening elements to be filled with "undefined" values.
 
-* Local variable scoping once again works [as intended](http://help.mworks-project.org/discussions/questions/54#comment_15244932)
+* Local variable scoping once again works [as intended](https://mworks.tenderapp.com/discussions/questions/54#comment_15244932)
 
 * If omitted from the experiment XML, variable parameters ``type`` and ``scope`` now default to ``any`` and ``global``, respectively
 
@@ -134,7 +134,7 @@ For a full list of changes in this release, please see the release notes below.
 
 * Added search field to variables window.  Typing text in to the search field filters the variables list to include only variables whose name includes the text.  Pressing the TAB key when in the search field jumps to and begins editing the first matched variable (and shift-TAB jumps to the last match).
 
-* MATLAB window now supports ["cleanup" functions](http://help.mworks-project.org/discussions/questions/613#comment_40963449)
+* MATLAB window now supports ["cleanup" functions](https://mworks.tenderapp.com/discussions/questions/613#comment_40963449)
 
 * Prevent deadlock when changing MATLAB script while experiment is running
 

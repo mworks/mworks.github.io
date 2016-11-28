@@ -5,7 +5,7 @@ author: cstawarz
 ---
 
 We recently
-[discovered](http://help.mworks-project.org/discussions/problems/8)
+[discovered](https://mworks.tenderapp.com/discussions/problems/8)
 that the MATLAB client window shipped with MWorks 0.4.4 contains a
 couple show-stopping bugs.
 
@@ -18,4 +18,4 @@ click the icon in the Finder) to install the fixed MATLAB window.
 If you don't use the MATLAB window, you can ignore all this.
 
 As always, please report any problems on the [support
-site](http://help.mworks-project.org/discussion/new).
+site](https://mworks.tenderapp.com/discussion/new).

@@ -46,4 +46,4 @@ title: MWorks Downloads
   </dd>
 </dl>
 
-If you need to download a release prior to 0.4.4, please [contact support](http://help.mworks-project.org/discussion/new).
+If you need to download a release prior to 0.4.4, please [contact support](https://mworks.tenderapp.com/discussion/new).

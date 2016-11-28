@@ -71,7 +71,7 @@ For a full list of changes in this release, please see the release notes below.
 
 #### I/O Devices
 
-* Added an interface to National Instruments data acquisition (NI-DAQ) devices.  Supports analog input, analog waveform output, digital input/output, and digital edge counting on a variety of [USB and PCIe devices](http://help.mworks-project.org/kb/io-devices/setup-for-using-ni-daq-devices).
+* Added an interface to National Instruments data acquisition (NI-DAQ) devices.  Supports analog input, analog waveform output, digital input/output, and digital edge counting on a variety of [USB and PCIe devices](https://mworks.tenderapp.com/kb/io-devices/setup-for-using-ni-daq-devices).
 
 * Added a new interface to [USB human interface device](http://en.wikipedia.org/wiki/USB_human_interface_device_class) (HID) class devices.  Supports low-level input on many common HID class devices, including keyboards, gamepads, and joysticks ([examples](https://github.com/dicarlolab-mworks/USBHID/tree/master/USBHID/Tests/USBHID)).
 
@@ -95,7 +95,7 @@ For a full list of changes in this release, please see the release notes below.
 
 * Fixed issue where server started using 100% of a CPU core after an event file was closed
 
-* The experiment parser now supports [XInclude](http://en.wikipedia.org/wiki/XInclude) substitutions in experiment files ([details](http://help.mworks-project.org/discussions/suggestions/73#comment_26876908))
+* The experiment parser now supports [XInclude](http://en.wikipedia.org/wiki/XInclude) substitutions in experiment files ([details](https://mworks.tenderapp.com/discussions/suggestions/73#comment_26876908))
 
 * Added `#allowAltFailover` and `#realtimeComponents` to example configuration files
 

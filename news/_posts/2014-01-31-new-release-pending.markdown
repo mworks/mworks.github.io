@@ -13,4 +13,4 @@ A new version of MWorks will be coming out in the next few months.  Here are som
 * Improved support for variables with list/array values
 * Improved state management in MWClient
 
-If there are other features or fixes you'd like to see included in this release, please [let us know](http://help.mworks-project.org/discussion/new).
+If there are other features or fixes you'd like to see included in this release, please [let us know](https://mworks.tenderapp.com/discussion/new).

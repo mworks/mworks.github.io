@@ -13,7 +13,7 @@ MWorks was originally created for conducting visual neurophysiology experiments,
 
 ## Is MWorks finished? Can I use it? ##
 
-Currently, MWorks is in production use in labs at [MIT](http://mit.edu/), [Harvard](http://www.harvard.edu/), the [University of Pennsylvania](http://www.upenn.edu/), the [German Primate Center](http://www.dpz.eu/en/home.html), and the [International School for Advanced Studies (SISSA)](http://www.sissa.it/).  Our user base is growing continually, and we encourage potential users to check out our [knowledge base](http://help.mworks-project.org/kb) and [contact us](http://help.mworks-project.org/discussion/new) with any questions.
+Currently, MWorks is in production use in labs at [MIT](http://mit.edu/), [Harvard](http://www.harvard.edu/), the [University of Pennsylvania](http://www.upenn.edu/), the [German Primate Center](http://www.dpz.eu/en/home.html), and the [International School for Advanced Studies (SISSA)](http://www.sissa.it/).  Our user base is growing continually, and we encourage potential users to check out our [knowledge base](https://mworks.tenderapp.com/kb) and [contact us](https://mworks.tenderapp.com/discussion/new) with any questions.
 
 That said, if you choose to download and use MWorks, be aware that you do so *at your own risk*.  The developers make no guarantee that MWorks is suitable for your purposes or that it will work as advertised (for details, see the [software license](https://raw.github.com/mworks/mworks/master/LICENSE.txt)).  If you decide to use it, you should test your experiments thoroughly to ensure that they actually work as you expect.  *We are not responsible.*
 
@@ -21,15 +21,15 @@ Also, while we'd like to support as many users as possible, please be aware that
 
 ## How do I get started? ##
 
-__If you want to try using MWorks:__ Read the [installation guide](http://help.mworks-project.org/kb/installation/installing-mworks) to learn how to download and install the software.
+__If you want to try using MWorks:__ Read the [installation guide](https://mworks.tenderapp.com/kb/installation/installing-mworks) to learn how to download and install the software.
 
 __If you want to browse the code:__ Check out [our pages](https://github.com/mworks) on [GitHub](https://github.com/).  GitHub makes it very easy to browse through code without incurring the hassle of a full checkout. 
 
-__If you're interested in seriously playing with the MWorks code base:__ You'll probably need some help to get started.  Please [contact support](http://help.mworks-project.org/discussion/new), and we'll get you going.
+__If you're interested in seriously playing with the MWorks code base:__ You'll probably need some help to get started.  Please [contact support](https://mworks.tenderapp.com/discussion/new), and we'll get you going.
 
 ## How can I help improve MWorks? ##
 
-If you're using MWorks, the most helpful thing you can do is to [report bugs](http://help.mworks-project.org/discussion/new) as you find them.  The key to reporting issues productively is to provide as much information as possible (e.g. what you were doing when a crash happened, or what experiment caused the crash).  If you really want to be helpful, doing a bit of detective work and coming up with a minimal experiment that exposes the problem will result in the bug being fixed much faster.
+If you're using MWorks, the most helpful thing you can do is to [report bugs](https://mworks.tenderapp.com/discussion/new) as you find them.  The key to reporting issues productively is to provide as much information as possible (e.g. what you were doing when a crash happened, or what experiment caused the crash).  If you really want to be helpful, doing a bit of detective work and coming up with a minimal experiment that exposes the problem will result in the bug being fixed much faster.
 
 If you want to add to MWorks or fix a bug yourself, the best thing to do is to [fork](https://help.github.com/articles/fork-a-repo) the main [MWorks repository](https://github.com/mworks/mworks), fix the bug, and then initiate a [pull request](https://help.github.com/articles/using-pull-requests).
 

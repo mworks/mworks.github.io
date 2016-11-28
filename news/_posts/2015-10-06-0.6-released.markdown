@@ -62,7 +62,7 @@ For a full list of changes in this release, please see the release notes below.
 
 #### Actions
 
-* Experiments can now execute embedded Python code via two new actions: `run_python_file`, which takes the path to a Python source file and executes it, and `run_python_string`, which executes a string of Python code ([details](http://help.mworks-project.org/discussions/questions/590))
+* Experiments can now execute embedded Python code via two new actions: `run_python_file`, which takes the path to a Python source file and executes it, and `run_python_string`, which executes a string of Python code ([details](https://mworks.tenderapp.com/discussions/questions/590))
 
 * Canceling a scheduled actions instance now cancels the associated scheduler task immediately (previously, cancellation was deferred until the next execution pass)
 
@@ -99,7 +99,7 @@ For a full list of changes in this release, please see the release notes below.
 
 #### I/O Devices
 
-* Added [Open Ephys](http://www.open-ephys.org) interface, which performs clock synchronization with the OE GUI and (optionally) adds OE spike events to the MWorks event stream ([details](http://help.mworks-project.org/discussions/questions/594#comment_37826059))
+* Added [Open Ephys](http://www.open-ephys.org) interface, which performs clock synchronization with the OE GUI and (optionally) adds OE spike events to the MWorks event stream ([details](https://mworks.tenderapp.com/discussions/questions/594#comment_37826059))
 
 * Added Blackrock LED driver interface
 

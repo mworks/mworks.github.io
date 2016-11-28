@@ -12,20 +12,20 @@ For details on what's changed, see the release notes below.
 ### Core
 
 * Added general dynamic-stimulus infrastructure, for use by drifting grating, movie, and other time-dependent stimuli
-* Experiment XML files can now be run through a user-specified preprocessor program before parsing ([more info](http://help.mworks-project.org/discussions/questions/26#comment_5790180))
+* Experiment XML files can now be run through a user-specified preprocessor program before parsing ([more info](https://mworks.tenderapp.com/discussions/questions/26#comment_5790180))
 * Specifying a negative value for `display_to_use` in `setup_variables.xml` now instructs the system to use only the mirror window, even if a secondary display is available
 * Updated fullscreen OpenGL display code to use Apple's recommended approach for Mac OS X 10.6
 * Core now uses system Core Video framework to drive stimulus display updates, which keeps updates in sync with the display's refresh cycle.  Greatly improves the performance of dynamic stimuli, especially when multiple instances are on screen simultaneously.
-* Stimulus display updates are now announced upon completion of the graphics buffer swap (previously, they were announced when rendering completed, which could precede the stimulus' appearance on screen by as much as one or two display refresh periods) ([more info](http://help.mworks-project.org/kb/timing/relationship-between-stimulus-announce-time-and-display-time)) 
+* Stimulus display updates are now announced upon completion of the graphics buffer swap (previously, they were announced when rendering completed, which could precede the stimulus' appearance on screen by as much as one or two display refresh periods) ([more info](https://mworks.tenderapp.com/kb/timing/relationship-between-stimulus-announce-time-and-display-time)) 
 * Stimulus draw announcement data is now generated immediately after drawing each stimulus (rather than waiting for the whole display update to complete), so that the announcement more accurately reflects the state of the stimulus when drawn
 * Core now attempts to prevent display sleep when there's a fullscreen stimulus display
 * If the environment variable MWORKS_WRITE_MESSAGES_TO_STDERR is set, all global messages are echoed to the standard error stream (useful for catching messages emitted during server startup)
-* Added SHA-1 hash of image file to image stimulus announcement ([details](http://help.mworks-project.org/kb/stimuli/using-the-file-hash-to-verify-an-image-stimulus))
+* Added SHA-1 hash of image file to image stimulus announcement ([details](https://mworks.tenderapp.com/kb/stimuli/using-the-file-hash-to-verify-an-image-stimulus))
 * Reduced image stimulus memory usage
 * Added unload_stimulus action (mainly useful for managing memory usage in experiments with a large number of image stimuli)
 * FIXED: Experiments that included more than 95.4 MB of images or other files failed to load
 * Fixed bug that caused "Pulse Variable" action to consistently crash the server
-* Added filename expansion to list replicator ([more info](http://help.mworks-project.org/kb/stimuli/creating-a-stimulus-group-from-a-folder-of-images))
+* Added filename expansion to list replicator ([more info](https://mworks.tenderapp.com/kb/stimuli/creating-a-stimulus-group-from-a-folder-of-images))
 * Experiment parser now handles variable data types more carefully, which enables better support for string variables and use of string values in list replicators
 * Many improvements to error reporting, including better human-readable error messages
 * Experiment parser now provides more informative error messages when range replicator parameters fail to parse
@@ -79,7 +79,7 @@ For details on what's changed, see the release notes below.
 
 ### Core Plugins
 
-* NEW: image directory movie stimulus ([more info](http://help.mworks-project.org/discussions/questions/26#comment_5898153))
+* NEW: image directory movie stimulus ([more info](https://mworks.tenderapp.com/discussions/questions/26#comment_5898153))
 * NEW: white noise background stimulus ([example](https://raw.github.com/mworks/mworks/master/examples/Tests/Stimulus/WhiteNoiseBackground/Basic.xml))
 * Drifting grating's "alpha_multiplier" property now actually affects the grating's appearance (contributed by Mark Histed)
 * Added Gaussian mask parameters "std_dev" and "mean" to editor definition for drifting grating
