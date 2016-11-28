@@ -20,7 +20,7 @@ To start, here are the highlights of our achievements from the past year:
 * Greatly improved the performance of dynamic stimuli (movies, drifting gratings)
 * Developed two new plugins (dynamics random dots, white noise background)
 * Handled 61 [support cases](https://mworks.tenderapp.com/discussions)
-* Resolved 44 [issues](http://mworks.lighthouseapp.com/tickets?q=state%3Aresolved&filter=)
+* Resolved 44 [issues](https://mworks.lighthouseapp.com/tickets?q=state%3Aresolved&filter=)
 
 
 ### 2011 Planning ###
