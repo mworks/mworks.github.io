@@ -31,6 +31,7 @@ gems:
 exclude: [CNAME, Gemfile, Gemfile.lock, README.markdown]
 include: [_sources, _static]  # For Sphinx-generated docs
 permalink: pretty
+timezone: America/New_York
 
 
 #
