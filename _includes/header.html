@@ -15,7 +15,7 @@
           <ul>
             <li{% if page.url == '/' %} class="current_page_item"{% endif %}><a href="/">Home</a></li>
             <li{% if page.url contains '/downloads/' %} class="current_page_item"{% endif %}><a href="/downloads/">Downloads</a></li>
-            <li{% if page.url contains '/documentation/' %} class="current_page_item"{% endif %}><a id="support_link" href="https://mworks.tenderapp.com/">Support</a></li>
+            <li{% if page.url contains '/documentation/' %} class="current_page_item"{% endif %}><a href="https://mworks.tenderapp.com/">Support</a></li>
             <li{% if page.url contains '/news/' %} class="current_page_item"{% endif %}><a href="{{ site.posts.first.url }}">News</a></li>
           </ul>
         </div><!-- end #menu -->
