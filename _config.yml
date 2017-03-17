@@ -38,7 +38,7 @@ timezone: America/New_York
 # Custom site data
 #
 
-url: http://mworks-project.org
+url: https://mworks.github.io
 authors:
   - id: cstawarz
     fullname: Christopher Stawarz
