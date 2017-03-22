@@ -48,7 +48,38 @@
 <span id="index-0"></span><span id="id1"></span><h1>USB HID Device<a class="headerlink" href="#usb-hid-device" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Interface to a <a class="reference external" href="https://en.wikipedia.org/wiki/USB_human_interface_device_class">USB human interface device</a> (HID) class device</p>
+<p>Interface to a <a class="reference external" href="https://en.wikipedia.org/wiki/USB_human_interface_device_class">USB human interface device</a> (HID)
+class device.</p>
+<p>Appropriate values for the <a class="reference internal" href="#usage-page">usage_page</a> and <a class="reference internal" href="#usage">usage</a> parameters can be
+found in the <a class="reference external" href="http://www.usb.org/developers/hidpage#HID_Usage">HID Usage Tables</a>.  Here are the values
+for a few common device types:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="38%" />
+<col width="19%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Device type</th>
+<th class="head">Usage page</th>
+<th class="head">Usage</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Keyboard</td>
+<td>1</td>
+<td>6</td>
+</tr>
+<tr class="row-odd"><td>Joystick</td>
+<td>1</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>Gamepad</td>
+<td>1</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
@@ -58,9 +89,27 @@
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="usage-page">
 <h3>usage_page<a class="headerlink" href="#usage-page" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">1</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>HID usage page for the device</p>
 </div>
 <div class="section" id="usage">
 <h3>usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">6</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>HID usage for the device</p>
 </div>
 </div>
 <div class="section" id="optional-parameters">
@@ -75,6 +124,7 @@
 </tr>
 </tbody>
 </table>
+<p>If MWorks finds multiple candidate devices for the given <a class="reference internal" href="#usage-page">usage_page</a> and <a class="reference internal" href="#usage">usage</a>, it will issue an error message that lists the product name, manufacturer name, and &#8220;location ID&#8221; for each matching device.  To select the desired device, set this parameter to the reported location ID of that device.</p>
 </div>
 <div class="section" id="log-all-input-values">
 <h3>log_all_input_values<a class="headerlink" href="#log-all-input-values" title="Permalink to this headline">¶</a></h3>
@@ -86,6 +136,7 @@
 </tr>
 </tbody>
 </table>
+<p>If <code class="docutils literal"><span class="pre">YES</span></code>, MWorks will log (to the event stream and server console) all input values received from the device.  Each log message will include an associated element usage page and usage.  These usage page and usage values can be used to define a <a class="reference internal" href="usb_hid_input_channel.html#usb-hid-input-channel"><span class="std std-ref">USB HID Input Channel</span></a> for the input.</p>
 </div>
 <div class="section" id="alt">
 <h3>alt<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h3>

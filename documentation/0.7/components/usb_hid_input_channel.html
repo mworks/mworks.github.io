@@ -48,7 +48,14 @@
 <span id="index-0"></span><span id="id1"></span><h1>USB HID Input Channel<a class="headerlink" href="#usb-hid-input-channel" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Input channel on a <a class="reference internal" href="usb_hid_device.html#usb-hid-device"><span class="std std-ref">USB HID Device</span></a></p>
+<p>Input channel on a <a class="reference internal" href="usb_hid_device.html#usb-hid-device"><span class="std std-ref">USB HID Device</span></a>.  Typically, a channel corresponds to a
+specific input (e.g. key, button, joystick axis) on the device.</p>
+<p>Appropriate values for the <a class="reference internal" href="#usage-page">usage_page</a> and <a class="reference internal" href="#usage">usage</a> parameters can be
+found in the <a class="reference external" href="http://www.usb.org/developers/hidpage#HID_Usage">HID Usage Tables</a>.  However, in many
+cases, an easier method for determining the correct values is to set the
+device&#8217;s <code class="docutils literal"><span class="pre">log_all_input_values</span></code> parameter to <code class="docutils literal"><span class="pre">YES</span></code>, exercise the
+input(s) of interest, and record the usage page and usage values reported in
+the corresponding log messages.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
@@ -58,12 +65,31 @@
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="usage-page">
 <h3>usage_page<a class="headerlink" href="#usage-page" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">7</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>HID usage page for the input</p>
 </div>
 <div class="section" id="usage">
 <h3>usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">44</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>HID usage for the input</p>
 </div>
 <div class="section" id="value">
 <h3>value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store values received from the input.  Input values are always converted to an integer representation before being stored.</p>
 </div>
 </div>
 </div>

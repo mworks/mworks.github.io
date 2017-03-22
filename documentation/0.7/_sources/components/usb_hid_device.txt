@@ -15,7 +15,22 @@ USB HID Device
 
 Description
 -----------
-Interface to a `USB human interface device <https://en.wikipedia.org/wiki/USB_human_interface_device_class>`_ (HID) class device
+Interface to a `USB human interface device
+<https://en.wikipedia.org/wiki/USB_human_interface_device_class>`_ (HID)
+class device.
+
+Appropriate values for the `usage_page`_ and `usage`_ parameters can be
+found in the `HID Usage Tables
+<http://www.usb.org/developers/hidpage#HID_Usage>`_.  Here are the values
+for a few common device types:
+
+=========== ========== =====
+Device type Usage page Usage
+=========== ========== =====
+Keyboard    1          6
+Joystick    1          4
+Gamepad     1          5
+=========== ========== =====
 
 
 
@@ -29,9 +44,15 @@ Required Parameters
 
 usage_page
 ^^^^^^^^^^
+:Example: ``1``
+
+HID usage page for the device
 
 usage
 ^^^^^
+:Example: ``6``
+
+HID usage for the device
 
 
 
@@ -42,9 +63,15 @@ preferred_location_id
 ^^^^^^^^^^^^^^^^^^^^^
 :Default: ``0``
 
+If MWorks finds multiple candidate devices for the given `usage_page`_ and `usage`_, it will issue an error message that lists the product name, manufacturer name, and "location ID" for each matching device.  To select the desired device, set this parameter to the reported location ID of that device.
+
+
 log_all_input_values
 ^^^^^^^^^^^^^^^^^^^^
 :Default: ``NO``
+
+If ``YES``, MWorks will log (to the event stream and server console) all input values received from the device.  Each log message will include an associated element usage page and usage.  These usage page and usage values can be used to define a `USB HID Input Channel` for the input.
+
 
 alt
 ^^^
