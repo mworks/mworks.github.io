@@ -1,0 +1,41 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: White Noise Background
+   single: Stimuli; White Noise Background
+
+.. _White Noise Background:
+
+White Noise Background
+======================
+
+
+Description
+-----------
+White noise background stimulus.
+
+Fills every pixel on the display with a random grayscale value (drawn from a
+uniform distribution).  The experiment must explicitly initialize and update
+the pixel values via the `Randomize White Noise Background` action.
+
+
+
+Signature
+---------
+``stimulus/white_noise_background``
+
+
+Optional Parameters
+-------------------
+
+deferred
+^^^^^^^^
+:Options: ``no``, ``yes``, ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+

@@ -1,0 +1,44 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Run Python String
+   single: Actions; Run Python String
+
+.. _Run Python String:
+
+Run Python String
+=================
+
+*Available on macOS*
+
+
+Description
+-----------
+Execute the given string as `Python <https://www.python.org>`_ source code.
+
+Within the Python code, use ``getvar`` to retrieve the value of an MWorks
+variable and ``setvar`` to set it, e.g.
+
+.. code:: python
+
+    x = getvar('x')
+    setvar('x', x + 1)
+
+
+
+Signature
+---------
+``action/run_python_string``
+
+
+Required Parameters
+-------------------
+
+code
+^^^^
+
+Python code to execute
+

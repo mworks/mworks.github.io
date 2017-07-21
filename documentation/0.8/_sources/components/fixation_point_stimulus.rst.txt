@@ -1,0 +1,110 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Fixation Point Stimulus
+   single: Stimuli; Fixation Point Stimulus
+
+.. _Fixation Point Stimulus:
+
+Fixation Point Stimulus
+=======================
+
+
+Description
+-----------
+A rectangular fixation point stimulus.  Also serves as a "calibratable" object for calibrator-related actions (e.g. `Take Calibration Sample`, `End Averaged Calibration Sample`).
+
+
+
+Signature
+---------
+``stimulus/fixation_point``
+
+
+Required Parameters
+-------------------
+
+trigger_width
+^^^^^^^^^^^^^
+
+Width of the (square) fixation window, which shares its center with the visible stimulus rectangle
+
+
+trigger_watch_x
+^^^^^^^^^^^^^^^
+
+Variable containing the horizontal eye position
+
+
+trigger_watch_y
+^^^^^^^^^^^^^^^
+
+Variable containing the vertical eye position
+
+
+trigger_flag
+^^^^^^^^^^^^
+
+Variable to which fixation status is written. When the subject's gaze (as reported by `trigger_watch_x`_ and `trigger_watch_y`_) enters the fixation window, the variable is set to true.  When the subject's gaze leaves the fixation window, the variable is set to false.
+
+
+x_size
+^^^^^^
+:Example: ``5.0``
+
+Horizontal size (degrees)
+
+y_size
+^^^^^^
+:Example: ``5.0``
+
+Vertical size (degrees)
+
+
+
+Optional Parameters
+-------------------
+
+color
+^^^^^
+:Default: ``1.0,1.0,1.0``
+
+The color of the stimulus, expressed as a comma-separated list of red, green, and blue components with values between 0 and 1 (inclusive).  The list can include variable names in place of explicit values, in which case the corresponding component value will be read from the named variable.
+
+
+x_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Horizontal center position (degrees)
+
+y_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Vertical center position (degrees)
+
+rotation
+^^^^^^^^
+:Default: ``0.0``
+
+Rotation (degrees)
+
+alpha_multiplier
+^^^^^^^^^^^^^^^^
+:Default: ``1.0``
+
+Controls the transparency of the stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+
+deferred
+^^^^^^^^
+:Options: ``no``, ``yes``, ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+

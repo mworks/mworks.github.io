@@ -1,0 +1,34 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Next Selection
+   single: Actions; Next Selection
+
+.. _Next Selection:
+
+Next Selection
+==============
+
+
+Description
+-----------
+Advance to the next selection on a `Selection Variable`.  This action does not work on other selectable objects (such as `Block` or `Trial`).
+
+
+
+Signature
+---------
+``action/next_selection``
+
+
+Required Parameters
+-------------------
+
+selection
+^^^^^^^^^
+
+Name of the selection variable
+

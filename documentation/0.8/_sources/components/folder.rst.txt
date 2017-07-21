@@ -1,0 +1,24 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Folder
+   single: Variables; Folder
+
+.. _Folder:
+
+Folder
+======
+
+
+Description
+-----------
+A folder for (purely) organizational purposes.  Variables defined in a folder will be displayed as an expandable group in MWClient's variables window.
+
+
+
+Signature
+---------
+``folder``

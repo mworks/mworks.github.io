@@ -1,0 +1,173 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: EyeLink Device
+   single: Input/Output; EyeLink Device
+
+.. _EyeLink Device:
+
+EyeLink Device
+==============
+
+*Available on macOS*
+
+
+Description
+-----------
+Digital interface to an `EyeLink <http://www.sr-research.com>`_
+eye tracker.  Tested with the
+`EyeLink 1000 <http://www.sr-research.com/eyelink1000.html>`_ and
+`EyeLink II <http://www.sr-research.com/eyelinkII.html>`_ trackers,
+but may be compatible with additional devices.
+
+If the tracker is run in binocular mode, `eye_x`_, `eye_y`_, and `eye_z`_
+give the midpoint of the shortest connecting line that is orthogonal to both
+gaze vectors; otherwise, these values will be empty.  All other output
+parameters are specified and described in the `EyeLink 1000 User Manual
+<file:///Applications/Eyelink/docs/EyeLink1000_UserManual.pdf>`_.
+
+
+
+Signature
+---------
+``iodevice/eyelink``
+
+
+Required Parameters
+-------------------
+
+tracker_ip
+^^^^^^^^^^
+:Example: ``10.1.1.2``
+
+The tracker's IP address
+
+tracking_dist
+^^^^^^^^^^^^^
+:Example: ``1024``
+
+Tracking range in eye tracker units.  (The default value should be 1024.)
+
+
+data_interval
+^^^^^^^^^^^^^
+:Example: ``1ms``
+
+Data polling interval.  Should not be too short, but faster than tracker's sampling rate.
+
+
+
+
+Optional Parameters
+-------------------
+
+eye_rx
+^^^^^^
+
+Variable in which to store right eye screen gaze x
+
+eye_ry
+^^^^^^
+
+Variable in which to store right eye screen gaze y
+
+eye_lx
+^^^^^^
+
+Variable in which to store left eye screen gaze x
+
+eye_ly
+^^^^^^
+
+Variable in which to store left eye screen gaze y
+
+eye_x
+^^^^^
+
+Variable in which to store computed ``eye_x`` (described above)
+
+eye_y
+^^^^^
+
+Variable in which to store computed ``eye_y`` (described above)
+
+eye_z
+^^^^^
+
+Variable in which to store computed ``eye_z`` (described above)
+
+href_rx
+^^^^^^^
+
+Variable in which to store right eye headref x
+
+href_ry
+^^^^^^^
+
+Variable in which to store right eye headref y
+
+href_lx
+^^^^^^^
+
+Variable in which to store left eye headref x
+
+href_ly
+^^^^^^^
+
+Variable in which to store left eye headref y
+
+pupil_rx
+^^^^^^^^
+
+Variable in which to store right eye pupil x
+
+pupil_ry
+^^^^^^^^
+
+Variable in which to store right eye pupil y
+
+pupil_lx
+^^^^^^^^
+
+Variable in which to store left eye pupil x
+
+pupil_ly
+^^^^^^^^
+
+Variable in which to store left eye pupil y
+
+pupil_size_r
+^^^^^^^^^^^^
+
+Variable in which to store right pupil size or area
+
+pupil_size_l
+^^^^^^^^^^^^
+
+Variable in which to store left pupil size or area
+
+eye_time
+^^^^^^^^
+
+Variable in which to store time of sample (on EyeLink clock)
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+

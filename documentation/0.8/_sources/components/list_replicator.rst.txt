@@ -1,0 +1,41 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: List Replicator
+   single: Paradigm Components; List Replicator
+
+.. _List Replicator:
+
+List Replicator
+===============
+
+
+Description
+-----------
+A construct that replicates its contents (textually) at parse time.  Each replication assigns a different value from a user-provided list to the specified `variable`_ (similar to a `foreach loop <https://en.wikipedia.org/wiki/Foreach_loop>`_). This can be used, for example, to generate a `Stimulus Group` of `images <Image Stimulus>` by using the replicator variable as the path to each image file.
+
+
+
+Signature
+---------
+``list_replicator``
+
+
+Required Parameters
+-------------------
+
+variable
+^^^^^^^^
+
+Replicator variable.  The variable must have local scope.
+
+
+values
+^^^^^^
+
+Comma-separated list of values to assign to `variable`_, one per replication
+
+

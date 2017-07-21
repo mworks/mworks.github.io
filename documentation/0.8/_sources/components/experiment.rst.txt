@@ -1,0 +1,24 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Experiment
+   single: Paradigm Components; Experiment
+
+.. _Experiment:
+
+Experiment
+==========
+
+
+Description
+-----------
+Top-level container for all `protocols <Protocol>` in an experiment
+
+
+
+Signature
+---------
+``experiment``

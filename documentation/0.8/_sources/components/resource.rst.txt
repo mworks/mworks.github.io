@@ -1,0 +1,45 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Resource
+   single: Resources; Resource
+
+.. _Resource:
+
+Resource
+========
+
+
+Description
+-----------
+A file or set of files required by an experiment.  All resource files are
+copied, along with the experiment file itself, to the system running
+MWServer.
+
+*Note*:  In the absence of resource declarations, the MWorks parser
+infers the required resources from the ``path`` and ``directory_path``
+attributes of other components.  However, if the experiment declares
+any resources, then this inference step is skipped.  Hence, an experiment
+that declares any resources must include *all* required files in its
+resource declarations.
+
+
+
+Signature
+---------
+``resource``
+
+
+Required Parameters
+-------------------
+
+path
+^^^^
+:Examples: ``images/1.png``, ``sounds``, ``/shared/imagesets/01/``
+
+Filesystem path to the required file or directory.  If a directory, all non-hidden, regular files in the directory are copied, including those in nested subdirectories.
+
+

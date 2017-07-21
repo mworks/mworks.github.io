@@ -1,0 +1,17 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Resources:
+
+Resources
+=========
+
+Resource files (images, scripts, etc.) needed by an experiment
+
+
+.. toctree::
+   :maxdepth: 1
+
+   resource

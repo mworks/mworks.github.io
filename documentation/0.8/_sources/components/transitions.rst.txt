@@ -1,0 +1,21 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Transitions:
+
+Transitions
+===========
+
+Transitions control how an experiment moves through a `Task System`. Each `Task System State` repeatedly tests its transitions until one of them succeeds, after which control passes to the successful transition's target state.
+
+
+.. toctree::
+   :maxdepth: 1
+
+   always_go_transition
+   conditional_transition
+   exit_task_system
+   goto_transition
+   timer_expired_transition

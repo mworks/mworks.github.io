@@ -1,0 +1,34 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Update Calibration
+   single: Actions; Update Calibration
+
+.. _Update Calibration:
+
+Update Calibration
+==================
+
+
+Description
+-----------
+Prompt a calibrator object to compute a new calibration mapping function based on samples taken using the `Take Calibration Sample` action
+
+
+
+Signature
+---------
+``action/update_calibration``
+
+
+Required Parameters
+-------------------
+
+calibrator
+^^^^^^^^^^
+
+Name of the calibrator
+
