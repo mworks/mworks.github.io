@@ -28,7 +28,7 @@ Required Parameters
 
 spatial_frequency
 ^^^^^^^^^^^^^^^^^
-:Example: ``0``
+:Example: ``1``
 
 Spatial frequency (cycles per degree)
 
@@ -96,13 +96,26 @@ mean
 ^^^^
 :Default: ``0.0``
 
-Mean of Gaussian mask
+Mean of Gaussian mask.
+
+This value determines the radial offset of the Gaussian peak from the
+center of the grating.  If non-zero, the peak will be a circle, rather
+than a point, and luminance will decrease both inside and outside the
+circle, producing a toroidal stimulus.
+
+
+normalized
+^^^^^^^^^^
+:Default: ``YES``
+
+If ``YES``, the Gaussian mask includes a multiplicative normalization term (``1/(std_dev*sqrt(2*pi))``).  If ``NO``, this term is omitted.
+
 
 color
 ^^^^^
 :Default: ``1.0,1.0,1.0``
 
-The color of the stimulus, expressed as a comma-separated list of red, green, and blue components with values between 0 and 1 (inclusive).  The list can include variable names in place of explicit values, in which case the corresponding component value will be read from the named variable.
+The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).
 
 
 x_position

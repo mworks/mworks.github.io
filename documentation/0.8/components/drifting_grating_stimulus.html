@@ -71,6 +71,7 @@
 <li><a class="reference internal" href="#inverted">inverted</a></li>
 <li><a class="reference internal" href="#std-dev">std_dev</a></li>
 <li><a class="reference internal" href="#mean">mean</a></li>
+<li><a class="reference internal" href="#normalized">normalized</a></li>
 <li><a class="reference internal" href="#color">color</a></li>
 <li><a class="reference internal" href="#x-position">x_position</a></li>
 <li><a class="reference internal" href="#y-position">y_position</a></li>
@@ -126,7 +127,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">0</span></code></td>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">1</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -253,7 +254,23 @@
 </tr>
 </tbody>
 </table>
-<p>Mean of Gaussian mask</p>
+<p>Mean of Gaussian mask.</p>
+<p>This value determines the radial offset of the Gaussian peak from the
+center of the grating.  If non-zero, the peak will be a circle, rather
+than a point, and luminance will decrease both inside and outside the
+circle, producing a toroidal stimulus.</p>
+</div>
+<div class="section" id="normalized">
+<h3>normalized<a class="headerlink" href="#normalized" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">YES</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal"><span class="pre">YES</span></code>, the Gaussian mask includes a multiplicative normalization term (<code class="docutils literal"><span class="pre">1/(std_dev*sqrt(2*pi))</span></code>).  If <code class="docutils literal"><span class="pre">NO</span></code>, this term is omitted.</p>
 </div>
 <div class="section" id="color">
 <h3>color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h3>
@@ -265,7 +282,7 @@
 </tr>
 </tbody>
 </table>
-<p>The color of the stimulus, expressed as a comma-separated list of red, green, and blue components with values between 0 and 1 (inclusive).  The list can include variable names in place of explicit values, in which case the corresponding component value will be read from the named variable.</p>
+<p>The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).</p>
 </div>
 <div class="section" id="x-position">
 <h3>x_position<a class="headerlink" href="#x-position" title="Permalink to this headline">¶</a></h3>
