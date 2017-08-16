@@ -30,6 +30,7 @@ Actions are the smallest unit of execution logic within an experiment. They init
    fake_monkey_saccade_and_fixate
    live_queue_stimulus
    load_stimulus
+   move_mouse_cursor
    next_selection
    pause_dynamic_stimulus
    pause_experiment

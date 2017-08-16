@@ -22,6 +22,8 @@ Signature
 ---------
 ``stimulus/circle``
 
+:Alias: ``stimulus/ellipse``
+
 
 Required Parameters
 -------------------

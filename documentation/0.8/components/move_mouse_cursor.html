@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Next Selection &#8212; MWorks 0.8.dev documentation</title>
+    <title>Move Mouse Cursor &#8212; MWorks 0.8.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Pause Dynamic Stimulus" href="pause_dynamic_stimulus.html" />
-    <link rel="prev" title="Move Mouse Cursor" href="move_mouse_cursor.html" />
+    <link rel="next" title="Next Selection" href="next_selection.html" />
+    <link rel="prev" title="Load Stimulus" href="load_stimulus.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -39,10 +39,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="pause_dynamic_stimulus.html" title="Pause Dynamic Stimulus"
+          <a href="next_selection.html" title="Next Selection"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="move_mouse_cursor.html" title="Move Mouse Cursor"
+          <a href="load_stimulus.html" title="Load Stimulus"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Components</a> &#187;</li>
@@ -53,11 +53,13 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Next Selection</a><ul>
+<li><a class="reference internal" href="#">Move Mouse Cursor</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
-<li><a class="reference internal" href="#selection">selection</a></li>
+<li><a class="reference internal" href="#device">device</a></li>
+<li><a class="reference internal" href="#x-position">x_position</a></li>
+<li><a class="reference internal" href="#y-position">y_position</a></li>
 </ul>
 </li>
 </ul>
@@ -65,11 +67,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="move_mouse_cursor.html"
-                        title="previous chapter">Move Mouse Cursor</a></p>
+  <p class="topless"><a href="load_stimulus.html"
+                        title="previous chapter">Load Stimulus</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="pause_dynamic_stimulus.html"
-                        title="next chapter">Pause Dynamic Stimulus</a></p>
+  <p class="topless"><a href="next_selection.html"
+                        title="next chapter">Next Selection</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -88,21 +90,30 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="next-selection">
-<span id="index-0"></span><span id="id1"></span><h1>Next Selection<a class="headerlink" href="#next-selection" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="move-mouse-cursor">
+<span id="index-0"></span><span id="id1"></span><h1>Move Mouse Cursor<a class="headerlink" href="#move-mouse-cursor" title="Permalink to this headline">¶</a></h1>
+<p><em>Available on macOS</em></p>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Advance to the next selection on a <a class="reference internal" href="selection_variable.html#selection-variable"><span class="std std-ref">Selection Variable</span></a>.  This action does not work on other selectable objects (such as <a class="reference internal" href="block.html#block"><span class="std std-ref">Block</span></a> or <a class="reference internal" href="trial.html#trial"><span class="std std-ref">Trial</span></a>).</p>
+<p>Move the mouse cursor to the specified position on the stimulus display</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">action/next_selection</span></code></p>
+<p><code class="docutils literal"><span class="pre">action/move_mouse_cursor</span></code></p>
 </div>
 <div class="section" id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="selection">
-<h3>selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
-<p>Name of the selection variable</p>
+<div class="section" id="device">
+<h3>device<a class="headerlink" href="#device" title="Permalink to this headline">¶</a></h3>
+<p>Name of a <a class="reference internal" href="mouse_input_device.html#mouse-input-device"><span class="std std-ref">Mouse Input Device</span></a></p>
+</div>
+<div class="section" id="x-position">
+<h3>x_position<a class="headerlink" href="#x-position" title="Permalink to this headline">¶</a></h3>
+<p>Horizontal position (in degrees) to which to move the mouse cursor</p>
+</div>
+<div class="section" id="y-position">
+<h3>y_position<a class="headerlink" href="#y-position" title="Permalink to this headline">¶</a></h3>
+<p>Vertical position (in degrees) to which to move the mouse cursor</p>
 </div>
 </div>
 </div>
@@ -120,10 +131,10 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="pause_dynamic_stimulus.html" title="Pause Dynamic Stimulus"
+          <a href="next_selection.html" title="Next Selection"
              >next</a> |</li>
         <li class="right" >
-          <a href="move_mouse_cursor.html" title="Move Mouse Cursor"
+          <a href="load_stimulus.html" title="Load Stimulus"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Components</a> &#187;</li>
