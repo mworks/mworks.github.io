@@ -60,16 +60,17 @@
 <li><a class="reference internal" href="#text">text</a></li>
 <li><a class="reference internal" href="#font-name">font_name</a></li>
 <li><a class="reference internal" href="#font-size">font_size</a></li>
-<li><a class="reference internal" href="#x-size">x_size</a></li>
-<li><a class="reference internal" href="#y-size">y_size</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
 <li><a class="reference internal" href="#color">color</a></li>
+<li><a class="reference internal" href="#x-size">x_size</a></li>
+<li><a class="reference internal" href="#y-size">y_size</a></li>
 <li><a class="reference internal" href="#x-position">x_position</a></li>
 <li><a class="reference internal" href="#y-position">y_position</a></li>
 <li><a class="reference internal" href="#rotation">rotation</a></li>
 <li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
+<li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
 <li><a class="reference internal" href="#deferred">deferred</a></li>
 </ul>
 </li>
@@ -149,30 +150,6 @@
 </table>
 <p>Font size (points)</p>
 </div>
-<div class="section" id="x-size">
-<h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">5.0</span></code></td>
-</tr>
-</tbody>
-</table>
-<p>Horizontal size (degrees)</p>
-</div>
-<div class="section" id="y-size">
-<h3>y_size<a class="headerlink" href="#y-size" title="Permalink to this headline">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">5.0</span></code></td>
-</tr>
-</tbody>
-</table>
-<p>Vertical size (degrees)</p>
-</div>
 </div>
 <div class="section" id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
@@ -187,6 +164,34 @@
 </tbody>
 </table>
 <p>The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).</p>
+</div>
+<div class="section" id="x-size">
+<h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">5.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Horizontal size (degrees).</p>
+<p>If omitted, the value of <a class="reference internal" href="#y-size">y_size</a> is used.  It is an error to omit both
+x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal"><span class="pre">YES</span></code>).</p>
+</div>
+<div class="section" id="y-size">
+<h3>y_size<a class="headerlink" href="#y-size" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">5.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Vertical size (degrees).</p>
+<p>If omitted, the value of <a class="reference internal" href="#x-size">x_size</a> is used.  It is an error to omit both
+x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal"><span class="pre">YES</span></code>).</p>
 </div>
 <div class="section" id="x-position">
 <h3>x_position<a class="headerlink" href="#x-position" title="Permalink to this headline">¶</a></h3>
@@ -235,6 +240,18 @@
 </tbody>
 </table>
 <p>Controls the transparency of the stimulus.  <code class="docutils literal"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal"><span class="pre">0.0</span></code> is fully tranparent.</p>
+</div>
+<div class="section" id="fullscreen">
+<h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">NO</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal"><span class="pre">YES</span></code>, the stimulus is sized to fill the display.  In this mode, <a class="reference internal" href="#x-size">x_size</a>, <a class="reference internal" href="#y-size">y_size</a>, <a class="reference internal" href="#x-position">x_position</a>, <a class="reference internal" href="#y-position">y_position</a>, and <a class="reference internal" href="#rotation">rotation</a> are ignored.</p>
 </div>
 <div class="section" id="deferred">
 <h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>

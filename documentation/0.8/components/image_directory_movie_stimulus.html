@@ -58,16 +58,17 @@
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
 <li><a class="reference internal" href="#directory-path">directory_path</a></li>
-<li><a class="reference internal" href="#x-size">x_size</a></li>
-<li><a class="reference internal" href="#y-size">y_size</a></li>
 <li><a class="reference internal" href="#frames-per-second">frames_per_second</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#x-size">x_size</a></li>
+<li><a class="reference internal" href="#y-size">y_size</a></li>
 <li><a class="reference internal" href="#x-position">x_position</a></li>
 <li><a class="reference internal" href="#y-position">y_position</a></li>
 <li><a class="reference internal" href="#rotation">rotation</a></li>
 <li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
+<li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
 <li><a class="reference internal" href="#ended">ended</a></li>
 <li><a class="reference internal" href="#loop">loop</a></li>
 <li><a class="reference internal" href="#repeats">repeats</a></li>
@@ -107,7 +108,11 @@
 <span id="index-0"></span><span id="id1"></span><h1>Image Directory Movie Stimulus<a class="headerlink" href="#image-directory-movie-stimulus" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>A movie stimulus that gets its frames from a directory of image files</p>
+<p>A movie stimulus that gets its frames from a directory of image files.</p>
+<p><em>Note</em>:  To preserve each image’s aspect ratio on screen, <a class="reference internal" href="#x-size">x_size</a> and
+<a class="reference internal" href="#y-size">y_size</a> must be equal.  When drawn, the larger dimension spans the full
+specified size, while the smaller dimension is scaled to maintain the
+aspect ratio.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
@@ -121,6 +126,13 @@
 <p><em>All</em> non-hidden files in this directory must be images.  The frames are
 ordered according to the lexical sort order of the file names.</p>
 </div>
+<div class="section" id="frames-per-second">
+<h3>frames_per_second<a class="headerlink" href="#frames-per-second" title="Permalink to this headline">¶</a></h3>
+<p>Rate at which to display the movie’s frames</p>
+</div>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="x-size">
 <h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
@@ -131,7 +143,9 @@ ordered according to the lexical sort order of the file names.</p>
 </tr>
 </tbody>
 </table>
-<p>Horizontal size in degrees</p>
+<p>Horizontal size (degrees).</p>
+<p>If omitted, the value of <a class="reference internal" href="#y-size">y_size</a> is used.  It is an error to omit both
+x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal"><span class="pre">YES</span></code>).</p>
 </div>
 <div class="section" id="y-size">
 <h3>y_size<a class="headerlink" href="#y-size" title="Permalink to this headline">¶</a></h3>
@@ -143,15 +157,10 @@ ordered according to the lexical sort order of the file names.</p>
 </tr>
 </tbody>
 </table>
-<p>Vertical size in degrees</p>
+<p>Vertical size (degrees).</p>
+<p>If omitted, the value of <a class="reference internal" href="#x-size">x_size</a> is used.  It is an error to omit both
+x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal"><span class="pre">YES</span></code>).</p>
 </div>
-<div class="section" id="frames-per-second">
-<h3>frames_per_second<a class="headerlink" href="#frames-per-second" title="Permalink to this headline">¶</a></h3>
-<p>Rate at which to display the movie’s frames</p>
-</div>
-</div>
-<div class="section" id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="x-position">
 <h3>x_position<a class="headerlink" href="#x-position" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
@@ -162,7 +171,7 @@ ordered according to the lexical sort order of the file names.</p>
 </tr>
 </tbody>
 </table>
-<p>Horizontal center position in degrees</p>
+<p>Horizontal center position (degrees)</p>
 </div>
 <div class="section" id="y-position">
 <h3>y_position<a class="headerlink" href="#y-position" title="Permalink to this headline">¶</a></h3>
@@ -174,7 +183,7 @@ ordered according to the lexical sort order of the file names.</p>
 </tr>
 </tbody>
 </table>
-<p>Vertical center position in degrees</p>
+<p>Vertical center position (degrees)</p>
 </div>
 <div class="section" id="rotation">
 <h3>rotation<a class="headerlink" href="#rotation" title="Permalink to this headline">¶</a></h3>
@@ -186,7 +195,7 @@ ordered according to the lexical sort order of the file names.</p>
 </tr>
 </tbody>
 </table>
-<p>Rotation in degrees</p>
+<p>Rotation (degrees)</p>
 </div>
 <div class="section" id="alpha-multiplier">
 <h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
@@ -199,6 +208,18 @@ ordered according to the lexical sort order of the file names.</p>
 </tbody>
 </table>
 <p>Controls the transparency of the stimulus.  <code class="docutils literal"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal"><span class="pre">0.0</span></code> is fully tranparent.</p>
+</div>
+<div class="section" id="fullscreen">
+<h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">NO</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal"><span class="pre">YES</span></code>, the stimulus is sized to fill the display.  In this mode, <a class="reference internal" href="#x-size">x_size</a>, <a class="reference internal" href="#y-size">y_size</a>, <a class="reference internal" href="#x-position">x_position</a>, <a class="reference internal" href="#y-position">y_position</a>, and <a class="reference internal" href="#rotation">rotation</a> are ignored.</p>
 </div>
 <div class="section" id="ended">
 <h3>ended<a class="headerlink" href="#ended" title="Permalink to this headline">¶</a></h3>

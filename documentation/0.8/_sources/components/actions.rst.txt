@@ -20,6 +20,7 @@ Actions are the smallest unit of execution logic within an experiment. They init
    begin_averaged_calibration_sample
    bring_stimulus_to_front
    clear_calibration
+   clear_stimulus_display
    conditional_branching_if_else
    conditionally_execute_actions_if
    dequeue_stimulus

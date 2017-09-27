@@ -39,18 +39,6 @@ path
 
 Filesystem path to the video file
 
-x_size
-^^^^^^
-:Example: ``5.0``
-
-Horizontal size (degrees)
-
-y_size
-^^^^^^
-:Example: ``5.0``
-
-Vertical size (degrees)
-
 
 
 Optional Parameters
@@ -86,6 +74,26 @@ ended
 Variable that will be set to true after the video ends.  If `repeats`_ is greater than 1, the variable will be set only once, after all repetitions are complete.  If `loop`_ is ``YES``, the variable will never be set.
 
 
+x_size
+^^^^^^
+:Example: ``5.0``
+
+Horizontal size (degrees).
+
+If omitted, the value of `y_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
+y_size
+^^^^^^
+:Example: ``5.0``
+
+Vertical size (degrees).
+
+If omitted, the value of `x_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
 x_position
 ^^^^^^^^^^
 :Default: ``0.0``
@@ -109,6 +117,13 @@ alpha_multiplier
 :Default: ``1.0``
 
 Controls the transparency of the stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+
+fullscreen
+^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus is sized to fill the display.  In this mode, `x_size`_, `y_size`_, `x_position`_, `y_position`_, and `rotation`_ are ignored.
 
 
 deferred

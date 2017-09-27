@@ -38,22 +38,30 @@ path
 
 Filesystem path to the image file
 
+
+
+Optional Parameters
+-------------------
+
 x_size
 ^^^^^^
 :Example: ``5.0``
 
-Horizontal size (degrees)
+Horizontal size (degrees).
+
+If omitted, the value of `y_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
 
 y_size
 ^^^^^^
 :Example: ``5.0``
 
-Vertical size (degrees)
+Vertical size (degrees).
 
+If omitted, the value of `x_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
 
-
-Optional Parameters
--------------------
 
 x_position
 ^^^^^^^^^^
@@ -78,6 +86,13 @@ alpha_multiplier
 :Default: ``1.0``
 
 Controls the transparency of the stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+
+fullscreen
+^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus is sized to fill the display.  In this mode, `x_size`_, `y_size`_, `x_position`_, `y_position`_, and `rotation`_ are ignored.
 
 
 deferred

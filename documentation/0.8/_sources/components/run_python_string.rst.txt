@@ -42,3 +42,15 @@ code
 
 Python code to execute
 
+
+
+Optional Parameters
+-------------------
+
+stop_on_failure
+^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the experiment will stop automatically if Python execution fails
+
+
