@@ -386,6 +386,27 @@ protocol {
 }
 </pre></div>
 </div>
+<p>A statement macro invocation can include a tag and/or children only if</p>
+<ol class="arabic simple">
+<li>the macro body declares exactly one component, and</li>
+<li>the component declaration in the macro body does not include a tag (if the invocation includes a tag) and/or children (if the invocation includes children).</li>
+</ol>
+<p>For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>%define reported_var (default_value, message)
+    var (default_value) {
+        report (message)
+    }
+%end
+
+// OK: invocation includes a tag, macro body does not
+reported_var x (default_value = 3; message = &#39;x = $x&#39;)
+
+// Not OK: invocation and macro body both include children
+reported_var y (default_value = 3; message = &#39;y = $y&#39;) {
+    z = 2*y
+}
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="whitespace">

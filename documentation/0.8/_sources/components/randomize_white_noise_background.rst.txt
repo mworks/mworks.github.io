@@ -15,7 +15,7 @@ Randomize White Noise Background
 
 Description
 -----------
-Initialize or update the random pixel values of a `White Noise Background` stimulus
+Re-randomize a `White Noise Background` stimulus
 
 
 

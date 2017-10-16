@@ -57,6 +57,10 @@
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#grayscale">grayscale</a></li>
+<li><a class="reference internal" href="#grain-size">grain_size</a></li>
+<li><a class="reference internal" href="#rand-seed">rand_seed</a></li>
+<li><a class="reference internal" href="#randomize-on-draw">randomize_on_draw</a></li>
 <li><a class="reference internal" href="#deferred">deferred</a></li>
 </ul>
 </li>
@@ -93,9 +97,8 @@
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>White noise background stimulus.</p>
-<p>Fills every pixel on the display with a random grayscale value (drawn from a
-uniform distribution).  The experiment must explicitly initialize and update
-the pixel values via the <a class="reference internal" href="randomize_white_noise_background.html#randomize-white-noise-background"><span class="std std-ref">Randomize White Noise Background</span></a> action.</p>
+<p>Fills the display with random noise drawn from a uniform distribution.  The
+experiment can re-randomize the noise via the <a class="reference internal" href="randomize_white_noise_background.html#randomize-white-noise-background"><span class="std std-ref">Randomize White Noise Background</span></a> action.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
@@ -103,6 +106,66 @@ the pixel values via the <a class="reference internal" href="randomize_white_noi
 </div>
 <div class="section" id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="grayscale">
+<h3>grayscale<a class="headerlink" href="#grayscale" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">YES</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal"><span class="pre">YES</span></code>, all three color channels (red, green, and blue) of a given noise grain will be assigned the same random value.  If <code class="docutils literal"><span class="pre">NO</span></code>, each color channel will be set to an independent random value, thereby producing colored noise.</p>
+</div>
+<div class="section" id="grain-size">
+<h3>grain_size<a class="headerlink" href="#grain-size" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">0.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Noise grain size (degrees).</p>
+<p>The number of grains in each dimension is rounded to the nearest
+integer.  Grain sizes less than or equal to the size of one pixel will
+result in per-pixel randomization.</p>
+</div>
+<div class="section" id="rand-seed">
+<h3>rand_seed<a class="headerlink" href="#rand-seed" title="Permalink to this headline">¶</a></h3>
+<p>Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.</p>
+</div>
+<div class="section" id="randomize-on-draw">
+<h3>randomize_on_draw<a class="headerlink" href="#randomize-on-draw" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">NO</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal"><span class="pre">YES</span></code>, the stimulus will re-randomize itself every time it draws.
+Drawing may be triggered either explicitly (via an <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action) or implicitly (e.g. at the request of a running dynamic
+stimulus).</p>
+<p>To generate dynamic white noise that updates on every display refresh,
+use this parameter in conjuction with a <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>frame_list dynamic_noise (
+    stimulus_group = dynamic_noise_frames
+    loop = true
+    autoplay = true
+    )
+
+stimulus_group dynamic_noise_frames {
+    white_noise_background (
+        randomize_on_draw = true
+        )
+}
+</pre></div>
+</div>
+</div>
 <div class="section" id="deferred">
 <h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
