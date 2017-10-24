@@ -22,3 +22,5 @@ A folder for (purely) organizational purposes.  Variables defined in a folder wi
 Signature
 ---------
 ``folder``
+
+:Alias: ``group`` *(MWEL only)*

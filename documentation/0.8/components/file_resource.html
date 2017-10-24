@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Resource &#8212; MWorks 0.8.dev documentation</title>
+    <title>File Resource &#8212; MWorks 0.8.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Stimuli" href="stimuli.html" />
+    <link rel="next" title="Python File Resource" href="python_file_resource.html" />
     <link rel="prev" title="Resources" href="resources.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -39,7 +39,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="stimuli.html" title="Stimuli"
+          <a href="python_file_resource.html" title="Python File Resource"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="resources.html" title="Resources"
@@ -53,7 +53,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Resource</a><ul>
+<li><a class="reference internal" href="#">File Resource</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
@@ -68,8 +68,8 @@
   <p class="topless"><a href="resources.html"
                         title="previous chapter">Resources</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="stimuli.html"
-                        title="next chapter">Stimuli</a></p>
+  <p class="topless"><a href="python_file_resource.html"
+                        title="next chapter">Python File Resource</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -88,19 +88,11 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="resource">
-<span id="index-0"></span><span id="id1"></span><h1>Resource<a class="headerlink" href="#resource" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="file-resource">
+<span id="index-0"></span><span id="id1"></span><h1>File Resource<a class="headerlink" href="#file-resource" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>A file or set of files required by an experiment.  All resource files are
-copied, along with the experiment file itself, to the system running
-MWServer.</p>
-<p><em>Note</em>:  In the absence of resource declarations, the MWorks parser
-infers the required resources from the <code class="docutils literal"><span class="pre">path</span></code> and <code class="docutils literal"><span class="pre">directory_path</span></code>
-attributes of other components.  However, if the experiment declares
-any resources, then this inference step is skipped.  Hence, an experiment
-that declares any resources must include <em>all</em> required files in its
-resource declarations.</p>
+<p>A file or set of files required by an experiment.  All resource files are copied, along with the experiment file itself, to the system running MWServer.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
@@ -136,7 +128,7 @@ resource declarations.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="stimuli.html" title="Stimuli"
+          <a href="python_file_resource.html" title="Python File Resource"
              >next</a> |</li>
         <li class="right" >
           <a href="resources.html" title="Resources"

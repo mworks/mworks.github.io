@@ -8,10 +8,18 @@
 Resources
 =========
 
-Resource files (images, scripts, etc.) needed by an experiment
+Resource files (images, scripts, etc.) needed by an experiment.
+
+*Note*:  In the absence of resource declarations, the MWorks parser
+infers the required resources from the ``path`` and ``directory_path``
+attributes of other components.  However, if the experiment declares
+any resources, then this inference step is skipped.  Hence, an experiment
+that declares any resources must include *all* required files in its
+resource declarations.
 
 
 .. toctree::
    :maxdepth: 1
 
-   resource
+   file_resource
+   python_file_resource

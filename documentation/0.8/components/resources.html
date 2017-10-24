@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Resource" href="resource.html" />
+    <link rel="next" title="File Resource" href="file_resource.html" />
     <link rel="prev" title="Trial" href="trial.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -39,7 +39,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="resource.html" title="Resource"
+          <a href="file_resource.html" title="File Resource"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="trial.html" title="Trial"
@@ -54,8 +54,8 @@
   <p class="topless"><a href="trial.html"
                         title="previous chapter">Trial</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="resource.html"
-                        title="next chapter">Resource</a></p>
+  <p class="topless"><a href="file_resource.html"
+                        title="next chapter">File Resource</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -76,10 +76,17 @@
             
   <div class="section" id="resources">
 <span id="id1"></span><h1>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h1>
-<p>Resource files (images, scripts, etc.) needed by an experiment</p>
+<p>Resource files (images, scripts, etc.) needed by an experiment.</p>
+<p><em>Note</em>:  In the absence of resource declarations, the MWorks parser
+infers the required resources from the <code class="docutils literal"><span class="pre">path</span></code> and <code class="docutils literal"><span class="pre">directory_path</span></code>
+attributes of other components.  However, if the experiment declares
+any resources, then this inference step is skipped.  Hence, an experiment
+that declares any resources must include <em>all</em> required files in its
+resource declarations.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="resource.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_resource.html">File Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_file_resource.html">Python File Resource</a></li>
 </ul>
 </div>
 </div>
@@ -97,7 +104,7 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="resource.html" title="Resource"
+          <a href="file_resource.html" title="File Resource"
              >next</a> |</li>
         <li class="right" >
           <a href="trial.html" title="Trial"
