@@ -17,3 +17,4 @@ Variables are a fundamental part of all MWorks experiments.  They store paramete
    folder
    selection_variable
    variable
+   variable_assignment

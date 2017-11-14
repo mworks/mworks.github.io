@@ -88,11 +88,19 @@
 <span id="index-0"></span><span id="id1"></span><h1>Conditional Branching (if/else)<a class="headerlink" href="#conditional-branching-if-else" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Given a list of <a class="reference internal" href="conditionally_execute_actions_if.html#conditionally-execute-actions-if"><span class="std std-ref">Conditionally Execute Actions (if)</span></a> actions, executes the first one whose condition is true, or none if all conditions are false.  To implement an unconditional “else” action, add a conditional with an always-true condition at the end of the list.</p>
+<p>Given a list of <a class="reference internal" href="conditionally_execute_actions_if.html#conditionally-execute-actions-if"><span class="std std-ref">Conditionally Execute Actions (if)</span></a> actions, executes the first one whose condition is true, or none if all conditions are false.  The list may include a single <a class="reference internal" href="unconditionally_execute_actions_else.html#unconditionally-execute-actions-else"><span class="std std-ref">Unconditionally Execute Actions (else)</span></a> action, which will be executed only if all the conditions are false.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal"><span class="pre">action/if_else</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Alias:</th><td class="field-body"><code class="docutils literal"><span class="pre">action/choose</span></code></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -121,7 +129,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2017, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
     </div>
   </body>
 </html>

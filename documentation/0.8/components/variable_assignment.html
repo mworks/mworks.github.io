@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Run Python File &#8212; MWorks 0.8.dev documentation</title>
+    <title>Variable Assignment &#8212; MWorks 0.8.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -24,8 +24,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Run Python String" href="run_python_string.html" />
-    <link rel="prev" title="Run Blackrock LED Driver" href="run_blackrock_led_driver.html" />
+    <link rel="next" title="Experiment Language (MWEL)" href="../mwel/index.html" />
+    <link rel="prev" title="Variable" href="variable.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -39,29 +39,30 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="run_python_string.html" title="Run Python String"
+          <a href="../mwel/index.html" title="Experiment Language (MWEL)"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="run_blackrock_led_driver.html" title="Run Blackrock LED Driver"
+          <a href="variable.html" title="Variable"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="actions.html" accesskey="U">Actions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="variables.html" accesskey="U">Variables</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Run Python File</a><ul>
+<li><a class="reference internal" href="#">Variable Assignment</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
-<li><a class="reference internal" href="#path">path</a></li>
+<li><a class="reference internal" href="#variable">variable</a></li>
+<li><a class="reference internal" href="#value">value</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
-<li><a class="reference internal" href="#stop-on-failure">stop_on_failure</a></li>
+<li><a class="reference internal" href="#type">type</a></li>
 </ul>
 </li>
 </ul>
@@ -69,11 +70,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="run_blackrock_led_driver.html"
-                        title="previous chapter">Run Blackrock LED Driver</a></p>
+  <p class="topless"><a href="variable.html"
+                        title="previous chapter">Variable</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="run_python_string.html"
-                        title="next chapter">Run Python String</a></p>
+  <p class="topless"><a href="../mwel/index.html"
+                        title="next chapter">Experiment Language (MWEL)</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -92,44 +93,55 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="run-python-file">
-<span id="index-0"></span><span id="id1"></span><h1>Run Python File<a class="headerlink" href="#run-python-file" title="Permalink to this headline">¶</a></h1>
-<p><em>Available on macOS</em></p>
+  <div class="section" id="variable-assignment">
+<span id="index-0"></span><span id="id1"></span><h1>Variable Assignment<a class="headerlink" href="#variable-assignment" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Execute the specified file as <a class="reference external" href="https://www.python.org">Python</a> source
-code.</p>
-<p>Within the Python code, use <code class="docutils literal"><span class="pre">getvar</span></code> to retrieve the value of an MWorks
-variable and <code class="docutils literal"><span class="pre">setvar</span></code> to set it, e.g.</p>
-<div class="code python highlight-none"><div class="highlight"><pre><span></span>x = getvar(&#39;x&#39;)
-setvar(&#39;x&#39;, x + 1)
-</pre></div>
-</div>
+<p>Assigns a value to a variable.</p>
+<p>Variable assignments differ from <a class="reference internal" href="assign_variable.html#assign-variable"><span class="std std-ref">Assign Variable</span></a> actions in two key ways:</p>
+<ol class="arabic simple">
+<li>They are allowed only at the top level of an experiment. They cannot be
+declared inside a <a class="reference internal" href="protocol.html#protocol"><span class="std std-ref">Protocol</span></a> or other component.</li>
+<li>They are executed when the experiment loads, instead of at run time.  The
+assignment takes place after <a class="reference internal" href="variable.html#variable"><span class="std std-ref">regular variables</span></a> are created,
+but before the creation of <a class="reference internal" href="selection_variable.html#selection-variable"><span class="std std-ref">selection variables</span></a> or
+other components.</li>
+</ol>
+<p>In MWEL, top-level <a class="reference internal" href="../mwel/index.html#assignments"><span class="std std-ref">assignments</span></a> are automatically converted
+into variable assignments.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">action/run_python_file</span></code></p>
+<p><code class="docutils literal"><span class="pre">variable_assignment</span></code></p>
 </div>
 <div class="section" id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="path">
-<h3>path<a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h3>
-<p>Filesystem path to the Python source file</p>
+<div class="section" id="variable">
+<h3>variable<a class="headerlink" href="#variable" title="Permalink to this headline">¶</a></h3>
+<p>Variable name</p>
+</div>
+<div class="section" id="value">
+<h3>value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
+<p>Value to assign</p>
 </div>
 </div>
 <div class="section" id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="stop-on-failure">
-<h3>stop_on_failure<a class="headerlink" href="#stop-on-failure" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="type">
+<h3>type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">NO</span></code></td>
+<tr class="field-odd field"><th class="field-name">Recommended:</th><td class="field-body"><code class="docutils literal"><span class="pre">any</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Options:</th><td class="field-body"><code class="docutils literal"><span class="pre">any</span></code>, <code class="docutils literal"><span class="pre">boolean</span></code>, <code class="docutils literal"><span class="pre">integer</span></code>, <code class="docutils literal"><span class="pre">float</span></code>, <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">string</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>If <code class="docutils literal"><span class="pre">YES</span></code>, the experiment will stop automatically if Python execution fails</p>
+<p>Controls how the content of <a class="reference internal" href="#value">value</a> is interpreted.  When set to <code class="docutils literal"><span class="pre">any</span></code>, the value is parsed like a normal expression, and the parser infers its type.</p>
 </div>
 </div>
 </div>
@@ -147,14 +159,14 @@ setvar(&#39;x&#39;, x + 1)
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="run_python_string.html" title="Run Python String"
+          <a href="../mwel/index.html" title="Experiment Language (MWEL)"
              >next</a> |</li>
         <li class="right" >
-          <a href="run_blackrock_led_driver.html" title="Run Blackrock LED Driver"
+          <a href="variable.html" title="Variable"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="actions.html" >Actions</a> &#187;</li> 
+          <li class="nav-item nav-item-2"><a href="variables.html" >Variables</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

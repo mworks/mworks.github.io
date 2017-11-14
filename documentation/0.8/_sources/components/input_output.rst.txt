@@ -25,6 +25,7 @@ Input/output (I/O) devices
    firmata_device
    firmata_digital_input_channel
    firmata_digital_output_channel
+   firmata_servo_channel
    iscan_device
    itc_18_analog_input_channel
    itc_18_aux_ttl_output_channel

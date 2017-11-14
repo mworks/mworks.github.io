@@ -15,10 +15,12 @@ Conditional Branching (if/else)
 
 Description
 -----------
-Given a list of `Conditionally Execute Actions (if)` actions, executes the first one whose condition is true, or none if all conditions are false.  To implement an unconditional "else" action, add a conditional with an always-true condition at the end of the list.
+Given a list of `Conditionally Execute Actions (if)` actions, executes the first one whose condition is true, or none if all conditions are false.  The list may include a single `Unconditionally Execute Actions (else)` action, which will be executed only if all the conditions are false.
 
 
 
 Signature
 ---------
 ``action/if_else``
+
+:Alias: ``action/choose``

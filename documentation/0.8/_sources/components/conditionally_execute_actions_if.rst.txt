@@ -22,6 +22,8 @@ Signature
 ---------
 ``action/if``
 
+:Alias: ``action/when``
+
 
 Required Parameters
 -------------------
