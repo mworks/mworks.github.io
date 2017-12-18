@@ -66,6 +66,7 @@
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
 <li><a class="reference internal" href="#direction">direction</a></li>
 <li><a class="reference internal" href="#starting-phase">starting_phase</a></li>
+<li><a class="reference internal" href="#compute-phase-incrementally">compute_phase_incrementally</a></li>
 <li><a class="reference internal" href="#inverted">inverted</a></li>
 <li><a class="reference internal" href="#std-dev">std_dev</a></li>
 <li><a class="reference internal" href="#mean">mean</a></li>
@@ -196,6 +197,28 @@
 </tbody>
 </table>
 <p>Starting phase (degrees)</p>
+</div>
+<div class="section" id="compute-phase-incrementally">
+<h3>compute_phase_incrementally<a class="headerlink" href="#compute-phase-incrementally" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">NO</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal"><span class="pre">NO</span></code>, the current phase of the grating is computed from
+<a class="reference internal" href="#starting-phase">starting_phase</a>, <a class="reference internal" href="#spatial-frequency">spatial_frequency</a>, <a class="reference internal" href="#speed">speed</a>, and the total time
+elapsed  since the stimulus started playing.</p>
+<p>If <code class="docutils literal"><span class="pre">YES</span></code>, the current phase is computed from the previous phase (i.e.
+the phase when the stimulus was last drawn), <a class="reference internal" href="#spatial-frequency">spatial_frequency</a>,
+<a class="reference internal" href="#speed">speed</a>, and the time elapsed since the previous phase was computed.</p>
+<p>This parameter is relevant only when the stimulus is <a class="reference internal" href="live_queue_stimulus.html#live-queue-stimulus"><span class="std std-ref">live queued</span></a> and the values of <a class="reference internal" href="#starting-phase">starting_phase</a>,
+<a class="reference internal" href="#spatial-frequency">spatial_frequency</a>, and/or <a class="reference internal" href="#speed">speed</a> are changed while the stimulus is
+playing.  Most notably, if the parameter’s value is <code class="docutils literal"><span class="pre">NO</span></code>, then changes
+to <a class="reference internal" href="#speed">speed</a> will cause a discontinuous jump in phase.  If the value is
+<code class="docutils literal"><span class="pre">YES</span></code>, then changes to <a class="reference internal" href="#speed">speed</a> will be smooth, with no phase jump.</p>
 </div>
 <div class="section" id="inverted">
 <h3>inverted<a class="headerlink" href="#inverted" title="Permalink to this headline">¶</a></h3>
