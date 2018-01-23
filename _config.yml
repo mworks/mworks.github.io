@@ -42,6 +42,7 @@ timezone: America/New_York
 #
 
 url: https://mworks.github.io
+current_mworks_version: 0.7
 authors:
   - id: cstawarz
     fullname: Christopher Stawarz
