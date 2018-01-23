@@ -10,18 +10,21 @@ gist:
     noscript: false
 kramdown:
     math_engine: mathjax
+    syntax_highlighter: rouge
 
 
 #
 # Options with defaults set by GitHub that can be changed
 #
 
+encoding: UTF-8
 kramdown:
     input: GFM
     hard_wrap: false
-gems:
-  - jekyll-coffeescript
-  - jekyll-paginate
+future: true
+jailed: false
+theme: jekyll-theme-primer
+gfm_quirks: paragraph_end
 
 
 #
