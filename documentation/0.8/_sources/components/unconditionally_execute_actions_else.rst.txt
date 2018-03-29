@@ -24,3 +24,17 @@ Signature
 ``action/else``
 
 :Alias: ``action/otherwise``
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditional Branching (if/else)`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`
+   * - Allowed children:
+     - `Action <Actions>`

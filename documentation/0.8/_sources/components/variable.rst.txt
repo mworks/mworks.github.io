@@ -43,7 +43,8 @@ Optional Parameters
 
 scope
 ^^^^^
-:Options: ``global``, ``local``
+:Options: | ``global``
+          | ``local``
 :Default: ``global``
 
 Controls the visibility of changes made to the variable's value.
@@ -59,7 +60,8 @@ everywhere.
 
 logging
 ^^^^^^^
-:Options: ``never``, ``when_changed``
+:Options: | ``never``
+          | ``when_changed``
 :Default: ``when_changed``
 
 Determines when the variable's value is written to the event stream (and thereby the data file)
@@ -92,9 +94,28 @@ Deprecated Parameters
 
 type
 ^^^^
-:Options: ``any``, ``boolean``, ``integer``, ``float``, ``string``, ``list``
+:Options: | ``any``
+          | ``boolean``
+          | ``integer``
+          | ``float``
+          | ``string``
+          | ``list``
 :Default: ``any``
 
 Controls how the content of `default_value`_ is interpreted.  When set to ``any`` (recommended), the default value is parsed like a normal expression, and the parser infers its type.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
+   * - Allowed children:
+     - `Action <Actions>`

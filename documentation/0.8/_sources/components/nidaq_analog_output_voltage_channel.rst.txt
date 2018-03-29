@@ -53,3 +53,15 @@ voltage
 Variable from which to read output voltage values.  `Assigning <Assign Variable>` a value to the variable causes the output voltage to be changed immediately.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `NIDAQ Device`

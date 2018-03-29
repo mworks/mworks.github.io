@@ -56,3 +56,15 @@ value
 Variable in which to store values received from the input.  Input values are always converted to an integer representation before being stored.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `USB HID Device`

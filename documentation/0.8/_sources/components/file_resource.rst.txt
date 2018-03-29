@@ -15,7 +15,7 @@ File Resource
 
 Description
 -----------
-A file or set of files required by an experiment.  All resource files are copied, along with the experiment file itself, to the system running MWServer.
+A file or set of files required by an experiment
 
 
 
@@ -29,8 +29,22 @@ Required Parameters
 
 path
 ^^^^
-:Examples: ``images/1.png``, ``sounds``, ``/shared/imagesets/01/``
+:Examples: | ``images/1.png``
+           | ``sounds``
+           | ``/shared/imagesets/01/``
 
 Filesystem path to the required file or directory.  If a directory, all non-hidden, regular files in the directory are copied, including those in nested subdirectories.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

@@ -8,7 +8,7 @@
 Stimuli
 =======
 
-Visual and auditory stimuli
+Visual stimuli
 
 .. toctree::
    :maxdepth: 1
@@ -24,7 +24,6 @@ Visual and auditory stimuli
    movie_stimulus
    moving_dots
    rectangle_stimulus
-   sound_stimulus
    stimulus_group
    text_stimulus
    video_stimulus

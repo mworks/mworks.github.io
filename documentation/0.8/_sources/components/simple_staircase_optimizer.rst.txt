@@ -76,3 +76,15 @@ history
 Number of samples to store in internal `boxcar filter <Box-car Filter>` used to average watched variable values
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

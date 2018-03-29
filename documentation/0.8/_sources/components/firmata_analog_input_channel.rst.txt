@@ -28,7 +28,9 @@ Required Parameters
 
 pin_number
 ^^^^^^^^^^
-:Examples: ``a0``, ``A3``, ``17``
+:Examples: | ``a0``
+           | ``A3``
+           | ``17``
 
 Input pin number
 
@@ -38,3 +40,15 @@ value
 Variable in which to store input values.  The value is always between 0 and 1 (inclusive) and indicates the fraction of the device's operating voltage (typically 5V or 3.3V) measured on the input pin.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Firmata Device`

@@ -50,7 +50,10 @@ Waveform maximum (volts)
 
 waveform
 ^^^^^^^^
-:Options: ``sinusoid``, ``square``, ``triangle``, ``sawtooth``
+:Options: | ``sinusoid``
+          | ``square``
+          | ``triangle``
+          | ``sawtooth``
 
 Waveform type
 
@@ -67,3 +70,15 @@ offset
 Waveform time offset (microseconds).  Determines the initial phase of the waveform.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `NIDAQ Device`

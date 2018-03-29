@@ -57,3 +57,15 @@ max_pulse_width
 Pulse width (in microseconds) corresponding to the maximum (180-degree) angle on the servo
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Firmata Device`

@@ -58,9 +58,23 @@ Optional Parameters
 type
 ^^^^
 :Recommended: ``any``
-:Options: ``any``, ``boolean``, ``integer``, ``float``, ``string``
+:Options: | ``any``
+          | ``boolean``
+          | ``integer``
+          | ``float``
+          | ``string``
 :Default: ``string``
 
 Controls how the content of `value`_ is interpreted.  When set to ``any``, the value is parsed like a normal expression, and the parser infers its type.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes

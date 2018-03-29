@@ -4,34 +4,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Sound Stimulus &#8212; MWorks 0.8.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.8.dev',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Stimulus Group" href="stimulus_group.html" />
-    <link rel="prev" title="Rectangle Stimulus" href="rectangle_stimulus.html" />
+    <link rel="next" title="Stimuli" href="stimuli.html" />
+    <link rel="prev" title="Sounds" href="sounds.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -39,14 +30,15 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="stimulus_group.html" title="Stimulus Group"
+          <a href="stimuli.html" title="Stimuli"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="rectangle_stimulus.html" title="Rectangle Stimulus"
+          <a href="sounds.html" title="Sounds"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="stimuli.html" accesskey="U">Stimuli</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="sounds.html" accesskey="U">Sounds</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -64,24 +56,27 @@
 <li><a class="reference internal" href="#amplitude">amplitude</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="rectangle_stimulus.html"
-                        title="previous chapter">Rectangle Stimulus</a></p>
+  <p class="topless"><a href="sounds.html"
+                        title="previous chapter">Sounds</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="stimulus_group.html"
-                        title="next chapter">Stimulus Group</a></p>
+  <p class="topless"><a href="stimuli.html"
+                        title="next chapter">Stimuli</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -100,7 +95,7 @@
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">sound/wav_file</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">sound/wav_file</span></code></p>
 </div>
 <div class="section" id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
@@ -110,7 +105,11 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Examples:</th><td class="field-body"><code class="docutils literal"><span class="pre">sounds/sound1.wav</span></code>, <code class="docutils literal"><span class="pre">/path/to/sound.wav</span></code></td>
+<tr class="field-odd field"><th class="field-name">Examples:</th><td class="field-body"><div class="first last line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sounds/sound1.wav</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">/path/to/sound.wav</span></code></div>
+</div>
+</td>
 </tr>
 </tbody>
 </table>
@@ -125,12 +124,25 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">1.0</span></code></td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1.0</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>Controls the volume at which the sound plays.  <code class="docutils literal"><span class="pre">1.0</span></code> is full volume, while <code class="docutils literal"><span class="pre">0.0</span></code> is silent.</p>
+<p>Controls the volume at which the sound plays.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is full volume, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is silent.</p>
 </div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-auto docutils">
+<tbody valign="top">
+<tr class="row-odd"><th class="stub">Allowed at top level:</th>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><th class="stub">Allowed parent:</th>
+<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -147,19 +159,20 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="stimulus_group.html" title="Stimulus Group"
+          <a href="stimuli.html" title="Stimuli"
              >next</a> |</li>
         <li class="right" >
-          <a href="rectangle_stimulus.html" title="Rectangle Stimulus"
+          <a href="sounds.html" title="Sounds"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="stimuli.html" >Stimuli</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="sounds.html" >Sounds</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2017, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+        &#169; Copyright 2016-2018, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

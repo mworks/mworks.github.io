@@ -22,7 +22,9 @@ connect the required components.
    input_output
    optimizers_and_variable_monitors
    paradigm_components
+   replicators
    resources
+   sounds
    stimuli
    transitions
    variables

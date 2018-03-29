@@ -34,7 +34,8 @@ Required Parameters
 
 path
 ^^^^
-:Examples: ``images/image1.png``, ``/path/to/image.png``
+:Examples: | ``images/image1.png``
+           | ``/path/to/image.png``
 
 Filesystem path to the image file
 
@@ -97,9 +98,23 @@ If ``YES``, the stimulus is sized to fill the display.  In this mode, `x_size`_,
 
 deferred
 ^^^^^^^^
-:Options: ``no``, ``yes``, ``explicit``
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
 :Default: ``no``
 
 Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `List Replicator`, `Range Replicator`, `Stimulus Group`

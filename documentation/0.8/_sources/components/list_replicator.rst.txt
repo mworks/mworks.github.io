@@ -5,7 +5,7 @@
 
 .. index::
    single: List Replicator
-   single: Paradigm Components; List Replicator
+   single: Replicators; List Replicator
 
 .. _List Replicator:
 
@@ -39,3 +39,17 @@ values
 Comma-separated list of values to assign to `variable`_, one per replication
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Block`, `Experiment`, `Folder`, `List`, `List Replicator`, `Protocol`, `Range Replicator`, `Stimulus Group`, `Trial`
+   * - Allowed children:
+     - `Block`, `List`, `List Replicator`, `Protocol`, `Range Replicator`, `Stimulus <Stimuli>`, `Stimulus Group`, `Trial`

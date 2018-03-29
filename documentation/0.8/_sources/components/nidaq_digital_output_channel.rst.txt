@@ -63,7 +63,9 @@ Variable from which to read multi-bit output words.  `Assigning <Assign Variable
 
 word_lines
 ^^^^^^^^^^
-:Examples: ``1,2,3``, ``4:7``, ``1,4:6,7``
+:Examples: | ``1,2,3``
+           | ``4:7``
+           | ``1,4:6,7``
 
 Lines used to output the individual bits of multi-bit words. The first
 line receives the least significant bit, the last line the most
@@ -170,3 +172,15 @@ line30
 line31
 ^^^^^^
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `NIDAQ Device`

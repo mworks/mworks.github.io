@@ -47,7 +47,8 @@ Required Parameters
 
 hostname
 ^^^^^^^^
-:Examples: ``localhost``, ``dicarlo-open-ephys-12.mit.edu``
+:Examples: | ``localhost``
+           | ``dicarlo-open-ephys-12.mit.edu``
 
 Hostname of the computer running the Open Ephys GUI
 
@@ -67,7 +68,9 @@ Variable from which to read synchronization words sent to TTL inputs on the Open
 
 sync_channels
 ^^^^^^^^^^^^^
-:Examples: ``0,1``, ``4:7``, ``1,4:6,7``
+:Examples: | ``0,1``
+           | ``4:7``
+           | ``1,4:6,7``
 
 TTL input channels on the Open Ephys acquisition board to which synchronization words are sent.  The first channel should receive the least significant bit, the last channel the most significant.
 
@@ -129,3 +132,15 @@ alt
 Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

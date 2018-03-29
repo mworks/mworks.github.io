@@ -80,3 +80,15 @@ eye_velocity_v
 Variable in which to store computed vertical eye velocity (units per second)
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

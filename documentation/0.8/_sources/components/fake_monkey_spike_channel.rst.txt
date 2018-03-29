@@ -35,3 +35,15 @@ variable
 Variable to set to ``1`` whenever a new spike is generated
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Fake Monkey IO Device`

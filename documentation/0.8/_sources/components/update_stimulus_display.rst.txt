@@ -45,3 +45,15 @@ predicted_output_time
 Name of a variable in which to store the predicted output time of the frame in which the update will take effect.  This time is the operating system's best guess for when the rendered frame will start to appear on screen.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

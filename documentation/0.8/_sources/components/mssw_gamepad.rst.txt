@@ -36,7 +36,8 @@ Required Parameters
 data_type
 ^^^^^^^^^
 :Recommended: ``event``
-:Options: ``event``, ``continuous``
+:Options: | ``event``
+          | ``continuous``
 
 If ``event``, variables are updated only when the corresponding button's state changes.  If ``continuous``, variables are updated every `data_interval`_ period of time, even if the corresponding button's state has not changed.
 
@@ -119,3 +120,15 @@ alt
 Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

@@ -31,7 +31,8 @@ Required Parameters
 
 hostname
 ^^^^^^^^
-:Examples: ``localhost``, ``dicarlo-open-ephys-12.mit.edu``
+:Examples: | ``localhost``
+           | ``dicarlo-open-ephys-12.mit.edu``
 
 Hostname of the computer running the Open Ephys GUI
 
@@ -84,3 +85,15 @@ alt
 Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

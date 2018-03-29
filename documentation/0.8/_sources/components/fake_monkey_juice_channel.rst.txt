@@ -35,3 +35,15 @@ variable
 Variable used to trigger simulated juice dispensing.  Whenever the variable's value changes, MWorks logs a message (to the event stream and server console) indicating that juice was dispensed.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Fake Monkey IO Device`

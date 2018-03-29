@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Fixation Point Stimulus &#8212; MWorks 0.8.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.8.dev',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -30,8 +22,7 @@
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -45,8 +36,9 @@
           <a href="ellipse_stimulus.html" title="Ellipse Stimulus"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="stimuli.html" accesskey="U">Stimuli</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="stimuli.html" accesskey="U">Stimuli</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -75,6 +67,7 @@
 <li><a class="reference internal" href="#deferred">deferred</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
 </ul>
 </li>
 </ul>
@@ -87,12 +80,14 @@
                         title="next chapter">Frame List Stimulus</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -111,7 +106,7 @@
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">stimulus/fixation_point</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">stimulus/fixation_point</span></code></p>
 </div>
 <div class="section" id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
@@ -140,7 +135,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">1.0,1.0,1.0</span></code></td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1.0,1.0,1.0</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -152,13 +147,13 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">5.0</span></code></td>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">5.0</span></code></td>
 </tr>
 </tbody>
 </table>
 <p>Horizontal size (degrees).</p>
 <p>If omitted, the value of <a class="reference internal" href="#y-size">y_size</a> is used.  It is an error to omit both
-x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal"><span class="pre">YES</span></code>).</p>
+x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
 </div>
 <div class="section" id="y-size">
 <h3>y_size<a class="headerlink" href="#y-size" title="Permalink to this headline">¶</a></h3>
@@ -166,13 +161,13 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal"><span class="pre">5.0</span></code></td>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">5.0</span></code></td>
 </tr>
 </tbody>
 </table>
 <p>Vertical size (degrees).</p>
 <p>If omitted, the value of <a class="reference internal" href="#x-size">x_size</a> is used.  It is an error to omit both
-x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal"><span class="pre">YES</span></code>).</p>
+x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
 </div>
 <div class="section" id="x-position">
 <h3>x_position<a class="headerlink" href="#x-position" title="Permalink to this headline">¶</a></h3>
@@ -180,7 +175,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">0.0</span></code></td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">0.0</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -192,7 +187,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">0.0</span></code></td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">0.0</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -204,7 +199,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">0.0</span></code></td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">0.0</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -216,11 +211,11 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">1.0</span></code></td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1.0</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>Controls the transparency of the stimulus.  <code class="docutils literal"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal"><span class="pre">0.0</span></code> is fully tranparent.</p>
+<p>Controls the transparency of the stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
 </div>
 <div class="section" id="fullscreen">
 <h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this headline">¶</a></h3>
@@ -228,11 +223,11 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">NO</span></code></td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">NO</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>If <code class="docutils literal"><span class="pre">YES</span></code>, the stimulus is sized to fill the display.  In this mode, <a class="reference internal" href="#x-size">x_size</a>, <a class="reference internal" href="#y-size">y_size</a>, <a class="reference internal" href="#x-position">x_position</a>, <a class="reference internal" href="#y-position">y_position</a>, and <a class="reference internal" href="#rotation">rotation</a> are ignored.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus is sized to fill the display.  In this mode, <a class="reference internal" href="#x-size">x_size</a>, <a class="reference internal" href="#y-size">y_size</a>, <a class="reference internal" href="#x-position">x_position</a>, <a class="reference internal" href="#y-position">y_position</a>, and <a class="reference internal" href="#rotation">rotation</a> are ignored.</p>
 </div>
 <div class="section" id="deferred">
 <h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
@@ -240,14 +235,32 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Options:</th><td class="field-body"><code class="docutils literal"><span class="pre">no</span></code>, <code class="docutils literal"><span class="pre">yes</span></code>, <code class="docutils literal"><span class="pre">explicit</span></code></td>
+<tr class="field-odd field"><th class="field-name">Options:</th><td class="field-body"><div class="first last line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">no</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">yes</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">explicit</span></code></div>
+</div>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">no</span></code></td>
+<tr class="field-even field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">no</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>Controls when the stimulus is loaded.  If <code class="docutils literal"><span class="pre">no</span></code>, the stimulus is loaded at experiment load time.  If <code class="docutils literal"><span class="pre">yes</span></code>, the stimulus is loaded the first time it is <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a>.  If <code class="docutils literal"><span class="pre">explicit</span></code>, the stimulus must be loaded explictly with <a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">Load Stimulus</span></a>.</p>
+<p>Controls when the stimulus is loaded.  If <code class="docutils literal notranslate"><span class="pre">no</span></code>, the stimulus is loaded at experiment load time.  If <code class="docutils literal notranslate"><span class="pre">yes</span></code>, the stimulus is loaded the first time it is <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a>.  If <code class="docutils literal notranslate"><span class="pre">explicit</span></code>, the stimulus must be loaded explictly with <a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">Load Stimulus</span></a>.</p>
 </div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-auto docutils">
+<tbody valign="top">
+<tr class="row-odd"><th class="stub">Allowed at top level:</th>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><th class="stub">Allowed parent:</th>
+<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -270,13 +283,14 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
           <a href="ellipse_stimulus.html" title="Ellipse Stimulus"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="stimuli.html" >Stimuli</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="stimuli.html" >Stimuli</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2017, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+        &#169; Copyright 2016-2018, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

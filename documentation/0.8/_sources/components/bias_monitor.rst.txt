@@ -68,3 +68,15 @@ grace_period
 Don't do anything unless you have at least this many observations
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

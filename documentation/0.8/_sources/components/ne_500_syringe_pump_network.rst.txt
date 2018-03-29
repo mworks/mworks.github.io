@@ -31,7 +31,8 @@ Optional Parameters
 
 address
 ^^^^^^^
-:Examples: ``"10.0.254.254"``, ``/dev/cu.usbserial-FTH1RRH5``
+:Examples: | ``"10.0.254.254"``
+           | ``/dev/cu.usbserial-FTH1RRH5``
 
 If `port`_ is provided, the address is taken to be a host name,
 and MWorks attempts to connect to the pump network via a
@@ -81,3 +82,17 @@ alt
 Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
+   * - Allowed children:
+     - `NE-500 Syringe Pump`

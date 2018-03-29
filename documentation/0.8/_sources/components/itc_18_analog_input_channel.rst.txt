@@ -68,3 +68,15 @@ data_interval
 ^^^^^^^^^^^^^
 :Example: ``1ms``
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `ITC-18 IO Device`

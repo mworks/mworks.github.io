@@ -51,3 +51,15 @@ eyev_calibrated
 Variable in which to store the calibrated (output) vertical eye position
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

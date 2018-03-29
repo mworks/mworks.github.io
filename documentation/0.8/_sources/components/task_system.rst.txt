@@ -36,3 +36,17 @@ interruptible
 If ``NO``, then any request to pause or stop the experiment while this component is executing will be deferred until said execution completes. This behavior is inherited by the component's children, making them non-interruptible as well.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `List`, `Protocol`, `Trial`
+   * - Allowed children:
+     - `Task System State`

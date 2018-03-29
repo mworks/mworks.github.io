@@ -5,7 +5,7 @@
 
 .. index::
    single: Sound Stimulus
-   single: Stimuli; Sound Stimulus
+   single: Sounds; Sound Stimulus
 
 .. _Sound Stimulus:
 
@@ -29,7 +29,8 @@ Required Parameters
 
 path
 ^^^^
-:Examples: ``sounds/sound1.wav``, ``/path/to/sound.wav``
+:Examples: | ``sounds/sound1.wav``
+           | ``/path/to/sound.wav``
 
 Filesystem path to the sound file
 
@@ -45,3 +46,15 @@ amplitude
 Controls the volume at which the sound plays.  ``1.0`` is full volume, while ``0.0`` is silent.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

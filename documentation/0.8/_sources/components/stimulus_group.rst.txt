@@ -21,3 +21,17 @@ An indexable group of stimuli
 Signature
 ---------
 ``stimulus_group``
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `List Replicator`, `Range Replicator`, `Stimulus Group`
+   * - Allowed children:
+     - `List Replicator`, `Range Replicator`, `Stimulus <Stimuli>`, `Stimulus Group`

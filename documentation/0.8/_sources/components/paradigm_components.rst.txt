@@ -17,9 +17,7 @@ Paradigm components provide structure to an experiment and determine the flow of
    block
    experiment
    list
-   list_replicator
    protocol
-   range_replicator
    task_system
    task_system_state
    trial

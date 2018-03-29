@@ -4,20 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Task System &#8212; MWorks 0.8.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '0.8.dev',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -25,13 +17,12 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Task System State" href="task_system_state.html" />
-    <link rel="prev" title="Range Replicator" href="range_replicator.html" />
+    <link rel="prev" title="Protocol" href="protocol.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -42,11 +33,12 @@
           <a href="task_system_state.html" title="Task System State"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="range_replicator.html" title="Range Replicator"
+          <a href="protocol.html" title="Protocol"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="paradigm_components.html" accesskey="U">Paradigm Components</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="paradigm_components.html" accesskey="U">Paradigm Components</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -60,24 +52,27 @@
 <li><a class="reference internal" href="#interruptible">interruptible</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="range_replicator.html"
-                        title="previous chapter">Range Replicator</a></p>
+  <p class="topless"><a href="protocol.html"
+                        title="previous chapter">Protocol</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="task_system_state.html"
                         title="next chapter">Task System State</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -96,12 +91,12 @@
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">task_system</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">task_system</span></code></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Alias:</th><td class="field-body"><code class="docutils literal"><span class="pre">task</span></code> <em>(MWEL only)</em></td>
+<tr class="field-odd field"><th class="field-name">Alias:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">task</span></code> <em>(MWEL only)</em></td>
 </tr>
 </tbody>
 </table>
@@ -114,12 +109,28 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal"><span class="pre">YES</span></code></td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">YES</span></code></td>
 </tr>
 </tbody>
 </table>
-<p>If <code class="docutils literal"><span class="pre">NO</span></code>, then any request to pause or stop the experiment while this component is executing will be deferred until said execution completes. This behavior is inherited by the component’s children, making them non-interruptible as well.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, then any request to pause or stop the experiment while this component is executing will be deferred until said execution completes. This behavior is inherited by the component’s children, making them non-interruptible as well.</p>
 </div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-auto docutils">
+<tbody valign="top">
+<tr class="row-odd"><th class="stub">Allowed at top level:</th>
+<td>No</td>
+</tr>
+<tr class="row-even"><th class="stub">Allowed parent:</th>
+<td><a class="reference internal" href="block.html#block"><span class="std std-ref">Block</span></a>, <a class="reference internal" href="list.html#list"><span class="std std-ref">List</span></a>, <a class="reference internal" href="protocol.html#protocol"><span class="std std-ref">Protocol</span></a>, <a class="reference internal" href="trial.html#trial"><span class="std std-ref">Trial</span></a></td>
+</tr>
+<tr class="row-odd"><th class="stub">Allowed children:</th>
+<td><a class="reference internal" href="task_system_state.html#task-system-state"><span class="std std-ref">Task System State</span></a></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -139,16 +150,17 @@
           <a href="task_system_state.html" title="Task System State"
              >next</a> |</li>
         <li class="right" >
-          <a href="range_replicator.html" title="Range Replicator"
+          <a href="protocol.html" title="Protocol"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Components</a> &#187;</li>
-          <li class="nav-item nav-item-2"><a href="paradigm_components.html" >Paradigm Components</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="paradigm_components.html" >Paradigm Components</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2017, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+        &#169; Copyright 2016-2018, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
     </div>
   </body>
 </html>

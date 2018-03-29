@@ -60,7 +60,10 @@ Optional Parameters
 
 rate_unit
 ^^^^^^^^^
-:Options: ``UM``, ``MM``, ``UH``, ``MH``
+:Options: | ``UM``
+          | ``MM``
+          | ``UH``
+          | ``MH``
 :Default: ``MM``
 
 Units of `flow_rate`_.  The options are uL/min, mL/min, uL/hr, and mL/hr.
@@ -68,7 +71,8 @@ Units of `flow_rate`_.  The options are uL/min, mL/min, uL/hr, and mL/hr.
 
 volume_unit
 ^^^^^^^^^^^
-:Options: ``UL``, ``ML``
+:Options: | ``UL``
+          | ``ML``
 
 Volume units.
 
@@ -77,3 +81,15 @@ syringe diameter is less than or equal to 14mm, UL is used.  Otherwise,
 ML is used.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `NE-500 Syringe Pump Network`

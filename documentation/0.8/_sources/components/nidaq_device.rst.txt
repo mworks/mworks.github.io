@@ -65,6 +65,17 @@ Interval between generated samples on analog output channels (microseconds)
 Optional Parameters
 -------------------
 
+analog_read_timeout
+^^^^^^^^^^^^^^^^^^^
+:Example: ``3ms``
+
+Maximum time to wait for a single update's worth of analog input samples
+(microseconds).  If the samples are not received in the allotted time,
+issue an error message.
+
+If omitted, defaults to `update_interval`_.
+
+
 assume_multiplexed_adc
 ^^^^^^^^^^^^^^^^^^^^^^
 :Default: ``YES``
@@ -89,3 +100,17 @@ alt
 Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
+   * - Allowed children:
+     - `NIDAQ Analog Input Voltage Channel`, `NIDAQ Analog Output Voltage Channel`, `NIDAQ Analog Output Voltage Waveform Channel`, `NIDAQ Counter Input Count Edges Channel`, `NIDAQ Digital Input Channel`, `NIDAQ Digital Output Channel`

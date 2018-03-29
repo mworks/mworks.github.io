@@ -15,7 +15,7 @@ Clear Calibration
 
 Description
 -----------
-Prompt a calibrator object to "forget" all previously collected calibration samples
+Prompt a calibrator object to "forget" all previously collected calibration samples.  A sufficient number of new samples must be obtained before a new calibration can be computed.
 
 
 
@@ -32,3 +32,15 @@ calibrator
 
 Name of the calibrator
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

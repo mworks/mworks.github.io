@@ -28,7 +28,9 @@ Required Parameters
 
 address
 ^^^^^^^
-:Examples: ``localhost``, ``"mytracker.mylab.net"``, ``18.9.22.69``
+:Examples: | ``localhost``
+           | ``"mytracker.mylab.net"``
+           | ``18.9.22.69``
 
 Tracker host name or IP address
 
@@ -70,3 +72,15 @@ alt
 Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

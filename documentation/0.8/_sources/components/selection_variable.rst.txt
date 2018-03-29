@@ -60,7 +60,11 @@ Comma-separated list containing the names of groups to which the variable belong
 
 selection
 ^^^^^^^^^
-:Options: ``sequential``, ``sequential_ascending``, ``sequential_descending``, ``random_without_replacement``, ``random_with_replacement``
+:Options: | ``sequential``
+          | ``sequential_ascending``
+          | ``sequential_descending``
+          | ``random_without_replacement``
+          | ``random_with_replacement``
 :Default: ``sequential``
 
 Order in which to draw selections
@@ -74,9 +78,22 @@ Number of samples to allow before `Reset Selections` is required
 
 sampling_method
 ^^^^^^^^^^^^^^^
-:Options: ``cycles``, ``samples``
+:Options: | ``cycles``
+          | ``samples``
 :Default: ``cycles``
 
 Controls the interpretation of `nsamples`_.  If set to ``cycles``, *all* possible selections must be made to complete one sample.  If set to ``samples``, each individual selection counts as a sample.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

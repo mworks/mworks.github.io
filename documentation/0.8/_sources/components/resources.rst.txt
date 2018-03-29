@@ -8,7 +8,9 @@
 Resources
 =========
 
-Resource files (images, scripts, etc.) needed by an experiment.
+Resource files (images, scripts, etc.) needed by an experiment.  At run
+time, all resource files are copied, along with the experiment file itself,
+to the system running MWServer.
 
 *Note*:  In the absence of resource declarations, the MWorks parser
 infers the required resources from the ``path`` and ``directory_path``

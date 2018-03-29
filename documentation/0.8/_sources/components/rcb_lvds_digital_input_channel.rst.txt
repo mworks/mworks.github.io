@@ -35,7 +35,10 @@ Required Parameters
 
 channel
 ^^^^^^^
-:Examples: ``3``, ``0,2,6``, ``1:4``, ``7,11:13,15``
+:Examples: | ``3``
+           | ``0,2,6``
+           | ``1:4``
+           | ``7,11:13,15``
 
 Channel number(s) to control via assignment to the variable provided in `value`_.  Each channel number must be between 0 and 15 (inclusive).
 
@@ -52,3 +55,15 @@ bit controls the state of the first channel specified in `channel`_ (0
 for low, 1 for high), the next bit controls the second channel, etc.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `RCB-LVDS Device`

@@ -55,3 +55,15 @@ update_interval
 Interval between eye position updates (microseconds).  If larger than `data_interval`_, multiple eye positions will be generated during each update.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Fake Monkey IO Device`

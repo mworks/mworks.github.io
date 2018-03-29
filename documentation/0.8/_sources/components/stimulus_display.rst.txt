@@ -39,6 +39,13 @@ The background color, expressed as a comma-separated list of red, green, and blu
 Optional Parameters
 -------------------
 
+redraw_on_every_refresh
+^^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the display will be redrawn during every refresh cycle.  If ``NO``, the display will be redrawn only when needed or when explicitly requested via `Update Stimulus Display`.
+
+
 announce_stimuli_on_implicit_updates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :Default: ``YES``
@@ -63,3 +70,15 @@ alt
 Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
 
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

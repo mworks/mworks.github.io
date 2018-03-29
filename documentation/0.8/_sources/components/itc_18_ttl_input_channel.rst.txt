@@ -38,7 +38,10 @@ capability
 
 data_type
 ^^^^^^^^^
-:Options: ``edge_low_to_high``, ``edge_high_to_low``, ``edge_any``, ``digital``
+:Options: | ``edge_low_to_high``
+          | ``edge_high_to_low``
+          | ``edge_any``
+          | ``digital``
 
 Data type.  ``digital`` indicates continuous digital data.
 
@@ -71,3 +74,15 @@ data_interval
 ^^^^^^^^^^^^^
 :Example: ``0.5ms``
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `ITC-18 IO Device`

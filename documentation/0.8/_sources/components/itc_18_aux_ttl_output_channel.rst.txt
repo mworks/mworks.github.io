@@ -38,7 +38,10 @@ capability
 
 data_type
 ^^^^^^^^^
-:Options: ``digital``, ``pulse_active_high``, ``pulse_active_low``, ``digital_uint8``
+:Options: | ``digital``
+          | ``pulse_active_high``
+          | ``pulse_active_low``
+          | ``digital_uint8``
 
 direction
 ^^^^^^^^^
@@ -68,3 +71,15 @@ data_interval
 ^^^^^^^^^^^^^
 :Example: ``1ms``
 
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `ITC-18 IO Device`
