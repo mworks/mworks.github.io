@@ -15,12 +15,7 @@ Wait
 
 Description
 -----------
-Pause for a specified amount of time.
-
-*Note*: This action is not intended for precise coordination of timed
-events. For a greater degree of temporal control, use a `Task System` with a
-timer object and a `Timer Expired Transition`.
-
+Pause for a specified amount of time
 
 
 Signature

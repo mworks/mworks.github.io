@@ -373,7 +373,7 @@ NO
 <div class="section" id="ranges">
 <span id="range-expressions"></span><h2>Ranges<a class="headerlink" href="#ranges" title="Permalink to this headline">¶</a></h2>
 <p>A range expression is a compact representation of an evenly-spaced, ordered sequence of integers.</p>
-<p>The general form of a range expression is <em>start:stop:step</em>, where <em>start</em>, <em>stop</em>, and <em>step</em> are expressions that evaluate to integers.  <em>step</em> is optional.  If provided, it must evaluate to a non-negative integer; if omitted, it defaults to 1.  If <em>start</em> is less than <em>stop</em>, the sequence will be increasing; otherwise, it will be decreasing.  <em>start</em> is always included in the sequence.  If <em>start</em> and <em>stop</em> are separated by a multiple of <em>step</em>, <em>stop</em> will be included as well.</p>
+<p>The general form of a range expression is <em>start:stop:step</em>, where <em>start</em>, <em>stop</em>, and <em>step</em> are expressions that evaluate to integers.  <em>step</em> is optional.  If provided, it must evaluate to a positive integer; if omitted, it defaults to 1.  If <em>start</em> is less than <em>stop</em>, the sequence will be increasing; otherwise, it will be decreasing.  <em>start</em> is always included in the sequence.  If <em>start</em> and <em>stop</em> are separated by a multiple of <em>step</em>, <em>stop</em> will be included as well.</p>
 <p>List literals, function calls, and <a class="reference internal" href="../components/selection_variable.html#selection-variable"><span class="std std-ref">selection variable</span></a> value lists can all incorporate range expressions.  In all cases, range expressions can be mixed with other expressions, so long as all items are separated by commas.</p>
 <p>The following table shows some examples of range expression usage, with equivalent, range-expression-free versions shown alongside.</p>
 <table border="1" class="docutils">
@@ -544,7 +544,7 @@ NO
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2018, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.3.
     </div>
   </body>
 </html>

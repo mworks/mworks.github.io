@@ -52,6 +52,15 @@ Font size (points)
 Optional Parameters
 -------------------
 
+text_alignment
+^^^^^^^^^^^^^^
+:Options: | ``left``
+          | ``right``
+          | ``center``
+:Default: ``left``
+
+Text alignment
+
 color
 ^^^^^
 :Default: ``1.0,1.0,1.0``

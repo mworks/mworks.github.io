@@ -65,7 +65,12 @@
 <li><a class="reference internal" href="#advanced-tools-and-techniques">Advanced Tools and Techniques</a><ul>
 <li><a class="reference internal" href="#variable-attached-actions">Variable-Attached Actions</a></li>
 <li><a class="reference internal" href="#replicators">Replicators</a></li>
-<li><a class="reference internal" href="#selection">Selection</a></li>
+<li><a class="reference internal" href="#selection">Selection</a><ul>
+<li><a class="reference internal" href="#selection-parameters">Selection Parameters</a></li>
+<li><a class="reference internal" href="#accepting-and-rejecting-samples">Accepting and Rejecting Samples</a></li>
+<li><a class="reference internal" href="#selection-variables">Selection Variables</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#stimulus-animation">Stimulus Animation</a></li>
 </ul>
 </li>
@@ -383,7 +388,7 @@ update_display ()
 </div>
 </div>
 <div class="section" id="understanding-display-updates">
-<h3>Understanding Display Updates<a class="headerlink" href="#understanding-display-updates" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3>Understanding Display Updates<a class="headerlink" href="#understanding-display-updates" title="Permalink to this headline">¶</a></h3>
 <p>Computer displays typically update at a fixed <a class="reference external" href="https://en.wikipedia.org/wiki/Refresh_rate">refresh rate</a>.  For example, a display with a 60Hz refresh rate will redraw itself approximately once every 16.67 milliseconds.</p>
 <p>To optimize graphics performance and avoid visual artifacts like <a class="reference external" href="https://en.wikipedia.org/wiki/Screen_tearing">screen tearing</a>, MWorks performs all stimulus-drawing operations in synchrony with the display’s refresh cycle.  Specifically, all drawing code executes on a dedicated operating system <a class="reference external" href="https://en.wikipedia.org/wiki/Thread_(computing)">thread</a>, independent of the thread on which the running protocol executes, and rendered frames are transferred to the display hardware only during the <a class="reference external" href="https://en.wikipedia.org/wiki/Vertical_blanking_interval">vertical blanking interval</a>, which occurs once per refresh period.</p>
 <p>Contrary to what you might expect, the completion of an <a class="reference internal" href="../components/update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action does <em>not</em> signal that the display has actually been updated.  Rather, it indicates only that all stimulus drawing commands have been submitted to the graphics hardware, and that their effects will become visible during the next refresh of the display (which should begin less than one refresh period in the future).</p>
@@ -418,15 +423,260 @@ update_display ()
 </div>
 <div class="section" id="replicators">
 <h3>Replicators<a class="headerlink" href="#replicators" title="Permalink to this headline">¶</a></h3>
-<p><em>Coming soon!</em></p>
+<p><a class="reference internal" href="../components/replicators.html#replicators"><span class="std std-ref">Replicators</span></a> are confusing, difficult to use correctly, and should be avoided whenever possible.  However, a few experiment-construction tasks would be difficult or impossible to accomplish without replicators, so you should know the basics of how they work.</p>
+<p>Most commonly, replicators are employed in the declaration of related stimuli.  For example, suppose you are implementing an experiment in which you will present 100 <a class="reference internal" href="../components/image_stimulus.html#image-stimulus"><span class="std std-ref">image stimuli</span></a>, all of the same size and at the same on-screen position.  In the absence of replicators, your experiment would include a large list of nearly-identical stimulus declarations, one for each image file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var img_size = 5
+var img_pos_x = 0
+var img_pos_y = 0
+
+stimulus_group images {
+    image_file image1 (
+        path = &#39;images/img1.png&#39;
+        x_size = img_size
+        x_position = img_pos_x
+        y_position = img_pos_y
+        )
+
+    image_file image2 (
+        path = &#39;images/img2.png&#39;
+        x_size = img_size
+        x_position = img_pos_x
+        y_position = img_pos_y
+        )
+
+    ...
+
+    image_file image100 (
+        path = &#39;images/img100.png&#39;
+        x_size = img_size
+        x_position = img_pos_x
+        y_position = img_pos_y
+        )
+}
+</pre></div>
+</div>
+<p>Because each declaration differs only in the numeric index of the image, you can replace this long, redundant list with a single image declaration contained in a <a class="reference internal" href="../components/range_replicator.html#range-replicator"><span class="std std-ref">range replicator</span></a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var index (scope = local; default_value = 0)
+
+stimulus_group images {
+    range_replicator (
+        variable = index
+        from = 1
+        to = 100
+        step = 1
+        ) {
+        image_file image${index} (
+            path = &#39;images/img${index}.png&#39;
+            x_size = img_size
+            x_position = img_pos_x
+            y_position = img_pos_y
+            )
+    }
+}
+</pre></div>
+</div>
+<p>There are two important points to note here:</p>
+<ol class="arabic simple">
+<li>The replicator variable, <code class="docutils literal notranslate"><span class="pre">index</span></code>, includes <code class="docutils literal notranslate"><span class="pre">scope=local</span></code> in its declaration.</li>
+<li>Inside the replicator, the text <code class="docutils literal notranslate"><span class="pre">${index}</span></code> is replaced with the value of <code class="docutils literal notranslate"><span class="pre">index</span></code> for the current iteration.</li>
+</ol>
+<p>Alternatively, to avoid the requirement that your image files be named with ascending numeric indices, you can use a <a class="reference internal" href="../components/list_replicator.html#list-replicator"><span class="std std-ref">list replicator</span></a> with a <code class="docutils literal notranslate"><span class="pre">filenames</span></code> directive:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var filename (scope = local; type = string; default_value = not_a_file)
+
+stimulus_group images {
+    list_replicator (
+        variable = filename
+        values = &#39;filenames(images/*.png)&#39;
+        ) {
+        image_file ${filename} (
+            path = &#39;${filename}&#39;
+            x_size = img_size
+            x_position = img_pos_x
+            y_position = img_pos_y
+            )
+    }
+}
+</pre></div>
+</div>
+<p>Replicators can also be used to create sets of related <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocols</span></a>, <a class="reference internal" href="../components/block.html#block"><span class="std std-ref">blocks</span></a>, <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trials</span></a>, and <a class="reference internal" href="../components/list.html#list"><span class="std std-ref">lists</span></a>.  For example, suppose you want your experiment to contain 100 trials.  The trials will be identical, except each will present a different image.  You can avoid having a separate declaration for each trial by using a replicator:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>protocol {
+    range_replicator (
+        variable = index
+        from = 0
+        to = 99
+        step = 1
+        ) {
+        trial {
+            queue_stimulus (images[index])
+            ...
+        }
+    }
+}
+</pre></div>
+</div>
+<p>Notice that, in this case, the replicator variable is referred to simply by name (<code class="docutils literal notranslate"><span class="pre">index</span></code>) and <em>not</em> like it is in the image declaration (<code class="docutils literal notranslate"><span class="pre">${index}</span></code>).  In fact, if you try to use the latter syntax, you will get an “unknown variable” error at run time.  This is but one of many quirks and limitations that make replicators difficult to understand and use.</p>
 </div>
 <div class="section" id="selection">
-<span id="id1"></span><h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
-<p><em>Coming soon!</em></p>
+<span id="id2"></span><h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
+<p>In MWorks, <em>selection</em> is a mechanism for controlling the ordering and repetition of experimental tasks and parameters.  A <em>selectable object</em> is a container from which items are drawn (“selected”) in sequential or random order.  After being drawn, selected items can be <em>accepted</em> (removed from the container permanently) or <em>rejected</em> (placed back in the container to be selected again).</p>
+<div class="section" id="selection-parameters">
+<h4>Selection Parameters<a class="headerlink" href="#selection-parameters" title="Permalink to this headline">¶</a></h4>
+<p>The behavior of selectable objects is controlled by three parameters:</p>
+<dl class="docutils">
+<dt>selection</dt>
+<dd>The selection method, which controls the order in which samples are drawn.  Allowed values are <code class="docutils literal notranslate"><span class="pre">sequential</span></code> (aka <code class="docutils literal notranslate"><span class="pre">sequential_ascending</span></code>), <code class="docutils literal notranslate"><span class="pre">sequential_descending</span></code>, <code class="docutils literal notranslate"><span class="pre">random_without_replacement</span></code>, and <code class="docutils literal notranslate"><span class="pre">random_with_replacement</span></code>.</dd>
+<dt>nsamples</dt>
+<dd>The number of samples that may be drawn before the selectable object is exhausted</dd>
+<dt>sampling_method</dt>
+<dd>Determines what constitutes a sample.  <code class="docutils literal notranslate"><span class="pre">cycles</span></code> means that <em>all</em> possible selections must be made to complete one sample, whereas <code class="docutils literal notranslate"><span class="pre">samples</span></code> indicates that each individual selection counts as a sample.</dd>
+</dl>
+<p><a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">Protocols</span></a>, <a class="reference internal" href="../components/block.html#block"><span class="std std-ref">blocks</span></a>, <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trials</span></a>, and <a class="reference internal" href="../components/list.html#list"><span class="std std-ref">lists</span></a> are all selectable objects.  The items that they contain and offer for selection are their immediate child components (i.e. <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a> and other <a class="reference internal" href="../components/paradigm_components.html#paradigm-components"><span class="std std-ref">paradigm components</span></a>).  This is easiest to understand via an example.</p>
+<p>Consider a block that contains three assignments to variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, whose initial value is 0:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>block {
+    x = 10*x + 1
+    x = 10*x + 2
+    x = 10*x + 3
+}
+</pre></div>
+</div>
+<p>When the block executes, it will perform each assignment exactly once, in order of appearance, after which the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> will be 123.  This execution behavior results from the default values used for the block’s selection parameters, which we can also specify explicitly:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>block (
+    selection = sequential
+    nsamples = 1
+    sampling_method = cycles
+    ) {
+    ...
+}
+</pre></div>
+</div>
+<p>Now, consider how the final value of <code class="docutils literal notranslate"><span class="pre">x</span></code> changes as we alter each selection parameter is turn.  Suppose we change the value of <code class="docutils literal notranslate"><span class="pre">selection</span></code> from <code class="docutils literal notranslate"><span class="pre">sequential</span></code> to <code class="docutils literal notranslate"><span class="pre">sequential_descending</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>block (
+    selection = sequential_descending
+    nsamples = 1
+    sampling_method = cycles
+    ) {
+    ...
+}
+</pre></div>
+</div>
+<p>This reverses the order in which the block executes its child actions, giving <code class="docutils literal notranslate"><span class="pre">x</span></code> a final value of 321.</p>
+<p>Next, suppose we change <code class="docutils literal notranslate"><span class="pre">sampling_method</span></code> from <code class="docutils literal notranslate"><span class="pre">cycles</span></code> to <code class="docutils literal notranslate"><span class="pre">samples</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>block (
+    selection = sequential_descending
+    nsamples = 1
+    sampling_method = samples
+    ) {
+    ...
+}
+</pre></div>
+</div>
+<p>Execution of a single child action now constitutes a sample.  Because <code class="docutils literal notranslate"><span class="pre">nsamples</span></code> is 1, the block will perform just one action, after which all selections will be exhausted, and its execution will terminate.  Hence, the final value of <code class="docutils literal notranslate"><span class="pre">x</span></code> will be 3.</p>
+<p>Finally, suppose we change <code class="docutils literal notranslate"><span class="pre">nsamples</span></code> to 5:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>block (
+    selection = sequential_descending
+    nsamples = 5
+    sampling_method = samples
+    ) {
+    ...
+}
+</pre></div>
+</div>
+<p>Now, the block will draw five samples from its child components.  Because the number of samples is greater than the number of children, after reaching the end of its child list, the block will loop back to the beginning.  The final value of <code class="docutils literal notranslate"><span class="pre">x</span></code> will be 32132.</p>
+</div>
+<div class="section" id="accepting-and-rejecting-samples">
+<h4>Accepting and Rejecting Samples<a class="headerlink" href="#accepting-and-rejecting-samples" title="Permalink to this headline">¶</a></h4>
+<p>While the examples in the previous section illustrate the meaning of the different selection parameters, they are not typical of real experiments.  Most commonly, selection is used to exercise a set of experimental conditions, in random order, with each condition having associated acceptance criteria.</p>
+<p>The example experiment <code class="docutils literal notranslate"><span class="pre">RSVPDemo.mwel</span></code> contains a protocol named “Eye Calibration”, which calibrates the eye positions received from an eye tracker.  The protocol requires the subject to fixate on 49 different points on screen, which are presented in random order.  It is implemented with a <a class="reference internal" href="../components/list.html#list"><span class="std std-ref">list</span></a> (<code class="docutils literal notranslate"><span class="pre">calibration_list</span></code>), whose <code class="docutils literal notranslate"><span class="pre">selection</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">random_without_replacement</span></code>.  The list contains 49 <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trials</span></a>, generated with two nested <a class="reference internal" href="../components/range_replicator.html#range-replicator"><span class="std std-ref">range replicators</span></a>, each of which presents the fixation point at a different location:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>list calibration_list (selection = random_without_replacement) {
+    range_replicator (
+        variable = cal_fix_pos_x
+        from = -15
+        to = 15
+        step = 5
+    ) {
+        range_replicator (
+            variable = cal_fix_pos_y
+            from = -15
+            to = 15
+            step = 5
+        ) {
+            trial {
+                ...
+            }
+        }
+    }
+}
+</pre></div>
+</div>
+<p>Each trial requires the subject to fixate on the relevant point for a specified length of time.  If the subject never fixates or breaks fixation early, the trial must be repeated.  This is accomplished via the <a class="reference internal" href="../components/reject_selections.html#reject-selections"><span class="std std-ref">Reject Selections</span></a> action:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>reject_selections (calibration_list)
+</pre></div>
+</div>
+<p>This action tells the selectable object (<code class="docutils literal notranslate"><span class="pre">calibration_list</span></code>) to put the current selection (the executing trial) back in the sample pool, ready to be chosen (and, hence, executed) again on a later draw.</p>
+<p>Conversely, if the subject does successfully fixate for the desired length of time, then the trial takes a calibration sample for the current screen location.  After this, there’s no need for the trial to execute again, so it removes itself from the sample pool with the <a class="reference internal" href="../components/accept_selections.html#accept-selections"><span class="std std-ref">Accept Selections</span></a> action:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>accept_selections (calibration_list)
+</pre></div>
+</div>
+<p>The list will continue to execute, choosing trials at random from its pool of non-accepted children, until all trials have been accepted.</p>
+</div>
+<div class="section" id="selection-variables">
+<h4>Selection Variables<a class="headerlink" href="#selection-variables" title="Permalink to this headline">¶</a></h4>
+<p>In all of the selection examples so far, the selectable object has been a <a class="reference internal" href="../components/paradigm_components.html#paradigm-components"><span class="std std-ref">paradigm component</span></a>.  However, MWorks also provides another, more flexible type of selectable object: the <a class="reference internal" href="../components/selection_variable.html#selection-variable"><span class="std std-ref">Selection Variable</span></a>.</p>
+<p>A selection variable is essentially a bag of user-specified values, to which MWorks’ selection machinery is applied.  Unlike selection-capable paradigm components, selection variables do not advance through their sample lists automatically.  Instead, each subsequent selection must be made explicitly, via the <a class="reference internal" href="../components/next_selection.html#next-selection"><span class="std std-ref">Next Selection</span></a> action.  Within expressions, selection variables can be referred to by name, like regular variables, and evaluate to their currently-selected value.</p>
+<p>For a demonstration of selection variables in action, see the “RSVP” protocol in <code class="docutils literal notranslate"><span class="pre">RSVPDemo.mwel</span></code>, which uses a selection variable (<code class="docutils literal notranslate"><span class="pre">RSVP_test_stim_index</span></code>) to draw images in random order from a <a class="reference internal" href="../components/stimulus_group.html#stimulus-group"><span class="std std-ref">stimulus group</span></a>.</p>
+</div>
 </div>
 <div class="section" id="stimulus-animation">
 <h3>Stimulus Animation<a class="headerlink" href="#stimulus-animation" title="Permalink to this headline">¶</a></h3>
-<p><em>Coming soon!</em></p>
+<p>Although some of MWorks’ visual stimuli (such as <a class="reference internal" href="../components/video_stimulus.html#video-stimulus"><span class="std std-ref">videos</span></a> and <a class="reference internal" href="../components/drifting_grating_stimulus.html#drifting-grating-stimulus"><span class="std std-ref">drifting gratings</span></a>) are inherently dynamic, most are  designed for static display, with changes to their color, size, position, etc. being made explicitly by the experiment.  However, with a little work, these normally-static stimuli can be animated, opening the door to user-defined dynamic stimulus presentations.</p>
+<p>Animating a non-dynamic stimulus involves three steps:</p>
+<ol class="arabic simple">
+<li>Writing the stimulus parameters that you want to animate as time-varying expressions,</li>
+<li>Arranging for the stimulus display to redraw itself on every display refesh, and</li>
+<li>Ensuring that the stimulus’ parameters are re-evaluated every time the stimulus is drawn.</li>
+</ol>
+<p>Consider the following <a class="reference internal" href="../components/ellipse_stimulus.html#ellipse-stimulus"><span class="std std-ref">circle stimulus</span></a> declaration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var start_time = 0
+
+circle ball (
+    color = 1,0,0
+    x_size = 5
+    x_position = -15 * cos(2*pi() * (next_frame_time() - start_time) / 3s)
+    )
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">color</span></code> and <code class="docutils literal notranslate"><span class="pre">x_size</span></code> parameters have simple, constant values.  However, the value of <code class="docutils literal notranslate"><span class="pre">x_position</span></code> is an expression that depends on <code class="docutils literal notranslate"><span class="pre">next_frame_time</span></code>.  This function returns the predicted output time of the frame that the stimulus display is currently rendering.  (For more information, see <a class="reference internal" href="#understanding-display-updates">Understanding Display Updates</a>.)  Every time the expression is evaluated, it will return a different value, varying sinusoidally with a period of three seconds.  (Including the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> variable in the expression for <code class="docutils literal notranslate"><span class="pre">x_position</span></code> allows us to control the initial position of the ball.  While not really necessary in this example, the starting time is a crucial parameter in most real-world stimulus animations, so we illustrate its use here.)</p>
+<p>Now that we have a stimulus parameter with a time-varying value (step 1), we must force the stimulus display to redraw during every refresh cycle (step 2).  There are two ways to accomplish this.  The first is to include a <a class="reference internal" href="../components/stimulus_display.html#stimulus-display"><span class="std std-ref">Stimulus Display</span></a> device declaration in your experiment, and set its <code class="docutils literal notranslate"><span class="pre">redraw_on_every_refresh</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stimulus_display (
+    background_color = 0,0,0
+    redraw_on_every_refresh = true
+    )
+</pre></div>
+</div>
+<p>The second method entails “wrapping” the stimulus you want to animate in a <a class="reference internal" href="../components/frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">frame list</span></a> that is configured to loop indefinitely:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>frame_list ball (
+    stimulus_group = ball_frames
+    loop = true
+    autoplay = true
+    )
+
+stimulus_group ball_frames {
+    circle (
+        color = 1,0,0
+        x_size = 5
+        x_position = -15 * cos(2*pi() * (next_frame_time() - start_time) / 3s)
+        )
+}
+</pre></div>
+</div>
+<p>This method is more complicated, but it has the advantage that the display is forced to refresh <em>only</em> while the animated stimulus is on screen.</p>
+<p>Finally, to ensure that the stimulus’ parameters are re-evaluated every time it is drawn (step 3), we simply <a class="reference internal" href="../components/live_queue_stimulus.html#live-queue-stimulus"><span class="std std-ref">live queue</span></a> the stimulus:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>start_time = next_frame_time ()
+live_queue_stimulus (ball)
+update_display ()
+</pre></div>
+</div>
+<p>For a demonstration of more complex stimulus animation, see the example experiment <code class="docutils literal notranslate"><span class="pre">BouncingBall.mwel</span></code>.</p>
 </div>
 </div>
 </div>
@@ -455,7 +705,7 @@ update_display ()
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2018, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.3.
     </div>
   </body>
 </html>
