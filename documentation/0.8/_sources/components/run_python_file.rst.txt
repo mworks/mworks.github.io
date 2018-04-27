@@ -1,0 +1,69 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Run Python File
+   single: Actions; Run Python File
+
+.. _Run Python File:
+
+Run Python File
+===============
+
+*Available on macOS*
+
+
+Description
+-----------
+Execute the specified file as `Python <https://www.python.org>`_ source
+code.
+
+Within the Python code, use ``getvar`` to retrieve the value of an MWorks
+variable and ``setvar`` to set it, e.g.
+
+.. code:: python
+
+    x = getvar('x')
+    setvar('x', x + 1)
+
+
+
+Signature
+---------
+``action/run_python_file``
+
+
+Required Parameters
+-------------------
+
+path
+^^^^
+
+Filesystem path to the Python source file
+
+
+
+Optional Parameters
+-------------------
+
+stop_on_failure
+^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the experiment will stop automatically if Python execution fails
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

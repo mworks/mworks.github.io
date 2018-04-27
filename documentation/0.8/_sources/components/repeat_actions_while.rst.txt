@@ -1,0 +1,47 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Repeat Actions (while)
+   single: Actions; Repeat Actions (while)
+
+.. _Repeat Actions (while):
+
+Repeat Actions (while)
+======================
+
+
+Description
+-----------
+Execute a list of actions repeatedly while a condition is true
+
+
+Signature
+---------
+``action/while``
+
+
+Required Parameters
+-------------------
+
+condition
+^^^^^^^^^
+
+Condition expression
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`
+   * - Allowed children:
+     - `Action <Actions>`

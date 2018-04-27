@@ -1,0 +1,51 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Conditional Transition
+   single: Transitions; Conditional Transition
+
+.. _Conditional Transition:
+
+Conditional Transition
+======================
+
+
+Description
+-----------
+A transition that goes to the target state if a specified condition expression is true
+
+
+
+Signature
+---------
+``transition/conditional``
+
+
+Required Parameters
+-------------------
+
+condition
+^^^^^^^^^
+
+Condition expression
+
+target
+^^^^^^
+
+Name of the target state
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Task System State`

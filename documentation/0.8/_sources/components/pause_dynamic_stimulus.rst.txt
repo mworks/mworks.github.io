@@ -1,0 +1,45 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Pause Dynamic Stimulus
+   single: Actions; Pause Dynamic Stimulus
+
+.. _Pause Dynamic Stimulus:
+
+Pause Dynamic Stimulus
+======================
+
+
+Description
+-----------
+Pause a playing dynamic stimulus
+
+
+Signature
+---------
+``action/pause_dynamic_stimulus``
+
+
+Required Parameters
+-------------------
+
+stimulus
+^^^^^^^^
+
+Name of the dynamic stimulus
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

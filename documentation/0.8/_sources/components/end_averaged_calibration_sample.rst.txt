@@ -1,0 +1,51 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: End Averaged Calibration Sample
+   single: Actions; End Averaged Calibration Sample
+
+.. _End Averaged Calibration Sample:
+
+End Averaged Calibration Sample
+===============================
+
+
+Description
+-----------
+Instruct a calibrator object to stop computing an average of its input value(s) and take a new calibration sample from the accumulated average, with the specified "calibratable" object providing the corresponding "true" value
+
+
+
+Signature
+---------
+``action/end_calibration_average_and_take_sample``
+
+
+Required Parameters
+-------------------
+
+calibrator
+^^^^^^^^^^
+
+Name of the calibrator
+
+calibratable_object
+^^^^^^^^^^^^^^^^^^^
+
+Name of the calibratable object
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

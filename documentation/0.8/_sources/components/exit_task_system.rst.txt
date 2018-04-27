@@ -1,0 +1,36 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Exit Task System
+   single: Transitions; Exit Task System
+
+.. _Exit Task System:
+
+Exit Task System
+================
+
+
+Description
+-----------
+A transition that yields control back to the parent of the current `Task System`
+
+
+
+Signature
+---------
+``transition/yield``
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Task System State`

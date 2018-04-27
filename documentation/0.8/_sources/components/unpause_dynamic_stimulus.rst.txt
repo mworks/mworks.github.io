@@ -1,0 +1,45 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Unpause Dynamic Stimulus
+   single: Actions; Unpause Dynamic Stimulus
+
+.. _Unpause Dynamic Stimulus:
+
+Unpause Dynamic Stimulus
+========================
+
+
+Description
+-----------
+Unpause (i.e. resume playing) a paused dynamic stimulus
+
+
+Signature
+---------
+``action/unpause_dynamic_stimulus``
+
+
+Required Parameters
+-------------------
+
+stimulus
+^^^^^^^^
+
+Name of the dynamic stimulus
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

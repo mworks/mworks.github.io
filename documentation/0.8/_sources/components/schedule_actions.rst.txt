@@ -1,0 +1,76 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Schedule Actions
+   single: Actions; Schedule Actions
+
+.. _Schedule Actions:
+
+Schedule Actions
+================
+
+
+Description
+-----------
+Schedule the execution of a list of contained actions.  These actions can be
+scheduled to occur after a user-defined delay and can be repeated multiple
+times with a user-defined inter-execution interval.
+
+The actions will execute in a separate `thread
+<https://en.wikipedia.org/wiki/Thread_(computing)>`_, independent of (and in
+parallel with) the main state system.
+
+
+
+Signature
+---------
+``action/schedule``
+
+
+Required Parameters
+-------------------
+
+delay
+^^^^^
+
+Initial delay before first execution (microseconds)
+
+duration
+^^^^^^^^
+
+Delay before each execution after the first (microseconds)
+
+repeats
+^^^^^^^
+
+Number of times to repeat execution.  The special value ``-999`` causes execution to repeat indefinitely (until the experiment stops or `cancel`_ is set to true).
+
+
+
+
+Optional Parameters
+-------------------
+
+cancel
+^^^^^^
+
+If set to the name of a variable, assigning a true value (e.g. ``true``, ``YES``, ``1``) to that variable will cancel all future executions of the contained actions
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`
+   * - Allowed children:
+     - `Action <Actions>`

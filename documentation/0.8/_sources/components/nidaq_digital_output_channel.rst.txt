@@ -1,0 +1,186 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: NIDAQ Digital Output Channel
+   single: Input/Output; NIDAQ Digital Output Channel
+
+.. _NIDAQ Digital Output Channel:
+
+NIDAQ Digital Output Channel
+============================
+
+*Available on macOS*
+
+
+Description
+-----------
+Digital output channel on a `NIDAQ Device`.
+
+Supports up to 32 lines on a single port.  Each line has an associated
+parameter (e.g. `line0`_) that specifies the variable from which to read the
+state of the line (0 or 1).  `Assigning <Assign Variable>` a value to the
+variable causes the line's state to be changed immediately.
+
+Also supports multi-bit word output via the `word`_ and `word_lines`_
+parameters.
+
+
+
+Signature
+---------
+``iochannel/nidaq_digital_output``
+
+
+Required Parameters
+-------------------
+
+port_number
+^^^^^^^^^^^
+:Example: ``0``
+
+Digital port number (``0`` for P0, ``1`` for P1, etc.)
+
+num_lines_in_port
+^^^^^^^^^^^^^^^^^
+:Example: ``8``
+
+Number of lines in the port.  Typical values are 4, 8, 16, and 32.
+
+
+
+
+Optional Parameters
+-------------------
+
+word
+^^^^
+
+Variable from which to read multi-bit output words.  `Assigning <Assign Variable>` a value to the variable causes the state of the lines specified in `word_lines`_ to be changed immediately.
+
+
+word_lines
+^^^^^^^^^^
+:Examples: | ``1,2,3``
+           | ``4:7``
+           | ``1,4:6,7``
+
+Lines used to output the individual bits of multi-bit words. The first
+line receives the least significant bit, the last line the most
+significant.
+
+Lines used for word output cannot also be controlled independently.
+Attempting to assign a value to the parameter associated with a line
+number included here will generate a warning.
+
+
+line0
+^^^^^
+
+line1
+^^^^^
+
+line2
+^^^^^
+
+line3
+^^^^^
+
+line4
+^^^^^
+
+line5
+^^^^^
+
+line6
+^^^^^
+
+line7
+^^^^^
+
+line8
+^^^^^
+
+line9
+^^^^^
+
+line10
+^^^^^^
+
+line11
+^^^^^^
+
+line12
+^^^^^^
+
+line13
+^^^^^^
+
+line14
+^^^^^^
+
+line15
+^^^^^^
+
+line16
+^^^^^^
+
+line17
+^^^^^^
+
+line18
+^^^^^^
+
+line19
+^^^^^^
+
+line20
+^^^^^^
+
+line21
+^^^^^^
+
+line22
+^^^^^^
+
+line23
+^^^^^^
+
+line24
+^^^^^^
+
+line25
+^^^^^^
+
+line26
+^^^^^^
+
+line27
+^^^^^^
+
+line28
+^^^^^^
+
+line29
+^^^^^^
+
+line30
+^^^^^^
+
+line31
+^^^^^^
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `NIDAQ Device`

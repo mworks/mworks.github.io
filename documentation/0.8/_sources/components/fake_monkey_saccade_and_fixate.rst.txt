@@ -1,0 +1,63 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Fake Monkey Saccade and Fixate
+   single: Actions; Fake Monkey Saccade and Fixate
+
+.. _Fake Monkey Saccade and Fixate:
+
+Fake Monkey Saccade and Fixate
+==============================
+
+*Available on macOS*
+
+
+Description
+-----------
+Causes a `Fake Monkey IO Device` to saccade to the specified location and fixate for the specified duration
+
+
+
+Signature
+---------
+``action/fake_monkey_saccade_and_fixate``
+
+
+Required Parameters
+-------------------
+
+fake_monkey
+^^^^^^^^^^^
+
+Fake monkey device
+
+h
+^
+
+Horizontal target position (degrees)
+
+v
+^
+
+Vertical target position (degrees)
+
+duration
+^^^^^^^^
+
+Fixation duration (microseconds)
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

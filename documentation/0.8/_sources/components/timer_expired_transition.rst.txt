@@ -1,0 +1,51 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Timer Expired Transition
+   single: Transitions; Timer Expired Transition
+
+.. _Timer Expired Transition:
+
+Timer Expired Transition
+========================
+
+
+Description
+-----------
+A transition that goes to the target state if a specified timer has expired
+
+
+
+Signature
+---------
+``transition/timer_expired``
+
+
+Required Parameters
+-------------------
+
+timer
+^^^^^
+
+Name of the timer
+
+target
+^^^^^^
+
+Name of the target state
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Task System State`

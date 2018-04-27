@@ -1,0 +1,46 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Report / Message
+   single: Actions; Report / Message
+
+.. _Report / Message:
+
+Report / Message
+================
+
+
+Description
+-----------
+Write a message to the console and event stream
+
+
+Signature
+---------
+``action/report``
+
+
+Required Parameters
+-------------------
+
+message
+^^^^^^^
+
+Message text.  You can include variable values in the message by placing a ``$`` before each variable's name (e.g. ``x = $x, y = $y``).
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

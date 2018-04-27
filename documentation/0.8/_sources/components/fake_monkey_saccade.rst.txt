@@ -1,0 +1,58 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Fake Monkey Saccade
+   single: Actions; Fake Monkey Saccade
+
+.. _Fake Monkey Saccade:
+
+Fake Monkey Saccade
+===================
+
+*Available on macOS*
+
+
+Description
+-----------
+Causes a `Fake Monkey IO Device` to saccade to the specified location
+
+
+
+Signature
+---------
+``action/fake_monkey_saccade_to_location``
+
+
+Required Parameters
+-------------------
+
+fake_monkey
+^^^^^^^^^^^
+
+Fake monkey device
+
+h
+^
+
+Horizontal target position (degrees)
+
+v
+^
+
+Vertical target position (degrees)
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

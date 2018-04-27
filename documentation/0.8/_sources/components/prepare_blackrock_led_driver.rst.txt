@@ -1,0 +1,53 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Prepare Blackrock LED Driver
+   single: Actions; Prepare Blackrock LED Driver
+
+.. _Prepare Blackrock LED Driver:
+
+Prepare Blackrock LED Driver
+============================
+
+*Available on macOS*
+
+
+Description
+-----------
+Prepare a `Blackrock LED Driver` to run for the specified duration.  The desired channel intensities must have been `set <Set Blackrock LED Driver Channel Intensity>` previously.
+
+
+
+Signature
+---------
+``action/blackrock_led_driver_prepare``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Device name
+
+duration
+^^^^^^^^
+
+Run duration (microseconds)
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

@@ -1,0 +1,40 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Conditional Branching (if/else)
+   single: Actions; Conditional Branching (if/else)
+
+.. _Conditional Branching (if/else):
+
+Conditional Branching (if/else)
+===============================
+
+
+Description
+-----------
+Given a list of `Conditionally Execute Actions (if)` actions, executes the first one whose condition is true, or none if all conditions are false.  The list may include a single `Unconditionally Execute Actions (else)` action, which will be executed only if all the conditions are false.
+
+
+
+Signature
+---------
+``action/if_else``
+
+:Alias: ``action/choose``
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`
+   * - Allowed children:
+     - `Conditionally Execute Actions (if)`, `Unconditionally Execute Actions (else)`

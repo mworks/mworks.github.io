@@ -1,0 +1,48 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Stop IO Device
+   single: Actions; Stop IO Device
+
+.. _Stop IO Device:
+
+Stop IO Device
+==============
+
+
+Description
+-----------
+Disable an `I/O device <Input/Output>`.  Most I/O devices will stop performing input/output tasks when stopped.
+
+
+
+Signature
+---------
+``action/stop_device_io``
+
+:Alias: ``action/stop_io_device``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Name of the I/O device to disable
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

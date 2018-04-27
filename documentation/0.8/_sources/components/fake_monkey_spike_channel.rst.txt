@@ -1,0 +1,49 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Fake Monkey Spike Channel
+   single: Input/Output; Fake Monkey Spike Channel
+
+.. _Fake Monkey Spike Channel:
+
+Fake Monkey Spike Channel
+=========================
+
+*Available on macOS*
+
+
+Description
+-----------
+Provides simulated spikes from a `Fake Monkey IO Device`
+
+
+
+Signature
+---------
+``iochannel/spike``
+
+
+Required Parameters
+-------------------
+
+variable
+^^^^^^^^
+
+Variable to set to ``1`` whenever a new spike is generated
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Fake Monkey IO Device`

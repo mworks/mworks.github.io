@@ -1,0 +1,60 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Sound Stimulus
+   single: Sounds; Sound Stimulus
+
+.. _Sound Stimulus:
+
+Sound Stimulus
+==============
+
+
+Description
+-----------
+A simple `WAV <https://en.wikipedia.org/wiki/WAV>`_ file based sound stimulus
+
+
+
+Signature
+---------
+``sound/wav_file``
+
+
+Required Parameters
+-------------------
+
+path
+^^^^
+:Examples: | ``sounds/sound1.wav``
+           | ``/path/to/sound.wav``
+
+Filesystem path to the sound file
+
+
+
+Optional Parameters
+-------------------
+
+amplitude
+^^^^^^^^^
+:Default: ``1.0``
+
+Controls the volume at which the sound plays.  ``1.0`` is full volume, while ``0.0`` is silent.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

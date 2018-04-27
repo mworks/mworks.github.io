@@ -1,0 +1,256 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>NIDAQ Device &#8212; MWorks 0.8 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NIDAQ Digital Input Channel" href="nidaq_digital_input_channel.html" />
+    <link rel="prev" title="NIDAQ Counter Input Count Edges Channel" href="nidaq_counter_input_count_edges_channel.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="nidaq_digital_input_channel.html" title="NIDAQ Digital Input Channel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nidaq_counter_input_count_edges_channel.html" title="NIDAQ Counter Input Count Edges Channel"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" accesskey="U">Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NIDAQ Device</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#name">name</a></li>
+<li><a class="reference internal" href="#update-interval">update_interval</a></li>
+<li><a class="reference internal" href="#analog-input-data-interval">analog_input_data_interval</a></li>
+<li><a class="reference internal" href="#analog-output-data-interval">analog_output_data_interval</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#analog-read-timeout">analog_read_timeout</a></li>
+<li><a class="reference internal" href="#assume-multiplexed-adc">assume_multiplexed_adc</a></li>
+<li><a class="reference internal" href="#autostart">autostart</a></li>
+<li><a class="reference internal" href="#alt">alt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="nidaq_counter_input_count_edges_channel.html"
+                        title="previous chapter">NIDAQ Counter Input Count Edges Channel</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="nidaq_digital_input_channel.html"
+                        title="next chapter">NIDAQ Digital Input Channel</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nidaq-device">
+<span id="index-0"></span><span id="id1"></span><h1>NIDAQ Device<a class="headerlink" href="#nidaq-device" title="Permalink to this headline">¶</a></h1>
+<p><em>Available on macOS</em></p>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Interface to a <a class="reference external" href="http://www.ni.com">National Instruments</a> data acquisition (DAQ) device</p>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">iodevice/nidaq</span></code></p>
+</div>
+<div class="section" id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="name">
+<h3>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">Dev1</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Device name.</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">/Applications/National</span> <span class="pre">Instruments/NI-DAQmx</span> <span class="pre">Base/lsdaq.app</span></code> to
+detect available devices and determine their assigned names.</p>
+</div>
+<div class="section" id="update-interval">
+<h3>update_interval<a class="headerlink" href="#update-interval" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">3ms</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>MWorks will poll the device for new input data every <code class="docutils literal notranslate"><span class="pre">update_interval</span></code> microseconds</p>
+</div>
+<div class="section" id="analog-input-data-interval">
+<h3>analog_input_data_interval<a class="headerlink" href="#analog-input-data-interval" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1ms</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Interval between acquired samples on analog input channels (microseconds)</p>
+</div>
+<div class="section" id="analog-output-data-interval">
+<h3>analog_output_data_interval<a class="headerlink" href="#analog-output-data-interval" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1ms</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Interval between generated samples on analog output channels (microseconds)</p>
+</div>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="analog-read-timeout">
+<h3>analog_read_timeout<a class="headerlink" href="#analog-read-timeout" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">3ms</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Maximum time to wait for a single update’s worth of analog input samples
+(microseconds).  If the samples are not received in the allotted time,
+issue an error message.</p>
+<p>If omitted, defaults to <a class="reference internal" href="#update-interval">update_interval</a>.</p>
+</div>
+<div class="section" id="assume-multiplexed-adc">
+<h3>assume_multiplexed_adc<a class="headerlink" href="#assume-multiplexed-adc" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">YES</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, MWorks assumes that all analog input channels share a single analog-to-digital converter (ADC) and adjusts sample timestamps accordingly.  If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, MWorks assumes that each analog input channel has its own ADC and that samples for all channels are acquired simultaneously.</p>
+</div>
+<div class="section" id="autostart">
+<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">NO</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the device will start I/O automatically (as if by an
+implicit <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> action) when the experiment starts running.</p>
+<p><em>Note</em>: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.</p>
+</div>
+<div class="section" id="alt">
+<h3>alt<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h3>
+<p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
+</div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-auto docutils">
+<tbody valign="top">
+<tr class="row-odd"><th class="stub">Allowed at top level:</th>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><th class="stub">Allowed parent:</th>
+<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a></td>
+</tr>
+<tr class="row-odd"><th class="stub">Allowed children:</th>
+<td><a class="reference internal" href="nidaq_analog_input_voltage_channel.html#nidaq-analog-input-voltage-channel"><span class="std std-ref">NIDAQ Analog Input Voltage Channel</span></a>, <a class="reference internal" href="nidaq_analog_output_voltage_channel.html#nidaq-analog-output-voltage-channel"><span class="std std-ref">NIDAQ Analog Output Voltage Channel</span></a>, <a class="reference internal" href="nidaq_analog_output_voltage_waveform_channel.html#nidaq-analog-output-voltage-waveform-channel"><span class="std std-ref">NIDAQ Analog Output Voltage Waveform Channel</span></a>, <a class="reference internal" href="nidaq_counter_input_count_edges_channel.html#nidaq-counter-input-count-edges-channel"><span class="std std-ref">NIDAQ Counter Input Count Edges Channel</span></a>, <a class="reference internal" href="nidaq_digital_input_channel.html#nidaq-digital-input-channel"><span class="std std-ref">NIDAQ Digital Input Channel</span></a>, <a class="reference internal" href="nidaq_digital_output_channel.html#nidaq-digital-output-channel"><span class="std std-ref">NIDAQ Digital Output Channel</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="nidaq_digital_input_channel.html" title="NIDAQ Digital Input Channel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="nidaq_counter_input_count_edges_channel.html" title="NIDAQ Counter Input Count Edges Channel"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" >Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2018, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.3.
+    </div>
+  </body>
+</html>

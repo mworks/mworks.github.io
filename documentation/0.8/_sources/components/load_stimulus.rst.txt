@@ -1,0 +1,46 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Load Stimulus
+   single: Actions; Load Stimulus
+
+.. _Load Stimulus:
+
+Load Stimulus
+=============
+
+
+Description
+-----------
+Explicitly load a stimulus object (e.g. load a file from disk, compute a dynamically generated stimulus, etc.).  This is useful when the ``deferred`` parameter on the stimulus is set to ``yes`` or ``explicit``.
+
+
+
+Signature
+---------
+``action/load_stimulus``
+
+
+Required Parameters
+-------------------
+
+stimulus
+^^^^^^^^
+
+Stimulus to load
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

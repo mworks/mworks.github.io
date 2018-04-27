@@ -1,0 +1,73 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Start Timer
+   single: Actions; Start Timer
+
+.. _Start Timer:
+
+Start Timer
+===========
+
+
+Description
+-----------
+Starts a named timer that can be used to control the flow through a `Task System`.  The `Timer Expired Transition` and the ``timerExpired`` function can be used to evaluate whether the timer has expired.
+
+
+
+Signature
+---------
+``action/start_timer``
+
+
+Required Parameters
+-------------------
+
+timer
+^^^^^
+:Example: ``MyTimer``
+
+Name for the timer
+
+duration
+^^^^^^^^
+:Example: ``1.0``
+
+Duration
+
+
+
+Optional Parameters
+-------------------
+
+duration_units
+^^^^^^^^^^^^^^
+:Options: | ``us``
+          | ``ms``
+          | ``s``
+:Default: ``us``
+
+Duration units
+
+timebase
+^^^^^^^^
+
+If set to the name of a `timebase <Set Timebase>`, the expiration time will be measured relative to that timebase.  If omitted, the current time will be used as the timebase.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

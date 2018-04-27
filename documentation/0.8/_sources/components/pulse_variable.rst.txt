@@ -1,0 +1,51 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Pulse Variable
+   single: Actions; Pulse Variable
+
+.. _Pulse Variable:
+
+Pulse Variable
+==============
+
+
+Description
+-----------
+Sets a variable high (i.e. sets its value to 1).  Then, after the specified duration, sets it low (i.e. to 0).  The end of the pulse is triggered asynchronously, so this action does *not* pause the experiment.
+
+
+
+Signature
+---------
+``action/pulse``
+
+
+Required Parameters
+-------------------
+
+variable
+^^^^^^^^
+
+Variable to pulse
+
+duration
+^^^^^^^^
+
+Duration of the pulse (microseconds)
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

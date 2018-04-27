@@ -1,0 +1,71 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Firmata Servo Channel
+   single: Input/Output; Firmata Servo Channel
+
+.. _Firmata Servo Channel:
+
+Firmata Servo Channel
+=====================
+
+
+Description
+-----------
+Servo channel on a `Firmata Device`
+
+
+Signature
+---------
+``iochannel/firmata_servo``
+
+
+Required Parameters
+-------------------
+
+pin_number
+^^^^^^^^^^
+:Example: ``8``
+
+Pin number
+
+value
+^^^^^
+
+Variable from which to read servo values.  The value must be between 0 and 180 (inclusive) and indicates the desired shaft angle or speed of the servo.
+
+
+
+
+Optional Parameters
+-------------------
+
+min_pulse_width
+^^^^^^^^^^^^^^^
+:Default: ``544``
+
+Pulse width (in microseconds) corresponding to the minimum (0-degree) angle on the servo
+
+
+max_pulse_width
+^^^^^^^^^^^^^^^
+:Default: ``2400``
+
+Pulse width (in microseconds) corresponding to the maximum (180-degree) angle on the servo
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Firmata Device`

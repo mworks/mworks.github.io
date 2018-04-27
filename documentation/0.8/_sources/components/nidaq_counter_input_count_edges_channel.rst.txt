@@ -1,0 +1,54 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: NIDAQ Counter Input Count Edges Channel
+   single: Input/Output; NIDAQ Counter Input Count Edges Channel
+
+.. _NIDAQ Counter Input Count Edges Channel:
+
+NIDAQ Counter Input Count Edges Channel
+=======================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Counts falling edges detected on the specified counter input on a `NIDAQ Device`
+
+
+
+Signature
+---------
+``iochannel/nidaq_counter_input_count_edges``
+
+
+Required Parameters
+-------------------
+
+counter_number
+^^^^^^^^^^^^^^
+:Example: ``0``
+
+Counter number (``0`` for CTR0, ``1`` for CTR1, etc.)
+
+count
+^^^^^
+
+Variable in which to store edge counts
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `NIDAQ Device`

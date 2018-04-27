@@ -1,0 +1,89 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Blackrock LED Driver
+   single: Input/Output; Blackrock LED Driver
+
+.. _Blackrock LED Driver:
+
+Blackrock LED Driver
+====================
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to a Blackrock LED array driver
+
+
+Signature
+---------
+``iodevice/blackrock_led_driver``
+
+
+Optional Parameters
+-------------------
+
+running
+^^^^^^^
+
+Variable to set to true when the LED program starts running, false when it stops
+
+
+temp_a
+^^^^^^
+
+Variable in which to store thermistor readout from bank A (reported in degrees Celsius)
+
+
+temp_b
+^^^^^^
+
+Variable in which to store thermistor readout from bank B (reported in degrees Celsius)
+
+
+temp_c
+^^^^^^
+
+Variable in which to store thermistor readout from bank C (reported in degrees Celsius)
+
+
+temp_d
+^^^^^^
+
+Variable in which to store thermistor readout from bank D (reported in degrees Celsius)
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

@@ -1,0 +1,60 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Move Mouse Cursor
+   single: Actions; Move Mouse Cursor
+
+.. _Move Mouse Cursor:
+
+Move Mouse Cursor
+=================
+
+*Available on macOS*
+
+
+Description
+-----------
+Move the mouse cursor to the specified position on the stimulus display
+
+
+
+Signature
+---------
+``action/move_mouse_cursor``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Name of a `Mouse Input Device`
+
+x_position
+^^^^^^^^^^
+
+Horizontal position (in degrees) to which to move the mouse cursor
+
+
+y_position
+^^^^^^^^^^
+
+Vertical position (in degrees) to which to move the mouse cursor
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

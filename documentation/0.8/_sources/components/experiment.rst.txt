@@ -1,0 +1,36 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Experiment
+   single: Paradigm Components; Experiment
+
+.. _Experiment:
+
+Experiment
+==========
+
+
+Description
+-----------
+Top-level container for all `protocols <Protocol>` in an experiment
+
+
+
+Signature
+---------
+``experiment``
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed children:
+     - `List Replicator`, `Protocol`, `Range Replicator`

@@ -1,0 +1,45 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Send Stimulus to Back
+   single: Actions; Send Stimulus to Back
+
+.. _Send Stimulus to Back:
+
+Send Stimulus to Back
+=====================
+
+
+Description
+-----------
+Move a stimulus to the bottom of the display queue
+
+
+Signature
+---------
+``action/send_stimulus_to_back``
+
+
+Required Parameters
+-------------------
+
+stimulus
+^^^^^^^^
+
+Stimulus to move
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`
