@@ -1,0 +1,252 @@
+---
+layout: post
+title: MWorks 0.8 released
+author: cstawarz
+---
+
+MWorks 0.8 is [now
+available](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.8.dmg).  Highlights of this release include:
+
+* [MWorks Experiment Language](/documentation/0.8/mwel/) (MWEL)
+* Greatly expanded [user manual](/documentation/0.8/)
+* [Color management](https://en.wikipedia.org/wiki/Color_management) of stimulus display
+* Full support for "Retina" (i.e. high-pixel-density) displays
+* Improved [drifting grating](/documentation/0.8/components/drifting_grating_stimulus.html) and [white noise background](/documentation/0.8/components/white_noise_background.html) stimuli
+* Expanded support for [Firmata](/documentation/0.8/components/firmata_device.html) devices
+* Expanded support for embedded Python code execution
+
+Note that MWorks now requires OS X 10.11 "El Capitan" or later.  In addition, the [MATLAB](https://www.mathworks.com/products/matlab.html) tools now require MATLAB R2015b or later.
+
+For a full list of changes in this release, please see the release notes below.
+
+
+### MWEL
+
+[MWorks Experiment Language](/documentation/0.8/mwel/) (MWEL) provides a user-friendly, programming-language-like alternative to the XML-based experiments created by MWEditor.  It is designed to be read and written via a text editor and is optimized for conciseness and clarity, with minimal syntactic “noise”.
+
+At runtime, MWEL experiments are translated into MWorks’ XML, after which they are parsed and executed in exactly the same way as traditional, XML-based experiments. This ensures that equivalent experiments written in MWEL and XML perform identically.
+
+For more information, see the [MWEL reference](/documentation/0.8/mwel/).
+
+
+### Core
+
+
+#### Expressions
+
+* Added several new [functions](/documentation/0.8/expressions/index.html#other): `display_bounds`, `filenames`, `py_call`, `py_eval`, `osname`, `size`, and `type`
+
+* [rand](/documentation/0.8/expressions/index.html#random-number-generators) can now be called with no arguments
+
+* Long function names now include underscores between words (e.g. `nextframetime` is now `next_frame_time`).  For compatibility with existing experiments, the old, underscore-free names are still available.
+
+* String/string and list/list addition is now supported.  In both cases, the result is the concatenation of the operands.
+
+* [Range expressions](/documentation/0.8/expressions/index.html#ranges) can now include a third term (step)
+
+* Fixed bug in evaluation of dictionary literals
+
+
+#### Paradigm Components
+
+* Added [goto](/documentation/0.8/components/goto_transition.html) transition
+
+* Issue a real error message when a [task system state](/documentation/0.8/components/task_system_state.html) has no transitions
+
+* Fixed bug that caused replicated protocols, blocks, trials, and lists to always have default selection parameters
+
+
+#### Actions
+
+* Added [clear stimulus display](/documentation/0.8/components/clear_stimulus_display.html) action
+
+* Added [move mouse cursor](/documentation/0.8/components/move_mouse_cursor.html) action
+
+* Added [unconditional](/documentation/0.8/components/unconditionally_execute_actions_else.html) ("else") action, useful only in conjunction with [conditional branching](/documentation/0.8/components/conditional_branching_if_else.html) ("if/else")
+
+* Added [while](/documentation/0.8/components/repeat_actions_while.html) action
+
+* Python actions ([run_python_file](/documentation/0.8/components/run_python_file.html) and [run_python_string](/documentation/0.8/components/run_python_string.html))
+
+  * Now change the current working directory to the experiment's working path before executing Python code
+
+  * Added `stop_on_failure` parameter
+
+  * In addition to `getvar` and `setvar`, there are now Python functions for retrieving the variable codec and registering event callbacks ([details](https://mworks.tenderapp.com/discussions/questions/754#comment_43255904))
+
+* Added aliases for some action types
+
+
+#### Visual Stimuli
+
+* Stimuli are now rendered at the full resolution of the display (by default; can be disabled in [#mainScreenInfo](/documentation/0.8/reference/sysvars.html#mainscreeninfo))
+
+* Stimulus display now performs [color management](https://en.wikipedia.org/wiki/Color_management) (by default; can be disabled in [#mainScreenInfo](/documentation/0.8/reference/sysvars.html#mainscreeninfo))
+
+* Most stimuli with a `color` parameter now accept an arbitrary expression for each color component
+
+* Many stimuli now support fullscreen drawing
+
+* Most stimuli with `x_size` and `y_size` parameters now allow one of them to be omitted.  The missing dimension is set to the value of the provided one.
+
+* Added `redraw_on_every_refresh` parameter to [stimulus display device](/documentation/0.8/components/stimulus_display.html)
+
+* Improved appearance of several stimulus types
+
+* Stimulus display no longer issues "updating main window display is taking longer than two frames" errors, as the warnings controlled by [#warnOnSkippedRefresh](/documentation/0.8/reference/sysvars.html#warnonskippedrefresh) are more accurate and informative and can be disabled if desired
+
+* [Drifting grating](/documentation/0.8/components/drifting_grating_stimulus.html)
+
+  * Now computes grating and mask values dynamically on the GPU (instead of using pre-computed values stored in textures)
+
+  * All drawing parameters can now be changed at run time
+
+  * Added `color` parameter
+
+  * Added `compute_phase_incrementally` parameter
+
+  * Gaussian mask [normalization](/documentation/0.8/components/drifting_grating_stimulus.html#normalized) can now be disabled
+
+  * Fixed bug in application of masks when `x_size` and `y_size` are not equal
+
+* [Frame list](/documentation/0.8/components/frame_list_stimulus.html) now ensures that `ending` and `ended` are set only once in a given play-through
+
+* [Text](/documentation/0.8/components/text_stimulus.html)
+
+  * Added `text_alignment` parameter
+
+  * Fixed scaling on Retina displays
+
+* [White noise background](/documentation/0.8/components/white_noise_background.html)
+
+  * Now generates noise on the GPU
+
+  * Added `grain_size`, `grayscale`, `rand_seed`, and `randomize_on_draw` parameters
+
+
+#### I/O Devices
+
+* Most I/O devices now have an `autostart` parameter.  If this is set to `YES`, the device will start I/O automatically when the experiment starts running.
+
+* Added support for [EasyEye](/documentation/0.8/components/easyeye_device.html) devices
+
+* [EyeLink](/documentation/0.8/components/eyelink_device.html) no longer sends periodic sample acknowledgements to the tracker, as they aren't useful and can eventually fill the tracker PC's hard drive
+
+* [Firmata](/documentation/0.8/components/firmata_device.html)
+
+  * Added support for [analog input](/documentation/0.8/components/firmata_analog_input_channel.html), [analog output](/documentation/0.8/components/firmata_analog_output_channel.html), and [servo control](/documentation/0.8/components/firmata_servo_channel.html)
+
+  * Added support for devices connected via Bluetooth low energy (BLE)
+
+  * Prevent reporting of analog input pins and ignore other input values reported by device before [start_io_device](/documentation/0.8/components/start_io_device.html) is invoked
+
+* [Mouse input](/documentation/0.8/components/mouse_input_device.html) parameter `mouse_down` is now optional
+
+* [NIDAQ](/documentation/0.8/components/nidaq_device.html)
+
+  * Added [analog_read_timeout](/documentation/0.8/components/nidaq_device.html#analog-read-timeout) parameter
+
+  * Compiled plugin no longer links to a specific version of NI-DAQmx Base
+
+* Requests sent via an [Open Ephys Network Events Client](/documentation/0.8/components/open_ephys_network_events_client.html) now fail immediately when not connected to an Open Ephys network events module
+
+* Added support for [RCB-LVDS](/documentation/0.8/components/rcb_lvds_device.html) devices
+
+
+#### Other
+
+* Added support for [resource declarations](/documentation/0.8/components/resources.html), which allow an experiment to declare explicitly the supporting files it requires (instead of letting them be inferred from component parameters)
+
+* Added [Python file resources](/documentation/0.8/components/python_file_resource.html), which evaluate Python code when the experiment loads
+
+* Added [#stopOnError](/documentation/0.8/reference/sysvars.html#stoponerror) system variable
+
+* [Variable](/documentation/0.8/components/variable.html) declarations may now omit the `type` parameter
+
+* Added support for `type="any"` to [variable_assignment](/documentation/0.8/components/variable_assignment.html)
+
+* Errors raised during experiment loading now include source location when possible
+
+* Removed debugger-related variables and associated functionality, as they just weren't very useful
+
+
+### Applications
+
+
+#### Client
+
+* Now uses `localhost` (instead of `127.0.0.1`) as the default server address
+
+* Eye window
+
+  * Now handles fullscreen stimuli
+
+  * Fixed terrible drawing performance under macOS 10.13
+
+* Reward window now issues an error message if reward variable is not found
+
+* Variables window
+
+  * Now supports changing the data type of a variable's value even when the old and new values compare equal (e.g. `1` to `true`)
+
+  * Fixed crash-inducing bug
+
+
+#### Server
+
+* Now uses `localhost` (instead of `127.0.0.1`) as the default listening address
+
+* Display parameters shown in preferences window are now accurate even when those parameters are missing from `setup_variables.xml`
+
+
+### Python and MATLAB Tools
+
+* Python `mworks` package now supports Python 3.6 (in addition to Python 2.7)
+
+* Removed methods for running and stopping the application main loop from the Python conduits.  (They were intended for use with matplotlib, but matplotlib already provides [equivalents](https://matplotlib.org/api/backend_bases_api.html#matplotlib.backend_bases.FigureCanvasBase.start_event_loop).)
+
+* Added MATLAB functions `getCodec` and `getReverseCodec`
+
+
+### Documentation and Examples
+
+* Extensive expansion of [user manual](/documentation/0.8/)
+
+* Added some new example experiments (and removed some old, unhelpful ones)
+
+* Converted RSVPDemo to [MWEL](/documentation/0.8/mwel/)
+
+* Fixed some issues in `RSVP_analysis.m`
+
+
+### Internals/Development
+
+* With the exception of some Mac-only I/O devices, MWServer has been ported to iOS
+
+* Reworked all stimulus-drawing code to be compatible with OpenGL 3.3 Core profile and OpenGL ES 3.0
+
+* Removed GLEW and shader classes
+
+* Replaced numeric `ScheduleTask` priorities with abstract `TaskPriority` enum class
+
+* Reworked thread priorities to align better with those of system-created threads
+
+* `mprintf` and friends now support arbitrary-length messages
+
+* `MWComponents.yaml` files now specify `allowed_child` instead of `allowed_parent` and can include platform support info
+
+* Refactored Xcode configuration files into variants for different platforms and target types
+
+* Fixed some memory leaks
+
+* Upgraded to new versions of several supporting libraries:
+
+  * boost: 1.62.0 ➞ 1.66.0
+  * zeromq: 4.1.6 ➞ 4.2.3
+  * msgpack: 2.0.0 ➞ 2.1.5
+  * cppunit: 1.13.2 ➞ 1.14.0
+  * matlab-xunit: 4.0.0 ➞ 4.1.0
+
+* Removed several supporting libraries that are no longer used (libpng, jpeg, tiff, and DevIL)
+
+* Removed network stream support from Scarab
