@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>System Variables &#8212; MWorks 0.8.dev documentation</title>
+    <title>System Variables &#8212; MWorks 0.9.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript" src="../_static/documentation_options.js"></script>
@@ -35,7 +35,7 @@
         <li class="right" >
           <a href="../expressions/index.html" title="Expressions"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Reference Manual</a> &#187;</li> 
       </ul>
     </div>
@@ -113,7 +113,7 @@
 <p>Controls MWorks’ behavior when an <a class="reference internal" href="../components/input_output.html#input-output"><span class="std std-ref">I/O device</span></a> fails to initialize but specifies an alternative, “failover” device in its <code class="docutils literal notranslate"><span class="pre">alt</span></code> parameter.  If this variable is set to a true value (e.g <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">true</span></code>), MWorks will attempt to use the failover device in place of the failed one.  Otherwise, the failover device is ignored.</p>
 </div>
 <div class="section" id="mainscreeninfo">
-<h3>#mainScreenInfo<a class="headerlink" href="#mainscreeninfo" title="Permalink to this headline">¶</a></h3>
+<span id="mainscreeninfo-var"></span><h3>#mainScreenInfo<a class="headerlink" href="#mainscreeninfo" title="Permalink to this headline">¶</a></h3>
 <p>The value of this variable is a dictionary whose key/value pairs describe and configure the stimulus display.</p>
 <p>The following keys are recognized.  If a key is omitted, the default value is used:</p>
 <table border="1" class="colwidths-auto docutils">
@@ -149,19 +149,39 @@
 <td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">mirror_window_base_height</span></code></td>
-<td>Height of the mirror window in pixels.  The width is chosen to match the aspect ratio specified by <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>.</td>
+<td>Height of the mirror window in <a class="reference external" href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CocoaDrawingGuide/Transforms/Transforms.html#//apple_ref/doc/uid/TP40003290-CH204-SW5">points</a>.  The width is chosen to match the aspect ratio specified by <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>.</td>
 <td>&#160;</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">render_at_full_resolution</span></code></td>
-<td>If true, stimuli are rendered at the full, native resolution of the display.  Otherwise, stimuli are rendered at a resolution where one pixel is equal to one “point”, as defined by the operating system; depending on the pixel density of the display, this resolution may be lower than the display’s native resolution.</td>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">announce_individual_stimuli</span></code></td>
+<td>True or false, indicating whether stimuli should be announced individually when presented (via <a class="reference internal" href="#announcestimulus">#announceStimulus</a> events), in addition to being announced in <a class="reference internal" href="#stimdisplayupdate">#stimDisplayUpdate</a> events</td>
 <td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">announce_individual_stimuli</span></code></td>
-<td>True or false, indicating whether stimuli should be announced individually when presented (via <a class="reference internal" href="#announcestimulus">#announceStimulus</a> events), in addition to being announced in <a class="reference internal" href="#stimdisplayupdate">#stimDisplayUpdate</a> events</td>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">render_at_full_resolution</span></code></td>
+<td>If true, stimuli are rendered at the full, native resolution of the display.  Otherwise, stimuli are rendered at a resolution where one pixel is equal to one “point”, as defined by the operating system; depending on the pixel density of the display, this resolution may be lower than the display’s native resolution.</td>
 <td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
 </tr>
 <tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">use_color_management</span></code></td>
 <td>True or false, indicating whether the stimulus display pipeline should perform <a class="reference external" href="https://en.wikipedia.org/wiki/Color_management">color management</a>.  If color management is enabled, stimuli are rendered in a “linearized” <a class="reference external" href="https://en.wikipedia.org/wiki/SRGB">sRGB color space</a>, and each frame is converted to the target display’s color space before being presented.  Otherwise, rendering takes place in the (typically non-linear) color space of the display, and no color conversion is performed.</td>
+<td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">set_display_gamma</span></code></td>
+<td>True or false, indicating if the display’s <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_correction">gamma function</a> should be set using the values specified by <code class="docutils literal notranslate"><span class="pre">red_gamma</span></code>, <code class="docutils literal notranslate"><span class="pre">green_gamma</span></code>, and <code class="docutils literal notranslate"><span class="pre">blue_gamma</span></code>.  Applies only when <code class="docutils literal notranslate"><span class="pre">use_color_management</span></code> is false.</td>
+<td><code class="docutils literal notranslate"><span class="pre">false</span></code></td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">red_gamma</span></code></td>
+<td>Inverse of red channel gamma (must be greater than zero)</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">green_gamma</span></code></td>
+<td>Inverse of green channel gamma (must be greater than zero)</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">blue_gamma</span></code></td>
+<td>Inverse of blue channel gamma (must be greater than zero)</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">make_window_opaque</span></code></td>
+<td>True or false, indicating whether the stimulus display window should be opaque.  If the window is not opaque, and the experiment includes a <a class="reference internal" href="../components/stimulus_display.html#stimulus-display"><span class="std std-ref">Stimulus Display</span></a> device whose <code class="docutils literal notranslate"><span class="pre">background_alpha_multiplier</span></code> parameter is less than 1, then the display background and/or application windows beneath the stimulus window will show through it.  Does not apply to the mirror window.</td>
 <td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
 </tr>
 </tbody>
@@ -353,7 +373,7 @@
         <li class="right" >
           <a href="../expressions/index.html" title="Expressions"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.8.dev documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Reference Manual</a> &#187;</li> 
       </ul>
     </div>
