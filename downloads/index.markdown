@@ -3,7 +3,14 @@ layout: default
 title: MWorks Downloads
 ---
 
-## MWorks Installer Packages ##
+## MWorks for iOS ##
+
+MWorks for iOS is [available on the App Store](https://itunes.apple.com/us/app/mworks/id1389408331?ls=1&mt=8).  For more information, visit the [knowledge base](https://mworks.tenderapp.com/kb/ios-app).
+
+
+## MWorks for macOS ##
+
+The following macOS installer packages are available:
 
 <dl>
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/nightly/MWorks-NIGHTLY.dmg">Nightly build</a></dt>
