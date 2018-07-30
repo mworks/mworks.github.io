@@ -15,7 +15,7 @@ Frame List Stimulus
 
 Description
 -----------
-A simple movie stimulus that gets its frames from a stimulus group and presents them at the native refresh rate of the display
+A simple movie stimulus that presents its frames at the native refresh rate of the display.  The frames can be provided by a stimulus group or attached directly to the frame list as child components.
 
 
 
@@ -24,18 +24,13 @@ Signature
 ``stimulus/frame_list``
 
 
-Required Parameters
+Optional Parameters
 -------------------
 
 stimulus_group
 ^^^^^^^^^^^^^^
 
 Stimulus group providing the frames
-
-
-
-Optional Parameters
--------------------
 
 ending
 ^^^^^^
@@ -94,4 +89,6 @@ Placement
    * - Allowed at top level:
      - Yes
    * - Allowed parent:
-     - `Folder`, `List Replicator`, `Range Replicator`, `Stimulus Group`
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`
+   * - Allowed children:
+     - `List Replicator`, `Range Replicator`, `Stimulus <Stimuli>`

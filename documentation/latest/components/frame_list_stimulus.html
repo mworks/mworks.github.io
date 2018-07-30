@@ -9,7 +9,7 @@
     <title>Frame List Stimulus &#8212; MWorks 0.9.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -48,11 +48,8 @@
 <li><a class="reference internal" href="#">Frame List Stimulus</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
-<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
-<li><a class="reference internal" href="#stimulus-group">stimulus_group</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#stimulus-group">stimulus_group</a></li>
 <li><a class="reference internal" href="#ending">ending</a></li>
 <li><a class="reference internal" href="#ended">ended</a></li>
 <li><a class="reference internal" href="#loop">loop</a></li>
@@ -96,21 +93,18 @@
 <span id="index-0"></span><span id="id1"></span><h1>Frame List Stimulus<a class="headerlink" href="#frame-list-stimulus" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>A simple movie stimulus that gets its frames from a stimulus group and presents them at the native refresh rate of the display</p>
+<p>A simple movie stimulus that presents its frames at the native refresh rate of the display.  The frames can be provided by a stimulus group or attached directly to the frame list as child components.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">stimulus/frame_list</span></code></p>
 </div>
-<div class="section" id="required-parameters">
-<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="stimulus-group">
 <h3>stimulus_group<a class="headerlink" href="#stimulus-group" title="Permalink to this headline">¶</a></h3>
 <p>Stimulus group providing the frames</p>
 </div>
-</div>
-<div class="section" id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="ending">
 <h3>ending<a class="headerlink" href="#ending" title="Permalink to this headline">¶</a></h3>
 <p>Variable that will be set to true when the frame list begins drawing its last frame (thereby notifying you of the optimal time to <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queue</span></a>  stimuli that should be displayed during the frame <em>immediately following</em> said last frame)</p>
@@ -185,7 +179,10 @@ will always run at least once, even if this value is less than one.</p>
 <td>Yes</td>
 </tr>
 <tr class="row-even"><th class="stub">Allowed parent:</th>
-<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
+<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">Layer Stimulus</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="movie_stimulus.html#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
+</tr>
+<tr class="row-odd"><th class="stub">Allowed children:</th>
+<td><a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimuli.html#stimuli"><span class="std std-ref">Stimulus</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -218,7 +215,7 @@ will always run at least once, even if this value is less than one.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2018, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
     </div>
   </body>
 </html>

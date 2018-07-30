@@ -33,6 +33,13 @@ color
 The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).
 
 
+alpha_multiplier
+^^^^^^^^^^^^^^^^
+:Default: ``1.0``
+
+Controls the transparency of the stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+
 x_size
 ^^^^^^
 :Example: ``5.0``
@@ -71,13 +78,6 @@ rotation
 
 Rotation (degrees)
 
-alpha_multiplier
-^^^^^^^^^^^^^^^^
-:Default: ``1.0``
-
-Controls the transparency of the stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
-
-
 fullscreen
 ^^^^^^^^^^
 :Default: ``NO``
@@ -106,4 +106,4 @@ Placement
    * - Allowed at top level:
      - Yes
    * - Allowed parent:
-     - `Folder`, `List Replicator`, `Range Replicator`, `Stimulus Group`
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

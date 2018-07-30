@@ -21,6 +21,8 @@ Visual stimuli
    frame_list_stimulus
    image_directory_movie_stimulus
    image_stimulus
+   layer_stimulus
+   mask_stimulus
    movie_stimulus
    moving_dots
    rectangle_stimulus

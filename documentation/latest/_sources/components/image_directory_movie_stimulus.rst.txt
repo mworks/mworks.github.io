@@ -154,4 +154,4 @@ Placement
    * - Allowed at top level:
      - Yes
    * - Allowed parent:
-     - `Folder`, `List Replicator`, `Range Replicator`, `Stimulus Group`
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

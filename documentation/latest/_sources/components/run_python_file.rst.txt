@@ -12,8 +12,6 @@
 Run Python File
 ===============
 
-*Available on macOS*
-
 
 Description
 -----------

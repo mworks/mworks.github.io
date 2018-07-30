@@ -15,8 +15,9 @@ Movie Stimulus
 
 Description
 -----------
-A simple movie stimulus that gets its frames from a stimulus group and
-presents them at a specified frame rate.
+A simple movie stimulus that presents its frames at a specified frame rate.
+The frames can be provided by a stimulus group or attached directly to the
+movie as child components.
 
 *Note*:  For compatibility with previous MWorks versions, this stimulus
 ignores the `deferred`_ parameter.  Instead, the stimulus instance itself is
@@ -36,11 +37,6 @@ Signature
 Required Parameters
 -------------------
 
-stimulus_group
-^^^^^^^^^^^^^^
-
-Stimulus group providing the frames
-
 frames_per_second
 ^^^^^^^^^^^^^^^^^
 
@@ -50,6 +46,11 @@ Rate at which to display the movie's frames
 
 Optional Parameters
 -------------------
+
+stimulus_group
+^^^^^^^^^^^^^^
+
+Stimulus group providing the frames
 
 ended
 ^^^^^
@@ -102,4 +103,6 @@ Placement
    * - Allowed at top level:
      - Yes
    * - Allowed parent:
-     - `Folder`, `List Replicator`, `Range Replicator`, `Stimulus Group`
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`
+   * - Allowed children:
+     - `List Replicator`, `Range Replicator`, `Stimulus <Stimuli>`

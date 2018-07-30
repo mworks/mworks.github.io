@@ -12,8 +12,6 @@
 Python File Resource
 ====================
 
-*Available on macOS*
-
 
 Description
 -----------

@@ -12,8 +12,6 @@
 Run Python String
 =================
 
-*Available on macOS*
-
 
 Description
 -----------

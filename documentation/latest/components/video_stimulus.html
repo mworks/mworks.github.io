@@ -9,7 +9,7 @@
     <title>Video Stimulus &#8212; MWorks 0.9.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -57,12 +57,12 @@
 <li><a class="reference internal" href="#loop">loop</a></li>
 <li><a class="reference internal" href="#repeats">repeats</a></li>
 <li><a class="reference internal" href="#ended">ended</a></li>
+<li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
 <li><a class="reference internal" href="#x-size">x_size</a></li>
 <li><a class="reference internal" href="#y-size">y_size</a></li>
 <li><a class="reference internal" href="#x-position">x_position</a></li>
 <li><a class="reference internal" href="#y-position">y_position</a></li>
 <li><a class="reference internal" href="#rotation">rotation</a></li>
-<li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
 <li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
 <li><a class="reference internal" href="#deferred">deferred</a></li>
 <li><a class="reference internal" href="#autoplay">autoplay</a></li>
@@ -165,6 +165,18 @@ play at least once, even if this value is less than one.</p>
 <h3>ended<a class="headerlink" href="#ended" title="Permalink to this headline">¶</a></h3>
 <p>Variable that will be set to true after the video ends.  If <a class="reference internal" href="#repeats">repeats</a> is greater than 1, the variable will be set only once, after all repetitions are complete.  If <a class="reference internal" href="#loop">loop</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the variable will never be set.</p>
 </div>
+<div class="section" id="alpha-multiplier">
+<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Controls the transparency of the stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
+</div>
 <div class="section" id="x-size">
 <h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
@@ -229,18 +241,6 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </table>
 <p>Rotation (degrees)</p>
 </div>
-<div class="section" id="alpha-multiplier">
-<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1.0</span></code></td>
-</tr>
-</tbody>
-</table>
-<p>Controls the transparency of the stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
-</div>
 <div class="section" id="fullscreen">
 <h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
@@ -293,7 +293,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <td>Yes</td>
 </tr>
 <tr class="row-even"><th class="stub">Allowed parent:</th>
-<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
+<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">Layer Stimulus</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="movie_stimulus.html#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -326,7 +326,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2018, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
     </div>
   </body>
 </html>

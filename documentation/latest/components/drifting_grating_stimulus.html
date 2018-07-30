@@ -9,7 +9,7 @@
     <title>Drifting Grating Stimulus &#8212; MWorks 0.9.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -52,27 +52,30 @@
 <li><a class="reference internal" href="#spatial-frequency">spatial_frequency</a></li>
 <li><a class="reference internal" href="#speed">speed</a></li>
 <li><a class="reference internal" href="#grating-type">grating_type</a></li>
-<li><a class="reference internal" href="#mask">mask</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
 <li><a class="reference internal" href="#direction">direction</a></li>
 <li><a class="reference internal" href="#starting-phase">starting_phase</a></li>
 <li><a class="reference internal" href="#compute-phase-incrementally">compute_phase_incrementally</a></li>
+<li><a class="reference internal" href="#mask">mask</a></li>
 <li><a class="reference internal" href="#inverted">inverted</a></li>
-<li><a class="reference internal" href="#std-dev">std_dev</a></li>
-<li><a class="reference internal" href="#mean">mean</a></li>
-<li><a class="reference internal" href="#normalized">normalized</a></li>
 <li><a class="reference internal" href="#color">color</a></li>
+<li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
 <li><a class="reference internal" href="#x-size">x_size</a></li>
 <li><a class="reference internal" href="#y-size">y_size</a></li>
 <li><a class="reference internal" href="#x-position">x_position</a></li>
 <li><a class="reference internal" href="#y-position">y_position</a></li>
 <li><a class="reference internal" href="#rotation">rotation</a></li>
-<li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
 <li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
 <li><a class="reference internal" href="#deferred">deferred</a></li>
 <li><a class="reference internal" href="#autoplay">autoplay</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deprecated-parameters">Deprecated Parameters</a><ul>
+<li><a class="reference internal" href="#std-dev">std_dev</a></li>
+<li><a class="reference internal" href="#mean">mean</a></li>
+<li><a class="reference internal" href="#normalized">normalized</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#placement">Placement</a></li>
@@ -160,23 +163,6 @@
 </table>
 <p>Grating type</p>
 </div>
-<div class="section" id="mask">
-<h3>mask<a class="headerlink" href="#mask" title="Permalink to this headline">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Options:</th><td class="field-body"><div class="first last line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">rectangle</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">ellipse</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">gaussian</span></code></div>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Mask type</p>
-</div>
 </div>
 <div class="section" id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
@@ -226,6 +212,29 @@ playing.  Most notably, if the parameter’s value is <code class="docutils lite
 to <a class="reference internal" href="#speed">speed</a> will cause a discontinuous jump in phase.  If the value is
 <code class="docutils literal notranslate"><span class="pre">YES</span></code>, then changes to <a class="reference internal" href="#speed">speed</a> will be smooth, with no phase jump.</p>
 </div>
+<div class="section" id="mask">
+<h3>mask<a class="headerlink" href="#mask" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">NO</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the grating will function as a mask (similar to a <a class="reference internal" href="mask_stimulus.html#mask-stimulus"><span class="std std-ref">Mask Stimulus</span></a>).  When used as part of a <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">layer</span></a>, “high”
+regions of the grating (where the value is close to one) will allow
+stimuli beneath it in the layer to show through, while “low” regions
+(where the value is near zero) will partially or fully erase such
+stimuli, exposing any stimuli beneath the layer.</p>
+<p>When the value of this parameter is <code class="docutils literal notranslate"><span class="pre">YES</span></code>, <a class="reference internal" href="#color">color</a> and
+<a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a> are ignored.</p>
+<p><em>Note</em>: For compatibility with existing experiments, the value of this
+parameter can also be one of <code class="docutils literal notranslate"><span class="pre">rectangle</span></code>, <code class="docutils literal notranslate"><span class="pre">ellipse</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">gaussian</span></code>, in which case it specifies the type of mask to apply to
+the grating.  However, this usage is deprecated, and new experiments
+should use a <a class="reference internal" href="mask_stimulus.html#mask-stimulus"><span class="std std-ref">Mask Stimulus</span></a> instead.</p>
+</div>
 <div class="section" id="inverted">
 <h3>inverted<a class="headerlink" href="#inverted" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
@@ -236,47 +245,7 @@ to <a class="reference internal" href="#speed">speed</a> will cause a discontinu
 </tr>
 </tbody>
 </table>
-<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, sawtooth gratings will start high instead of low</p>
-</div>
-<div class="section" id="std-dev">
-<h3>std_dev<a class="headerlink" href="#std-dev" title="Permalink to this headline">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1.0</span></code></td>
-</tr>
-</tbody>
-</table>
-<p>Standard deviation of Gaussian mask</p>
-</div>
-<div class="section" id="mean">
-<h3>mean<a class="headerlink" href="#mean" title="Permalink to this headline">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">0.0</span></code></td>
-</tr>
-</tbody>
-</table>
-<p>Mean of Gaussian mask.</p>
-<p>This value determines the radial offset of the Gaussian peak from the
-center of the grating.  If non-zero, the peak will be a circle, rather
-than a point, and luminance will decrease both inside and outside the
-circle, producing a toroidal stimulus.</p>
-</div>
-<div class="section" id="normalized">
-<h3>normalized<a class="headerlink" href="#normalized" title="Permalink to this headline">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">YES</span></code></td>
-</tr>
-</tbody>
-</table>
-<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the Gaussian mask includes a multiplicative normalization term (<code class="docutils literal notranslate"><span class="pre">1/(std_dev*sqrt(2*pi))</span></code>).  If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, this term is omitted.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, all grating values are inverted, e.g. high values become low, and low values become high</p>
 </div>
 <div class="section" id="color">
 <h3>color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h3>
@@ -289,6 +258,18 @@ circle, producing a toroidal stimulus.</p>
 </tbody>
 </table>
 <p>The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).</p>
+</div>
+<div class="section" id="alpha-multiplier">
+<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Controls the transparency of the stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
 </div>
 <div class="section" id="x-size">
 <h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
@@ -354,18 +335,6 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </table>
 <p>Rotation (degrees)</p>
 </div>
-<div class="section" id="alpha-multiplier">
-<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1.0</span></code></td>
-</tr>
-</tbody>
-</table>
-<p>Controls the transparency of the stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
-</div>
 <div class="section" id="fullscreen">
 <h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
@@ -410,6 +379,49 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus will start playing automatically (as if by an implicit <a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">Play Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> has been invoked.  It will also stop playing automatically (as if by an implicit <a class="reference internal" href="stop_dynamic_stimulus.html#stop-dynamic-stimulus"><span class="std std-ref">Stop Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="dequeue_stimulus.html#dequeue-stimulus"><span class="std std-ref">dequeued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> is invoked.</p>
 </div>
 </div>
+<div class="section" id="deprecated-parameters">
+<h2>Deprecated Parameters<a class="headerlink" href="#deprecated-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="std-dev">
+<h3>std_dev<a class="headerlink" href="#std-dev" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Standard deviation of Gaussian mask</p>
+</div>
+<div class="section" id="mean">
+<h3>mean<a class="headerlink" href="#mean" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">0.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Mean of Gaussian mask.</p>
+<p>This value determines the radial offset of the Gaussian peak from the
+center of the grating.  If non-zero, the peak will be a circle, rather
+than a point, and luminance will decrease both inside and outside the
+circle, producing a toroidal stimulus.</p>
+</div>
+<div class="section" id="normalized">
+<h3>normalized<a class="headerlink" href="#normalized" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">YES</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the Gaussian mask includes a multiplicative normalization term (<code class="docutils literal notranslate"><span class="pre">1/(std_dev*sqrt(2*pi))</span></code>).  If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, this term is omitted.</p>
+</div>
+</div>
 <div class="section" id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="colwidths-auto docutils">
@@ -418,7 +430,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <td>Yes</td>
 </tr>
 <tr class="row-even"><th class="stub">Allowed parent:</th>
-<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
+<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">Layer Stimulus</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="movie_stimulus.html#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -451,7 +463,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2018, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
     </div>
   </body>
 </html>

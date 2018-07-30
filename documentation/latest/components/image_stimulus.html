@@ -9,14 +9,14 @@
     <title>Image Stimulus &#8212; MWorks 0.9.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Movie Stimulus" href="movie_stimulus.html" />
+    <link rel="next" title="Layer Stimulus" href="layer_stimulus.html" />
     <link rel="prev" title="Image Directory Movie Stimulus" href="image_directory_movie_stimulus.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="movie_stimulus.html" title="Movie Stimulus"
+          <a href="layer_stimulus.html" title="Layer Stimulus"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="image_directory_movie_stimulus.html" title="Image Directory Movie Stimulus"
@@ -53,12 +53,12 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
 <li><a class="reference internal" href="#x-size">x_size</a></li>
 <li><a class="reference internal" href="#y-size">y_size</a></li>
 <li><a class="reference internal" href="#x-position">x_position</a></li>
 <li><a class="reference internal" href="#y-position">y_position</a></li>
 <li><a class="reference internal" href="#rotation">rotation</a></li>
-<li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
 <li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
 <li><a class="reference internal" href="#deferred">deferred</a></li>
 </ul>
@@ -72,8 +72,8 @@
   <p class="topless"><a href="image_directory_movie_stimulus.html"
                         title="previous chapter">Image Directory Movie Stimulus</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="movie_stimulus.html"
-                        title="next chapter">Movie Stimulus</a></p>
+  <p class="topless"><a href="layer_stimulus.html"
+                        title="next chapter">Layer Stimulus</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <div class="searchformwrapper">
@@ -129,6 +129,18 @@ aspect ratio.</p>
 </div>
 <div class="section" id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="alpha-multiplier">
+<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Controls the transparency of the stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
+</div>
 <div class="section" id="x-size">
 <h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
@@ -193,18 +205,6 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </table>
 <p>Rotation (degrees)</p>
 </div>
-<div class="section" id="alpha-multiplier">
-<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1.0</span></code></td>
-</tr>
-</tbody>
-</table>
-<p>Controls the transparency of the stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
-</div>
 <div class="section" id="fullscreen">
 <h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
@@ -245,7 +245,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <td>Yes</td>
 </tr>
 <tr class="row-even"><th class="stub">Allowed parent:</th>
-<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
+<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">Layer Stimulus</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="movie_stimulus.html#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -265,7 +265,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="movie_stimulus.html" title="Movie Stimulus"
+          <a href="layer_stimulus.html" title="Layer Stimulus"
              >next</a> |</li>
         <li class="right" >
           <a href="image_directory_movie_stimulus.html" title="Image Directory Movie Stimulus"
@@ -278,7 +278,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2018, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
     </div>
   </body>
 </html>

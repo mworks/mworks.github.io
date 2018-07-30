@@ -31,16 +31,6 @@ field_radius
 
 Field radius (degrees)
 
-field_center_x
-^^^^^^^^^^^^^^
-
-Field horizontal center position (degrees)
-
-field_center_y
-^^^^^^^^^^^^^^
-
-Field vertical center position (degrees)
-
 dot_density
 ^^^^^^^^^^^
 
@@ -51,11 +41,6 @@ dot_size
 
 Dot diameter (degrees)
 
-direction
-^^^^^^^^^
-
-Direction of movement for coherent dots (degrees)
-
 speed
 ^^^^^
 
@@ -65,6 +50,18 @@ Dot speed (degrees per second)
 
 Optional Parameters
 -------------------
+
+field_center_x
+^^^^^^^^^^^^^^
+:Default: ``0.0``
+
+Field horizontal center position (degrees)
+
+field_center_y
+^^^^^^^^^^^^^^
+:Default: ``0.0``
+
+Field vertical center position (degrees)
 
 color
 ^^^^^
@@ -79,6 +76,12 @@ alpha_multiplier
 
 Controls the transparency of the dots.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
 
+
+direction
+^^^^^^^^^
+:Default: ``0.0``
+
+Direction of movement for coherent dots (degrees)
 
 coherence
 ^^^^^^^^^
@@ -137,4 +140,4 @@ Placement
    * - Allowed at top level:
      - Yes
    * - Allowed parent:
-     - `Folder`, `List Replicator`, `Range Replicator`, `Stimulus Group`
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

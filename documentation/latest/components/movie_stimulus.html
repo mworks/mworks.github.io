@@ -9,7 +9,7 @@
     <title>Movie Stimulus &#8212; MWorks 0.9.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -17,7 +17,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Moving Dots" href="moving_dots.html" />
-    <link rel="prev" title="Image Stimulus" href="image_stimulus.html" />
+    <link rel="prev" title="Mask Stimulus" href="mask_stimulus.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -33,7 +33,7 @@
           <a href="moving_dots.html" title="Moving Dots"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="image_stimulus.html" title="Image Stimulus"
+          <a href="mask_stimulus.html" title="Mask Stimulus"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
@@ -49,11 +49,11 @@
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
-<li><a class="reference internal" href="#stimulus-group">stimulus_group</a></li>
 <li><a class="reference internal" href="#frames-per-second">frames_per_second</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#stimulus-group">stimulus_group</a></li>
 <li><a class="reference internal" href="#ended">ended</a></li>
 <li><a class="reference internal" href="#loop">loop</a></li>
 <li><a class="reference internal" href="#repeats">repeats</a></li>
@@ -67,8 +67,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="image_stimulus.html"
-                        title="previous chapter">Image Stimulus</a></p>
+  <p class="topless"><a href="mask_stimulus.html"
+                        title="previous chapter">Mask Stimulus</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="moving_dots.html"
                         title="next chapter">Moving Dots</a></p>
@@ -96,8 +96,9 @@
 <span id="index-0"></span><span id="id1"></span><h1>Movie Stimulus<a class="headerlink" href="#movie-stimulus" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>A simple movie stimulus that gets its frames from a stimulus group and
-presents them at a specified frame rate.</p>
+<p>A simple movie stimulus that presents its frames at a specified frame rate.
+The frames can be provided by a stimulus group or attached directly to the
+movie as child components.</p>
 <p><em>Note</em>:  For compatibility with previous MWorks versions, this stimulus
 ignores the <a class="reference internal" href="#deferred">deferred</a> parameter.  Instead, the stimulus instance itself is
 marked as loaded at creation (as if <a class="reference internal" href="#deferred">deferred</a> were <code class="docutils literal notranslate"><span class="pre">no</span></code>), but it does
@@ -111,10 +112,6 @@ stimulus itself.</p>
 </div>
 <div class="section" id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="stimulus-group">
-<h3>stimulus_group<a class="headerlink" href="#stimulus-group" title="Permalink to this headline">¶</a></h3>
-<p>Stimulus group providing the frames</p>
-</div>
 <div class="section" id="frames-per-second">
 <h3>frames_per_second<a class="headerlink" href="#frames-per-second" title="Permalink to this headline">¶</a></h3>
 <p>Rate at which to display the movie’s frames</p>
@@ -122,6 +119,10 @@ stimulus itself.</p>
 </div>
 <div class="section" id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stimulus-group">
+<h3>stimulus_group<a class="headerlink" href="#stimulus-group" title="Permalink to this headline">¶</a></h3>
+<p>Stimulus group providing the frames</p>
+</div>
 <div class="section" id="ended">
 <h3>ended<a class="headerlink" href="#ended" title="Permalink to this headline">¶</a></h3>
 <p>Variable that will be set to true after the last frame has displayed. (Specifically, it will be set to true at the time that the next frame <em>after</em> the last would have been drawn, if there were one.)</p>
@@ -192,7 +193,10 @@ will always run at least once, even if this value is less than one.</p>
 <td>Yes</td>
 </tr>
 <tr class="row-even"><th class="stub">Allowed parent:</th>
-<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
+<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">Layer Stimulus</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
+</tr>
+<tr class="row-odd"><th class="stub">Allowed children:</th>
+<td><a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimuli.html#stimuli"><span class="std std-ref">Stimulus</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -215,7 +219,7 @@ will always run at least once, even if this value is less than one.</p>
           <a href="moving_dots.html" title="Moving Dots"
              >next</a> |</li>
         <li class="right" >
-          <a href="image_stimulus.html" title="Image Stimulus"
+          <a href="mask_stimulus.html" title="Mask Stimulus"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
@@ -225,7 +229,7 @@ will always run at least once, even if this value is less than one.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2018, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
     </div>
   </body>
 </html>

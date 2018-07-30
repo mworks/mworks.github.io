@@ -44,6 +44,13 @@ Filesystem path to the image file
 Optional Parameters
 -------------------
 
+alpha_multiplier
+^^^^^^^^^^^^^^^^
+:Default: ``1.0``
+
+Controls the transparency of the stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+
 x_size
 ^^^^^^
 :Example: ``5.0``
@@ -82,13 +89,6 @@ rotation
 
 Rotation (degrees)
 
-alpha_multiplier
-^^^^^^^^^^^^^^^^
-:Default: ``1.0``
-
-Controls the transparency of the stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
-
-
 fullscreen
 ^^^^^^^^^^
 :Default: ``NO``
@@ -117,4 +117,4 @@ Placement
    * - Allowed at top level:
      - Yes
    * - Allowed parent:
-     - `Folder`, `List Replicator`, `Range Replicator`, `Stimulus Group`
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

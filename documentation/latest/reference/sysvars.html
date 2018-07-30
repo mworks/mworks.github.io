@@ -9,7 +9,7 @@
     <title>System Variables &#8212; MWorks 0.9.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -181,7 +181,7 @@
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">make_window_opaque</span></code></td>
-<td>True or false, indicating whether the stimulus display window should be opaque.  If the window is not opaque, and the experiment includes a <a class="reference internal" href="../components/stimulus_display.html#stimulus-display"><span class="std std-ref">Stimulus Display</span></a> device whose <code class="docutils literal notranslate"><span class="pre">background_alpha_multiplier</span></code> parameter is less than 1, then the display background and/or application windows beneath the stimulus window will show through it.  Does not apply to the mirror window.</td>
+<td>True or false, indicating whether the stimulus display window should be opaque.  If the window is not opaque, and the experiment includes a <a class="reference internal" href="../components/stimulus_display.html#stimulus-display"><span class="std std-ref">Stimulus Display</span></a> device whose <code class="docutils literal notranslate"><span class="pre">background_alpha_multiplier</span></code> parameter is less than 1, then the display background and/or application windows beneath the stimulus window will show through it.  Does not affect the mirror window, which is always opaque.</td>
 <td><code class="docutils literal notranslate"><span class="pre">true</span></code></td>
 </tr>
 </tbody>
@@ -379,7 +379,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2018, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
     </div>
   </body>
 </html>

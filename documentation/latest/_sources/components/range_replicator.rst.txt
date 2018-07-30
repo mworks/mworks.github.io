@@ -62,6 +62,6 @@ Placement
    * - Allowed at top level:
      - Yes
    * - Allowed parent:
-     - `Block`, `Experiment`, `Folder`, `List`, `List Replicator`, `Protocol`, `Range Replicator`, `Stimulus Group`, `Trial`
+     - `Block`, `Experiment`, `Folder`, `Frame List Stimulus`, `List`, `List Replicator`, `Movie Stimulus`, `Protocol`, `Range Replicator`, `Stimulus Group`, `Trial`
    * - Allowed children:
      - `Block`, `List`, `List Replicator`, `Protocol`, `Range Replicator`, `Stimulus <Stimuli>`, `Stimulus Group`, `Trial`

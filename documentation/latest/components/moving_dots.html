@@ -9,7 +9,7 @@
     <title>Moving Dots &#8212; MWorks 0.9.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -50,17 +50,17 @@
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
 <li><a class="reference internal" href="#field-radius">field_radius</a></li>
-<li><a class="reference internal" href="#field-center-x">field_center_x</a></li>
-<li><a class="reference internal" href="#field-center-y">field_center_y</a></li>
 <li><a class="reference internal" href="#dot-density">dot_density</a></li>
 <li><a class="reference internal" href="#dot-size">dot_size</a></li>
-<li><a class="reference internal" href="#direction">direction</a></li>
 <li><a class="reference internal" href="#speed">speed</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#field-center-x">field_center_x</a></li>
+<li><a class="reference internal" href="#field-center-y">field_center_y</a></li>
 <li><a class="reference internal" href="#color">color</a></li>
 <li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
+<li><a class="reference internal" href="#direction">direction</a></li>
 <li><a class="reference internal" href="#coherence">coherence</a></li>
 <li><a class="reference internal" href="#lifetime">lifetime</a></li>
 <li><a class="reference internal" href="#announce-dots">announce_dots</a></li>
@@ -115,14 +115,6 @@
 <h3>field_radius<a class="headerlink" href="#field-radius" title="Permalink to this headline">¶</a></h3>
 <p>Field radius (degrees)</p>
 </div>
-<div class="section" id="field-center-x">
-<h3>field_center_x<a class="headerlink" href="#field-center-x" title="Permalink to this headline">¶</a></h3>
-<p>Field horizontal center position (degrees)</p>
-</div>
-<div class="section" id="field-center-y">
-<h3>field_center_y<a class="headerlink" href="#field-center-y" title="Permalink to this headline">¶</a></h3>
-<p>Field vertical center position (degrees)</p>
-</div>
 <div class="section" id="dot-density">
 <h3>dot_density<a class="headerlink" href="#dot-density" title="Permalink to this headline">¶</a></h3>
 <p>Number of dots per square degree</p>
@@ -131,10 +123,6 @@
 <h3>dot_size<a class="headerlink" href="#dot-size" title="Permalink to this headline">¶</a></h3>
 <p>Dot diameter (degrees)</p>
 </div>
-<div class="section" id="direction">
-<h3>direction<a class="headerlink" href="#direction" title="Permalink to this headline">¶</a></h3>
-<p>Direction of movement for coherent dots (degrees)</p>
-</div>
 <div class="section" id="speed">
 <h3>speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h3>
 <p>Dot speed (degrees per second)</p>
@@ -142,6 +130,30 @@
 </div>
 <div class="section" id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="field-center-x">
+<h3>field_center_x<a class="headerlink" href="#field-center-x" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">0.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Field horizontal center position (degrees)</p>
+</div>
+<div class="section" id="field-center-y">
+<h3>field_center_y<a class="headerlink" href="#field-center-y" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">0.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Field vertical center position (degrees)</p>
+</div>
 <div class="section" id="color">
 <h3>color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
@@ -165,6 +177,18 @@
 </tbody>
 </table>
 <p>Controls the transparency of the dots.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
+</div>
+<div class="section" id="direction">
+<h3>direction<a class="headerlink" href="#direction" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">0.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Direction of movement for coherent dots (degrees)</p>
 </div>
 <div class="section" id="coherence">
 <h3>coherence<a class="headerlink" href="#coherence" title="Permalink to this headline">¶</a></h3>
@@ -248,7 +272,7 @@ the direction of coherent motion is zero degrees.</p>
 <td>Yes</td>
 </tr>
 <tr class="row-even"><th class="stub">Allowed parent:</th>
-<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
+<td><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">Layer Stimulus</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="movie_stimulus.html#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></td>
 </tr>
 </tbody>
 </table>
@@ -281,7 +305,7 @@ the direction of coherent motion is zero degrees.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2018, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
     </div>
   </body>
 </html>
