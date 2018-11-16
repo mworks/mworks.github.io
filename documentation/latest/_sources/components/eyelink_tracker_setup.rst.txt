@@ -1,0 +1,80 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: EyeLink Tracker Setup
+   single: Actions; EyeLink Tracker Setup
+
+.. _EyeLink Tracker Setup:
+
+EyeLink Tracker Setup
+=====================
+
+*Available on macOS*
+
+
+Description
+-----------
+Prepare for calibration and launch the setup screen of an `EyeLink Device`.
+
+Before launching the setup screen, this action sets the tracker's
+gaze-position coordinate system (via EyeLink's ``screen_pixel_coords``
+command) to match the coordinate system used on MWorks' main stimulus
+display.  It then sets the calibration type (as specified in
+`calibration_type`_), so that the tracker recomputes the positions of
+fixation targets in the new coordinate system.
+
+Once the EyeLink setup screen has been launched, the user can manually
+initiate calibration, validation, or drift correction via the EyeLink host
+PC.
+
+This action can be executed only when the EyeLink device is *stopped* (i.e.
+before the experiment invokes `Start IO Device` on it, or after it invokes
+`Stop IO Device`).  Execution continues until the user manually exits the
+setup screen on the EyeLink host PC.
+
+
+
+Signature
+---------
+``action/eyelink_tracker_setup``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Name of EyeLink device
+
+
+
+Optional Parameters
+-------------------
+
+calibration_type
+^^^^^^^^^^^^^^^^
+:Options: | ``H3``
+          | ``HV3``
+          | ``HV5``
+          | ``HV9``
+          | ``HV13``
+:Default: ``HV9``
+
+Desired calibration type
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

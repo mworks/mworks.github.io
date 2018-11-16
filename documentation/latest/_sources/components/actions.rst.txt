@@ -26,6 +26,7 @@ Actions are the smallest unit of execution logic within an experiment. They init
    dequeue_stimulus
    end_averaged_calibration_and_ignore
    end_averaged_calibration_sample
+   eyelink_tracker_setup
    fake_monkey_fixate
    fake_monkey_saccade
    fake_monkey_saccade_and_fixate

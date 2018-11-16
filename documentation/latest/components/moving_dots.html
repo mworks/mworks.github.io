@@ -9,6 +9,7 @@
     <title>Moving Dots &#8212; MWorks 0.9.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -43,7 +44,7 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Moving Dots</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
@@ -64,6 +65,7 @@
 <li><a class="reference internal" href="#coherence">coherence</a></li>
 <li><a class="reference internal" href="#lifetime">lifetime</a></li>
 <li><a class="reference internal" href="#announce-dots">announce_dots</a></li>
+<li><a class="reference internal" href="#rand-seed">rand_seed</a></li>
 <li><a class="reference internal" href="#deferred">deferred</a></li>
 <li><a class="reference internal" href="#autoplay">autoplay</a></li>
 </ul>
@@ -232,6 +234,10 @@ pair of values representing the (x,y) coordinates of a dot.  The
 coordinates are scaled to lie in the range [-1,1] and rotated so that
 the direction of coherent motion is zero degrees.</p>
 </div>
+<div class="section" id="rand-seed">
+<h3>rand_seed<a class="headerlink" href="#rand-seed" title="Permalink to this headline">¶</a></h3>
+<p>Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.</p>
+</div>
 <div class="section" id="deferred">
 <h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
@@ -305,7 +311,7 @@ the direction of coherent motion is zero degrees.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2018, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
   </body>
 </html>

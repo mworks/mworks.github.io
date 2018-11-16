@@ -9,6 +9,7 @@
     <title>EyeLink Device &#8212; MWorks 0.9.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
@@ -43,18 +44,18 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">EyeLink Device</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
 <li><a class="reference internal" href="#tracker-ip">tracker_ip</a></li>
-<li><a class="reference internal" href="#tracking-dist">tracking_dist</a></li>
 <li><a class="reference internal" href="#data-interval">data_interval</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#tracking-dist">tracking_dist</a></li>
 <li><a class="reference internal" href="#eye-rx">eye_rx</a></li>
 <li><a class="reference internal" href="#eye-ry">eye_ry</a></li>
 <li><a class="reference internal" href="#eye-lx">eye_lx</a></li>
@@ -72,6 +73,15 @@
 <li><a class="reference internal" href="#pupil-ly">pupil_ly</a></li>
 <li><a class="reference internal" href="#pupil-size-r">pupil_size_r</a></li>
 <li><a class="reference internal" href="#pupil-size-l">pupil_size_l</a></li>
+<li><a class="reference internal" href="#blink-r">blink_r</a></li>
+<li><a class="reference internal" href="#blink-l">blink_l</a></li>
+<li><a class="reference internal" href="#saccade-r">saccade_r</a></li>
+<li><a class="reference internal" href="#saccade-l">saccade_l</a></li>
+<li><a class="reference internal" href="#fixation-r">fixation_r</a></li>
+<li><a class="reference internal" href="#fixation-l">fixation_l</a></li>
+<li><a class="reference internal" href="#cal-target-x">cal_target_x</a></li>
+<li><a class="reference internal" href="#cal-target-y">cal_target_y</a></li>
+<li><a class="reference internal" href="#cal-target-visible">cal_target_visible</a></li>
 <li><a class="reference internal" href="#eye-time">eye_time</a></li>
 <li><a class="reference internal" href="#autostart">autostart</a></li>
 <li><a class="reference internal" href="#alt">alt</a></li>
@@ -113,15 +123,69 @@
 <p><em>Available on macOS</em></p>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Digital interface to an <a class="reference external" href="http://www.sr-research.com">EyeLink</a>
-eye tracker.  Tested with the
-<a class="reference external" href="http://www.sr-research.com/eyelink1000.html">EyeLink 1000</a> and
-<a class="reference external" href="http://www.sr-research.com/eyelinkII.html">EyeLink II</a> trackers,
-but may be compatible with additional devices.</p>
+<p>Digital interface to an <a class="reference external" href="https://www.sr-research.com">EyeLink</a>
+eye tracker.  Tested with the <a class="reference external" href="https://www.sr-research.com/products/eyelink-1000-plus/">EyeLink 1000/1000 Plus</a>
+and <a class="reference external" href="https://www.sr-research.com/products/eyelink-ii/">EyeLink II</a>
+trackers, but may be compatible with additional devices.</p>
 <p>If the tracker is run in binocular mode, <a class="reference internal" href="#eye-x">eye_x</a>, <a class="reference internal" href="#eye-y">eye_y</a>, and <a class="reference internal" href="#eye-z">eye_z</a>
 give the midpoint of the shortest connecting line that is orthogonal to both
 gaze vectors; otherwise, these values will be empty.  All other output
 parameters are specified and described in the <a class="reference external" href="file:///Applications/Eyelink/docs/EyeLink1000_UserManual.pdf">EyeLink 1000 User Manual</a>.</p>
+<p class="rubric">Calibration</p>
+<p>In order to perform a tracker-driven calibration, validation, or drift
+correction, you must arrange for the drawing of a fixation target on MWorks’
+stimulus display at locations and times controlled by the tracker.  This is
+accomplished via the parameters <a class="reference internal" href="#cal-target-x">cal_target_x</a>, <a class="reference internal" href="#cal-target-y">cal_target_y</a>, and
+<a class="reference internal" href="#cal-target-visible">cal_target_visible</a>, as demonstrated in the following example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// cal_target_x and cal_target_y receive the location of the
+// fixation target
+
+var cal_target_x = 0
+var cal_target_y = 0
+
+circle cal_target (
+    color = 1,0,0
+    x_size = 1
+    x_position = cal_target_x
+    y_position = cal_target_y
+    )
+
+// cal_target_visible receives the signal to show or hide
+// the fixation target.  Attached actions draw or remove
+// the target as appropriate.
+
+var cal_target_visible (false) {
+    choose {
+        when (cal_target_visible) {
+            queue_stimulus (cal_target)
+            update_display ()
+        }
+        otherwise {
+            clear_display ()
+        }
+    }
+}
+
+// All three variable names must be provided as parameters
+// in the device declaration
+
+iodevice/eyelink eyelink (
+    ...
+    cal_target_x = cal_target_x
+    cal_target_y = cal_target_y
+    cal_target_visible = cal_target_visible
+    ...
+    )
+</pre></div>
+</div>
+<p>To initiate a calibration, validation, or drift correction, use the
+<a class="reference internal" href="eyelink_tracker_setup.html#eyelink-tracker-setup"><span class="std std-ref">EyeLink Tracker Setup</span></a> action:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>eyelink_tracker_setup (
+    device = eyelink
+    calibration_type = HV13
+    )
+</pre></div>
+</div>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
@@ -135,23 +199,11 @@ parameters are specified and described in the <a class="reference external" href
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">10.1.1.2</span></code></td>
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">100.1.1.1</span></code></td>
 </tr>
 </tbody>
 </table>
 <p>The tracker’s IP address</p>
-</div>
-<div class="section" id="tracking-dist">
-<h3>tracking_dist<a class="headerlink" href="#tracking-dist" title="Permalink to this headline">¶</a></h3>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1024</span></code></td>
-</tr>
-</tbody>
-</table>
-<p>Tracking range in eye tracker units.  (The default value should be 1024.)</p>
 </div>
 <div class="section" id="data-interval">
 <h3>data_interval<a class="headerlink" href="#data-interval" title="Permalink to this headline">¶</a></h3>
@@ -168,6 +220,20 @@ parameters are specified and described in the <a class="reference external" href
 </div>
 <div class="section" id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tracking-dist">
+<h3>tracking_dist<a class="headerlink" href="#tracking-dist" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">1024</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Tracking range in eye tracker units.  (The default value should be
+1024.)</p>
+<p>Required to compute <a class="reference internal" href="#eye-x">eye_x</a>, <a class="reference internal" href="#eye-y">eye_y</a>, and <a class="reference internal" href="#eye-z">eye_z</a>.</p>
+</div>
 <div class="section" id="eye-rx">
 <h3>eye_rx<a class="headerlink" href="#eye-rx" title="Permalink to this headline">¶</a></h3>
 <p>Variable in which to store right eye screen gaze x</p>
@@ -236,6 +302,42 @@ parameters are specified and described in the <a class="reference external" href
 <h3>pupil_size_l<a class="headerlink" href="#pupil-size-l" title="Permalink to this headline">¶</a></h3>
 <p>Variable in which to store left pupil size or area</p>
 </div>
+<div class="section" id="blink-r">
+<h3>blink_r<a class="headerlink" href="#blink-r" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store right eye blink state (true when blinking, false otherwise)</p>
+</div>
+<div class="section" id="blink-l">
+<h3>blink_l<a class="headerlink" href="#blink-l" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store left eye blink state (true when blinking, false otherwise)</p>
+</div>
+<div class="section" id="saccade-r">
+<h3>saccade_r<a class="headerlink" href="#saccade-r" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store right eye saccade state (true when in saccade, false otherwise)</p>
+</div>
+<div class="section" id="saccade-l">
+<h3>saccade_l<a class="headerlink" href="#saccade-l" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store left eye saccade state (true when in saccade, false otherwise)</p>
+</div>
+<div class="section" id="fixation-r">
+<h3>fixation_r<a class="headerlink" href="#fixation-r" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store right eye fixation state (true when fixating, false otherwise)</p>
+</div>
+<div class="section" id="fixation-l">
+<h3>fixation_l<a class="headerlink" href="#fixation-l" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store left eye fixation state (true when fixating, false otherwise)</p>
+</div>
+<div class="section" id="cal-target-x">
+<h3>cal_target_x<a class="headerlink" href="#cal-target-x" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store calibration target x coordinate</p>
+</div>
+<div class="section" id="cal-target-y">
+<h3>cal_target_y<a class="headerlink" href="#cal-target-y" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store calibration target y coordinate</p>
+</div>
+<div class="section" id="cal-target-visible">
+<h3>cal_target_visible<a class="headerlink" href="#cal-target-visible" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store calibration target visibility state (true when the target should be visible, false when it should be hidden)</p>
+</div>
 <div class="section" id="eye-time">
 <h3>eye_time<a class="headerlink" href="#eye-time" title="Permalink to this headline">¶</a></h3>
 <p>Variable in which to store time of sample (on EyeLink clock)</p>
@@ -301,7 +403,7 @@ stops running, irrespective of this setting.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2018, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.7.6.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
   </body>
 </html>

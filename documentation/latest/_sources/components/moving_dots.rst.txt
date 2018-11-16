@@ -112,6 +112,12 @@ coordinates are scaled to lie in the range [-1,1] and rotated so that
 the direction of coherent motion is zero degrees.
 
 
+rand_seed
+^^^^^^^^^
+
+Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.
+
+
 deferred
 ^^^^^^^^
 :Options: | ``no``
