@@ -48,7 +48,6 @@
 <li><a class="reference internal" href="#comments">Comments</a></li>
 <li><a class="reference internal" href="#identifiers">Identifiers</a></li>
 <li><a class="reference internal" href="#expressions">Expressions</a></li>
-<li><a class="reference internal" href="#variable-declarations">Variable Declarations</a></li>
 <li><a class="reference internal" href="#assignments">Assignments</a></li>
 <li><a class="reference internal" href="#component-declarations">Component Declarations</a><ul>
 <li><a class="reference internal" href="#parameters">Parameters</a></li>
@@ -56,6 +55,7 @@
 <li><a class="reference internal" href="#type-and-parameter-name-inference">Type and Parameter Name Inference</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#variable-declarations">Variable Declarations</a></li>
 <li><a class="reference internal" href="#includes">Includes</a></li>
 <li><a class="reference internal" href="#macros">Macros</a><ul>
 <li><a class="reference internal" href="#expression">Expression</a></li>
@@ -101,16 +101,31 @@
 <p>The following sections describe MWEL in detail.</p>
 <div class="section" id="comments">
 <h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
-<p>Comments in MWEL begin with <code class="docutils literal notranslate"><span class="pre">//</span></code> and continue to the end of the line.  They are used to explain, clarify, or otherwise document parts of an experiment:</p>
+<p>Comments are used to explain, clarify, or otherwise document parts of an experiment.  MWEL supports both single-line and multi-line comments.</p>
+<p>Single-line comments begin with <code class="docutils literal notranslate"><span class="pre">//</span></code> and continue to the end of the line:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// This is a single-line comment
 
-//
-// Here is a comment
-// that spans
-// multiple lines
-//
-
 var x = 1  // Comments can appear on the same line as non-comment code
+</pre></div>
+</div>
+<p>Multi-line comments begin with <code class="docutils literal notranslate"><span class="pre">/*</span></code> and end with <code class="docutils literal notranslate"><span class="pre">*/</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/*
+   Here is a comment
+   that spans
+   multiple lines
+*/
+
+var y = /* This type of comment can appear within non-comment code */ 2
+
+/*
+   Unlike some programming languages,
+   /* MWEL allows nested pairs of
+      /* multi-line comment delimiters within
+         a multi-line comment */
+   */
+*/
+
+var z = 3
 </pre></div>
 </div>
 </div>
@@ -127,23 +142,9 @@ A_Long_Name_With_Many_Words
 <h2>Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h2>
 <p>Expressions in MWEL are identical to those used in XML-based experiments.  For details, see the <a class="reference internal" href="../expressions/index.html#expressions"><span class="std std-ref">expression reference</span></a>.</p>
 </div>
-<div class="section" id="variable-declarations">
-<span id="id2"></span><h2>Variable Declarations<a class="headerlink" href="#variable-declarations" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">Variables</span></a> are declared by using the <code class="docutils literal notranslate"><span class="pre">var</span></code> keyword and providing a name and initial value.  The name must be an <a class="reference internal" href="#identifiers"><span class="std std-ref">identifier</span></a>.  The initial value can be any expression:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var a = 1.5
-var b = &#39;Hello, world!&#39;
-var c = 2*a + 3
-</pre></div>
-</div>
-<p>A variable declared in this way receives default values for all of its optional parameters.  To provide non-default parameter values, you must use <a class="reference internal" href="#component-declarations"><span class="std std-ref">component declaration</span></a> syntax:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var x (default_value = 3; persistant = YES)
-</pre></div>
-</div>
-<p>Variables can be declared only at the top level of an experiment or inside a top-level <a class="reference internal" href="../components/folder.html#folder"><span class="std std-ref">folder</span></a>.  They cannot be declared inside a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other component.</p>
-</div>
 <div class="section" id="assignments">
-<span id="id3"></span><h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
-<p>Assignments change the value of existing variables.  They come in three different varieties.</p>
+<span id="id2"></span><h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
+<p>An assignment changes the value of a <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variable</span></a>.  Assignments come in three different varieties.</p>
 <p>A simple assignment just replaces the old value with a new one:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a = &#39;foo&#39;
 b = [1,2,3]
@@ -157,9 +158,9 @@ b[2][&#39;b&#39;][3] = &#39;seven&#39;  // b == [1, 2, {&quot;a&quot;: 1.5, &quo
 </pre></div>
 </div>
 <p>Finally, an augmented assignment performs a binary operation with the current value and another value and assigns the result to the variable:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var d = 7
-d += 8     // d == 15
-d /= 2     // d == 7.5
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>d = 7
+d += 8  // d == 15
+d /= 2  // d == 7.5
 </pre></div>
 </div>
 <p>Index assignments may also be augmented:</p>
@@ -169,7 +170,7 @@ d /= 2     // d == 7.5
 <p>All binary arithmetic operators (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>) have corresponding augmented assignment operators (<code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code>, <code class="docutils literal notranslate"><span class="pre">%=</span></code>).</p>
 </div>
 <div class="section" id="component-declarations">
-<span id="id4"></span><h2>Component Declarations<a class="headerlink" href="#component-declarations" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Component Declarations<a class="headerlink" href="#component-declarations" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="../components/index.html#components"><span class="std std-ref">Components</span></a> are the building blocks of MWorks experiments.  Consequently, an experiment written in MWEL consists primarily of component declarations.</p>
 <p>The general form of a component declaration is as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signature tag (
@@ -260,6 +261,29 @@ protocol C     // Not OK! (syntax error)
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="variable-declarations">
+<span id="id4"></span><h2>Variable Declarations<a class="headerlink" href="#variable-declarations" title="Permalink to this headline">¶</a></h2>
+<p>Like other components, <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variables</span></a> are declared using <a class="reference internal" href="#component-declarations"><span class="std std-ref">component declaration</span></a> syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var a (default_value = 1.5)
+</pre></div>
+</div>
+<p>Because most experiments declare many variables, MWEL provides a simplified syntax for specifying a variable’s default value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var a = 1.5  // Equivalent to above
+</pre></div>
+</div>
+<p>The default value can be any expression:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var b = &#39;Hello, world!&#39;
+var c = 2*a + 3
+</pre></div>
+</div>
+<p>Variables declared in this way can still include parameters and/or child components:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var x = 3 (persistant = YES) {
+    report (&#39;x = $x&#39;)
+}
+</pre></div>
+</div>
+<p>Variables can be declared only at the top level of an experiment or inside a top-level <a class="reference internal" href="../components/folder.html#folder"><span class="std std-ref">folder</span></a>.  They cannot be declared inside a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other component.</p>
 </div>
 <div class="section" id="includes">
 <span id="id5"></span><h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
@@ -386,18 +410,20 @@ protocol {
 <li>the macro body declares exactly one component, and</li>
 <li>the component declaration in the macro body does not include a tag (if the invocation includes a tag) and/or children (if the invocation includes children).</li>
 </ol>
+<p>Also, if the macro body is a single <a class="reference internal" href="#variable-declarations"><span class="std std-ref">variable declaration</span></a>, then the invocation can include a default value with <code class="docutils literal notranslate"><span class="pre">=</span></code> (as
+long as the body does not include one).</p>
 <p>For example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define reported_var (default_value, message)
-    var (default_value) {
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define reported_var (message)
+    var {
         report (message)
     }
 %end
 
 // OK: invocation includes a tag, macro body does not
-reported_var x (default_value = 3; message = &#39;x = $x&#39;)
+reported_var x = 3 (message = &#39;x = $x&#39;)
 
 // Not OK: invocation and macro body both include children
-reported_var y (default_value = 3; message = &#39;y = $y&#39;) {
+reported_var y = 3 (message = &#39;y = $y&#39;) {
     z = 2*y
 }
 </pre></div>
