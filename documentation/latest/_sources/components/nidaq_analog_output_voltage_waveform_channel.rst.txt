@@ -17,7 +17,13 @@ NIDAQ Analog Output Voltage Waveform Channel
 
 Description
 -----------
-Generates a periodic analog output voltage signal on a `NIDAQ Device`
+Generates a periodic analog output voltage signal on a `NIDAQ Device`.
+
+All waveform parameters (`waveform`_, `period`_, `offset`_, `amplitude`_,
+and `mean`_) can be modified at run time.  Changes take effect after output
+is stopped and restarted, either by `stopping <Stop IO Device>` and
+`restarting <Start IO Device>` the device, or by setting the device's
+``analog_output_enabled`` parameter to ``NO`` and then ``YES``.
 
 
 
@@ -40,13 +46,13 @@ range_min
 ^^^^^^^^^
 :Example: ``-10.0``
 
-Waveform minimum (volts)
+Minimum permitted output value (volts)
 
 range_max
 ^^^^^^^^^
 :Example: ``10.0``
 
-Waveform maximum (volts)
+Maximum permitted output value (volts)
 
 waveform
 ^^^^^^^^
@@ -63,11 +69,31 @@ period
 
 Waveform period (microseconds)
 
+
+
+Optional Parameters
+-------------------
+
 offset
 ^^^^^^
-:Example: ``0ms``
+:Default: ``0ms``
 
 Waveform time offset (microseconds).  Determines the initial phase of the waveform.
+
+
+amplitude
+^^^^^^^^^
+:Example: ``2.5``
+
+Waveform amplitude (volts).  If omitted, defaults to ``(range_max-range_min)/2``.
+
+
+mean
+^^^^
+:Example: ``5.0``
+
+Waveform mean (volts).  If omitted, defaults to
+``(range_min+range_max)/2``.
 
 
 

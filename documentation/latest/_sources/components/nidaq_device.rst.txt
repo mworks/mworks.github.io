@@ -76,6 +76,22 @@ issue an error message.
 If omitted, defaults to `update_interval`_.
 
 
+analog_output_enabled
+^^^^^^^^^^^^^^^^^^^^^
+:Default: ``YES``
+
+Controls whether the device performs output on configured analog
+output `voltage <NIDAQ Analog Output Voltage Channel>` and
+`voltage waveform <NIDAQ Analog Output Voltage Waveform Channel>`
+channels.
+
+If this parameter is set to a variable name, then setting the variable
+to ``NO`` while the experiment is running will stop analog output, and
+subsequently setting the variable to ``YES`` will restart analog output.
+Hence, it provides a means to start and stop analog output independently
+of other input and output tasks.
+
+
 assume_multiplexed_adc
 ^^^^^^^^^^^^^^^^^^^^^^
 :Default: ``YES``

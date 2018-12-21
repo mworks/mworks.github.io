@@ -58,6 +58,7 @@
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
 <li><a class="reference internal" href="#analog-read-timeout">analog_read_timeout</a></li>
+<li><a class="reference internal" href="#analog-output-enabled">analog_output_enabled</a></li>
 <li><a class="reference internal" href="#assume-multiplexed-adc">assume_multiplexed_adc</a></li>
 <li><a class="reference internal" href="#autostart">autostart</a></li>
 <li><a class="reference internal" href="#alt">alt</a></li>
@@ -174,6 +175,26 @@ detect available devices and determine their assigned names.</p>
 (microseconds).  If the samples are not received in the allotted time,
 issue an error message.</p>
 <p>If omitted, defaults to <a class="reference internal" href="#update-interval">update_interval</a>.</p>
+</div>
+<div class="section" id="analog-output-enabled">
+<h3>analog_output_enabled<a class="headerlink" href="#analog-output-enabled" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">YES</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Controls whether the device performs output on configured analog
+output <a class="reference internal" href="nidaq_analog_output_voltage_channel.html#nidaq-analog-output-voltage-channel"><span class="std std-ref">voltage</span></a> and
+<a class="reference internal" href="nidaq_analog_output_voltage_waveform_channel.html#nidaq-analog-output-voltage-waveform-channel"><span class="std std-ref">voltage waveform</span></a>
+channels.</p>
+<p>If this parameter is set to a variable name, then setting the variable
+to <code class="docutils literal notranslate"><span class="pre">NO</span></code> while the experiment is running will stop analog output, and
+subsequently setting the variable to <code class="docutils literal notranslate"><span class="pre">YES</span></code> will restart analog output.
+Hence, it provides a means to start and stop analog output independently
+of other input and output tasks.</p>
 </div>
 <div class="section" id="assume-multiplexed-adc">
 <h3>assume_multiplexed_adc<a class="headerlink" href="#assume-multiplexed-adc" title="Permalink to this headline">¶</a></h3>

@@ -39,13 +39,13 @@ range_min
 ^^^^^^^^^
 :Example: ``-10.0``
 
-Minimum expected output value (volts)
+Minimum permitted output value (volts)
 
 range_max
 ^^^^^^^^^
 :Example: ``10.0``
 
-Maximum expected output value (volts)
+Maximum permitted output value (volts)
 
 voltage
 ^^^^^^^

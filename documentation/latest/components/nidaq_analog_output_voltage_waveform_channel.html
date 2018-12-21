@@ -55,7 +55,12 @@
 <li><a class="reference internal" href="#range-max">range_max</a></li>
 <li><a class="reference internal" href="#waveform">waveform</a></li>
 <li><a class="reference internal" href="#period">period</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
 <li><a class="reference internal" href="#offset">offset</a></li>
+<li><a class="reference internal" href="#amplitude">amplitude</a></li>
+<li><a class="reference internal" href="#mean">mean</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#placement">Placement</a></li>
@@ -94,7 +99,12 @@
 <p><em>Available on macOS</em></p>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Generates a periodic analog output voltage signal on a <a class="reference internal" href="nidaq_device.html#nidaq-device"><span class="std std-ref">NIDAQ Device</span></a></p>
+<p>Generates a periodic analog output voltage signal on a <a class="reference internal" href="nidaq_device.html#nidaq-device"><span class="std std-ref">NIDAQ Device</span></a>.</p>
+<p>All waveform parameters (<a class="reference internal" href="#waveform">waveform</a>, <a class="reference internal" href="#period">period</a>, <a class="reference internal" href="#offset">offset</a>, <a class="reference internal" href="#amplitude">amplitude</a>,
+and <a class="reference internal" href="#mean">mean</a>) can be modified at run time.  Changes take effect after output
+is stopped and restarted, either by <a class="reference internal" href="stop_io_device.html#stop-io-device"><span class="std std-ref">stopping</span></a> and
+<a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">restarting</span></a> the device, or by setting the device’s
+<code class="docutils literal notranslate"><span class="pre">analog_output_enabled</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">NO</span></code> and then <code class="docutils literal notranslate"><span class="pre">YES</span></code>.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
@@ -124,7 +134,7 @@
 </tr>
 </tbody>
 </table>
-<p>Waveform minimum (volts)</p>
+<p>Minimum permitted output value (volts)</p>
 </div>
 <div class="section" id="range-max">
 <h3>range_max<a class="headerlink" href="#range-max" title="Permalink to this headline">¶</a></h3>
@@ -136,7 +146,7 @@
 </tr>
 </tbody>
 </table>
-<p>Waveform maximum (volts)</p>
+<p>Maximum permitted output value (volts)</p>
 </div>
 <div class="section" id="waveform">
 <h3>waveform<a class="headerlink" href="#waveform" title="Permalink to this headline">¶</a></h3>
@@ -168,17 +178,45 @@
 </table>
 <p>Waveform period (microseconds)</p>
 </div>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="offset">
 <h3>offset<a class="headerlink" href="#offset" title="Permalink to this headline">¶</a></h3>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">0ms</span></code></td>
+<tr class="field-odd field"><th class="field-name">Default:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">0ms</span></code></td>
 </tr>
 </tbody>
 </table>
 <p>Waveform time offset (microseconds).  Determines the initial phase of the waveform.</p>
+</div>
+<div class="section" id="amplitude">
+<h3>amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">2.5</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Waveform amplitude (volts).  If omitted, defaults to <code class="docutils literal notranslate"><span class="pre">(range_max-range_min)/2</span></code>.</p>
+</div>
+<div class="section" id="mean">
+<h3>mean<a class="headerlink" href="#mean" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">5.0</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Waveform mean (volts).  If omitted, defaults to
+<code class="docutils literal notranslate"><span class="pre">(range_min+range_max)/2</span></code>.</p>
 </div>
 </div>
 <div class="section" id="placement">
