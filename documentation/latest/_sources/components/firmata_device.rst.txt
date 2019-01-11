@@ -92,4 +92,4 @@ Placement
    * - Allowed parent:
      - `Folder`
    * - Allowed children:
-     - `Firmata Analog Input Channel`, `Firmata Analog Output Channel`, `Firmata Digital Input Channel`, `Firmata Digital Output Channel`, `Firmata Servo Channel`
+     - `Firmata Analog Input Channel`, `Firmata Analog Output Channel`, `Firmata Digital Input Channel`, `Firmata Digital Input Pullup Channel`, `Firmata Digital Output Channel`, `Firmata Servo Channel`, `Firmata Word Output Channel`
