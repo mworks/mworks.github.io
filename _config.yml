@@ -31,7 +31,7 @@ gfm_quirks: paragraph_end
 # Other options
 #
 
-exclude: [CNAME, Gemfile, Gemfile.lock, README.markdown]
+exclude: [CNAME, Gemfile, Gemfile.lock, README.markdown, vendor]
 include: [_sources, _static]  # For Sphinx-generated docs
 permalink: pretty
 timezone: America/New_York
