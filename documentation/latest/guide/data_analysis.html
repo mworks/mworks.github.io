@@ -125,7 +125,7 @@ echo &#39;/Library/Application Support/MWorks/Scripting/Python&#39; &gt; ~/Libra
 <h4>Opening and Closing<a class="headerlink" href="#opening-and-closing" title="Permalink to this headline">¶</a></h4>
 <p>To open an event file, use the <code class="docutils literal notranslate"><span class="pre">MWKFile</span></code> class from the <code class="docutils literal notranslate"><span class="pre">mworks.data</span></code> module:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from mworks.data import MWKFile
-f = MWKFile(&#39;my_data.mwk&#39;)
+f = MWKFile(&#39;my_data.mwk2&#39;)
 f.open()
 </pre></div>
 </div>
@@ -134,7 +134,7 @@ f.open()
 </pre></div>
 </div>
 <p>Alternatively, you can use the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-with-statement">with statement</a> to handle opening and closing of the file in an implicit, exception-safe fashion:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with MWKFile(&#39;my_data.mwk&#39;) as f:
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with MWKFile(&#39;my_data.mwk2&#39;) as f:
     # Analysis code goes here
     ...
 </pre></div>
@@ -207,19 +207,19 @@ f.open()
 <div class="section" id="id3">
 <h4>Selecting Events<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p>To extract events from an event file, use the <code class="docutils literal notranslate"><span class="pre">getEvents</span></code> function.  If called with just the filename, this function returns <em>all</em> events in the file:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>all_events = getEvents(&#39;my_data.mwk&#39;)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>all_events = getEvents(&#39;my_data.mwk2&#39;)
 </pre></div>
 </div>
 <p>To extract only events with specific event codes, provide an array containing the desired codes as the second argument:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = getEvents(&#39;my_data.mwk&#39;, [36, 37, 38])
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = getEvents(&#39;my_data.mwk2&#39;, [36, 37, 38])
 </pre></div>
 </div>
 <p>To further restrict the retrieved events to a particular time range, specify a minimum and maximum time as the third and fourth arguments, respectively:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = getEvents(&#39;my_data.mwk&#39;, [36, 37, 38], t1, t2)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = getEvents(&#39;my_data.mwk2&#39;, [36, 37, 38], t1, t2)
 </pre></div>
 </div>
 <p>To extract all events in a given time range, pass an empty array as the second argument:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = getEvents(&#39;my_data.mwk&#39;, [], t1, t2)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = getEvents(&#39;my_data.mwk2&#39;, [], t1, t2)
 </pre></div>
 </div>
 </div>
@@ -253,7 +253,7 @@ ans =
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">event_code</span></code> and <code class="docutils literal notranslate"><span class="pre">time_us</span></code> fields always have integer values.  However, the type of <code class="docutils literal notranslate"><span class="pre">data</span></code> can be logical, integer, floating point, string, <a class="reference external" href="https://www.mathworks.com/help/matlab/cell-arrays.html">cell</a>, <a class="reference external" href="https://www.mathworks.com/help/matlab/structures.html">struct</a>, or <a class="reference external" href="https://www.mathworks.com/help/matlab/map-containers.html">Map</a>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; events = getEvents(&#39;my_data.mwk&#39;, [6]);
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; events = getEvents(&#39;my_data.mwk2&#39;, [6]);
 &gt;&gt; events(16).data
 
 ans =
@@ -270,7 +270,7 @@ ans =
 <div class="section" id="id5">
 <h4>Using the Codec<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
 <p>To convert an event code to a variable name, use the Map returned by the <code class="docutils literal notranslate"><span class="pre">getCodec</span></code> function:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; codec = getCodec(&#39;my_data.mwk&#39;);
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; codec = getCodec(&#39;my_data.mwk2&#39;);
 &gt;&gt; codec(36)
 
 ans =
@@ -279,7 +279,7 @@ ans =
 </pre></div>
 </div>
 <p>To convert a variable name to an event code, use the Map returned by the <code class="docutils literal notranslate"><span class="pre">getReverseCodec</span></code> function:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; reverse_codec = getReverseCodec(&#39;my_data.mwk&#39;);
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; reverse_codec = getReverseCodec(&#39;my_data.mwk2&#39;);
 &gt;&gt; reverse_codec(&#39;red_selected&#39;)
 
 ans =
@@ -318,7 +318,7 @@ ans =
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2019, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.4.
     </div>
   </body>
 </html>
