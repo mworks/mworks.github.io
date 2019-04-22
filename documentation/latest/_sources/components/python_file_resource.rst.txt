@@ -24,6 +24,9 @@ before any other components are created.  Therefore, the Python code can set
 variable values or perform additional initialization tasks, and other
 components can make use of the results.
 
+For information on the modules and functions available to your Python code,
+see `Run Python File`.
+
 
 
 Signature

@@ -26,8 +26,9 @@ trackers, but may be compatible with additional devices.
 If the tracker is run in binocular mode, `eye_x`_, `eye_y`_, and `eye_z`_
 give the midpoint of the shortest connecting line that is orthogonal to both
 gaze vectors; otherwise, these values will be empty.  All other output
-parameters are specified and described in the `EyeLink 1000 User Manual
-<file:///Applications/Eyelink/docs/EyeLink1000_UserManual.pdf>`_.
+parameters are specified and described in the EyeLink 1000 User Manual.  If
+an eye tracker packet contains no data for a parameter, EyeLink's
+``MISSING_DATA`` value (-32768) is written to the corresponding variable.
 
 .. rubric:: Calibration
 
