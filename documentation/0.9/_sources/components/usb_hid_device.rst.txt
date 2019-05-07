@@ -1,0 +1,108 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: USB HID Device
+   single: Input/Output; USB HID Device
+
+.. _USB HID Device:
+
+USB HID Device
+==============
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to a `USB human interface device
+<https://en.wikipedia.org/wiki/USB_human_interface_device_class>`_ (HID)
+class device.
+
+Appropriate values for the `usage_page`_ and `usage`_ parameters can be
+found in the `HID Usage Tables
+<http://www.usb.org/developers/hidpage#HID_Usage>`_.  Here are the values
+for a few common device types:
+
+=========== ========== =====
+Device type Usage page Usage
+=========== ========== =====
+Keyboard    1          6
+Joystick    1          4
+Gamepad     1          5
+=========== ========== =====
+
+
+
+Signature
+---------
+``iodevice/usbhid_generic``
+
+
+Required Parameters
+-------------------
+
+usage_page
+^^^^^^^^^^
+:Example: ``1``
+
+HID usage page for the device
+
+usage
+^^^^^
+:Example: ``6``
+
+HID usage for the device
+
+
+
+Optional Parameters
+-------------------
+
+preferred_location_id
+^^^^^^^^^^^^^^^^^^^^^
+:Default: ``0``
+
+If MWorks finds multiple candidate devices for the given `usage_page`_ and `usage`_, it will issue an error message that lists the product name, manufacturer name, and "location ID" for each matching device.  To select the desired device, set this parameter to the reported location ID of that device.
+
+
+log_all_input_values
+^^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, MWorks will log (to the event stream and server console) all input values received from the device.  Each log message will include an associated element usage page and usage.  These usage page and usage values can be used to define a `USB HID Input Channel` for the input.
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
+   * - Allowed children:
+     - `USB HID Input Channel`

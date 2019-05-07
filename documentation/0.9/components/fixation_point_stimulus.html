@@ -1,0 +1,268 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fixation Point Stimulus &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Frame List Stimulus" href="frame_list_stimulus.html" />
+    <link rel="prev" title="Ellipse Stimulus" href="ellipse_stimulus.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="frame_list_stimulus.html" title="Frame List Stimulus"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ellipse_stimulus.html" title="Ellipse Stimulus"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="stimuli.html" accesskey="U">Stimuli</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Fixation Point Stimulus</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#trigger-width">trigger_width</a></li>
+<li><a class="reference internal" href="#trigger-watch-x">trigger_watch_x</a></li>
+<li><a class="reference internal" href="#trigger-watch-y">trigger_watch_y</a></li>
+<li><a class="reference internal" href="#trigger-flag">trigger_flag</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#color">color</a></li>
+<li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
+<li><a class="reference internal" href="#x-size">x_size</a></li>
+<li><a class="reference internal" href="#y-size">y_size</a></li>
+<li><a class="reference internal" href="#x-position">x_position</a></li>
+<li><a class="reference internal" href="#y-position">y_position</a></li>
+<li><a class="reference internal" href="#rotation">rotation</a></li>
+<li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
+<li><a class="reference internal" href="#deferred">deferred</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ellipse_stimulus.html"
+                        title="previous chapter">Ellipse Stimulus</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="frame_list_stimulus.html"
+                        title="next chapter">Frame List Stimulus</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fixation-point-stimulus">
+<span id="index-0"></span><span id="id1"></span><h1>Fixation Point Stimulus<a class="headerlink" href="#fixation-point-stimulus" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>A rectangular fixation point stimulus.  Also serves as a “calibratable” object for calibrator-related actions (e.g. <a class="reference internal" href="take_calibration_sample.html#take-calibration-sample"><span class="std std-ref">Take Calibration Sample</span></a>, <a class="reference internal" href="end_averaged_calibration_sample.html#end-averaged-calibration-sample"><span class="std std-ref">End Averaged Calibration Sample</span></a>).</p>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">stimulus/fixation_point</span></code></p>
+</div>
+<div class="section" id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="trigger-width">
+<h3>trigger_width<a class="headerlink" href="#trigger-width" title="Permalink to this headline">¶</a></h3>
+<p>Width of the (square) fixation window, which shares its center with the visible stimulus rectangle</p>
+</div>
+<div class="section" id="trigger-watch-x">
+<h3>trigger_watch_x<a class="headerlink" href="#trigger-watch-x" title="Permalink to this headline">¶</a></h3>
+<p>Variable containing the horizontal eye position</p>
+</div>
+<div class="section" id="trigger-watch-y">
+<h3>trigger_watch_y<a class="headerlink" href="#trigger-watch-y" title="Permalink to this headline">¶</a></h3>
+<p>Variable containing the vertical eye position</p>
+</div>
+<div class="section" id="trigger-flag">
+<h3>trigger_flag<a class="headerlink" href="#trigger-flag" title="Permalink to this headline">¶</a></h3>
+<p>Variable to which fixation status is written. When the subject’s gaze (as reported by <a class="reference internal" href="#trigger-watch-x">trigger_watch_x</a> and <a class="reference internal" href="#trigger-watch-y">trigger_watch_y</a>) enters the fixation window, the variable is set to true.  When the subject’s gaze leaves the fixation window, the variable is set to false.</p>
+</div>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="color">
+<h3>color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0,1.0,1.0</span></code></p>
+</dd>
+</dl>
+<p>The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).</p>
+</div>
+<div class="section" id="alpha-multiplier">
+<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
+</dd>
+</dl>
+<p>Controls the transparency of the stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
+</div>
+<div class="section" id="x-size">
+<h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5.0</span></code></p>
+</dd>
+</dl>
+<p>Horizontal size (degrees).</p>
+<p>If omitted, the value of <a class="reference internal" href="#y-size">y_size</a> is used.  It is an error to omit both
+x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
+</div>
+<div class="section" id="y-size">
+<h3>y_size<a class="headerlink" href="#y-size" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5.0</span></code></p>
+</dd>
+</dl>
+<p>Vertical size (degrees).</p>
+<p>If omitted, the value of <a class="reference internal" href="#x-size">x_size</a> is used.  It is an error to omit both
+x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
+</div>
+<div class="section" id="x-position">
+<h3>x_position<a class="headerlink" href="#x-position" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+</dd>
+</dl>
+<p>Horizontal center position (degrees)</p>
+</div>
+<div class="section" id="y-position">
+<h3>y_position<a class="headerlink" href="#y-position" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+</dd>
+</dl>
+<p>Vertical center position (degrees)</p>
+</div>
+<div class="section" id="rotation">
+<h3>rotation<a class="headerlink" href="#rotation" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+</dd>
+</dl>
+<p>Rotation (degrees)</p>
+</div>
+<div class="section" id="fullscreen">
+<h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus is sized to fill the display.  In this mode, <a class="reference internal" href="#x-size">x_size</a>, <a class="reference internal" href="#y-size">y_size</a>, <a class="reference internal" href="#x-position">x_position</a>, <a class="reference internal" href="#y-position">y_position</a>, and <a class="reference internal" href="#rotation">rotation</a> are ignored.</p>
+</div>
+<div class="section" id="deferred">
+<h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">no</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">yes</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">explicit</span></code></div>
+</div>
+</dd>
+<dt class="field-even">Default</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">no</span></code></p>
+</dd>
+</dl>
+<p>Controls when the stimulus is loaded.  If <code class="docutils literal notranslate"><span class="pre">no</span></code>, the stimulus is loaded at experiment load time.  If <code class="docutils literal notranslate"><span class="pre">yes</span></code>, the stimulus is loaded the first time it is <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a>.  If <code class="docutils literal notranslate"><span class="pre">explicit</span></code>, the stimulus must be loaded explictly with <a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">Load Stimulus</span></a>.</p>
+</div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-center">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">Layer Stimulus</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="movie_stimulus.html#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="frame_list_stimulus.html" title="Frame List Stimulus"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ellipse_stimulus.html" title="Ellipse Stimulus"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="stimuli.html" >Stimuli</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

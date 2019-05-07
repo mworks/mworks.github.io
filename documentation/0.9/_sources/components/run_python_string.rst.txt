@@ -1,0 +1,61 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Run Python String
+   single: Actions; Run Python String
+
+.. _Run Python String:
+
+Run Python String
+=================
+
+
+Description
+-----------
+Execute the given string as `Python <https://www.python.org>`_ source code.
+
+For information on the modules and functions available to your Python code,
+see `Run Python File`.
+
+
+
+Signature
+---------
+``action/run_python_string``
+
+
+Required Parameters
+-------------------
+
+code
+^^^^
+
+Python code to execute
+
+
+
+Optional Parameters
+-------------------
+
+stop_on_failure
+^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the experiment will stop automatically if Python execution fails
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

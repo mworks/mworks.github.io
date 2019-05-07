@@ -1,0 +1,62 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Assign Variable
+   single: Actions; Assign Variable
+
+.. _Assign Variable:
+
+Assign Variable
+===============
+
+
+Description
+-----------
+Assign a value to a variable.
+
+If the target variable's current value is a list or dictionary, you can
+assign a new value to one of its elements by including one or more
+square-bracket-enclosed indices in `variable`_.
+
+In MWEL, `assignments <assignments>` are automatically converted into Assign
+Variable actions (except for top-level assignments, which are converted into
+`Variable Assignment` instances).
+
+
+
+Signature
+---------
+``action/assignment``
+
+
+Required Parameters
+-------------------
+
+variable
+^^^^^^^^
+:Examples: | ``my_var``
+           | ``my_var[2]``
+           | ``my_var[x][y]['b']``
+
+Variable name.  May include one or more index expressions.
+
+value
+^^^^^
+
+Value to assign
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

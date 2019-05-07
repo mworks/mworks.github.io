@@ -1,0 +1,51 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Take Calibration Sample
+   single: Actions; Take Calibration Sample
+
+.. _Take Calibration Sample:
+
+Take Calibration Sample
+=======================
+
+
+Description
+-----------
+Instruct a calibrator object to take a new calibration sample.  The calibrator object takes both measured values and the corresponding "true" values (provided by a "calibratable" object) and uses them to determine a mapping function.
+
+
+
+Signature
+---------
+``action/take_calibration_sample``
+
+
+Required Parameters
+-------------------
+
+calibrator
+^^^^^^^^^^
+
+Name of the calibrator
+
+calibratable_object
+^^^^^^^^^^^^^^^^^^^
+
+Name of the calibratable object
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

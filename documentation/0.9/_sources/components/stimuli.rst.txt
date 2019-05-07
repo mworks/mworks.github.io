@@ -1,0 +1,32 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Stimuli:
+
+Stimuli
+=======
+
+Visual stimuli
+
+.. toctree::
+   :maxdepth: 1
+
+   blank_fullscreen_stimulus
+   circular_fixation_point_stimulus
+   drifting_grating_stimulus
+   ellipse_stimulus
+   fixation_point_stimulus
+   frame_list_stimulus
+   image_directory_movie_stimulus
+   image_stimulus
+   layer_stimulus
+   mask_stimulus
+   movie_stimulus
+   moving_dots
+   rectangle_stimulus
+   stimulus_group
+   text_stimulus
+   video_stimulus
+   white_noise_background

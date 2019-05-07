@@ -1,0 +1,64 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Run Blackrock LED Driver
+   single: Actions; Run Blackrock LED Driver
+
+.. _Run Blackrock LED Driver:
+
+Run Blackrock LED Driver
+========================
+
+*Available on macOS*
+
+
+Description
+-----------
+Run a `Blackrock LED Driver` for the specified duration.  The desired
+channel intensities must have been `set <Set Blackrock LED Driver Channel
+Intensity>` previously.
+
+If the duration or any channel intensities have changed since the last run,
+the complete LED program must be sent to the driver before the presentation
+can begin.  This transfer takes about 100ms to complete.  If this delay is
+undesirable, you can force it to happen at an earlier, more convenient time
+by invoking `Prepare Blackrock LED Driver` with the desired duration.  (Note
+that you *must* pass the same duration to both "prepare" and "run", and you
+*must not* change any channel intensities between them.  Otherwise, the LED
+program will still need to be re-sent before the presentation begins.)
+
+
+
+Signature
+---------
+``action/blackrock_led_driver_run``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Device name
+
+duration
+^^^^^^^^
+
+Run duration (microseconds)
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

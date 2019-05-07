@@ -1,0 +1,157 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Image Directory Movie Stimulus
+   single: Stimuli; Image Directory Movie Stimulus
+
+.. _Image Directory Movie Stimulus:
+
+Image Directory Movie Stimulus
+==============================
+
+
+Description
+-----------
+A movie stimulus that gets its frames from a directory of image files.
+
+*Note*:  To preserve each image's aspect ratio on screen, `x_size`_ and
+`y_size`_ must be equal.  When drawn, the larger dimension spans the full
+specified size, while the smaller dimension is scaled to maintain the
+aspect ratio.
+
+
+
+Signature
+---------
+``stimulus/image_directory_movie``
+
+
+Required Parameters
+-------------------
+
+directory_path
+^^^^^^^^^^^^^^
+
+Filesystem path to the directory containing the image files.
+
+*All* non-hidden files in this directory must be images.  The frames are
+ordered according to the lexical sort order of the file names.
+
+
+frames_per_second
+^^^^^^^^^^^^^^^^^
+
+Rate at which to display the movie's frames
+
+
+
+Optional Parameters
+-------------------
+
+x_size
+^^^^^^
+:Example: ``5.0``
+
+Horizontal size (degrees).
+
+If omitted, the value of `y_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
+y_size
+^^^^^^
+:Example: ``5.0``
+
+Vertical size (degrees).
+
+If omitted, the value of `x_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
+x_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Horizontal center position (degrees)
+
+y_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Vertical center position (degrees)
+
+rotation
+^^^^^^^^
+:Default: ``0.0``
+
+Rotation (degrees)
+
+alpha_multiplier
+^^^^^^^^^^^^^^^^
+:Default: ``1.0``
+
+Controls the transparency of the stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+
+fullscreen
+^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus is sized to fill the display.  In this mode, `x_size`_, `y_size`_, `x_position`_, `y_position`_, and `rotation`_ are ignored.
+
+
+ended
+^^^^^
+
+Variable that will be set to true after the last frame has displayed. (Specifically, it will be set to true at the time that the next frame *after* the last would have been drawn, if there were one.)
+
+
+loop
+^^^^
+:Default: ``NO``
+
+If ``YES``, the presentation will repeat indefinitely (or until `Stop Dynamic Stimulus` is invoked)
+
+
+repeats
+^^^^^^^
+:Default: ``0``
+
+Number of times to repeat the presentation.  Note that the presentation
+will always run at least once, even if this value is less than one.
+
+If `loop`_ is ``YES``, this parameter is ignored.
+
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+autoplay
+^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus will start playing automatically (as if by an implicit `Play Dynamic Stimulus` action) after it has been `queued <Queue Stimulus>` and `Update Stimulus Display` has been invoked.  It will also stop playing automatically (as if by an implicit `Stop Dynamic Stimulus` action) after it has been `dequeued <Dequeue Stimulus>` and `Update Stimulus Display` is invoked.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

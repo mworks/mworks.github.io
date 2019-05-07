@@ -1,0 +1,299 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>NIDAQ Digital Input Channel &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NIDAQ Digital Output Channel" href="nidaq_digital_output_channel.html" />
+    <link rel="prev" title="NIDAQ Device" href="nidaq_device.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="nidaq_digital_output_channel.html" title="NIDAQ Digital Output Channel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nidaq_device.html" title="NIDAQ Device"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" accesskey="U">Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NIDAQ Digital Input Channel</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#port-number">port_number</a></li>
+<li><a class="reference internal" href="#num-lines-in-port">num_lines_in_port</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#line0">line0</a></li>
+<li><a class="reference internal" href="#line1">line1</a></li>
+<li><a class="reference internal" href="#line2">line2</a></li>
+<li><a class="reference internal" href="#line3">line3</a></li>
+<li><a class="reference internal" href="#line4">line4</a></li>
+<li><a class="reference internal" href="#line5">line5</a></li>
+<li><a class="reference internal" href="#line6">line6</a></li>
+<li><a class="reference internal" href="#line7">line7</a></li>
+<li><a class="reference internal" href="#line8">line8</a></li>
+<li><a class="reference internal" href="#line9">line9</a></li>
+<li><a class="reference internal" href="#line10">line10</a></li>
+<li><a class="reference internal" href="#line11">line11</a></li>
+<li><a class="reference internal" href="#line12">line12</a></li>
+<li><a class="reference internal" href="#line13">line13</a></li>
+<li><a class="reference internal" href="#line14">line14</a></li>
+<li><a class="reference internal" href="#line15">line15</a></li>
+<li><a class="reference internal" href="#line16">line16</a></li>
+<li><a class="reference internal" href="#line17">line17</a></li>
+<li><a class="reference internal" href="#line18">line18</a></li>
+<li><a class="reference internal" href="#line19">line19</a></li>
+<li><a class="reference internal" href="#line20">line20</a></li>
+<li><a class="reference internal" href="#line21">line21</a></li>
+<li><a class="reference internal" href="#line22">line22</a></li>
+<li><a class="reference internal" href="#line23">line23</a></li>
+<li><a class="reference internal" href="#line24">line24</a></li>
+<li><a class="reference internal" href="#line25">line25</a></li>
+<li><a class="reference internal" href="#line26">line26</a></li>
+<li><a class="reference internal" href="#line27">line27</a></li>
+<li><a class="reference internal" href="#line28">line28</a></li>
+<li><a class="reference internal" href="#line29">line29</a></li>
+<li><a class="reference internal" href="#line30">line30</a></li>
+<li><a class="reference internal" href="#line31">line31</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="nidaq_device.html"
+                        title="previous chapter">NIDAQ Device</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="nidaq_digital_output_channel.html"
+                        title="next chapter">NIDAQ Digital Output Channel</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="nidaq-digital-input-channel">
+<span id="index-0"></span><span id="id1"></span><h1>NIDAQ Digital Input Channel<a class="headerlink" href="#nidaq-digital-input-channel" title="Permalink to this headline">¶</a></h1>
+<p><em>Available on macOS</em></p>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Digital input channel on a <a class="reference internal" href="nidaq_device.html#nidaq-device"><span class="std std-ref">NIDAQ Device</span></a>.</p>
+<p>Supports up to 32 lines on a single port.  Each line has an associated
+parameter (e.g. <a class="reference internal" href="#line0">line0</a>) that specifies the variable in which to store the
+state of the line (0 or 1).</p>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">iochannel/nidaq_digital_input</span></code></p>
+</div>
+<div class="section" id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="port-number">
+<h3>port_number<a class="headerlink" href="#port-number" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+<p>Digital port number (<code class="docutils literal notranslate"><span class="pre">0</span></code> for P0, <code class="docutils literal notranslate"><span class="pre">1</span></code> for P1, etc.)</p>
+</div>
+<div class="section" id="num-lines-in-port">
+<h3>num_lines_in_port<a class="headerlink" href="#num-lines-in-port" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">8</span></code></p>
+</dd>
+</dl>
+<p>Number of lines in the port.  Typical values are 4, 8, 16, and 32.</p>
+</div>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="line0">
+<h3>line0<a class="headerlink" href="#line0" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line1">
+<h3>line1<a class="headerlink" href="#line1" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line2">
+<h3>line2<a class="headerlink" href="#line2" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line3">
+<h3>line3<a class="headerlink" href="#line3" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line4">
+<h3>line4<a class="headerlink" href="#line4" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line5">
+<h3>line5<a class="headerlink" href="#line5" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line6">
+<h3>line6<a class="headerlink" href="#line6" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line7">
+<h3>line7<a class="headerlink" href="#line7" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line8">
+<h3>line8<a class="headerlink" href="#line8" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line9">
+<h3>line9<a class="headerlink" href="#line9" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line10">
+<h3>line10<a class="headerlink" href="#line10" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line11">
+<h3>line11<a class="headerlink" href="#line11" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line12">
+<h3>line12<a class="headerlink" href="#line12" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line13">
+<h3>line13<a class="headerlink" href="#line13" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line14">
+<h3>line14<a class="headerlink" href="#line14" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line15">
+<h3>line15<a class="headerlink" href="#line15" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line16">
+<h3>line16<a class="headerlink" href="#line16" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line17">
+<h3>line17<a class="headerlink" href="#line17" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line18">
+<h3>line18<a class="headerlink" href="#line18" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line19">
+<h3>line19<a class="headerlink" href="#line19" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line20">
+<h3>line20<a class="headerlink" href="#line20" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line21">
+<h3>line21<a class="headerlink" href="#line21" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line22">
+<h3>line22<a class="headerlink" href="#line22" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line23">
+<h3>line23<a class="headerlink" href="#line23" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line24">
+<h3>line24<a class="headerlink" href="#line24" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line25">
+<h3>line25<a class="headerlink" href="#line25" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line26">
+<h3>line26<a class="headerlink" href="#line26" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line27">
+<h3>line27<a class="headerlink" href="#line27" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line28">
+<h3>line28<a class="headerlink" href="#line28" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line29">
+<h3>line29<a class="headerlink" href="#line29" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line30">
+<h3>line30<a class="headerlink" href="#line30" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="line31">
+<h3>line31<a class="headerlink" href="#line31" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-center">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="nidaq_device.html#nidaq-device"><span class="std std-ref">NIDAQ Device</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="nidaq_digital_output_channel.html" title="NIDAQ Digital Output Channel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="nidaq_device.html" title="NIDAQ Device"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" >Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

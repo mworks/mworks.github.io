@@ -1,0 +1,79 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Layer Stimulus
+   single: Stimuli; Layer Stimulus
+
+.. _Layer Stimulus:
+
+Layer Stimulus
+==============
+
+
+Description
+-----------
+Layers are useful only in conjuction with `masks <Mask Stimulus>`.
+
+A layer is a container for other stimuli.  When displayed, it first renders
+its child stimuli into a single scene, against a transparent background.  It
+then draws this composite scene on the stimulus display.  If one of its
+children is a mask, the "masked out" regions become transparent or semi-
+transparent "windows", through which any stimuli below the layer are
+visible.
+
+For example, when displayed together, the following stimuli produce a red
+circle inside a green square::
+
+    rectangle the_background (
+        color = 0,1,0
+        x_size = 10
+        )
+
+    layer the_layer {
+        rectangle (
+            color = 1,0,0
+            x_size = 10
+            )
+        mask (
+            mask = ellipse
+            x_size = 10
+            )
+    }
+
+
+
+Signature
+---------
+``stimulus/layer``
+
+
+Optional Parameters
+-------------------
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`
+   * - Allowed children:
+     - `Stimulus <Stimuli>`

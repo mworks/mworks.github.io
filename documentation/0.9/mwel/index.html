@@ -1,0 +1,500 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Experiment Language (MWEL) &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Expressions" href="../expressions/index.html" />
+    <link rel="prev" title="Legacy Event File Format (MWK)" href="../reference/event_file_format/legacy.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../expressions/index.html" title="Expressions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../reference/event_file_format/legacy.html" title="Legacy Event File Format (MWK)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" accesskey="U">Reference Manual</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Experiment Language (MWEL)</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+<li><a class="reference internal" href="#identifiers">Identifiers</a></li>
+<li><a class="reference internal" href="#expressions">Expressions</a></li>
+<li><a class="reference internal" href="#assignments">Assignments</a></li>
+<li><a class="reference internal" href="#component-declarations">Component Declarations</a><ul>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+<li><a class="reference internal" href="#children">Children</a></li>
+<li><a class="reference internal" href="#type-and-parameter-name-inference">Type and Parameter Name Inference</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variable-declarations">Variable Declarations</a></li>
+<li><a class="reference internal" href="#includes">Includes</a></li>
+<li><a class="reference internal" href="#macros">Macros</a><ul>
+<li><a class="reference internal" href="#expression">Expression</a></li>
+<li><a class="reference internal" href="#statement">Statement</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#whitespace">Whitespace</a></li>
+<li><a class="reference internal" href="#converting-to-and-from-xml">Converting To and From XML</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../reference/event_file_format/legacy.html"
+                        title="previous chapter">Legacy Event File Format (MWK)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../expressions/index.html"
+                        title="next chapter">Expressions</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="experiment-language-mwel">
+<span id="mwel"></span><h1>Experiment Language (MWEL)<a class="headerlink" href="#experiment-language-mwel" title="Permalink to this headline">¶</a></h1>
+<p>MWorks Experiment Language (MWEL) provides a user-friendly, programming-language-like alternative to the <a class="reference external" href="https://en.wikipedia.org/wiki/XML">XML</a>-based experiments created by MWEditor.  It is designed to be read and written via a text editor and is optimized for conciseness and clarity, with minimal syntactic “noise”.</p>
+<p>At runtime, MWEL experiments are translated into MWorks’ XML, after which they are parsed and executed in exactly the same way as traditional, XML-based experiments.  This ensures that equivalent experiments written in MWEL and XML perform identically.  (However, it also means that some of the limitations of XML-based experiments apply to MWEL-based ones, too.)</p>
+<p>To be loadable by MWorks, MWEL experiment files must be named with the extension <code class="docutils literal notranslate"><span class="pre">.mwel</span></code>.</p>
+<p>The following sections describe MWEL in detail.</p>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>Comments are used to explain, clarify, or otherwise document parts of an experiment.  MWEL supports both single-line and multi-line comments.</p>
+<p>Single-line comments begin with <code class="docutils literal notranslate"><span class="pre">//</span></code> and continue to the end of the line:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// This is a single-line comment
+
+var x = 1  // Comments can appear on the same line as non-comment code
+</pre></div>
+</div>
+<p>Multi-line comments begin with <code class="docutils literal notranslate"><span class="pre">/*</span></code> and end with <code class="docutils literal notranslate"><span class="pre">*/</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/*
+   Here is a comment
+   that spans
+   multiple lines
+*/
+
+var y = /* This type of comment can appear within non-comment code */ 2
+
+/*
+   Unlike some programming languages,
+   /* MWEL allows nested pairs of
+      /* multi-line comment delimiters within
+         a multi-line comment */
+   */
+*/
+
+var z = 3
+</pre></div>
+</div>
+</div>
+<div class="section" id="identifiers">
+<span id="id1"></span><h2>Identifiers<a class="headerlink" href="#identifiers" title="Permalink to this headline">¶</a></h2>
+<p>Identifiers are used to name <a class="reference internal" href="../components/variables.html#variables"><span class="std std-ref">variables</span></a>, other <a class="reference internal" href="../components/index.html#components"><span class="std std-ref">components</span></a>, and <a class="reference internal" href="#macros">macros</a>.  They consist of a letter followed by any number of letters, digits, and underscores.  Here are some examples of valid identifiers:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x
+abc123
+A_Long_Name_With_Many_Words
+</pre></div>
+</div>
+</div>
+<div class="section" id="expressions">
+<h2>Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h2>
+<p>Expressions in MWEL are identical to those used in XML-based experiments.  For details, see the <a class="reference internal" href="../expressions/index.html#expressions"><span class="std std-ref">expression reference</span></a>.</p>
+</div>
+<div class="section" id="assignments">
+<span id="id2"></span><h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
+<p>An assignment changes the value of a <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variable</span></a>.  Assignments come in three different varieties.</p>
+<p>A simple assignment just replaces the old value with a new one:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a = &#39;foo&#39;
+b = [1,2,3]
+c = b + [4]  // c == [1, 2, 3, 4]
+</pre></div>
+</div>
+<p>If a variable’s current value is a list or dictionary, an index assignment assigns a new value to one of its elements:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>b[2] = {&#39;a&#39;: 1.5}       // b == [1, 2, {&quot;a&quot;: 1.5}]
+b[2][&#39;b&#39;] = [4,5,6]     // b == [1, 2, {&quot;a&quot;: 1.5, &quot;b&quot;: [4, 5, 6]}]
+b[2][&#39;b&#39;][3] = &#39;seven&#39;  // b == [1, 2, {&quot;a&quot;: 1.5, &quot;b&quot;: [4, 5, 6, &quot;seven&quot;]}]
+</pre></div>
+</div>
+<p>Finally, an augmented assignment performs a binary operation with the current value and another value and assigns the result to the variable:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>d = 7
+d += 8  // d == 15
+d /= 2  // d == 7.5
+</pre></div>
+</div>
+<p>Index assignments may also be augmented:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>c[3] *= -2  // c == [1, 2, 3, -8]
+</pre></div>
+</div>
+<p>All binary arithmetic operators (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>) have corresponding augmented assignment operators (<code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code>, <code class="docutils literal notranslate"><span class="pre">%=</span></code>).</p>
+</div>
+<div class="section" id="component-declarations">
+<span id="id3"></span><h2>Component Declarations<a class="headerlink" href="#component-declarations" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="../components/index.html#components"><span class="std std-ref">Components</span></a> are the building blocks of MWorks experiments.  Consequently, an experiment written in MWEL consists primarily of component declarations.</p>
+<p>The general form of a component declaration is as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signature tag (
+    parameter1 = ...
+    parameter2 = ...
+) {
+    // Child components
+    ...
+}
+</pre></div>
+</div>
+<p><em>signature</em> is the type signature of the component.  For example, the signature of a <a class="reference internal" href="../components/video_stimulus.html#video-stimulus"><span class="std std-ref">Video Stimulus</span></a> component is <code class="docutils literal notranslate"><span class="pre">stimulus/video</span></code>.</p>
+<p><em>tag</em> is a unique name to associate with the component.  It can be either an <a class="reference internal" href="#identifiers"><span class="std std-ref">identifier</span></a> (e.g. <code class="docutils literal notranslate"><span class="pre">my_video</span></code>) or a string literal (e.g. <code class="docutils literal notranslate"><span class="pre">'My</span> <span class="pre">Video'</span></code>).  The tag is used to refer to the component elsewhere in the experiment (for example, as a parameter of a <a class="reference internal" href="../components/queue_stimulus.html#queue-stimulus"><span class="std std-ref">Queue Stimulus</span></a> action).  If the component will not be referenced elsewhere, the tag may be omitted.</p>
+<div class="section" id="parameters">
+<span id="component-declaration-parameters"></span><h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<p>The signature and tag are followed by a list of parameter names and values, enclosed in parentheses.  For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stimulus/video &#39;My Video&#39; (
+    path = &#39;my_video.mp4&#39;
+    x_size = 15.0
+    y_size = 15.0
+    autoplay = true
+)
+</pre></div>
+</div>
+<p>To specify multiple parameters on the same line, separate each name/value pair with a semicolon:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>action/start_timer (timer = MyTimer; duration = 100ms)
+</pre></div>
+</div>
+<p>If a component does not require parameters, the parameter list can be empty:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stimulus/white_noise_background bg ()
+</pre></div>
+</div>
+</div>
+<div class="section" id="children">
+<h3>Children<a class="headerlink" href="#children" title="Permalink to this headline">¶</a></h3>
+<p>Most components are arranged in a parent/child hierarchy.  For example, a <a class="reference internal" href="../components/paradigm_components.html#paradigm-components"><span class="std std-ref">paradigm component</span></a> can have <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a> and other paradigm components as children, and those children can have their own child components.</p>
+<p>In MWEL, a component’s children follow its parameters, enclosed in braces (aka curly brackets):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>protocol &#39;Protocol 1&#39; {
+    trial (nsamples = 1000) {
+        task_system {
+            task_system_state &#39;Acquire Fixation&#39; {
+                action/queue_stimulus (stimulus = fixation_point)
+                action/update_stimulus_display ()
+                action/start_timer (timer = MyTimer; duration = 500ms)
+                ...
+            }
+
+            // Other states
+            ...
+        }
+    }
+}
+</pre></div>
+</div>
+<p>As shown above, if a component requires no parameters but does have children, its parameter list may be omitted.  However, a component must always have <em>either</em> a parameter list or a child list (which can be empty).  You cannot omit both:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>protocol A ()  // OK
+protocol B {}  // OK
+protocol C     // Not OK! (syntax error)
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-and-parameter-name-inference">
+<h3>Type and Parameter Name Inference<a class="headerlink" href="#type-and-parameter-name-inference" title="Permalink to this headline">¶</a></h3>
+<p>The general form of a component type signature is <code class="docutils literal notranslate"><span class="pre">kind/type</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">stimulus/movie</span></code> or <code class="docutils literal notranslate"><span class="pre">action/load_stimulus</span></code>.  However, if <code class="docutils literal notranslate"><span class="pre">type</span></code> is unique among all components, you may omit <code class="docutils literal notranslate"><span class="pre">kind/</span></code> from declarations of the given component type, as the MWEL processor can infer it at runtime.</p>
+<p>Furthermore, if a component has only one parameter (or only one <em>required</em> parameter), you may omit <code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">=</span></code> from the parameter list and provide just the value of that parameter.</p>
+<p>MWEL’s inference of type and parameter names can make your experiments both shorter (with fewer characters to type) <em>and</em> easier to read and understand.  This is especially true when declaring <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a>. For example, compare the following experiment fragment:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>action/if (condition = images_queued) {
+    image_index = 0
+    action/while (condition = image_index &lt; num_images) {
+        action/dequeue_stimulus (stimulus = images[image_index])
+        action/report (message = &#39;Dequeued image $image_index&#39;)
+        image_index += 1
+    }
+    action/update_stimulus_display ()
+}
+</pre></div>
+</div>
+<p>with an equivalent version that makes use of type and parameter name inference:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if (images_queued) {
+    image_index = 0
+    while (image_index &lt; num_images) {
+        dequeue_stimulus (images[image_index])
+        report (&#39;Dequeued image $image_index&#39;)
+        image_index += 1
+    }
+    update_stimulus_display ()
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="variable-declarations">
+<span id="id4"></span><h2>Variable Declarations<a class="headerlink" href="#variable-declarations" title="Permalink to this headline">¶</a></h2>
+<p>Like other components, <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variables</span></a> are declared using <a class="reference internal" href="#component-declarations"><span class="std std-ref">component declaration</span></a> syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var a (default_value = 1.5)
+</pre></div>
+</div>
+<p>Because most experiments declare many variables, MWEL provides a simplified syntax for specifying a variable’s default value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var a = 1.5  // Equivalent to above
+</pre></div>
+</div>
+<p>The default value can be any expression:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var b = &#39;Hello, world!&#39;
+var c = 2*a + 3
+</pre></div>
+</div>
+<p>Variables declared in this way can still include parameters and/or child components:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var x = 3 (persistant = YES) {
+    report (&#39;x = $x&#39;)
+}
+</pre></div>
+</div>
+<p>Variables can be declared only at the top level of an experiment or inside a top-level <a class="reference internal" href="../components/folder.html#folder"><span class="std std-ref">folder</span></a>.  They cannot be declared inside a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other component.</p>
+</div>
+<div class="section" id="includes">
+<span id="id5"></span><h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
+<p>To promote code reuse, or to simplify the management of a complex experiment, you may want to divide your experimental code in to multiple files.  MWEL supports this via the <code class="docutils literal notranslate"><span class="pre">%include</span></code> directive:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%include my_vars
+%include &#39;stims/setA.mwel&#39;
+%include &#39;/my_lab/shared/setup1_io.inc&#39;
+</pre></div>
+</div>
+<p>When the MWEL parser encounters an include statement, it loads and parses the specified file and inserts the result in to the including file’s parse tree at the location of the statement.  The provided file path may be absolute or relative to the including file.  If the path does not include a file extension, <code class="docutils literal notranslate"><span class="pre">.mwel</span></code> is assumed.</p>
+<p>Included files can themselves include other files.  A file may even be included multiple times in multiple files; the parser will process only the first instance of the include that it encounters and ignore all others.</p>
+<p>Files can be included only at the top level of a source file.  They cannot be included within a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other component.</p>
+</div>
+<div class="section" id="macros">
+<span id="id6"></span><h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<p>Macros are another mechanism for code reuse in MWEL.  By defining a macro, you can write an expression or list of statements once and then use it any number of times throughout your experiment.</p>
+<p>In many ways, macros serve the same purpose that functions or subroutines would in a programming language.  By moving commonly-used macros to separate, <a class="reference internal" href="#includes"><span class="std std-ref">includable</span></a> files, you can establish a library of useful code that can be shared among multiple experiments, projects, and researchers.</p>
+<p>Macros are defined via the <code class="docutils literal notranslate"><span class="pre">%define</span></code> directive.  All macro definitions must be at the top level of a source file.  They cannot be defined inside a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other component.</p>
+<div class="section" id="expression">
+<h3>Expression<a class="headerlink" href="#expression" title="Permalink to this headline">¶</a></h3>
+<p>An expression macro associates a name with an expression.</p>
+<p>Expression macros can be defined in two ways.  For macros that take no parameters, you can use the following syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define name = expression
+</pre></div>
+</div>
+<p><em>name</em> must be an <a class="reference internal" href="#identifiers"><span class="std std-ref">identifier</span></a>.  <em>expression</em> can be any <a class="reference internal" href="../expressions/index.html#expressions"><span class="std std-ref">expression</span></a>.</p>
+<p>Expression macros that do take parameters are defined as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define name(param1, param2, ...) expression
+</pre></div>
+</div>
+<p>Each parameter name must be an <a class="reference internal" href="#identifiers"><span class="std std-ref">identifier</span></a>.  Within <em>expression</em>, the parameters can be referred to by name, as if they were variables.</p>
+<p>Once defined, an expression macro can be used like a variable name or function call, with the associated expression inserted at the point of invocation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define three = 1 + 2
+%define sum_squares(x, y) x*x + y*y
+%define hypot(a, b) sqrt(sum_squares(a, b))
+
+var h = hypot(three, 4)  // h == 5
+
+%define h_is_an_integer = (int)h == h
+
+var a = 0
+
+protocol {
+    a = 1
+    while (a &lt;= 100) {
+        h = hypot(a, a+1)
+        if (h_is_an_integer) {
+            report (&#39;hypot($a, $a+1) = $h&#39;)
+        }
+        a += 1
+    }
+    // Output:
+    //  hypot(3, 3+1) = 5
+    //  hypot(20, 20+1) = 29
+}
+</pre></div>
+</div>
+<p>As shown above, macros can invoke other macros.  However, it is an error for a macro to invoke itself (either directly or indirectly).</p>
+</div>
+<div class="section" id="statement">
+<span id="statement-macros"></span><h3>Statement<a class="headerlink" href="#statement" title="Permalink to this headline">¶</a></h3>
+<p>A statement macro associates a name with a set of statements.  The set of statements can be of any size, from a single <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">action</span></a> to an entire experiment.</p>
+<p>Statement macro definitions take the following form:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define name (param1, param2, ...)
+    // Statements
+    ...
+%end
+</pre></div>
+</div>
+<p>As with expression macros, <em>name</em> and all parameter names must be <a class="reference internal" href="#identifiers"><span class="std std-ref">identifiers</span></a>, and, inside the macro, parameters are referenced by name (like variables).</p>
+<p>Once defined, a statement macro is invoked using <a class="reference internal" href="#component-declarations"><span class="std std-ref">component declaration</span></a> syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define present_image (index)
+    queue_stimulus (images[index])
+    update_stimulus_display ()
+%end
+
+%define replace_image (old_index, new_index)
+    dequeue_stimulus (images[old_index])
+    present_image (index = new_index)
+%end
+
+%define dequeue_all_images ()
+    image_index = 0
+    while (image_index &lt; num_images) {
+        dequeue_stimulus (images[image_index])
+        image_index += 1
+    }
+    update_stimulus_display ()
+%end
+
+protocol {
+    ...
+    present_image (0)
+    ...
+    replace_image (
+        old_index = 0
+        new_index = 1
+    )
+    ...
+    task {
+        ...
+        state &#39;No Fixation&#39; {
+            no_fixation = true
+            goto (&#39;End Trial&#39;)
+        }
+        state &#39;Fixation Broken&#39; {
+            fixation_broken = true
+            dequeue_all_images ()
+            goto (&#39;End Trial&#39;)
+        }
+        state &#39;Success&#39; {
+            success = true
+            dequeue_all_images ()
+            goto (&#39;End Trial&#39;)
+        }
+        ...
+    }
+    ...
+}
+</pre></div>
+</div>
+<p>A statement macro invocation can include a tag and/or children only if</p>
+<ol class="arabic simple">
+<li><p>the macro body declares exactly one component, and</p></li>
+<li><p>the component declaration in the macro body does not include a tag (if the invocation includes a tag) and/or children (if the invocation includes children).</p></li>
+</ol>
+<p>Also, if the macro body is a single <a class="reference internal" href="#variable-declarations"><span class="std std-ref">variable declaration</span></a>, then the invocation can include a default value with <code class="docutils literal notranslate"><span class="pre">=</span></code> (as
+long as the body does not include one).</p>
+<p>For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define reported_var (message)
+    var {
+        report (message)
+    }
+%end
+
+// OK: invocation includes a tag, macro body does not
+reported_var x = 3 (message = &#39;x = $x&#39;)
+
+// Not OK: invocation and macro body both include children
+reported_var y = 3 (message = &#39;y = $y&#39;) {
+    z = 2*y
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="whitespace">
+<h2>Whitespace<a class="headerlink" href="#whitespace" title="Permalink to this headline">¶</a></h2>
+<p>For the most part, whitespace in MWEL code is ignored.  Specifically, the parser discards all space, tab, and carriage return characters (unless they appear within a string literal).</p>
+<p>The exception to this rule is newline (aka line feed) characters, which, while often ignored, are syntactically significant in certain places.  Specifically:</p>
+<ul class="simple">
+<li><p>Newlines are <em>ignored</em> within</p>
+<ul>
+<li><p>Parenthesized expressions</p></li>
+<li><p>Subscript expressions</p></li>
+<li><p>List and dictionary literals</p></li>
+<li><p>Function call and <a class="reference internal" href="#macros"><span class="std std-ref">macro definition</span></a> parameter lists</p></li>
+</ul>
+</li>
+<li><p>Newlines are <em>required</em> at the end of</p>
+<ul>
+<li><p><a class="reference internal" href="#assignments">Assignments</a></p></li>
+<li><p><a class="reference internal" href="#component-declarations"><span class="std std-ref">Component</span></a> and <a class="reference internal" href="#variable-declarations"><span class="std std-ref">variable</span></a> declarations</p></li>
+<li><p><a class="reference internal" href="#includes"><span class="std std-ref">Include statements</span></a></p></li>
+<li><p><a class="reference internal" href="#macros"><span class="std std-ref">Macro definitions</span></a></p></li>
+</ul>
+</li>
+<li><p>Name/value pairs in a component declaration’s <a class="reference internal" href="#component-declaration-parameters"><span class="std std-ref">parameter list</span></a> must be separated by either newlines or semicolons.</p></li>
+<li><p>The statements in a <a class="reference internal" href="#statement-macros"><span class="std std-ref">statement macro</span></a> definition must be separated from the parameter list by a newline.</p></li>
+</ul>
+<p>Wherever a newline is required, a sequence of multiple newlines, optionally separated by non-newline whitespace, is treated as a single newline.</p>
+<p>In general, if you follow the coding style used in the preceding examples, you should not need to be concerned about newline placement.</p>
+</div>
+<div class="section" id="converting-to-and-from-xml">
+<h2>Converting To and From XML<a class="headerlink" href="#converting-to-and-from-xml" title="Permalink to this headline">¶</a></h2>
+<p>As noted above, when loading an MWEL experiment, MWorks first converts it into XML.  The tool that performs this conversion, <code class="docutils literal notranslate"><span class="pre">mwel2xml</span></code>, can also be run from the command line (e.g. in the <em>Terminal</em> application) as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/Library/Application\ Support/MWorks/MWEL/mwel2xml exp.mwel &gt; exp.xml
+</pre></div>
+</div>
+<p>The generated XML includes location information to improve error reporting, as well as embedded copies of both the main MWEL file and any files <a class="reference internal" href="#includes"><span class="std std-ref">included</span></a> by it.  To omit these extras, pass the option <code class="docutils literal notranslate"><span class="pre">--omit-metadata</span></code> to <code class="docutils literal notranslate"><span class="pre">mwel2xml</span></code>.</p>
+<p>Conversely, to convert an existing XML experiment file into MWEL, use the tool <code class="docutils literal notranslate"><span class="pre">xml2mwel</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/Library/Application\ Support/MWorks/MWEL/xml2mwel exp.xml &gt; exp.mwel
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../expressions/index.html" title="Expressions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../reference/event_file_format/legacy.html" title="Legacy Event File Format (MWK)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

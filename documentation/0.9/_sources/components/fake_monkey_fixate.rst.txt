@@ -1,0 +1,53 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Fake Monkey Fixate
+   single: Actions; Fake Monkey Fixate
+
+.. _Fake Monkey Fixate:
+
+Fake Monkey Fixate
+==================
+
+*Available on macOS*
+
+
+Description
+-----------
+Causes a `Fake Monkey IO Device` to fixate at the current eye position for a specified duration
+
+
+
+Signature
+---------
+``action/fake_monkey_fixate``
+
+
+Required Parameters
+-------------------
+
+fake_monkey
+^^^^^^^^^^^
+
+Fake monkey device
+
+duration
+^^^^^^^^
+
+Fixation duration (microseconds)
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

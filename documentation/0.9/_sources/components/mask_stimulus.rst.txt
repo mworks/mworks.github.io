@@ -1,0 +1,174 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Mask Stimulus
+   single: Stimuli; Mask Stimulus
+
+.. _Mask Stimulus:
+
+Mask Stimulus
+=============
+
+
+Description
+-----------
+Masks are useful only in conjuction with `layers <Layer Stimulus>`.
+
+A mask can truncate, obscure, or erase stimuli in its layer that lie below
+it.  The "masked out" regions become transparent or semi-transparent
+"windows", through which any stimuli below the layer are visible.  If the
+mask is `inverted`_, it will make a "hole" through the stimuli under it,
+allowing the stimuli beneath the layer to show through.
+
+For example, the following layer will produce a red ring with inner radius
+5 and outer radius 10::
+
+    layer the_layer {
+        circle (
+            color = 1,0,0
+            x_size = 20
+            )
+        mask (
+            mask = ellipse
+            inverted = true
+            x_size = 10
+            )
+    }
+
+
+
+Signature
+---------
+``stimulus/mask``
+
+
+Required Parameters
+-------------------
+
+mask
+^^^^
+:Options: | ``rectangle``
+          | ``ellipse``
+          | ``gaussian``
+          | ``raised_cosine``
+
+Mask type
+
+
+
+Optional Parameters
+-------------------
+
+inverted
+^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the effect of the mask is inverted: Areas of the display that normally would be visible through the mask are hidden, and areas that normally would be hidden are visible.
+
+
+std_dev
+^^^^^^^
+:Default: ``1.0``
+
+Standard deviation of Gaussian mask
+
+mean
+^^^^
+:Default: ``0.0``
+
+Mean of Gaussian mask.
+
+This value determines the radial offset of the Gaussian peak from the
+center of the mask.  If non-zero, the peak will be a circle, rather than
+a point, and luminance will decrease both inside and outside the circle,
+producing a toroidal mask.
+
+
+normalized
+^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the Gaussian mask includes a multiplicative normalization term (``1/(std_dev*sqrt(2*pi))``).  If ``NO``, this term is omitted.
+
+
+edge_width
+^^^^^^^^^^
+:Default: ``0.125``
+
+Edge width of raised cosine mask.
+
+This value specifies the width of the sinusoidal edge as a fraction of
+the total width (i.e. diameter) of the mask.  It should be greater than
+zero and less than or equal to 0.5.
+
+
+x_size
+^^^^^^
+:Example: ``5.0``
+
+Horizontal size (degrees).
+
+If omitted, the value of `y_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
+y_size
+^^^^^^
+:Example: ``5.0``
+
+Vertical size (degrees).
+
+If omitted, the value of `x_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
+x_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Horizontal center position (degrees)
+
+y_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Vertical center position (degrees)
+
+rotation
+^^^^^^^^
+:Default: ``0.0``
+
+Rotation (degrees)
+
+fullscreen
+^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus is sized to fill the display.  In this mode, `x_size`_, `y_size`_, `x_position`_, `y_position`_, and `rotation`_ are ignored.
+
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

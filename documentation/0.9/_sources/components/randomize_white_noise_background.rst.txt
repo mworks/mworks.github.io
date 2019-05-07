@@ -1,0 +1,46 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Randomize White Noise Background
+   single: Actions; Randomize White Noise Background
+
+.. _Randomize White Noise Background:
+
+Randomize White Noise Background
+================================
+
+
+Description
+-----------
+Re-randomize a `White Noise Background` stimulus
+
+
+
+Signature
+---------
+``action/randomize_background``
+
+
+Required Parameters
+-------------------
+
+stimulus
+^^^^^^^^
+
+Stimulus to randomize
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

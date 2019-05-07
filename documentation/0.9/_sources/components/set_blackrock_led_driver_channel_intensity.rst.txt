@@ -1,0 +1,62 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Set Blackrock LED Driver Channel Intensity
+   single: Actions; Set Blackrock LED Driver Channel Intensity
+
+.. _Set Blackrock LED Driver Channel Intensity:
+
+Set Blackrock LED Driver Channel Intensity
+==========================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Set the intensity of one or more channels on a `Blackrock LED Driver`
+
+
+
+Signature
+---------
+``action/blackrock_led_driver_set_intensity``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Device name
+
+channels
+^^^^^^^^
+:Examples: | ``16``
+           | ``1,3,5``
+           | ``1:64``
+           | ``7,10:15,28``
+
+Channel number(s)
+
+value
+^^^^^
+
+Intensity (floating-point value between 0 and 1)
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

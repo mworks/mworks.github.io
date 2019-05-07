@@ -1,0 +1,545 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Expressions &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="System Variables" href="../reference/sysvars.html" />
+    <link rel="prev" title="Experiment Language (MWEL)" href="../mwel/index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../reference/sysvars.html" title="System Variables"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../mwel/index.html" title="Experiment Language (MWEL)"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" accesskey="U">Reference Manual</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Expressions</a><ul>
+<li><a class="reference internal" href="#literals">Literals</a></li>
+<li><a class="reference internal" href="#operators">Operators</a><ul>
+<li><a class="reference internal" href="#units">Units</a></li>
+<li><a class="reference internal" href="#subscripting">Subscripting</a></li>
+<li><a class="reference internal" href="#precedence">Precedence</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ranges">Ranges</a></li>
+<li><a class="reference internal" href="#variables">Variables</a><ul>
+<li><a class="reference internal" href="#selection">Selection</a></li>
+<li><a class="reference internal" href="#timer">Timer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#functions">Functions</a><ul>
+<li><a class="reference internal" href="#mathematical">Mathematical</a></li>
+<li><a class="reference internal" href="#random-number-generators">Random Number Generators</a></li>
+<li><a class="reference internal" href="#time-related">Time-Related</a></li>
+<li><a class="reference internal" href="#other">Other</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../mwel/index.html"
+                        title="previous chapter">Experiment Language (MWEL)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../reference/sysvars.html"
+                        title="next chapter">System Variables</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="expressions">
+<span id="id1"></span><h1>Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h1>
+<p>MWorks’ expression language should feel familiar to anyone who has used programming or scripting languages before.  The following sections describe it in detail.</p>
+<div class="section" id="literals">
+<h2>Literals<a class="headerlink" href="#literals" title="Permalink to this headline">¶</a></h2>
+<p>The expression parser recognizes literal values for a variety of data types.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data Type</p></th>
+<th class="head"><p>Examples</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Boolean</p></td>
+<td><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>true
+false
+YES
+NO
+</pre></div>
+</div>
+</td>
+<td><p>Not case-sensitive</p></td>
+</tr>
+<tr class="row-odd"><td><p>Integer</p></td>
+<td><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1
++123
+-4567
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Floating point</p></td>
+<td><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1.0
+1.
+.1
+-0.1
++0.1
+1.2e10
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>String</p></td>
+<td><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;&#39;
+&quot;foo&quot;
+&#39;bar&#39;
+&quot;Hello, world!&quot;
+</pre></div>
+</div>
+</td>
+<td><p>Supports some C/C++ <a class="reference external" href="http://en.cppreference.com/w/cpp/language/escape">escape sequences</a></p></td>
+</tr>
+<tr class="row-even"><td><p>List</p></td>
+<td><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[]
+[1.5]
+[1, 2.5, &#39;foo&#39;]
+[1:10]
+[1,2,3:6,7,8:10]
+</pre></div>
+</div>
+</td>
+<td><p>Can include <a class="reference internal" href="#range-expressions"><span class="std std-ref">range expressions</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Dictionary</p></td>
+<td><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{}
+{&#39;foo&#39;: 1.5}
+{&#39;a&#39;: 1, true: 2.5, 3.5: &#39;foo&#39;}
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="operators">
+<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<p>The expression parser supports a number of mathematical, logical, comparison, and other operators.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 16%" />
+<col style="width: 25%" />
+<col style="width: 18%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Description</p></th>
+<th class="head"><p>Operator</p></th>
+<th class="head"><p>Alternative Form(s)</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Precedence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td colspan="5"><p><strong>Unit operators (postfix)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Microseconds</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">us</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2000us</span></code></p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>Milliseconds</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ms</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">100ms</span></code></p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Seconds</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">s</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.5s</span></code></p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td colspan="5"><p><strong>Element access operators</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Subscript</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{1:'a'}[1]</span></code></p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td colspan="5"><p><strong>Unary operators (prefix)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Positive</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+3</span></code></p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>Negative</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-1.7</span></code></p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Logical “not”</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">not</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!true</span></code></p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td colspan="5"><p><strong>Type conversion operators (prefix)</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Boolean</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(bool)</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(bool)3</span></code></p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>Integer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(int)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(integer)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(int)2.7</span></code></p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Floating point</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(float)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(double)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(float)5</span></code></p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>String</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(string)</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(string)4</span></code></p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td colspan="5"><p><strong>Binary operators</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Multiplication</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">*</span> <span class="pre">2</span></code></p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Division</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">/</span> <span class="pre">2</span></code></p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>Modulus (remainder)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">%</span> <span class="pre">2</span></code></p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-odd"><td><p>Addition</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span></code></p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>Subtraction</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">2</span></code></p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equality</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">==</span> <span class="pre">2</span></code></p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>Inequality</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">!=</span> <span class="pre">2</span></code></p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>Less than</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#LT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;</span> <span class="pre">2</span></code></p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>Less than or equal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">=&lt;</span></code> <code class="docutils literal notranslate"><span class="pre">#LE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">2</span></code></p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>Greater than</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#GT</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&gt;</span> <span class="pre">2</span></code></p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>Greater than or equal</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">=&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">#GE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&gt;=</span> <span class="pre">2</span></code></p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-odd"><td><p>Logical “and”</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">and</span></code> <code class="docutils literal notranslate"><span class="pre">#AND</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">&amp;&amp;</span> <span class="pre">2</span></code></p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-even"><td><p>Logical “or”</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">||</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">or</span></code> <code class="docutils literal notranslate"><span class="pre">#OR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">||</span> <span class="pre">2</span></code></p></td>
+<td><p>9</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note that the unit operators and the plain-English logical operators (<code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, and <code class="docutils literal notranslate"><span class="pre">or</span></code>) are not case-sensitive.  However, the type-conversion operators and all operators that begin with <code class="docutils literal notranslate"><span class="pre">#</span></code> (<code class="docutils literal notranslate"><span class="pre">#LT</span></code>, <code class="docutils literal notranslate"><span class="pre">#AND</span></code>, etc.) <em>are</em> case-sensitive.</p>
+<p>Also, be aware that the division operator (<code class="docutils literal notranslate"><span class="pre">/</span></code>) always produces a floating-point result, even if both of its operands are integers.  For example, <code class="docutils literal notranslate"><span class="pre">1/2</span></code> evaluates to 0.5, not 0 (as it does in some programming languages).</p>
+<div class="section" id="units">
+<h3>Units<a class="headerlink" href="#units" title="Permalink to this headline">¶</a></h3>
+<p>Since MWorks does not provide true support for quantities with associated units, the unit operators are simply shorthand for multiplication operations.  In the case of time units (<code class="docutils literal notranslate"><span class="pre">us</span></code>, <code class="docutils literal notranslate"><span class="pre">ms</span></code>, and <code class="docutils literal notranslate"><span class="pre">s</span></code>), the operators multiply by a factor suitable for converting to microseconds (1, 1000, and 1000000, respectively).</p>
+</div>
+<div class="section" id="subscripting">
+<h3>Subscripting<a class="headerlink" href="#subscripting" title="Permalink to this headline">¶</a></h3>
+<p>If the expression <code class="docutils literal notranslate"><span class="pre">exp</span></code> evaluates to a list, then <code class="docutils literal notranslate"><span class="pre">exp[n]</span></code> returns the element at index <em>n</em>.  If <em>n</em> is out of bounds, the expression evaluates to zero, and the parser issues an error message.  (Note that the first element of a list is at index 0, <em>not</em> 1.)</p>
+<p>If the expression <code class="docutils literal notranslate"><span class="pre">exp</span></code> evaluates to a dictionary, then <code class="docutils literal notranslate"><span class="pre">exp[k]</span></code> returns the value associated with key <em>k</em> in the dictionary.  If the dictionary has no matching key, the expression evaluates to zero, and the parser issues an error message.</p>
+</div>
+<div class="section" id="precedence">
+<h3>Precedence<a class="headerlink" href="#precedence" title="Permalink to this headline">¶</a></h3>
+<p>The above table lists the operators from highest precedence (1) to lowest precedence (9).  Operator precedence determines the order of operations in expressions, as higher-precedence operations are evaluated before lower-precedence ones.</p>
+<p>The order of operations can be altered by wrapping sub-expressions in parentheses, which have higher precedence than all other operators.  For example, <code class="docutils literal notranslate"><span class="pre">*</span></code> has higher precedence than <code class="docutils literal notranslate"><span class="pre">+</span></code>, so <code class="docutils literal notranslate"><span class="pre">1+2*3</span></code> evaluates to 7, but <code class="docutils literal notranslate"><span class="pre">(1+2)*3</span></code> evaluates to 9.</p>
+</div>
+</div>
+<div class="section" id="ranges">
+<span id="range-expressions"></span><h2>Ranges<a class="headerlink" href="#ranges" title="Permalink to this headline">¶</a></h2>
+<p>A range expression is a compact representation of an evenly-spaced, ordered sequence of integers.</p>
+<p>The general form of a range expression is <em>start:stop:step</em>, where <em>start</em>, <em>stop</em>, and <em>step</em> are expressions that evaluate to integers.  <em>step</em> is optional.  If provided, it must evaluate to a positive integer; if omitted, it defaults to 1.  If <em>start</em> is less than <em>stop</em>, the sequence will be increasing; otherwise, it will be decreasing.  <em>start</em> is always included in the sequence.  If <em>start</em> and <em>stop</em> are separated by a multiple of <em>step</em>, <em>stop</em> will be included as well.</p>
+<p>List literals, function calls, and <a class="reference internal" href="../components/selection_variable.html#selection-variable"><span class="std std-ref">selection variable</span></a> value lists can all incorporate range expressions.  In all cases, range expressions can be mixed with other expressions, so long as all items are separated by commas.</p>
+<p>The following table shows some examples of range expression usage, with equivalent, range-expression-free versions shown alongside.</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression</p></th>
+<th class="head"><p>Equivalent</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">[1:5]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[1,2,3,4,5]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">f(2:-1)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">f(2,1,0,-1)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">3:10:2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3,5,7,9</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">[9:0:3]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[9,6,3,0]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">f(3:3)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">f(3)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">7,2:4,-5,9:5:2,1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">7,2,3,4,-5,9,7,5,1</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<p>MWorks variables can be incorporated into expressions by referencing each variable by its name.  For example, if your experiment defines two variables, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, which hold the values 1 and 2, respectively, then the expression <code class="docutils literal notranslate"><span class="pre">3*x+y</span></code> will evaluate to 5.</p>
+<p>Variable names are case-sensitive, so <code class="docutils literal notranslate"><span class="pre">myvar</span></code>, <code class="docutils literal notranslate"><span class="pre">MYVAR</span></code>, and <code class="docutils literal notranslate"><span class="pre">MyVar</span></code> all refer to different variables.</p>
+<div class="section" id="selection">
+<h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
+<p>When used in an expression, a <a class="reference internal" href="../components/selection_variable.html#selection-variable"><span class="std std-ref">selection variable</span></a> evaluates to the currently-selected value.  If no selections have been made on the variable, the first one is made automatically, and its value is returned.</p>
+</div>
+<div class="section" id="timer">
+<h3>Timer<a class="headerlink" href="#timer" title="Permalink to this headline">¶</a></h3>
+<p>MWorks <a class="reference internal" href="../components/start_timer.html#start-timer"><span class="std std-ref">timers</span></a> are implemented as variables.  When used in an expression, the name of a timer evaluates to true if the timer has expired, false otherwise.</p>
+<p><em>Note</em>: <code class="docutils literal notranslate"><span class="pre">timer_expired</span></code> (see <a class="reference internal" href="#time-related">Time-Related</a> functions below) actually just passes its input value unchanged.  However, using it may help to clarify the intent of an expression.</p>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<p>The expression parser recognizes a number of pre-defined functions, many of which are found in other programming or scripting languages.  Note that function names are <em>not</em> case sensitive, so <code class="docutils literal notranslate"><span class="pre">now()</span></code>, <code class="docutils literal notranslate"><span class="pre">NOW()</span></code>, and <code class="docutils literal notranslate"><span class="pre">Now()</span></code> are all equivalent.</p>
+<div class="section" id="mathematical">
+<h3>Mathematical<a class="headerlink" href="#mathematical" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">abs(x)</span></code></dt><dd><p>Absolute value of <em>x</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ceil(x)</span></code></dt><dd><p>Nearest integer not less than <em>x</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">cos(x)</span></code></dt><dd><p>Cosine of <em>x</em> (measured in radians)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">exp(x)</span></code></dt><dd><p>Euler’s number (<em>e</em>) raised to the power <em>x</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">floor(x)</span></code></dt><dd><p>Nearest integer not greater than <em>x</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">logn(x)</span></code></dt><dd><p>Natural logarithm of <em>x</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">max(x,y)</span></code></dt><dd><p>Larger of <em>x</em> and <em>y</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">min(x,y)</span></code></dt><dd><p>Smaller of <em>x</em> and <em>y</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pi()</span></code></dt><dd><p>The constant 𝜋</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">pow(x,y)</span></code></dt><dd><p><em>x</em> raised to the power <em>y</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">round(x)</span></code></dt><dd><p>Nearest integer to <em>x</em>.  Number is rounded away from zero in halfway cases.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">sin(x)</span></code></dt><dd><p>Sine of <em>x</em> (measured in radians)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">sqrt(x)</span></code></dt><dd><p>Square root of <em>x</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">tan(x)</span></code></dt><dd><p>Tangent of <em>x</em> (measured in radians)</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="random-number-generators">
+<h3>Random Number Generators<a class="headerlink" href="#random-number-generators" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">rand()</span></code></dt><dd><p>Random floating-point value uniformly distributed in the range <em>[0..1)</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">rand(min,max)</span></code></dt><dd><p>Random floating-point value uniformly distributed in the range <em>[min..max)</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">disc_rand(min,max)</span></code></dt><dd><p>Random integer value uniformly distributed in the set of integer numbers <em>{min, min+1, min+2, …, max}</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">geom_rand(prob,max)</span></code></dt><dd><p>Discrete random number sampled in the interval <em>[0, max]</em> from a geometric distribution with constant Bernoulli probability <em>prob</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">exp_rand(beta,min,max)</span></code></dt><dd><p>Random number from exponential distribution with mean <em>beta+min</em>, optionally truncated at <em>max</em>. <em>min</em> and <em>max</em> are both optional and default to zero and positive infinity, respectively.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="time-related">
+<h3>Time-Related<a class="headerlink" href="#time-related" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">next_frame_time()</span></code></dt><dd><p>Anticipated output time (in microseconds) of the frame that the stimulus display is currently rendering</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">now()</span></code></dt><dd><p>Current experiment time in microseconds</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">refresh_rate()</span></code></dt><dd><p>Main display’s refresh rate in hertz</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">timer_expired(timer)</span></code></dt><dd><p>1 if the specified timer has expired, 0 otherwise</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="other">
+<h3>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">display_bounds()</span></code></dt><dd><p>Returns a dictionary containing the bounds (in degrees) of the main display.  The keys in the dictionary are the strings “left”, “right”, “bottom”, and “top”.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">display_bounds(edge)</span></code></dt><dd><p>Given one of the strings “left”, “right”, “bottom”, or “top”, returns the corresponding boundary (in degrees) of the main display</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">filenames(glob_expr)</span></code></dt><dd><p>Given <em>glob_expr</em>, a string containing a <a class="reference external" href="http://tomecat.com/jeffy/tttt/glob.html">shell-style file name pattern</a>, returns a list of strings containing the names of all matching files (or any empty list, if no files match)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">format(fmt,...)</span></code></dt><dd><p><a class="reference external" href="http://www.boost.org/doc/libs/1_66_0/libs/format/doc/format.html#printf_directives">printf-style</a> string formatting.  <em>fmt</em> is the format string, and any subsequent arguments are items to be formatted.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">num_accepted('sel')</span></code></dt><dd><p>Takes the name of a selectable object (as a string) and returns the number of accepted selections that have been made on it</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">osname()</span></code></dt><dd><p>Name of the current operating system as a string (e.g. “macos”, “ios”)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">py_call(expr,...)</span></code></dt><dd><p>Evaluates <em>expr</em> as a Python expression, calls the resulting Python object with the remaining arguments, and returns the result.  If a Python error occurs, logs the error message and returns 0.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">py_eval(expr)</span></code></dt><dd><p>Evaluates <em>expr</em> as a Python expression and returns the result.  If a Python error occurs, logs the error message and returns 0.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">selection('sel',n)</span></code></dt><dd><p>Takes the name of a selection variable (as a string) and an integer <em>n</em> and returns the <em>n</em>-th tentative (i.e. non-accepted) selection on the variable</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">size(x)</span></code></dt><dd><p>Size of <em>x</em>: number of characters in a string, number of elements in a list or dictionary, 0 otherwise</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">type(x)</span></code></dt><dd><p>Data type of <em>x</em> as a string (“boolean”, “integer”, “float”, “string”, “list”, or “dictionary”)</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../reference/sysvars.html" title="System Variables"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../mwel/index.html" title="Experiment Language (MWEL)"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

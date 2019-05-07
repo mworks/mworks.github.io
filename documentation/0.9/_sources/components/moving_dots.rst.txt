@@ -1,0 +1,149 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Moving Dots
+   single: Stimuli; Moving Dots
+
+.. _Moving Dots:
+
+Moving Dots
+===========
+
+
+Description
+-----------
+A moving dot field stimulus
+
+
+Signature
+---------
+``stimulus/moving_dots``
+
+
+Required Parameters
+-------------------
+
+field_radius
+^^^^^^^^^^^^
+
+Field radius (degrees)
+
+dot_density
+^^^^^^^^^^^
+
+Number of dots per square degree
+
+dot_size
+^^^^^^^^
+
+Dot diameter (degrees)
+
+speed
+^^^^^
+
+Dot speed (degrees per second)
+
+
+
+Optional Parameters
+-------------------
+
+field_center_x
+^^^^^^^^^^^^^^
+:Default: ``0.0``
+
+Field horizontal center position (degrees)
+
+field_center_y
+^^^^^^^^^^^^^^
+:Default: ``0.0``
+
+Field vertical center position (degrees)
+
+color
+^^^^^
+:Default: ``1.0,1.0,1.0``
+
+Dot color, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).
+
+
+alpha_multiplier
+^^^^^^^^^^^^^^^^
+:Default: ``1.0``
+
+Controls the transparency of the dots.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+
+direction
+^^^^^^^^^
+:Default: ``0.0``
+
+Direction of movement for coherent dots (degrees)
+
+coherence
+^^^^^^^^^
+:Default: ``1.0``
+
+Fraction of dots that move in the specified `direction`_.  Non-coherent dots receive random directions.
+
+
+lifetime
+^^^^^^^^
+:Default: ``0.0``
+
+Dot lifetime (seconds).  When a dot reaches the end of its lifetime, it is removed and replaced by a new dot in a random location.
+
+
+announce_dots
+^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, stimulus announcements (i.e. ``#announceStimulus`` and
+``#stimDisplayUpdate`` events) will include dot positions.
+
+Position data is encoded as a binary array of single-precision floating
+point values (in platform `byte order
+<https://en.wikipedia.org/wiki/Endianness>`_), with each consecutive
+pair of values representing the (x,y) coordinates of a dot.  The
+coordinates are scaled to lie in the range [-1,1] and rotated so that
+the direction of coherent motion is zero degrees.
+
+
+rand_seed
+^^^^^^^^^
+
+Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.
+
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+autoplay
+^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus will start playing automatically (as if by an implicit `Play Dynamic Stimulus` action) after it has been `queued <Queue Stimulus>` and `Update Stimulus Display` has been invoked.  It will also stop playing automatically (as if by an implicit `Stop Dynamic Stimulus` action) after it has been `dequeued <Dequeue Stimulus>` and `Update Stimulus Display` is invoked.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

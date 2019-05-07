@@ -1,0 +1,58 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Begin Averaged Calibration Sample
+   single: Actions; Begin Averaged Calibration Sample
+
+.. _Begin Averaged Calibration Sample:
+
+Begin Averaged Calibration Sample
+=================================
+
+
+Description
+-----------
+Instruct a calibrator object to start computing an average of its input
+value(s).
+
+The purpose of this action is to allow the user to calibrate against a time
+average over each of the input values, rather than against just the values
+at a particular instant in time.  This action prompts the specified
+calibrator to start averaging over its inputs.
+
+The averaging must be stopped with either of the `End Averaged Calibration
+Sample` or `End Averaged Calibration and Ignore` actions.  Thus, the total
+time to average is at the user's discretion and is generally based on either
+a sufficient time or the fact that another condition has arisen (e.g.
+fixation broken for eye calibrators).
+
+
+
+Signature
+---------
+``action/begin_calibration_average``
+
+
+Required Parameters
+-------------------
+
+calibrator
+^^^^^^^^^^
+
+Name of the calibrator
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

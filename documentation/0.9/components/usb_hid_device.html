@@ -1,0 +1,240 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>USB HID Device &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="USB HID Input Channel" href="usb_hid_input_channel.html" />
+    <link rel="prev" title="Touch Input Device" href="touch_input_device.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="usb_hid_input_channel.html" title="USB HID Input Channel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="touch_input_device.html" title="Touch Input Device"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" accesskey="U">Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">USB HID Device</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#usage-page">usage_page</a></li>
+<li><a class="reference internal" href="#usage">usage</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#preferred-location-id">preferred_location_id</a></li>
+<li><a class="reference internal" href="#log-all-input-values">log_all_input_values</a></li>
+<li><a class="reference internal" href="#autostart">autostart</a></li>
+<li><a class="reference internal" href="#alt">alt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="touch_input_device.html"
+                        title="previous chapter">Touch Input Device</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="usb_hid_input_channel.html"
+                        title="next chapter">USB HID Input Channel</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="usb-hid-device">
+<span id="index-0"></span><span id="id1"></span><h1>USB HID Device<a class="headerlink" href="#usb-hid-device" title="Permalink to this headline">¶</a></h1>
+<p><em>Available on macOS</em></p>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Interface to a <a class="reference external" href="https://en.wikipedia.org/wiki/USB_human_interface_device_class">USB human interface device</a> (HID)
+class device.</p>
+<p>Appropriate values for the <a class="reference internal" href="#usage-page">usage_page</a> and <a class="reference internal" href="#usage">usage</a> parameters can be
+found in the <a class="reference external" href="http://www.usb.org/developers/hidpage#HID_Usage">HID Usage Tables</a>.  Here are the values
+for a few common device types:</p>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 38%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Device type</p></th>
+<th class="head"><p>Usage page</p></th>
+<th class="head"><p>Usage</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Keyboard</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Joystick</p></td>
+<td><p>1</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>Gamepad</p></td>
+<td><p>1</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">iodevice/usbhid_generic</span></code></p>
+</div>
+<div class="section" id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="usage-page">
+<h3>usage_page<a class="headerlink" href="#usage-page" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</dd>
+</dl>
+<p>HID usage page for the device</p>
+</div>
+<div class="section" id="usage">
+<h3>usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">6</span></code></p>
+</dd>
+</dl>
+<p>HID usage for the device</p>
+</div>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="preferred-location-id">
+<h3>preferred_location_id<a class="headerlink" href="#preferred-location-id" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+<p>If MWorks finds multiple candidate devices for the given <a class="reference internal" href="#usage-page">usage_page</a> and <a class="reference internal" href="#usage">usage</a>, it will issue an error message that lists the product name, manufacturer name, and “location ID” for each matching device.  To select the desired device, set this parameter to the reported location ID of that device.</p>
+</div>
+<div class="section" id="log-all-input-values">
+<h3>log_all_input_values<a class="headerlink" href="#log-all-input-values" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, MWorks will log (to the event stream and server console) all input values received from the device.  Each log message will include an associated element usage page and usage.  These usage page and usage values can be used to define a <a class="reference internal" href="usb_hid_input_channel.html#usb-hid-input-channel"><span class="std std-ref">USB HID Input Channel</span></a> for the input.</p>
+</div>
+<div class="section" id="autostart">
+<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the device will start I/O automatically (as if by an
+implicit <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> action) when the experiment starts running.</p>
+<p><em>Note</em>: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.</p>
+</div>
+<div class="section" id="alt">
+<h3>alt<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h3>
+<p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
+</div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-center">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Allowed children:</p></th>
+<td><p><a class="reference internal" href="usb_hid_input_channel.html#usb-hid-input-channel"><span class="std std-ref">USB HID Input Channel</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="usb_hid_input_channel.html" title="USB HID Input Channel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="touch_input_device.html" title="Touch Input Device"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" >Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

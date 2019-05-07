@@ -1,0 +1,297 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: EyeLink Device
+   single: Input/Output; EyeLink Device
+
+.. _EyeLink Device:
+
+EyeLink Device
+==============
+
+*Available on macOS*
+
+
+Description
+-----------
+Digital interface to an `EyeLink <https://www.sr-research.com>`_
+eye tracker.  Tested with the `EyeLink 1000/1000 Plus
+<https://www.sr-research.com/products/eyelink-1000-plus/>`_
+and `EyeLink II <https://www.sr-research.com/products/eyelink-ii/>`_
+trackers, but may be compatible with additional devices.
+
+If the tracker is run in binocular mode, `eye_x`_, `eye_y`_, and `eye_z`_
+give the midpoint of the shortest connecting line that is orthogonal to both
+gaze vectors; otherwise, these values will be empty.  All other output
+parameters are specified and described in the EyeLink 1000 User Manual.  If
+an eye tracker packet contains no data for a parameter, EyeLink's
+``MISSING_DATA`` value (-32768) is written to the corresponding variable.
+
+.. rubric:: Calibration
+
+In order to perform a tracker-driven calibration, validation, or drift
+correction, you must arrange for the drawing of a fixation target on MWorks'
+stimulus display at locations and times controlled by the tracker.  This is
+accomplished via the parameters `cal_target_x`_, `cal_target_y`_, and
+`cal_target_visible`_, as demonstrated in the following example::
+
+    // cal_target_x and cal_target_y receive the location of the
+    // fixation target
+    
+    var cal_target_x = 0
+    var cal_target_y = 0
+    
+    circle cal_target (
+        color = 1,0,0
+        x_size = 1
+        x_position = cal_target_x
+        y_position = cal_target_y
+        )
+    
+    // cal_target_visible receives the signal to show or hide
+    // the fixation target.  Attached actions draw or remove
+    // the target as appropriate.
+    
+    var cal_target_visible (false) {
+        choose {
+            when (cal_target_visible) {
+                queue_stimulus (cal_target)
+                update_display ()
+            }
+            otherwise {
+                clear_display ()
+            }
+        }
+    }
+    
+    // All three variable names must be provided as parameters
+    // in the device declaration
+    
+    iodevice/eyelink eyelink (
+        ...
+        cal_target_x = cal_target_x
+        cal_target_y = cal_target_y
+        cal_target_visible = cal_target_visible
+        ...
+        )
+
+To initiate a calibration, validation, or drift correction, use the
+`EyeLink Tracker Setup` action::
+
+    eyelink_tracker_setup (
+        device = eyelink
+        calibration_type = HV13
+        )
+
+
+
+Signature
+---------
+``iodevice/eyelink``
+
+
+Required Parameters
+-------------------
+
+tracker_ip
+^^^^^^^^^^
+:Example: ``100.1.1.1``
+
+The tracker's IP address
+
+data_interval
+^^^^^^^^^^^^^
+:Example: ``1ms``
+
+Data polling interval.  Should not be too short, but faster than tracker's sampling rate.
+
+
+
+
+Optional Parameters
+-------------------
+
+tracking_dist
+^^^^^^^^^^^^^
+:Example: ``1024``
+
+Tracking range in eye tracker units.  (The default value should be
+1024.)
+
+Required to compute `eye_x`_, `eye_y`_, and `eye_z`_.
+
+
+eye_rx
+^^^^^^
+
+Variable in which to store right eye screen gaze x
+
+eye_ry
+^^^^^^
+
+Variable in which to store right eye screen gaze y
+
+eye_lx
+^^^^^^
+
+Variable in which to store left eye screen gaze x
+
+eye_ly
+^^^^^^
+
+Variable in which to store left eye screen gaze y
+
+eye_x
+^^^^^
+
+Variable in which to store computed ``eye_x`` (described above)
+
+eye_y
+^^^^^
+
+Variable in which to store computed ``eye_y`` (described above)
+
+eye_z
+^^^^^
+
+Variable in which to store computed ``eye_z`` (described above)
+
+href_rx
+^^^^^^^
+
+Variable in which to store right eye headref x
+
+href_ry
+^^^^^^^
+
+Variable in which to store right eye headref y
+
+href_lx
+^^^^^^^
+
+Variable in which to store left eye headref x
+
+href_ly
+^^^^^^^
+
+Variable in which to store left eye headref y
+
+pupil_rx
+^^^^^^^^
+
+Variable in which to store right eye pupil x
+
+pupil_ry
+^^^^^^^^
+
+Variable in which to store right eye pupil y
+
+pupil_lx
+^^^^^^^^
+
+Variable in which to store left eye pupil x
+
+pupil_ly
+^^^^^^^^
+
+Variable in which to store left eye pupil y
+
+pupil_size_r
+^^^^^^^^^^^^
+
+Variable in which to store right pupil size or area
+
+pupil_size_l
+^^^^^^^^^^^^
+
+Variable in which to store left pupil size or area
+
+blink_r
+^^^^^^^
+
+Variable in which to store right eye blink state (true when blinking, false otherwise)
+
+
+blink_l
+^^^^^^^
+
+Variable in which to store left eye blink state (true when blinking, false otherwise)
+
+
+saccade_r
+^^^^^^^^^
+
+Variable in which to store right eye saccade state (true when in saccade, false otherwise)
+
+
+saccade_l
+^^^^^^^^^
+
+Variable in which to store left eye saccade state (true when in saccade, false otherwise)
+
+
+fixation_r
+^^^^^^^^^^
+
+Variable in which to store right eye fixation state (true when fixating, false otherwise)
+
+
+fixation_l
+^^^^^^^^^^
+
+Variable in which to store left eye fixation state (true when fixating, false otherwise)
+
+
+cal_target_x
+^^^^^^^^^^^^
+
+Variable in which to store calibration target x coordinate
+
+cal_target_y
+^^^^^^^^^^^^
+
+Variable in which to store calibration target y coordinate
+
+cal_target_visible
+^^^^^^^^^^^^^^^^^^
+
+Variable in which to store calibration target visibility state (true when the target should be visible, false when it should be hidden)
+
+
+eye_time
+^^^^^^^^
+
+Variable in which to store time of sample (on EyeLink clock)
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

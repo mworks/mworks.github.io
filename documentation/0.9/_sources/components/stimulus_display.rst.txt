@@ -1,0 +1,97 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Stimulus Display
+   single: Input/Output; Stimulus Display
+
+.. _Stimulus Display:
+
+Stimulus Display
+================
+
+
+Description
+-----------
+A stimulus display device.  At present, MWorks always creates one (and only one) of these per experiment, regardless of whether the experiment file defines one.  By including a definition in your experiment file, you can change the display's default background color and configure its run-time behavior.
+
+
+
+Signature
+---------
+``iodevice/stimulus_display``
+
+
+Required Parameters
+-------------------
+
+background_color
+^^^^^^^^^^^^^^^^
+:Example: ``0.5,0.5,0.5``
+
+The background color, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).
+
+
+
+
+Optional Parameters
+-------------------
+
+background_alpha_multiplier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``1.0``
+
+Controls the transparency of the background.  ``1.0`` is fully opaque,
+while ``0.0`` is fully tranparent.
+
+*Note*: To enable background transparency, you must set `mainScreenInfo
+var`'s  ``make_window_opaque`` key to ``false``.  To make the stimulus
+display window fully transparent, set this parameter and all components
+of `background_color`_ to 0.
+
+
+redraw_on_every_refresh
+^^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the display will be redrawn during every refresh cycle.  If ``NO``, the display will be redrawn only when needed or when explicitly requested via `Update Stimulus Display`.
+
+
+announce_stimuli_on_implicit_updates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``YES``
+
+Controls the announcement of stimuli during "implicit" display updates (i.e. updates requested by running dynamic stimuli and *not* triggered by an explicit `Update Stimulus Display` action).  If set to ``NO``, then implicit updates will not generate ``#announceStimulus`` events, and ``#stimDisplayUpdate`` events for implicit updates will contain only the number of stimuli displayed (in place of the usual list of stimulus parameters).
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

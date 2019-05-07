@@ -1,0 +1,58 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Blank Fullscreen Stimulus
+   single: Stimuli; Blank Fullscreen Stimulus
+
+.. _Blank Fullscreen Stimulus:
+
+Blank Fullscreen Stimulus
+=========================
+
+
+Description
+-----------
+A stimulus that fills the screen with a user-defined color.  This stimulus must be `queued <Queue Stimulus>` like any other.
+
+
+
+Signature
+---------
+``stimulus/blank_screen``
+
+
+Optional Parameters
+-------------------
+
+color
+^^^^^
+:Default: ``0.5,0.5,0.5``
+
+The fill color, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).
+
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

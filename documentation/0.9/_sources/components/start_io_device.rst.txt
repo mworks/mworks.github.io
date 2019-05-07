@@ -1,0 +1,48 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Start IO Device
+   single: Actions; Start IO Device
+
+.. _Start IO Device:
+
+Start IO Device
+===============
+
+
+Description
+-----------
+Enable an `I/O device <Input/Output>`.  Most I/O devices will not perform input/output tasks until explicitly started.
+
+
+
+Signature
+---------
+``action/start_device_io``
+
+:Alias: ``action/start_io_device``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Name of the I/O device to enable
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

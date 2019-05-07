@@ -1,0 +1,82 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: ITC-18 Word Output Channel
+   single: Input/Output; ITC-18 Word Output Channel
+
+.. _ITC-18 Word Output Channel:
+
+ITC-18 Word Output Channel
+==========================
+
+*Available on macOS*
+
+
+Description
+-----------
+Used for sending word output on an `ITC-18 IO Device` (e.g. to a `Plexon <http://www.plexon.com>`_ system for clock synchronization)
+
+
+
+Signature
+---------
+``iochannel/itc18_word_output``
+
+
+Required Parameters
+-------------------
+
+variable
+^^^^^^^^
+
+capability
+^^^^^^^^^^
+:Example: ``ITC18_TTL_AUX_WORD1``
+
+data_type
+^^^^^^^^^
+:Example: ``digital_uint8``
+
+direction
+^^^^^^^^^
+:Example: ``output``
+
+synchrony
+^^^^^^^^^
+:Example: ``asynchronous``
+
+range_min
+^^^^^^^^^
+:Example: ``0``
+
+range_max
+^^^^^^^^^
+:Example: ``0``
+
+resolution
+^^^^^^^^^^
+:Example: ``1``
+
+update_interval
+^^^^^^^^^^^^^^^
+:Example: ``3ms``
+
+data_interval
+^^^^^^^^^^^^^
+:Example: ``1ms``
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `ITC-18 IO Device`

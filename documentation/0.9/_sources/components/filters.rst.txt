@@ -1,0 +1,19 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Filters:
+
+Filters
+=======
+
+Filters and calibrators
+
+.. toctree::
+   :maxdepth: 1
+
+   box_car_filter
+   eye_calibrator
+   eye_monitor
+   linear_eye_calibrator

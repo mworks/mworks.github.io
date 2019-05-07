@@ -1,0 +1,66 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Wait
+   single: Actions; Wait
+
+.. _Wait:
+
+Wait
+====
+
+
+Description
+-----------
+Pause for a specified amount of time
+
+
+Signature
+---------
+``action/wait``
+
+
+Required Parameters
+-------------------
+
+duration
+^^^^^^^^
+:Example: ``1.0``
+
+Duration
+
+
+
+Optional Parameters
+-------------------
+
+duration_units
+^^^^^^^^^^^^^^
+:Options: | ``us``
+          | ``ms``
+          | ``s``
+:Default: ``us``
+
+Duration units
+
+timebase
+^^^^^^^^
+
+If set to the name of a `timebase <Set Timebase>`, the expiration time will be measured relative to that timebase.  If omitted, the current time will be used as the timebase.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

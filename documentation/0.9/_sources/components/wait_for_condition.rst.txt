@@ -1,0 +1,68 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Wait for Condition
+   single: Actions; Wait for Condition
+
+.. _Wait for Condition:
+
+Wait for Condition
+==================
+
+
+Description
+-----------
+Wait until a condition becomes true or a timeout occurs.  If the wait times out before the condition becomes true, issue an error message and (optionally) stop the experiment.
+
+
+
+Signature
+---------
+``action/wait_for_condition``
+
+
+Required Parameters
+-------------------
+
+condition
+^^^^^^^^^
+
+Condition expression
+
+timeout
+^^^^^^^
+
+Timeout duration (microseconds)
+
+
+
+Optional Parameters
+-------------------
+
+timeout_message
+^^^^^^^^^^^^^^^
+
+Error message to report if the wait times out.  If omitted, a default message is used.
+
+
+stop_on_timeout
+^^^^^^^^^^^^^^^
+:Default: ``YES``
+
+If true, stop the experiment if the wait times out
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

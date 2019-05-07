@@ -1,0 +1,201 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Trial &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Replicators" href="replicators.html" />
+    <link rel="prev" title="Task System State" href="task_system_state.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="replicators.html" title="Replicators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="task_system_state.html" title="Task System State"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="paradigm_components.html" accesskey="U">Paradigm Components</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Trial</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#interruptible">interruptible</a></li>
+<li><a class="reference internal" href="#selection">selection</a></li>
+<li><a class="reference internal" href="#nsamples">nsamples</a></li>
+<li><a class="reference internal" href="#sampling-method">sampling_method</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="task_system_state.html"
+                        title="previous chapter">Task System State</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="replicators.html"
+                        title="next chapter">Replicators</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="trial">
+<span id="index-0"></span><span id="id1"></span><h1>Trial<a class="headerlink" href="#trial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>A container paradigm component.</p>
+<p>The execution order and number of repetitions of a trial’s sub-components
+are determined by <a class="reference internal" href="#selection">selection</a>, <a class="reference internal" href="#nsamples">nsamples</a>, and <a class="reference internal" href="#sampling-method">sampling_method</a>.</p>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">trial</span></code></p>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="interruptible">
+<h3>interruptible<a class="headerlink" href="#interruptible" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, then any request to pause or stop the experiment while this component is executing will be deferred until said execution completes. This behavior is inherited by the component’s children, making them non-interruptible as well.</p>
+</div>
+<div class="section" id="selection">
+<h3>selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sequential</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sequential_ascending</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sequential_descending</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">random_without_replacement</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">random_with_replacement</span></code></div>
+</div>
+</dd>
+<dt class="field-even">Default</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">sequential</span></code></p>
+</dd>
+</dl>
+<p>Order in which to draw selections</p>
+</div>
+<div class="section" id="nsamples">
+<h3>nsamples<a class="headerlink" href="#nsamples" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</dd>
+</dl>
+<p>Number of samples to allow before <a class="reference internal" href="reset_selections.html#reset-selections"><span class="std std-ref">Reset Selections</span></a> is required</p>
+</div>
+<div class="section" id="sampling-method">
+<h3>sampling_method<a class="headerlink" href="#sampling-method" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cycles</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">samples</span></code></div>
+</div>
+</dd>
+<dt class="field-even">Default</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">cycles</span></code></p>
+</dd>
+</dl>
+<p>Controls the interpretation of <a class="reference internal" href="#nsamples">nsamples</a>.  If set to <code class="docutils literal notranslate"><span class="pre">cycles</span></code>, <em>all</em> possible selections must be made to complete one sample.  If set to <code class="docutils literal notranslate"><span class="pre">samples</span></code>, each individual selection counts as a sample.</p>
+</div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-center">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="block.html#block"><span class="std std-ref">Block</span></a>, <a class="reference internal" href="list.html#list"><span class="std std-ref">List</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="protocol.html#protocol"><span class="std std-ref">Protocol</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="#trial"><span class="std std-ref">Trial</span></a></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Allowed children:</p></th>
+<td><p><a class="reference internal" href="actions.html#actions"><span class="std std-ref">Action</span></a>, <a class="reference internal" href="block.html#block"><span class="std std-ref">Block</span></a>, <a class="reference internal" href="list.html#list"><span class="std std-ref">List</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="task_system.html#task-system"><span class="std std-ref">Task System</span></a>, <a class="reference internal" href="#trial"><span class="std std-ref">Trial</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="replicators.html" title="Replicators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="task_system_state.html" title="Task System State"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="paradigm_components.html" >Paradigm Components</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

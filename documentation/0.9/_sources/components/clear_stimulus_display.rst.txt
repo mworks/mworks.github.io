@@ -1,0 +1,38 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Clear Stimulus Display
+   single: Actions; Clear Stimulus Display
+
+.. _Clear Stimulus Display:
+
+Clear Stimulus Display
+======================
+
+
+Description
+-----------
+Remove all stimuli from the display queue, and trigger a redraw of the stimulus display.  On the next display refresh, only the default background will be drawn.
+
+
+
+Signature
+---------
+``action/clear_stimulus_display``
+
+:Alias: ``action/clear_display``
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

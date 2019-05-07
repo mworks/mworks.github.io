@@ -1,0 +1,46 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: End Averaged Calibration and Ignore
+   single: Actions; End Averaged Calibration and Ignore
+
+.. _End Averaged Calibration and Ignore:
+
+End Averaged Calibration and Ignore
+===================================
+
+
+Description
+-----------
+Instruct a calibrator object to stop computing an average of its input value(s) and discard the accumulated data
+
+
+
+Signature
+---------
+``action/end_calibration_average_and_ignore``
+
+
+Required Parameters
+-------------------
+
+calibrator
+^^^^^^^^^^
+
+Name of the calibrator
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

@@ -1,0 +1,46 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Accept Selections
+   single: Actions; Accept Selections
+
+.. _Accept Selections:
+
+Accept Selections
+=================
+
+
+Description
+-----------
+Permanently accept the selections that have been made so far on a selectable object.  Once accepted, these selections cannot be undone with a `Reject Selections` action.
+
+
+
+Signature
+---------
+``action/accept_selections``
+
+
+Required Parameters
+-------------------
+
+selection
+^^^^^^^^^
+
+Name of the selectable object
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

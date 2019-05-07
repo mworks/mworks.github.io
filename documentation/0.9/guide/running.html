@@ -1,0 +1,229 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Running an Experiment &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Analyzing Experimental Data" href="data_analysis.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="data_analysis.html" title="Analyzing Experimental Data"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">User Guide</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Running an Experiment</a><ul>
+<li><a class="reference internal" href="#launching-the-applications">Launching the Applications</a><ul>
+<li><a class="reference internal" href="#server">Server</a><ul>
+<li><a class="reference internal" href="#macos">macOS</a></li>
+<li><a class="reference internal" href="#ios">iOS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#client">Client</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#loading-the-experiment">Loading the Experiment</a></li>
+<li><a class="reference internal" href="#opening-the-event-file">Opening the Event File</a></li>
+<li><a class="reference internal" href="#running-the-experiment">Running the Experiment</a></li>
+<li><a class="reference internal" href="#monitoring-the-experiment">Monitoring the Experiment</a><ul>
+<li><a class="reference internal" href="#console">Console</a></li>
+<li><a class="reference internal" href="#variables-window">Variables Window</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#closing-the-experiment">Closing the Experiment</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="data_analysis.html"
+                        title="next chapter">Analyzing Experimental Data</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="running-an-experiment">
+<span id="id1"></span><h1>Running an Experiment<a class="headerlink" href="#running-an-experiment" title="Permalink to this headline">¶</a></h1>
+<p>This guide will describe the basic steps for running an MWorks experiment.  It will make use of a simple example that is distributed with MWorks.</p>
+<div class="section" id="launching-the-applications">
+<h2>Launching the Applications<a class="headerlink" href="#launching-the-applications" title="Permalink to this headline">¶</a></h2>
+<p>To run an MWorks experiment, you use two applications:</p>
+<ol class="arabic simple">
+<li><p>The <em>client</em> is used to control and monitor the experiment, while</p></li>
+<li><p>the <em>server</em> handles the actual execution of the experiment.</p></li>
+</ol>
+<p>In the simplest case, both applications run on the same computer.  However, they can also run on different computers and communicate via <a class="reference external" href="https://en.wikipedia.org/wiki/Internet_protocol_suite">TCP/IP</a> networking.</p>
+<div class="section" id="server">
+<h3>Server<a class="headerlink" href="#server" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="macos">
+<h4>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h4>
+<p>On macOS, the server application is called <em>MWServer</em>.  (For simplicity, this guide assumes that both the server and the client are running on the same macOS system.)</p>
+<p>To launch MWServer, navigate to the system-level <em>Applications</em> folder, and double click the yellow monkey icon.  After the application launches, click the <em>Preferences</em> button.  In the preferences window that opens, navigate to the <em>Network</em> tab, and confirm the following settings:</p>
+<ul class="simple">
+<li><p>Listening address: localhost</p></li>
+<li><p>Listening port: 19989</p></li>
+</ul>
+<p>If you need to edit either setting, quit and re-open MWServer after making your changes.</p>
+</div>
+<div class="section" id="ios">
+<h4>iOS<a class="headerlink" href="#ios" title="Permalink to this headline">¶</a></h4>
+<p>On iOS, the server application is called <em>MWorks</em>.  To launch the app, tap its icon.</p>
+<p>After launching, the app displays its current listening address and port.  The listening address is set by the operating system, but you can change the listening port in the “MWorks” section of the system <em>Settings</em> app.</p>
+</div>
+</div>
+<div class="section" id="client">
+<h3>Client<a class="headerlink" href="#client" title="Permalink to this headline">¶</a></h3>
+<p>The client application is called <em>MWClient</em>.  It is available only on macOS, but it can connect to servers running on both iOS and macOS.</p>
+<p>To launch MWClient, navigate to the system-level <em>Applications</em> folder, and double click the red monkey icon.  After the application launches, click the red circle with the white <em>X</em> next to the words “No connection”.</p>
+<p>In the panel that opens, you must enter the network address and port for the server.  If the server is running on macOS, enter or verify the following values:</p>
+<ul class="simple">
+<li><p>Address: localhost</p></li>
+<li><p>Port: 19989</p></li>
+</ul>
+<p>If the server is running on iOS, enter the listening address and port reported by the <em>MWorks</em> app.</p>
+<p>Next, click the <em>Connect</em> button.  The red circle with an <em>X</em> should change in to a green circle with a white check mark, and “No connection” should be replaced with the name of the server instance.</p>
+<p>The client is now connected to the server, and you are ready to load and run an experiment.</p>
+<p><em>Note</em>: The client can disconnect from and reconnect to the server at any time, even if an experiment is loaded or running.  To disconnect, click the green circle with a white check mark.  In the panel that opens, click the <em>Disconnect</em> button.  You should once again see the red circle with an <em>X</em> next to the words “No connection”.  To reconnect, follow the steps described above.</p>
+</div>
+</div>
+<div class="section" id="loading-the-experiment">
+<h2>Loading the Experiment<a class="headerlink" href="#loading-the-experiment" title="Permalink to this headline">¶</a></h2>
+<p>To load and run an experiment, you must use the MWClient application.  Click the folder icon next to the words “No Experiment Loaded”.  In the panel that opens, next to the words “Choose a New Experiment”, click the <em>Choose</em> button.  A file selection window will appear.</p>
+<p>In the file selection window, select the system’s boot disk (e.g. <em>Macintosh HD</em>), and navigate to the directory <code class="docutils literal notranslate"><span class="pre">/Library/Application</span> <span class="pre">Support/MWorks/Examples/FindTheCircle</span></code>.  Select the file <code class="docutils literal notranslate"><span class="pre">FindTheCircle.mwel</span></code> (or <code class="docutils literal notranslate"><span class="pre">FindTheCircle-iOS.mwel</span></code>, if the server is running on iOS), and click <em>Open</em>.  The start button (green circle with right-pointing triangle) should now be enabled, and “No Experiment Loaded” should be replaced by just “Experiment”.  Also, an empty, gray stimulus display should open (either fullscreen or in a window, depending on your <a class="reference internal" href="installation.html#configuration"><span class="std std-ref">configuration</span></a>).</p>
+</div>
+<div class="section" id="opening-the-event-file">
+<h2>Opening the Event File<a class="headerlink" href="#opening-the-event-file" title="Permalink to this headline">¶</a></h2>
+<p>The event file is a record of everything that happens in an MWorks experiment, as reported by changes to variable values.  By default, MWClient will automatically open an event file when the experiment starts running.  If you have disabled this behavior (via MWClient’s preferences window), or if you want to choose the file’s name yourself, you can use MWClient to manually open the event file.</p>
+<p>Click the icon depicting a blue cylinder and downward-facing arrow, next to the words “Not streaming to disk…”  In the text entry box beneath the words “Begin streaming data to file”, enter a name for the event file.  (The extension <code class="docutils literal notranslate"><span class="pre">.mwk2</span></code> will be added to the name you enter.)  Then, click the <em>Stream</em> button.  The event file is now open, and all subsequent events generated by the experiment will be recorded to it for later <a class="reference internal" href="data_analysis.html#analyzing-experimental-data"><span class="std std-ref">analysis</span></a>.</p>
+<p>The event file will close automatically when you close the experiment.  Alternatively, you can close the event file manually at any time.  To do so, click the cylinder+arrow icon again, then click the <em>Close Stream</em> button.</p>
+</div>
+<div class="section" id="running-the-experiment">
+<h2>Running the Experiment<a class="headerlink" href="#running-the-experiment" title="Permalink to this headline">¶</a></h2>
+<p>To start the experiment, use MWClient.  Click the start button (green circle with right-pointing triangle), which should immediately change into a stop button (red circle with white square).  The stimulus display should now contain three squares (red, green, and blue).  On macOS, the mouse cursor will jump to the stimulus display.</p>
+<p>In this “experiment”, a white circle is hidden under a random square, and the goal for the subject is to find it.  To make a guess, either:</p>
+<ul class="simple">
+<li><p>move the mouse cursor over the selected square (macOS), or</p></li>
+<li><p>tap the selected square (iOS).</p></li>
+</ul>
+<p>Once a choice is made, the squares will disappear, revealing the location of the circle, and a feedback sound will play: a pleasant chime if your guess was correct, an error tone otherwise.  After a short delay, the three squares will reappear, and the selection process repeats, with the circle in a new random location.  (On macOS, the mouse cursor will return to its initial position.)  If you fail to make a selection within five seconds of the squares appearing, a timeout sound will play, and the next trial will begin (without revealing the circle’s location).</p>
+<p>The experiment will run for ten trials, after which it will automatically stop.  The stop button should turn back into a start button, and the stimulus display should once again be empty.  To run the experiment again, click the start button.</p>
+</div>
+<div class="section" id="monitoring-the-experiment">
+<h2>Monitoring the Experiment<a class="headerlink" href="#monitoring-the-experiment" title="Permalink to this headline">¶</a></h2>
+<p>In this guide, you have been playing the roles of both experimenter <em>and</em> experimental subject.  Normally, of course, this would not be the case.  Instead, the subject would be another person or animal, and you (the experimenter) would be  monitoring their progress.</p>
+<p>MWorks provides a number of tools for observing (and potentially altering) the course of an experiment.  Of these, the most basic and essential are the console and the variables window.</p>
+<div class="section" id="console">
+<h3>Console<a class="headerlink" href="#console" title="Permalink to this headline">¶</a></h3>
+<p>All messages (informational, warning, and error) produced by an MWorks experiment are logged to the console.  This includes both system messages and messages generated by the experiment itself via the <a class="reference internal" href="../components/report_message.html#report-message"><span class="std std-ref">report action</span></a>.</p>
+<p>Both MWServer and MWClient provide access to the console.  To open the console window in MWServer, click the <em>Console</em> button.  To have the console window open automatically when MWServer launches, click the <em>Preferences</em> button, select the <em>General</em> tab, and check the box next to “Open console window at startup”.</p>
+<p>To open the console window in MWClient, click the magnifying glass icon.  In the menu that pops up, select “Console”.</p>
+<p>Click the console window’s <em>Clear</em> button, and run the example experiment again.  When the experiment completes, the console should display messages similar to the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>01:43:52:  Setting protocol to Find the Circle
+01:43:52:  Running MWorks 0.8
+01:43:52:  Current date/time is Mon Jan 29 14:33:29 EST 2018
+01:43:52:  Called start on state system
+01:43:52:  Starting state system....
+01:43:53:  Display updates started (refresh rate: 60 Hz)
+01:44:32:  4 of 10 trials were correct (6272418691)
+01:44:32:  5 of 10 trials were incorrect (6272418720)
+01:44:32:  1 of 10 trials were ignored (6272418783)
+01:44:32:  Display updates stopped
+01:44:32:  State system ending
+01:44:32:  Resetting experiment
+</pre></div>
+</div>
+<p>(In addition to appearing in the console, all messages are recorded in the event file via the <code class="docutils literal notranslate"><span class="pre">#announceMessage</span></code> <a class="reference internal" href="../reference/sysvars.html#sysvars"><span class="std std-ref">system variable</span></a>.)</p>
+</div>
+<div class="section" id="variables-window">
+<h3>Variables Window<a class="headerlink" href="#variables-window" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../components/variables.html#variables"><span class="std std-ref">Variables</span></a> are a fundamental element of all MWorks experiments.  An experiment’s state at any moment is described by the values of its variables.  By changing the values of key variables, you can alter the course of your experiment’s execution.</p>
+<p>The simplest way to examine or alter the values of an experiment’s variables is via MWClient’s variables window.  To open the variables window, click the magnifying glass icon.  In the menu that pops up, select “Variables”.</p>
+<p>The variables window organizes variables in to expandable groups.  Experiment-defined variables (i.e. anything that is not a <a class="reference internal" href="../reference/sysvars.html#sysvars"><span class="std std-ref">system variable</span></a>) are in a group labeled <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">EXPERIMENT</span> <span class="pre">VARIABLES</span></code>.  To display the variables and their values, click the disclosure triangle next to the label.</p>
+<p>With the experiment variables visible, try running the example experiment again.  You should see <code class="docutils literal notranslate"><span class="pre">pointer_x</span></code> and <code class="docutils literal notranslate"><span class="pre">pointer_y</span></code> change as you move the mouse pointer or tap the screen, <code class="docutils literal notranslate"><span class="pre">num_trials</span></code> increase as trials are completed, and so on.</p>
+<p>Next, suppose you want to make the experimental task easier (in this case, a <em>lot</em> easier).  In the variables window, find the row for the variable <code class="docutils literal notranslate"><span class="pre">circle_size</span></code>.  (If you have trouble finding it, start typing the variable name in the search box at the bottom of the window, and it will quickly become the only variable visible.)  Double click the variable’s value (2), and replace it with a larger value (7).  If you now re-run the experiment, you should have no trouble finding the circle on every trial.</p>
+</div>
+</div>
+<div class="section" id="closing-the-experiment">
+<h2>Closing the Experiment<a class="headerlink" href="#closing-the-experiment" title="Permalink to this headline">¶</a></h2>
+<p>To close the experiment, use MWClient.  Click the folder icon.  In the panel that opens, click <em>Close Experiment</em>.  The stimulus display should disappear, and the text next to the folder icon should once again read “No Experiment Loaded”.  If an event file was open, it will now be closed.</p>
+<p>The experiment is now closed (i.e. unloaded).  At this point, you can load another experiment, or, if your session is complete, you can quit the client and server applications.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="data_analysis.html" title="Analyzing Experimental Data"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >User Guide</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

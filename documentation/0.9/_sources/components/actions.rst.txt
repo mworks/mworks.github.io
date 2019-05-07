@@ -1,0 +1,72 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Actions:
+
+Actions
+=======
+
+Actions are the smallest unit of execution logic within an experiment. They initiate a single operation or event (e.g. playing a sound, showing a visual stimulus, or assigning a value to a variable).
+
+
+.. toctree::
+   :maxdepth: 1
+
+   accept_selections
+   assert
+   assign_variable
+   begin_averaged_calibration_sample
+   bring_stimulus_to_front
+   clear_calibration
+   clear_stimulus_display
+   conditional_branching_if_else
+   conditionally_execute_actions_if
+   dequeue_stimulus
+   end_averaged_calibration_and_ignore
+   end_averaged_calibration_sample
+   eyelink_tracker_setup
+   fake_monkey_fixate
+   fake_monkey_saccade
+   fake_monkey_saccade_and_fixate
+   live_queue_stimulus
+   load_stimulus
+   move_mouse_cursor
+   next_selection
+   pause_dynamic_stimulus
+   pause_experiment
+   pause_sound
+   play_dynamic_stimulus
+   play_sound
+   prepare_blackrock_led_driver
+   pulse_variable
+   queue_stimulus
+   randomize_white_noise_background
+   read_blackrock_led_driver_temperatures
+   reject_selections
+   repeat_actions_while
+   report_message
+   reset_selections
+   resume_experiment
+   run_blackrock_led_driver
+   run_python_file
+   run_python_string
+   schedule_actions
+   send_stimulus_to_back
+   set_blackrock_led_driver_channel_intensity
+   set_timebase
+   start_io_device
+   start_timer
+   stop_dynamic_stimulus
+   stop_experiment
+   stop_io_device
+   stop_sound
+   take_calibration_sample
+   unconditionally_execute_actions_else
+   unload_stimulus
+   unpause_dynamic_stimulus
+   update_calibration
+   update_stimulus_display
+   wait
+   wait_for_condition

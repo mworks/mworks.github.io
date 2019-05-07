@@ -1,0 +1,174 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>List Replicator &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Range Replicator" href="range_replicator.html" />
+    <link rel="prev" title="Replicators" href="replicators.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="range_replicator.html" title="Range Replicator"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="replicators.html" title="Replicators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="replicators.html" accesskey="U">Replicators</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">List Replicator</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#variable">variable</a></li>
+<li><a class="reference internal" href="#values">values</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="replicators.html"
+                        title="previous chapter">Replicators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="range_replicator.html"
+                        title="next chapter">Range Replicator</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="list-replicator">
+<span id="index-0"></span><span id="id1"></span><h1>List Replicator<a class="headerlink" href="#list-replicator" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>A construct that replicates its contents (textually) at parse time.  Each
+replication assigns a different value from a user-provided list to the
+specified <a class="reference internal" href="#variable">variable</a> (similar to a <a class="reference external" href="https://en.wikipedia.org/wiki/Foreach_loop">foreach loop</a>). This can be used, for
+example, to generate a <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a> of <a class="reference internal" href="image_stimulus.html#image-stimulus"><span class="std std-ref">images</span></a> by
+using the replicator variable as the path to each image file.</p>
+<p class="rubric">Filenames Directive</p>
+<p>The value list can include one or more items of the form
+<code class="docutils literal notranslate"><span class="pre">filenames(glob_pat)</span></code>, where <code class="docutils literal notranslate"><span class="pre">glob_pat</span></code> is a <a class="reference external" href="https://en.wikipedia.org/wiki/Glob_(programming)">glob pattern</a>, similar to those used
+in Unix shell commands.  The glob pattern must match the names of one or
+more files.  Both absolute and relative paths are acceptable.  If the
+pattern matches no files, the parser raises an error.</p>
+<p>When the replicator is evaluated, each <code class="docutils literal notranslate"><span class="pre">filenames</span></code> directive is expanded
+into a comma-separated list of matching file names.  For example, if you
+have five image files named <code class="docutils literal notranslate"><span class="pre">img1.png</span></code> to <code class="docutils literal notranslate"><span class="pre">img5.png</span></code>, then the following
+value lists are all equivalent:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">img1.png,</span> <span class="pre">img2.png,</span> <span class="pre">img3.png,</span> <span class="pre">img4.png,</span> <span class="pre">img5.png</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filenames(*.png)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filenames(img?.png)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filenames(img[12].png),</span> <span class="pre">img3.png,</span> <span class="pre">filenames(img[!1-3].png)</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">list_replicator</span></code></p>
+</div>
+<div class="section" id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="variable">
+<h3>variable<a class="headerlink" href="#variable" title="Permalink to this headline">¶</a></h3>
+<p>Replicator variable.  The variable must have local scope.</p>
+</div>
+<div class="section" id="values">
+<h3>values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h3>
+<p>Comma-separated list of values to assign to <a class="reference internal" href="#variable">variable</a>, one per replication</p>
+</div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-center">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="block.html#block"><span class="std std-ref">Block</span></a>, <a class="reference internal" href="experiment.html#experiment"><span class="std std-ref">Experiment</span></a>, <a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="list.html#list"><span class="std std-ref">List</span></a>, <a class="reference internal" href="#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="movie_stimulus.html#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="protocol.html#protocol"><span class="std std-ref">Protocol</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a>, <a class="reference internal" href="trial.html#trial"><span class="std std-ref">Trial</span></a></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Allowed children:</p></th>
+<td><p><a class="reference internal" href="block.html#block"><span class="std std-ref">Block</span></a>, <a class="reference internal" href="list.html#list"><span class="std std-ref">List</span></a>, <a class="reference internal" href="#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="protocol.html#protocol"><span class="std std-ref">Protocol</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimuli.html#stimuli"><span class="std std-ref">Stimulus</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a>, <a class="reference internal" href="trial.html#trial"><span class="std std-ref">Trial</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="range_replicator.html" title="Range Replicator"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="replicators.html" title="Replicators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="replicators.html" >Replicators</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

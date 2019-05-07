@@ -1,0 +1,88 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: ITC-18 TTL Input Channel
+   single: Input/Output; ITC-18 TTL Input Channel
+
+.. _ITC-18 TTL Input Channel:
+
+ITC-18 TTL Input Channel
+========================
+
+*Available on macOS*
+
+
+Description
+-----------
+Used for interfacing to a TTL input channel on an `ITC-18 IO Device`
+
+
+
+Signature
+---------
+``iochannel/itc18_ttl_digital_input``
+
+
+Required Parameters
+-------------------
+
+variable
+^^^^^^^^
+
+capability
+^^^^^^^^^^
+:Example: ``ITC18_TTL_INPUT0``
+
+data_type
+^^^^^^^^^
+:Options: | ``edge_low_to_high``
+          | ``edge_high_to_low``
+          | ``edge_any``
+          | ``digital``
+
+Data type.  ``digital`` indicates continuous digital data.
+
+
+direction
+^^^^^^^^^
+:Example: ``input``
+
+synchrony
+^^^^^^^^^
+:Example: ``hardware_timed_synchronous``
+
+range_min
+^^^^^^^^^
+:Example: ``0``
+
+range_max
+^^^^^^^^^
+:Example: ``0``
+
+resolution
+^^^^^^^^^^
+:Example: ``1``
+
+update_interval
+^^^^^^^^^^^^^^^
+:Example: ``3ms``
+
+data_interval
+^^^^^^^^^^^^^
+:Example: ``0.5ms``
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `ITC-18 IO Device`

@@ -1,0 +1,213 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>NE-500 Syringe Pump Network &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NIDAQ Analog Input Voltage Channel" href="nidaq_analog_input_voltage_channel.html" />
+    <link rel="prev" title="NE-500 Syringe Pump" href="ne_500_syringe_pump.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="nidaq_analog_input_voltage_channel.html" title="NIDAQ Analog Input Voltage Channel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ne_500_syringe_pump.html" title="NE-500 Syringe Pump"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" accesskey="U">Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NE-500 Syringe Pump Network</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#address">address</a></li>
+<li><a class="reference internal" href="#port">port</a></li>
+<li><a class="reference internal" href="#response-timeout">response_timeout</a></li>
+<li><a class="reference internal" href="#log-pump-commands">log_pump_commands</a></li>
+<li><a class="reference internal" href="#autostart">autostart</a></li>
+<li><a class="reference internal" href="#alt">alt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ne_500_syringe_pump.html"
+                        title="previous chapter">NE-500 Syringe Pump</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="nidaq_analog_input_voltage_channel.html"
+                        title="next chapter">NIDAQ Analog Input Voltage Channel</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ne-500-syringe-pump-network">
+<span id="index-0"></span><span id="id1"></span><h1>NE-500 Syringe Pump Network<a class="headerlink" href="#ne-500-syringe-pump-network" title="Permalink to this headline">¶</a></h1>
+<p><em>Available on macOS</em></p>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Used for interfacing to a network of <a class="reference external" href="http://www.syringepump.com/oem.php#aa">NE-500 syringe pumps</a>, accessed via a serial-to-ethernet bridge or a USB-to-serial adapter</p>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">iodevice/ne500</span></code></p>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="address">
+<h3>address<a class="headerlink" href="#address" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Examples</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&quot;10.0.254.254&quot;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">/dev/cu.usbserial-FTH1RRH5</span></code></div>
+</div>
+</dd>
+</dl>
+<p>If <a class="reference internal" href="#port">port</a> is provided, the address is taken to be a host name,
+and MWorks attempts to connect to the pump network via a
+<a class="reference external" href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a>
+socket.  Otherwise, the address is assumed to be a filesystem path that
+represents a serial port.</p>
+<p>If neither address nor port is provided, MWorks looks for a single,
+connected serial device.  If it finds one, it assumes it to be the
+desired pump network and attempts to connect.</p>
+</div>
+<div class="section" id="port">
+<h3>port<a class="headerlink" href="#port" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">100</span></code></p>
+</dd>
+</dl>
+<p>Port number for TCP connections</p>
+</div>
+<div class="section" id="response-timeout">
+<h3>response_timeout<a class="headerlink" href="#response-timeout" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">100ms</span></code></p>
+</dd>
+</dl>
+<p>Maximum time to wait for responses to pump commands (microseconds).  If no response is received in the allotted time, issue an error message.</p>
+</div>
+<div class="section" id="log-pump-commands">
+<h3>log_pump_commands<a class="headerlink" href="#log-pump-commands" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, log all commands sent to and responses received from the pump network to the MWorks event stream and server console</p>
+</div>
+<div class="section" id="autostart">
+<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the device will start I/O automatically (as if by an
+implicit <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> action) when the experiment starts running.</p>
+<p><em>Note</em>: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.</p>
+</div>
+<div class="section" id="alt">
+<h3>alt<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h3>
+<p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
+</div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-center">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Allowed children:</p></th>
+<td><p><a class="reference internal" href="ne_500_syringe_pump.html#ne-500-syringe-pump"><span class="std std-ref">NE-500 Syringe Pump</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="nidaq_analog_input_voltage_channel.html" title="NIDAQ Analog Input Voltage Channel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ne_500_syringe_pump.html" title="NE-500 Syringe Pump"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" >Input/Output</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

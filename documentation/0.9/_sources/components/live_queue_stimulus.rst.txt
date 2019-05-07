@@ -1,0 +1,46 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Live Queue Stimulus
+   single: Actions; Live Queue Stimulus
+
+.. _Live Queue Stimulus:
+
+Live Queue Stimulus
+===================
+
+
+Description
+-----------
+Place a stimulus into the display queue, ready to be displayed when the next `Update Stimulus Display` action is issued.  Differs from `Queue Stimulus` in that values for variables controlling the appearance of the stimulus will remain malleable right up until the moment that the display is updated.
+
+
+
+Signature
+---------
+``action/live_queue_stimulus``
+
+
+Required Parameters
+-------------------
+
+stimulus
+^^^^^^^^
+
+Stimulus to queue
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

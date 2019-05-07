@@ -1,0 +1,380 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>System Variables &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Glossary" href="../glossary.html" />
+    <link rel="prev" title="Expressions" href="../expressions/index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../glossary.html" title="Glossary"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../expressions/index.html" title="Expressions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Reference Manual</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">System Variables</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="#allowaltfailover">#allowAltFailover</a></li>
+<li><a class="reference internal" href="#mainscreeninfo">#mainScreenInfo</a></li>
+<li><a class="reference internal" href="#realtimecomponents">#realtimeComponents</a></li>
+<li><a class="reference internal" href="#servername">#serverName</a></li>
+<li><a class="reference internal" href="#stoponerror">#stopOnError</a></li>
+<li><a class="reference internal" href="#warnonskippedrefresh">#warnOnSkippedRefresh</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#experiment-state">Experiment State</a><ul>
+<li><a class="reference internal" href="#announceassertion">#announceAssertion</a></li>
+<li><a class="reference internal" href="#announceblock">#announceBlock</a></li>
+<li><a class="reference internal" href="#announcecalibrator">#announceCalibrator</a></li>
+<li><a class="reference internal" href="#announcecurrentstate">#announceCurrentState</a></li>
+<li><a class="reference internal" href="#announcemessage">#announceMessage</a></li>
+<li><a class="reference internal" href="#announcesound">#announceSound</a></li>
+<li><a class="reference internal" href="#announcestimulus">#announceStimulus</a></li>
+<li><a class="reference internal" href="#announcetrial">#announceTrial</a></li>
+<li><a class="reference internal" href="#loadedexperiment">#loadedExperiment</a></li>
+<li><a class="reference internal" href="#state-system-mode">#state_system_mode</a></li>
+<li><a class="reference internal" href="#stimdisplayupdate">#stimDisplayUpdate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#internal">Internal</a><ul>
+<li><a class="reference internal" href="#experimentloadprogress">#experimentLoadProgress</a></li>
+<li><a class="reference internal" href="#requestcalibrator">#requestCalibrator</a></li>
+<li><a class="reference internal" href="#system-event-codes">System Event Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../expressions/index.html"
+                        title="previous chapter">Expressions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../glossary.html"
+                        title="next chapter">Glossary</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="system-variables">
+<span id="sysvars"></span><h1>System Variables<a class="headerlink" href="#system-variables" title="Permalink to this headline">¶</a></h1>
+<p>In addition to being a central component of user-created experiments, <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variables</span></a> play a crucial role in the overall configuration and function of MWorks.  The following system-defined variables are always present (even before an experiment has been loaded) and serve a variety of purposes.</p>
+<div class="section" id="configuration">
+<span id="config-vars"></span><h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="allowaltfailover">
+<h3>#allowAltFailover<a class="headerlink" href="#allowaltfailover" title="Permalink to this headline">¶</a></h3>
+<p>Controls MWorks’ behavior when an <a class="reference internal" href="../components/input_output.html#input-output"><span class="std std-ref">I/O device</span></a> fails to initialize but specifies an alternative, “failover” device in its <code class="docutils literal notranslate"><span class="pre">alt</span></code> parameter.  If this variable is set to a true value (e.g <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">true</span></code>), MWorks will attempt to use the failover device in place of the failed one.  Otherwise, the failover device is ignored.</p>
+</div>
+<div class="section" id="mainscreeninfo">
+<span id="mainscreeninfo-var"></span><h3>#mainScreenInfo<a class="headerlink" href="#mainscreeninfo" title="Permalink to this headline">¶</a></h3>
+<p>The value of this variable is a dictionary whose key/value pairs describe and configure the stimulus display.</p>
+<p>The following keys are recognized.  If a key is omitted, the default value is used:</p>
+<table class="colwidths-auto docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">display_to_use</span></code></p></td>
+<td><p>Integer indicating which physical display to use as the main stimulus display.  0 indicates the primary display (e.g. where the macOS dock is located), 1 or greater selects a secondary display, and a negative value indicates that only the mirror window should be used (useful for testing experiments on a laptop).</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">width</span></code></p></td>
+<td><p>Width of the main display (in arbitrary units)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">height</span></code></p></td>
+<td><p>Height of the main display (in the same units as <code class="docutils literal notranslate"><span class="pre">width</span></code>)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">distance</span></code></p></td>
+<td><p>Distance from the center of the main display to the experimental subject’s eye (in the same units as <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">refresh_rate_hz</span></code></p></td>
+<td><p>Refresh rate of the main display in hertz (required, but currently unused)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">always_display_mirror_window</span></code></p></td>
+<td><p>True or false, indicating whether the stimulus display mirror window should be enabled or disabled.  When enabled, the mirror window “mirrors” the main stimulus display, allowing you to observe the stimulus presentation even if the main display is in another room or otherwise not visible.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mirror_window_base_height</span></code></p></td>
+<td><p>Height of the mirror window in <a class="reference external" href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CocoaDrawingGuide/Transforms/Transforms.html#//apple_ref/doc/uid/TP40003290-CH204-SW5">points</a>.  The width is chosen to match the aspect ratio specified by <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>.</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">announce_individual_stimuli</span></code></p></td>
+<td><p>True or false, indicating whether stimuli should be announced individually when presented (via <a class="reference internal" href="#announcestimulus">#announceStimulus</a> events), in addition to being announced in <a class="reference internal" href="#stimdisplayupdate">#stimDisplayUpdate</a> events</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">use_color_management</span></code></p></td>
+<td><p>True or false, indicating whether the stimulus display pipeline should perform <a class="reference external" href="https://en.wikipedia.org/wiki/Color_management">color management</a>.  If color management is enabled, stimuli are rendered in a “linearized” <a class="reference external" href="https://en.wikipedia.org/wiki/SRGB">sRGB color space</a>, and each frame is converted to the target display’s color space before being presented.  Otherwise, rendering takes place in the (typically non-linear) color space of the display, and no color conversion is performed.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">set_display_gamma</span></code></p></td>
+<td><p>True or false, indicating if the display’s <a class="reference external" href="https://en.wikipedia.org/wiki/Gamma_correction">gamma function</a> should be set using the values specified by <code class="docutils literal notranslate"><span class="pre">red_gamma</span></code>, <code class="docutils literal notranslate"><span class="pre">green_gamma</span></code>, and <code class="docutils literal notranslate"><span class="pre">blue_gamma</span></code>.  Applies only when <code class="docutils literal notranslate"><span class="pre">use_color_management</span></code> is false.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">red_gamma</span></code></p></td>
+<td><p>Inverse of red channel gamma (must be greater than zero)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">green_gamma</span></code></p></td>
+<td><p>Inverse of green channel gamma (must be greater than zero)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">blue_gamma</span></code></p></td>
+<td><p>Inverse of blue channel gamma (must be greater than zero)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">make_window_opaque</span></code></p></td>
+<td><p>True or false, indicating whether the stimulus display window should be opaque.  If the window is not opaque, and the experiment includes a <a class="reference internal" href="../components/stimulus_display.html#stimulus-display"><span class="std std-ref">Stimulus Display</span></a> device whose <code class="docutils literal notranslate"><span class="pre">background_alpha_multiplier</span></code> parameter is less than 1, then the display background and/or application windows beneath the stimulus window will show through it.  Does not affect the mirror window, which is always opaque.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">width</span></code>, <code class="docutils literal notranslate"><span class="pre">height</span></code>, and <code class="docutils literal notranslate"><span class="pre">distance</span></code> values are used to compute the angular field of view covered by the main display.  The bounds of the field of view (in degrees) are reported by MWorks when the experiment is loaded, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Display bounds set to (-26.4631 left, 26.4631 right, 16.5394 top, -16.5394 bottom)
+</pre></div>
+</div>
+<p>Within an experiment, the bounds can be obtained via the <code class="docutils literal notranslate"><span class="pre">display_bounds</span></code> function.  Visual stimuli are drawn within these bounds, with their position and size given in degrees.</p>
+<p>Changes to this variable affect the next experiment loaded.</p>
+</div>
+<div class="section" id="realtimecomponents">
+<h3>#realtimeComponents<a class="headerlink" href="#realtimecomponents" title="Permalink to this headline">¶</a></h3>
+<p>The value of this variable is a dictionary, where each key identifies a core realtime service (clock, scheduler, or state system), and the corresponding value is the name of a plugin that provides that service.</p>
+<p>The following keys and values are allowed.  If a key is omitted, the default value is used:</p>
+<table class="colwidths-auto docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Default value</p></th>
+<th class="head"><p>Alternative value(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">clock</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">HighPrecisionClock</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SimpleClock</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scheduler</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ZenScheduler</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">state_system</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ZenStateSystem</span></code></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Changes to this varible take effect when the server is restarted.</p>
+</div>
+<div class="section" id="servername">
+<h3>#serverName<a class="headerlink" href="#servername" title="Permalink to this headline">¶</a></h3>
+<p>The value of this variable is a string containing an arbitrary, user-specified name for the system running MWServer.  This name is displayed by MWClient when connected to the server.</p>
+</div>
+<div class="section" id="stoponerror">
+<h3>#stopOnError<a class="headerlink" href="#stoponerror" title="Permalink to this headline">¶</a></h3>
+<p>If this variable is set to a true value, a running experiment will stop automatically when an error is reported.</p>
+</div>
+<div class="section" id="warnonskippedrefresh">
+<h3>#warnOnSkippedRefresh<a class="headerlink" href="#warnonskippedrefresh" title="Permalink to this headline">¶</a></h3>
+<p>If this variable is set to a true value, a warning is issued whenever the stimulus presentation skips a display refresh cycle.</p>
+</div>
+</div>
+<div class="section" id="experiment-state">
+<h2>Experiment State<a class="headerlink" href="#experiment-state" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="announceassertion">
+<h3>#announceAssertion<a class="headerlink" href="#announceassertion" title="Permalink to this headline">¶</a></h3>
+<p>When an <a class="reference internal" href="../components/assert.html#assert"><span class="std std-ref">assertion</span></a> fails, the value of this variable is set to a string containing the associated error message.</p>
+</div>
+<div class="section" id="announceblock">
+<span id="announceblock-var"></span><h3>#announceBlock<a class="headerlink" href="#announceblock" title="Permalink to this headline">¶</a></h3>
+<p>The initial value of this variable is 0.  When the running experiment enters a <a class="reference internal" href="../components/block.html#block"><span class="std std-ref">block</span></a>, the value is increased by 1.  When execution of the block is complete, the value is decreased by 1.  Hence, the value indicates the number of (nested) blocks currently executing.</p>
+</div>
+<div class="section" id="announcecalibrator">
+<h3>#announceCalibrator<a class="headerlink" href="#announcecalibrator" title="Permalink to this headline">¶</a></h3>
+<p>Used to announce changes to the state of a <a class="reference internal" href="../components/filters.html#filters"><span class="std std-ref">calibrator</span></a>, e.g. acquistion of a new sample or recalculation of fit parameters.  The value is a dictionary containing the name of the calibrator, the type of update, and the relevant sample data or parameter values.</p>
+</div>
+<div class="section" id="announcecurrentstate">
+<h3>#announceCurrentState<a class="headerlink" href="#announcecurrentstate" title="Permalink to this headline">¶</a></h3>
+<p>When the experiment is running, this variable contains the numeric identifier of the component (i.e. <a class="reference internal" href="../components/paradigm_components.html#paradigm-components"><span class="std std-ref">paradigm component</span></a> or <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">action</span></a>) that is currently executing.  The component codec provides the mapping between numeric component identifiers and component names.</p>
+</div>
+<div class="section" id="announcemessage">
+<h3>#announceMessage<a class="headerlink" href="#announcemessage" title="Permalink to this headline">¶</a></h3>
+<p>Used to log messages (generated by the system or the <a class="reference internal" href="../components/report_message.html#report-message"><span class="std std-ref">user</span></a>) to the event stream.  The value of this variable is a dictionary containing the message text, plus some metadata for internal use.</p>
+</div>
+<div class="section" id="announcesound">
+<h3>#announceSound<a class="headerlink" href="#announcesound" title="Permalink to this headline">¶</a></h3>
+<p>Used to announce that a sound has started playing.  The value of this variable is a dictionary containing the name and parameters of the relevant <a class="reference internal" href="../components/sounds.html#sounds"><span class="std std-ref">sound stimulus</span></a>.</p>
+</div>
+<div class="section" id="announcestimulus">
+<h3>#announceStimulus<a class="headerlink" href="#announcestimulus" title="Permalink to this headline">¶</a></h3>
+<p>Used to announce the display of a visual stimulus.  The value of this variable is a dictionary containing the name and parameters of the relevant <a class="reference internal" href="../components/stimuli.html#stimuli"><span class="std std-ref">stimulus</span></a>.  The time stamp of an <code class="docutils literal notranslate"><span class="pre">#announceStimulus</span></code> event is the operating system’s best guess for when the rendered frame containing the stimulus will start to appear on the display.</p>
+<p><em>Note</em>: <code class="docutils literal notranslate"><span class="pre">#announceStimulus</span></code> and <a class="reference internal" href="#stimdisplayupdate">#stimDisplayUpdate</a> report exactly the same information.  The only difference is that the latter reports details of <em>all</em> currently-displayed stimuli in a single value.  To eliminate this redundancy (and reduce the size of the event file), set the <code class="docutils literal notranslate"><span class="pre">announce_individual_stimuli</span></code> key of <a class="reference internal" href="#mainscreeninfo">#mainScreenInfo</a> to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</div>
+<div class="section" id="announcetrial">
+<span id="announcetrial-var"></span><h3>#announceTrial<a class="headerlink" href="#announcetrial" title="Permalink to this headline">¶</a></h3>
+<p>The initial value of this variable is 0.  When the running experiment enters a <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trial</span></a>, the value is increased by 1.  When execution of the trial is complete, the value is decreased by 1.  Hence, the value indicates the number of (nested) trials currently executing.</p>
+</div>
+<div class="section" id="loadedexperiment">
+<h3>#loadedExperiment<a class="headerlink" href="#loadedexperiment" title="Permalink to this headline">¶</a></h3>
+<p>Used to record the source file(s) of the currently-loaded experiment to the event stream and event file.</p>
+<p>If the current experiment was loaded from an XML source file, the value of this variable is a string containing the file’s content.</p>
+<p>If the current experiment was loaded from an <a class="reference internal" href="../mwel/index.html#mwel"><span class="std std-ref">MWEL</span></a> source file, the value of this variable is a dictionary.  The keys in the dictionary are file paths, and the values are strings containing the corresponding file’s content.  The dictionary includes entries for both the primary source file and any files it <a class="reference internal" href="../mwel/index.html#includes"><span class="std std-ref">includes</span></a> (either directly or indirectly).</p>
+</div>
+<div class="section" id="state-system-mode">
+<h3>#state_system_mode<a class="headerlink" href="#state-system-mode" title="Permalink to this headline">¶</a></h3>
+<p>Used to announce the execution state of the current experiment.  The value of this variable is an integer, corresponding to one of four possible states:</p>
+<table class="colwidths-auto docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>State</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>Idle</p></td>
+<td><p>Experiment is not executing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p>Stopping</p></td>
+<td><p>Experiment execution is ending.  <a class="reference internal" href="../components/input_output.html#input-output"><span class="std std-ref">I/O devices</span></a> and other components should perform shutdown and cleanup tasks as needed.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p>Running</p></td>
+<td><p>Experiment is currently executing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+<td><p>Paused</p></td>
+<td><p>Experiment is executing, but execution is currently paused.  <a class="reference internal" href="../components/stimuli.html#stimuli"><span class="std std-ref">Stimulus</span></a> presentation and <a class="reference internal" href="../components/sounds.html#sounds"><span class="std std-ref">sound</span></a> playback are paused, but <a class="reference internal" href="../components/input_output.html#input-output"><span class="std std-ref">I/O devices</span></a> continue to operate normally.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="stimdisplayupdate">
+<span id="stimdisplayupdate-var"></span><h3>#stimDisplayUpdate<a class="headerlink" href="#stimdisplayupdate" title="Permalink to this headline">¶</a></h3>
+<p>Used to announce updates to the visual stimulus presentation.</p>
+<p>The value of this variable is a list.  Each element in the list is a dictionary containing the name and parameters of a <a class="reference internal" href="../components/stimuli.html#stimuli"><span class="std std-ref">stimulus</span></a> that is currently being displayed.  The order of the list matches the draw order of the stimuli.</p>
+<p>The time stamp of a <code class="docutils literal notranslate"><span class="pre">#stimDisplayUpdate</span></code> event is the operating system’s best guess for when the rendered frame containing the reported stimuli will start to appear on the display.</p>
+</div>
+</div>
+<div class="section" id="internal">
+<h2>Internal<a class="headerlink" href="#internal" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="experimentloadprogress">
+<h3>#experimentLoadProgress<a class="headerlink" href="#experimentloadprogress" title="Permalink to this headline">¶</a></h3>
+<p>Used to provide MWClient with an estimate of the fraction of an experiment that has been loaded.</p>
+</div>
+<div class="section" id="requestcalibrator">
+<h3>#requestCalibrator<a class="headerlink" href="#requestcalibrator" title="Permalink to this headline">¶</a></h3>
+<p>Used by MWClient’s eye calibrator window to request updates to a calibrator’s parameters.</p>
+</div>
+<div class="section" id="system-event-codes">
+<span id="id1"></span><h3>System Event Codes<a class="headerlink" href="#system-event-codes" title="Permalink to this headline">¶</a></h3>
+<p>The following event codes have no associated variables but do appear in the event stream and event file:</p>
+<table class="colwidths-auto docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Internal name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>RESERVED_CODEC_CODE</p></td>
+<td><p>Used to announce the variable codec (i.e. the mapping from event codes to variables)</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>RESERVED_SYSTEM_EVENT_CODE</p></td>
+<td><p>Used for internal communication between MWServer and MWClient</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>RESERVED_COMPONENT_CODEC_CODE</p></td>
+<td><p>Used to announce the component codec (i.e. the mapping from numeric component identifiers to component names)</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>RESERVED_TERMINATION_CODE</p></td>
+<td><p>Last event sent to the event stream or recorded to the event file before the stream or file is closed.  Has no associated value.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../glossary.html" title="Glossary"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../expressions/index.html" title="Expressions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Reference Manual</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Run Python File &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Run Python String" href="run_python_string.html" />
+    <link rel="prev" title="Run Blackrock LED Driver" href="run_blackrock_led_driver.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="run_python_string.html" title="Run Python String"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="run_blackrock_led_driver.html" title="Run Blackrock LED Driver"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="actions.html" accesskey="U">Actions</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Run Python File</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#path">path</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#stop-on-failure">stop_on_failure</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="run_blackrock_led_driver.html"
+                        title="previous chapter">Run Blackrock LED Driver</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="run_python_string.html"
+                        title="next chapter">Run Python String</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="run-python-file">
+<span id="index-0"></span><span id="id1"></span><h1>Run Python File<a class="headerlink" href="#run-python-file" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Execute the specified file as <a class="reference external" href="https://www.python.org">Python</a> source
+code.</p>
+<p class="rubric">Available Modules and Functions</p>
+<p>Python code executed by <a class="reference internal" href="#run-python-file"><span class="std std-ref">Run Python File</span></a>, <a class="reference internal" href="run_python_string.html#run-python-string"><span class="std std-ref">Run Python String</span></a>, a <a class="reference internal" href="python_file_resource.html#python-file-resource"><span class="std std-ref">Python File Resource</span></a>, or the <a class="reference internal" href="../expressions/index.html#expressions"><span class="std std-ref">expression parser</span></a> functions
+<code class="docutils literal notranslate"><span class="pre">py_eval</span></code> and <code class="docutils literal notranslate"><span class="pre">py_call</span></code> can make use of both the <a class="reference external" href="https://docs.python.org/3/library/index.html">Python standard
+library</a> and <a class="reference external" href="https://www.numpy.org">NumPy</a>.  In addition, the following MWorks-specific
+functions are available:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">getvar(name)</span></code></dt><dd><p>Returns the value of an MWorks variable.  <code class="docutils literal notranslate"><span class="pre">name</span></code> is a string
+containing the name of the variable.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">setvar(name,</span> <span class="pre">value)</span></code></dt><dd><p>Sets the value of an MWorks variable.  <code class="docutils literal notranslate"><span class="pre">name</span></code> is a string containing
+the name of the variable, and <code class="docutils literal notranslate"><span class="pre">value</span></code> is the new value to assign.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">getcodec()</span></code></dt><dd><p>Returns the code-to-name mapping for variables (as a dictionary).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">get_reverse_codec()</span></code></dt><dd><p>Returns the name-to-code mapping for variables (as a dictionary).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">register_event_callback(name,</span> <span class="pre">callback)</span></code></dt><dd><p>Registers an event callback function for an MWorks variable.  <code class="docutils literal notranslate"><span class="pre">name</span></code>
+is a string containing the name of the variable, and <code class="docutils literal notranslate"><span class="pre">callback</span></code> is a
+Python function as described below.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">register_event_callback(code,</span> <span class="pre">callback)</span></code></dt><dd><p>Registers an event callback function for an MWorks variable.  <code class="docutils literal notranslate"><span class="pre">code</span></code>
+is the integer code corresponding to the variable, and <code class="docutils literal notranslate"><span class="pre">callback</span></code> is a
+Python function as described below.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">register_event_callback(callback)</span></code></dt><dd><p>Registers an event callback function for <em>all</em> MWorks variables.
+<code class="docutils literal notranslate"><span class="pre">callback</span></code> is a Python function as described below.  (<em>Note</em>: The
+callback function will be invoked very, very frequently.  Use with
+caution!)</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">unregister_event_callbacks()</span></code></dt><dd><p>Unregisters all event callback functions previously registered via
+Python code.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">message(msg)</span></code></dt><dd><p>Generates a normal MWorks message (like <a class="reference internal" href="report_message.html#report-message"><span class="std std-ref">Report / Message</span></a>).  <code class="docutils literal notranslate"><span class="pre">msg</span></code>
+can be any value, which, after conversion to a string, is used as the
+text of the message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">warning(msg)</span></code></dt><dd><p>Generates an MWorks warning message.  <code class="docutils literal notranslate"><span class="pre">msg</span></code> can be any value, which,
+after conversion to a string, is used as the text of the message.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">error(msg)</span></code></dt><dd><p>Generates an MWorks error message.  <code class="docutils literal notranslate"><span class="pre">msg</span></code> can be any value, which,
+after conversion to a string, is used as the text of the message.</p>
+</dd>
+</dl>
+<p>Event callback functions are invoked whenever a value is assigned to the
+variable of interest.  They receive a single argument of type <code class="docutils literal notranslate"><span class="pre">Event</span></code>,
+which has attributes <code class="docutils literal notranslate"><span class="pre">code</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>, and <code class="docutils literal notranslate"><span class="pre">data</span></code>.  The values of
+<code class="docutils literal notranslate"><span class="pre">code</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code> are always integers, while the value of <code class="docutils literal notranslate"><span class="pre">data</span></code> can
+be a boolean, integer, float, string, list, or dictionary.</p>
+<p>All MWorks-specific functions are pre-imported in to the <code class="docutils literal notranslate"><span class="pre">__main__</span></code>
+module, in which the user-provided Python file or string executes.  To use
+them in other modules, import them from <code class="docutils literal notranslate"><span class="pre">mworkscore</span></code>, e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mworkscore</span> <span class="kn">import</span> <span class="n">getvar</span><span class="p">,</span> <span class="n">setvar</span>
+</pre></div>
+</div>
+<p class="rubric">Execution Environment</p>
+<p>All user-provided Python code is executed within Python’s <code class="docutils literal notranslate"><span class="pre">__main__</span></code>
+module. This means that any variables, functions, classes, etc. defined by
+one Python action or resource file are available to all subsequent ones.</p>
+<p>Due to limitations in the Python interpreter, the Python environment is
+<em>not</em> reset when a new experiment is loaded.  If your Python code expects to
+run in a “clean slate” environment, it will have to perform the necessary
+cleanup actions itself.</p>
+<p>Also, event callback functions are never unregistered automatically.  They
+must be removed explicitly via <code class="docutils literal notranslate"><span class="pre">unregister_event_callbacks()</span></code>.</p>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">action/run_python_file</span></code></p>
+</div>
+<div class="section" id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="path">
+<h3>path<a class="headerlink" href="#path" title="Permalink to this headline">¶</a></h3>
+<p>Filesystem path to the Python source file</p>
+</div>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stop-on-failure">
+<h3>stop_on_failure<a class="headerlink" href="#stop-on-failure" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the experiment will stop automatically if Python execution fails</p>
+</div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-center">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="block.html#block"><span class="std std-ref">Block</span></a>, <a class="reference internal" href="conditionally_execute_actions_if.html#conditionally-execute-actions-if"><span class="std std-ref">Conditionally Execute Actions (if)</span></a>, <a class="reference internal" href="list.html#list"><span class="std std-ref">List</span></a>, <a class="reference internal" href="protocol.html#protocol"><span class="std std-ref">Protocol</span></a>, <a class="reference internal" href="repeat_actions_while.html#repeat-actions-while"><span class="std std-ref">Repeat Actions (while)</span></a>, <a class="reference internal" href="schedule_actions.html#schedule-actions"><span class="std std-ref">Schedule Actions</span></a>, <a class="reference internal" href="task_system_state.html#task-system-state"><span class="std std-ref">Task System State</span></a>, <a class="reference internal" href="trial.html#trial"><span class="std std-ref">Trial</span></a>, <a class="reference internal" href="unconditionally_execute_actions_else.html#unconditionally-execute-actions-else"><span class="std std-ref">Unconditionally Execute Actions (else)</span></a>, <a class="reference internal" href="variable.html#variable"><span class="std std-ref">Variable</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="run_python_string.html" title="Run Python String"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="run_blackrock_led_driver.html" title="Run Blackrock LED Driver"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="actions.html" >Actions</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

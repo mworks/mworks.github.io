@@ -1,0 +1,45 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Bring Stimulus to Front
+   single: Actions; Bring Stimulus to Front
+
+.. _Bring Stimulus to Front:
+
+Bring Stimulus to Front
+=======================
+
+
+Description
+-----------
+Move a stimulus to the top of the display queue
+
+
+Signature
+---------
+``action/bring_stimulus_to_front``
+
+
+Required Parameters
+-------------------
+
+stimulus
+^^^^^^^^
+
+Stimulus to move
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

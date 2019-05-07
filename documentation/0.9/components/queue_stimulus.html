@@ -1,0 +1,151 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Queue Stimulus &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Randomize White Noise Background" href="randomize_white_noise_background.html" />
+    <link rel="prev" title="Pulse Variable" href="pulse_variable.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="randomize_white_noise_background.html" title="Randomize White Noise Background"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pulse_variable.html" title="Pulse Variable"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="actions.html" accesskey="U">Actions</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Queue Stimulus</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#stimulus">stimulus</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pulse_variable.html"
+                        title="previous chapter">Pulse Variable</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="randomize_white_noise_background.html"
+                        title="next chapter">Randomize White Noise Background</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="queue-stimulus">
+<span id="index-0"></span><span id="id1"></span><h1>Queue Stimulus<a class="headerlink" href="#queue-stimulus" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Place a stimulus into the display queue, ready to be displayed when the next <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action is issued</p>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">action/queue_stimulus</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Alias</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">action/show_stimulus</span></code></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stimulus">
+<h3>stimulus<a class="headerlink" href="#stimulus" title="Permalink to this headline">¶</a></h3>
+<p>Stimulus to queue</p>
+</div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-center">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="block.html#block"><span class="std std-ref">Block</span></a>, <a class="reference internal" href="conditionally_execute_actions_if.html#conditionally-execute-actions-if"><span class="std std-ref">Conditionally Execute Actions (if)</span></a>, <a class="reference internal" href="list.html#list"><span class="std std-ref">List</span></a>, <a class="reference internal" href="protocol.html#protocol"><span class="std std-ref">Protocol</span></a>, <a class="reference internal" href="repeat_actions_while.html#repeat-actions-while"><span class="std std-ref">Repeat Actions (while)</span></a>, <a class="reference internal" href="schedule_actions.html#schedule-actions"><span class="std std-ref">Schedule Actions</span></a>, <a class="reference internal" href="task_system_state.html#task-system-state"><span class="std std-ref">Task System State</span></a>, <a class="reference internal" href="trial.html#trial"><span class="std std-ref">Trial</span></a>, <a class="reference internal" href="unconditionally_execute_actions_else.html#unconditionally-execute-actions-else"><span class="std std-ref">Unconditionally Execute Actions (else)</span></a>, <a class="reference internal" href="variable.html#variable"><span class="std std-ref">Variable</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="randomize_white_noise_background.html" title="Randomize White Noise Background"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pulse_variable.html" title="Pulse Variable"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="actions.html" >Actions</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

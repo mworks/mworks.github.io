@@ -1,0 +1,104 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: White Noise Background
+   single: Stimuli; White Noise Background
+
+.. _White Noise Background:
+
+White Noise Background
+======================
+
+
+Description
+-----------
+White noise background stimulus.
+
+Fills the display with random noise drawn from a uniform distribution.  The
+experiment can re-randomize the noise via the `Randomize White Noise
+Background` action.
+
+
+
+Signature
+---------
+``stimulus/white_noise_background``
+
+
+Optional Parameters
+-------------------
+
+grayscale
+^^^^^^^^^
+:Default: ``YES``
+
+If ``YES``, all three color channels (red, green, and blue) of a given noise grain will be assigned the same random value.  If ``NO``, each color channel will be set to an independent random value, thereby producing colored noise.
+
+
+grain_size
+^^^^^^^^^^
+:Default: ``0.0``
+
+Noise grain size (degrees).
+
+The number of grains in each dimension is rounded to the nearest
+integer.  Grain sizes less than or equal to the size of one pixel will
+result in per-pixel randomization.
+
+
+rand_seed
+^^^^^^^^^
+
+Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.
+
+
+randomize_on_draw
+^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus will re-randomize itself every time it draws.
+Drawing may be triggered either explicitly (via an `Update Stimulus
+Display` action) or implicitly (e.g. at the request of a running dynamic
+stimulus).
+
+To generate dynamic white noise that updates on every display refresh,
+use this parameter in conjuction with a `Frame List Stimulus`::
+
+    frame_list dynamic_noise (
+        stimulus_group = dynamic_noise_frames
+        loop = true
+        autoplay = true
+        )
+
+    stimulus_group dynamic_noise_frames {
+        white_noise_background (
+            randomize_on_draw = true
+            )
+    }
+
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

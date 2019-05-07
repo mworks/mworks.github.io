@@ -1,0 +1,121 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Variable
+   single: Variables; Variable
+
+.. _Variable:
+
+Variable
+========
+
+
+Description
+-----------
+A general-purpose variable, used to store experiment parameters, collect results, and mediate the transfer of data between components
+
+
+
+Signature
+---------
+``variable``
+
+:Alias: ``var`` *(MWEL only)*
+
+
+Required Parameters
+-------------------
+
+default_value
+^^^^^^^^^^^^^
+:Example: ``0``
+
+Initial value assigned to the variable when the experiment is loaded
+
+
+
+
+Optional Parameters
+-------------------
+
+scope
+^^^^^
+:Options: | ``global``
+          | ``local``
+:Default: ``global``
+
+Controls the visibility of changes made to the variable's value.
+
+If a variable has local scope, then changes to its value are visible
+only within the `paradigm component <Paradigm Components>` in which the
+assignment was made.  These local changes persist between executions of
+the paradigm component.
+
+If a variable has global scope, changes to its value are visible
+everywhere.
+
+
+logging
+^^^^^^^
+:Options: | ``never``
+          | ``when_changed``
+:Default: ``when_changed``
+
+Determines when the variable's value is written to the event stream (and thereby the data file)
+
+
+persistant
+^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, then the variable's value is included in saved variable sets created via MWClient
+
+
+exclude_from_data_file
+^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, then the variable's value is *not* written to the data file. Other event stream listeners (e.g. MWClient, client- and server-side conduits) continue to receive its value.
+
+
+groups
+^^^^^^
+
+Comma-separated list containing the names of groups to which the variable belongs.  Variable groups are displayed as expandable sections in MWClient's variables window.
+
+
+
+
+Deprecated Parameters
+---------------------
+
+type
+^^^^
+:Options: | ``any``
+          | ``boolean``
+          | ``integer``
+          | ``float``
+          | ``string``
+          | ``list``
+:Default: ``any``
+
+Controls how the content of `default_value`_ is interpreted.  When set to ``any`` (recommended), the default value is parsed like a normal expression, and the parser infers its type.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
+   * - Allowed children:
+     - `Action <Actions>`

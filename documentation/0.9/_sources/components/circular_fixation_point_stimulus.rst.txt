@@ -1,0 +1,138 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Circular Fixation Point Stimulus
+   single: Stimuli; Circular Fixation Point Stimulus
+
+.. _Circular Fixation Point Stimulus:
+
+Circular Fixation Point Stimulus
+================================
+
+
+Description
+-----------
+An elliptical fixation point stimulus
+
+
+Signature
+---------
+``stimulus/circular_fixation_point``
+
+
+Required Parameters
+-------------------
+
+trigger_width
+^^^^^^^^^^^^^
+
+Width of the (circular) fixation window, which shares its center with the visible stimulus ellipse
+
+
+trigger_watch_x
+^^^^^^^^^^^^^^^
+
+Variable containing the horizontal eye position
+
+
+trigger_watch_y
+^^^^^^^^^^^^^^^
+
+Variable containing the vertical eye position
+
+
+trigger_flag
+^^^^^^^^^^^^
+
+Variable to which fixation status is written. When the subject's gaze (as reported by `trigger_watch_x`_ and `trigger_watch_y`_) enters the fixation window, the variable is set to true.  When the subject's gaze leaves the fixation window, the variable is set to false.
+
+
+
+
+Optional Parameters
+-------------------
+
+color
+^^^^^
+:Default: ``1.0,1.0,1.0``
+
+The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).
+
+
+alpha_multiplier
+^^^^^^^^^^^^^^^^
+:Default: ``1.0``
+
+Controls the transparency of the stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+
+x_size
+^^^^^^
+:Example: ``5.0``
+
+Horizontal size (degrees).
+
+If omitted, the value of `y_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
+y_size
+^^^^^^
+:Example: ``5.0``
+
+Vertical size (degrees).
+
+If omitted, the value of `x_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
+x_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Horizontal center position (degrees)
+
+y_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Vertical center position (degrees)
+
+rotation
+^^^^^^^^
+:Default: ``0.0``
+
+Rotation (degrees)
+
+fullscreen
+^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus is sized to fill the display.  In this mode, `x_size`_, `y_size`_, `x_position`_, `y_position`_, and `rotation`_ are ignored.
+
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

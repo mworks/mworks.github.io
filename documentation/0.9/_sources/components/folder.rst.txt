@@ -1,0 +1,38 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Folder
+   single: Variables; Folder
+
+.. _Folder:
+
+Folder
+======
+
+
+Description
+-----------
+A folder for (purely) organizational purposes.  Variables defined in a folder will be displayed as an expandable group in MWClient's variables window.
+
+
+
+Signature
+---------
+``folder``
+
+:Alias: ``group`` *(MWEL only)*
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed children:
+     - `Calibrator <Filters>`, `Filter <Filters>`, `IODevice <Input/Output>`, `List Replicator`, `Optimizer <Optimizers and Variable Monitors>`, `Range Replicator`, `Resource <Resources>`, `Selection Variable`, `Sound Stimulus`, `Stimulus <Stimuli>`, `Stimulus Group`, `Variable`

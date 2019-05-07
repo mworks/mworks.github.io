@@ -1,0 +1,95 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Firmata Device
+   single: Input/Output; Firmata Device
+
+.. _Firmata Device:
+
+Firmata Device
+==============
+
+
+Description
+-----------
+Interface to a microcontroller that supports the
+`Firmata protocol <https://github.com/firmata/protocol>`_.
+
+Most `Arduino <https://www.arduino.cc/>`_ boards and compatible devices
+(e.g. `Teensy <http://www.pjrc.com/teensy/>`_) can be configured to support
+the Firmata protocol via the Arduino
+`Firmata library <https://github.com/firmata/arduino>`_.
+
+The device can be connected via a serial port or `Bluetooth low energy
+<https://en.wikipedia.org/wiki/Bluetooth_low_energy>`_ (BLE).  If both
+`serial_port`_ and `bluetooth_local_name`_ are omitted, MWorks looks for a
+single, connected serial device.  If it finds one, it assumes it to be the
+desired Firmata device and attempts to connect.
+
+
+
+Signature
+---------
+``iodevice/firmata``
+
+
+Optional Parameters
+-------------------
+
+serial_port
+^^^^^^^^^^^
+:Example: ``/dev/cu.usbmodem31``
+
+If the Firmata device is connected via a serial port, this parameter
+specifies the filesystem path that represents the serial port
+
+
+bluetooth_local_name
+^^^^^^^^^^^^^^^^^^^^
+:Example: ``FIRMATA``
+
+If the Firmata device is connected via Bluetooth low energy, this
+parameter specifies its local name
+
+
+data_interval
+^^^^^^^^^^^^^
+:Example: ``5ms``
+
+Sampling interval for analog inputs.  Must be a whole number of milliseconds.
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
+   * - Allowed children:
+     - `Firmata Analog Input Channel`, `Firmata Analog Output Channel`, `Firmata Digital Input Channel`, `Firmata Digital Input Pullup Channel`, `Firmata Digital Output Channel`, `Firmata Servo Channel`, `Firmata Word Output Channel`

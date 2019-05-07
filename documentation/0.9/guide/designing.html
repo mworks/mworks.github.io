@@ -1,0 +1,710 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Designing an Experiment &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reference Manual" href="../reference/index.html" />
+    <link rel="prev" title="Analyzing Experimental Data" href="data_analysis.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../reference/index.html" title="Reference Manual"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="data_analysis.html" title="Analyzing Experimental Data"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">User Guide</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Designing an Experiment</a><ul>
+<li><a class="reference internal" href="#data-flow">Data Flow</a><ul>
+<li><a class="reference internal" href="#variables">Variables</a></li>
+<li><a class="reference internal" href="#i-o-devices-and-filters">I/O Devices and Filters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#control-flow">Control Flow</a><ul>
+<li><a class="reference internal" href="#protocols">Protocols</a></li>
+<li><a class="reference internal" href="#blocks-trials-and-lists">Blocks, Trials, and Lists</a></li>
+<li><a class="reference internal" href="#task-systems">Task Systems</a></li>
+<li><a class="reference internal" href="#if-if-else-and-while">If, If/Else, and While</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#visual-stimuli-and-display-management">Visual Stimuli and Display Management</a><ul>
+<li><a class="reference internal" href="#declaring-stimuli">Declaring Stimuli</a></li>
+<li><a class="reference internal" href="#queuing-and-dequeuing-stimuli">Queuing and Dequeuing Stimuli</a></li>
+<li><a class="reference internal" href="#understanding-display-updates">Understanding Display Updates</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-tools-and-techniques">Advanced Tools and Techniques</a><ul>
+<li><a class="reference internal" href="#variable-attached-actions">Variable-Attached Actions</a></li>
+<li><a class="reference internal" href="#replicators">Replicators</a></li>
+<li><a class="reference internal" href="#selection">Selection</a><ul>
+<li><a class="reference internal" href="#selection-parameters">Selection Parameters</a></li>
+<li><a class="reference internal" href="#accepting-and-rejecting-samples">Accepting and Rejecting Samples</a></li>
+<li><a class="reference internal" href="#selection-variables">Selection Variables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stimulus-animation">Stimulus Animation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="data_analysis.html"
+                        title="previous chapter">Analyzing Experimental Data</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../reference/index.html"
+                        title="next chapter">Reference Manual</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="designing-an-experiment">
+<h1>Designing an Experiment<a class="headerlink" href="#designing-an-experiment" title="Permalink to this headline">¶</a></h1>
+<p>For both new and experienced MWorks users, designing an experiment can be a daunting task.  This guide attempts to break down and explain the elements of experimental design, both to help you better understand the working of existing experiments and to provide you with a mental framework for creating your own.</p>
+<p><em>Note</em>: The examples included in and referred to by this guide all use <a class="reference internal" href="../mwel/index.html#mwel"><span class="std std-ref">MWEL</span></a>, which is recommended for new experiments.  However, the ideas and tools described here are equally applicable to XML-based experiments created or modified in MWEditor.  Any example files referred to by name can be found in the directory <code class="docutils literal notranslate"><span class="pre">/Library/Application</span> <span class="pre">Support/MWorks/Examples</span></code>.</p>
+<div class="section" id="data-flow">
+<h2>Data Flow<a class="headerlink" href="#data-flow" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">Variables</span></a> play several essential roles in MWorks experiments.</p>
+<p>Like the variables you may know from scripting or programming languages, MWorks variables associate names with values.  You can use them to store experiment parameters and record results.  Every <a class="reference internal" href="../components/assign_variable.html#assign-variable"><span class="std std-ref">assignment</span></a> to a variable generates an event that is recorded in the event file and can be <a class="reference internal" href="data_analysis.html#analyzing-experimental-data"><span class="std std-ref">extracted for analysis</span></a>.</p>
+<p>In addition to their data storage role, variables also enable the flow of information between different MWorks <a class="reference internal" href="../components/index.html#components"><span class="std std-ref">components</span></a>.  This is described in more detail in the next section.</p>
+</div>
+<div class="section" id="i-o-devices-and-filters">
+<h3>I/O Devices and Filters<a class="headerlink" href="#i-o-devices-and-filters" title="Permalink to this headline">¶</a></h3>
+<p>MWorks interacts with the outside world via <a class="reference internal" href="../components/input_output.html#input-output"><span class="std std-ref">input/output</span></a> (I/O) devices.</p>
+<p>Each time an input device receives new data, it assigns the relevant value(s) to one or more variables.  The target variables may be read directly by other parts of the experiment, or they can serve as inputs to <a class="reference internal" href="../components/filters.html#filters"><span class="std std-ref">filters</span></a>, which perform additional data processing and output new values (again via variables).</p>
+<p>Conversely, when an experiment needs to send data to or perform an action in the outside world, it assigns values to one or more variables associated with an output device.  The output device watches those variables, and whenever one of them is assigned a new value, it takes appropriate action based on that value.</p>
+<p>As an example, consider the typical flow of eye-tracking data in an MWorks experiment.  Raw eye positions are received from an eye tracker (e.g. an <a class="reference internal" href="../components/eyelink_device.html#eyelink-device"><span class="std std-ref">EyeLink</span></a>) and assigned to variables:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var eye_h_raw = 0
+var eye_v_raw = 0
+
+iodevice/eyelink eyelink (
+    pupil_lx = eye_h_raw
+    pupil_ly = eye_v_raw
+    tracker_ip = &#39;100.1.1.1&#39;
+    tracking_dist = 1024
+    data_interval = 1ms
+    )
+</pre></div>
+</div>
+<p>Next, the raw positions are used as input to an <a class="reference internal" href="../components/eye_calibrator.html#eye-calibrator"><span class="std std-ref">eye calibrator</span></a>, which applies a calibration and outputs the results:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var eye_h_calibrated = 0
+var eye_v_calibrated = 0
+
+calibrator/standard_eye_calibrator eye_calibrator (
+    eyeh_raw = eye_h_raw
+    eyev_raw = eye_v_raw
+    eyeh_calibrated = eye_h_calibrated
+    eyev_calibrated = eye_v_calibrated
+    )
+</pre></div>
+</div>
+<p>Each component of the calibrated eye position then passes through a <a class="reference internal" href="../components/box_car_filter.html#box-car-filter"><span class="std std-ref">boxcar filter</span></a>, which computes a moving average of its input:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var eye_h = 0
+var eye_v = 0
+
+filter/boxcar_filter_1d (
+    in1 = eye_h_calibrated
+    out1 = eye_h
+    width_samples = 5
+    )
+
+filter/boxcar_filter_1d (
+    in1 = eye_v_calibrated
+    out1 = eye_v
+    width_samples = 5
+    )
+</pre></div>
+</div>
+<p>Finally, the averaged eye coordinates serve as input to two additional components: a <a class="reference internal" href="../components/circular_fixation_point_stimulus.html#circular-fixation-point-stimulus"><span class="std std-ref">fixation point</span></a>, which reports whether the eye position lies within its target region, and an <a class="reference internal" href="../components/eye_monitor.html#eye-monitor"><span class="std std-ref">eye monitor</span></a>, which uses the coordinates to detect and report saccades:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var eye_on_fixation_point = false
+
+stimulus/circular_fixation_point fixation_point (
+    trigger_watch_x = eye_h
+    trigger_watch_y = eye_v
+    trigger_width = 2
+    trigger_flag = eye_on_fixation_point
+    x_size = 0.4
+    )
+
+var eye_in_saccade = false
+
+filter/basic_eye_monitor (
+    eyeh_calibrated = eye_h
+    eyev_calibrated = eye_v
+    eye_state = eye_in_saccade
+    width_samples = 5
+    saccade_entry_speed = 60
+    saccade_exit_speed = 20
+    )
+</pre></div>
+</div>
+<p>The final outputs of the eye-tracking pipeline are the values of the variables <code class="docutils literal notranslate"><span class="pre">eye_on_fixation_point</span></code> and <code class="docutils literal notranslate"><span class="pre">eye_in_saccade</span></code>.  These values, in turn, are used elsewhere in the experiment.  For example, they may be used in a <a class="reference internal" href="../components/conditional_transition.html#conditional-transition"><span class="std std-ref">conditional transition</span></a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>transition/conditional (
+    target = &#39;Start fixation&#39;
+    condition = eye_on_fixation_point and (not eye_in_saccade)
+    )
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="control-flow">
+<h2>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="protocols">
+<h3>Protocols<a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">Protocols</span></a> encompass all the runtime logic of an MWorks experiment.  To “run” an experiment really means to execute one or more of its protocols.</p>
+<p>A protocol is a container for other components.  Its child components can be simple <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a>, or they can be other container components (<a class="reference internal" href="../components/block.html#block"><span class="std std-ref">blocks</span></a>, <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trials</span></a>, <a class="reference internal" href="../components/task_system.html#task-system"><span class="std std-ref">task systems</span></a>, etc.) with their own children.</p>
+<p>The example experiment <code class="docutils literal notranslate"><span class="pre">HelloWorld.mwel</span></code> contains three protocols.  They range in complexity from extremely simple (a single action) to moderately complex (a task system and multiple trials).</p>
+<p><em>Note</em>: The components of an experiment that are defined outside of any protocol (variables, I/O devices, visual stimuli, etc.) are shared by <em>all</em> protocols in the experiment.</p>
+</div>
+<div class="section" id="blocks-trials-and-lists">
+<h3>Blocks, Trials, and Lists<a class="headerlink" href="#blocks-trials-and-lists" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../components/block.html#block"><span class="std std-ref">Blocks</span></a>, <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trials</span></a>, and <a class="reference internal" href="../components/list.html#list"><span class="std std-ref">lists</span></a> provide high-level structure within a protocol.</p>
+<p>Functionally, they are nearly identical.  All three are containers for other  components, and all support <a class="reference internal" href="#selection"><span class="std std-ref">selection</span></a>-based execution of their children.  They differ only in that entry to and exit from a block or trial is announced via a system variable (<a class="reference internal" href="../reference/sysvars.html#announceblock-var"><span class="std std-ref">#announceBlock</span></a> for blocks, <a class="reference internal" href="../reference/sysvars.html#announcetrial-var"><span class="std std-ref">#announceTrial</span></a> for trials), whereas no such announcement is made for lists.</p>
+<p>Despite their suggestive names, MWorks makes no assumptions about the content and usage of these components.  Your experiment may employ them in any way that makes sense to you.</p>
+</div>
+<div class="section" id="task-systems">
+<h3>Task Systems<a class="headerlink" href="#task-systems" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../components/task_system.html#task-system"><span class="std std-ref">Task systems</span></a> are the most powerful and flexible tool that MWorks’ provides for managing the flow of control within an experiment.  The core execution logic of a protocol is typically implemented as a task system.</p>
+<p>A task system is a form of <a class="reference external" href="https://en.wikipedia.org/wiki/Finite-state_machine">finite state machine</a>.  It is composed of one or more <a class="reference internal" href="../components/task_system_state.html#task-system-state"><span class="std std-ref">states</span></a>, each of which contains both <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a> and <a class="reference internal" href="../components/transitions.html#transitions"><span class="std std-ref">transitions</span></a>.</p>
+<p>Execution of a task system begins with its first state (the <em>start state</em>).  First, all of the state’s associated actions are executed.  Next, the transitions contained in the state are evaluated one by one, repeatedly if needed, until one of them succeeds.  Finally, execution of the task system transfers to the successful transition’s target state, and the process repeats.  The flow of control from state to state continues until a <a class="reference internal" href="../components/exit_task_system.html#exit-task-system"><span class="std std-ref">yield transition</span></a> succeeds, at which point execution of the task system ends.</p>
+<p>As an example, consider the task system in <code class="docutils literal notranslate"><span class="pre">FindTheCircle.mwel</span></code>.  After displaying three colored squares on screen, the experiment enters a state called “Wait for selection”.  This state contains a <a class="reference internal" href="../components/start_timer.html#start-timer"><span class="std std-ref">Start Timer</span></a> action, followed by four transitions.  The first three transitions succeed when the subject selects the red, green, or blue square, respectively, while the fourth succeeds if the timer expires before any selection is made:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>state &#39;Wait for selection&#39; {
+    start_timer (
+        timer = selection_timer
+        duration = selection_timeout
+        )
+
+    // Handle each possible selection
+    goto (
+        target = &#39;Red selected&#39;
+        when = pointer_on_red_square
+        )
+    goto (
+        target = &#39;Green selected&#39;
+        when = pointer_on_green_square
+        )
+    goto (
+        target = &#39;Blue selected&#39;
+        when = pointer_on_blue_square
+        )
+
+    // If the timeout expires, go to state &quot;No selection&quot;
+    goto (
+        target = &#39;No selection&#39;
+        when = timer_expired(selection_timer)
+        )
+}
+</pre></div>
+</div>
+<p>If the subject selects a square, the task system proceeds to a state associated with the selected color.  This state records the selection in a variable, then chooses the next state based on whether the selection was correct.  For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>state &#39;Red selected&#39; {
+    red_selected = true
+
+    goto (
+        target = &#39;Correct selection&#39;
+        when = circle_x &lt; 0
+        )
+    goto (&#39;Incorrect selection&#39;)
+}
+</pre></div>
+</div>
+<p>Finally, the states “Correct selection”, “Incorrect selection”, and “No selection” each record the corresponding outcome and play an appropriate sound before proceeding, unconditionally, to the next state:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>state &#39;Correct selection&#39; {
+    num_correct += 1
+    play_sound (correct_sound)
+
+    goto (&#39;Reveal circle&#39;)
+}
+
+state &#39;Incorrect selection&#39; {
+    num_incorrect += 1
+    play_sound (incorrect_sound)
+
+    goto (&#39;Reveal circle&#39;)
+}
+
+state &#39;No selection&#39; {
+    num_ignored += 1
+    play_sound (ignored_sound)
+
+    goto (&#39;End trial&#39;)
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="if-if-else-and-while">
+<h3>If, If/Else, and While<a class="headerlink" href="#if-if-else-and-while" title="Permalink to this headline">¶</a></h3>
+<p>For the most part, <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a> are the “atoms” of an experiment’s execution logic.  They perform a single task (e.g. <a class="reference internal" href="../components/start_io_device.html#start-io-device"><span class="std std-ref">starting an I/O device</span></a> or <a class="reference internal" href="../components/play_sound.html#play-sound"><span class="std std-ref">playing a sound</span></a>) and have no child components.  However, a few actions defy these constraints and serve as tools of control flow.</p>
+<p>An <a class="reference internal" href="../components/conditionally_execute_actions_if.html#conditionally-execute-actions-if"><span class="std std-ref">if</span></a> action tests a condition expression.  If the expression evaluates to a true value (e.g. <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">true</span></code>), the <code class="docutils literal notranslate"><span class="pre">if</span></code> action then executues its child actions:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if (red_selected) {
+    report (&#39;Subject chose red&#39;)
+}
+</pre></div>
+</div>
+<p>An <a class="reference internal" href="../components/conditional_branching_if_else.html#conditional-branching-if-else"><span class="std std-ref">if_else</span></a> action encloses one or more <code class="docutils literal notranslate"><span class="pre">if</span></code> actions and at most one <a class="reference internal" href="../components/unconditionally_execute_actions_else.html#unconditionally-execute-actions-else"><span class="std std-ref">else</span></a> action.  It tests its <code class="docutils literal notranslate"><span class="pre">if</span></code> actions one by one and executes the first whose condition is true.  If all the conditions are false, the <code class="docutils literal notranslate"><span class="pre">if_else</span></code> will execute its <code class="docutils literal notranslate"><span class="pre">else</span></code> if present; otherwise, it does nothing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if_else {
+    if (red_selected) {
+        report (&#39;Subject chose red&#39;)
+    }
+    if (green_selected) {
+        report (&#39;Subject chose green&#39;)
+    }
+    if (blue_selected) {
+        report (&#39;Subject chose blue&#39;)
+    }
+    else {
+        report (&#39;Subject made no selection&#39;)
+    }
+}
+</pre></div>
+</div>
+<p>Finally, a <a class="reference internal" href="../components/repeat_actions_while.html#repeat-actions-while"><span class="std std-ref">while</span></a> action is similar to an <code class="docutils literal notranslate"><span class="pre">if</span></code> in that it tests a condition and, if the condition is true, evaluates its child actions.  However, a <code class="docutils literal notranslate"><span class="pre">while</span></code> will repeat this process until its condition becomes false:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>index = 0
+while (index &lt; num_images) {
+    queue_stimulus (images[index])
+    index += 1
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="visual-stimuli-and-display-management">
+<h2>Visual Stimuli and Display Management<a class="headerlink" href="#visual-stimuli-and-display-management" title="Permalink to this headline">¶</a></h2>
+<p>Throughout its history, MWorks’ primary users have been researchers studying vision.  Because of this, MWorks provides a rich set of <a class="reference internal" href="../components/stimuli.html#stimuli"><span class="std std-ref">visual stimuli</span></a> and tools for controlling their presentation on a display.</p>
+<div class="section" id="declaring-stimuli">
+<h3>Declaring Stimuli<a class="headerlink" href="#declaring-stimuli" title="Permalink to this headline">¶</a></h3>
+<p>Like variables and I/O devices, the stimuli in an MWorks experiment are declared outside of all protocols (and, therefore, are available to <em>all</em> protocols):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stimulus/circle red_circle (
+    x_size = 2
+    color = 1,0,0
+    )
+</pre></div>
+</div>
+<p>Stimuli can be declared individually, as above, or as members of a <a class="reference internal" href="../components/stimulus_group.html#stimulus-group"><span class="std std-ref">stimulus group</span></a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stimulus_group circles {
+    circle (
+        x_size = 2
+        x_position = -1
+        color = 1,0,0  // Red
+        )
+    circle (
+        x_size = 2
+        x_position = 0
+        color = 0,1,0  // Green
+        )
+    circle (
+        x_size = 2
+        x_position = 1
+        color = 0,0,1  // Blue
+        )
+}
+</pre></div>
+</div>
+<p>A stimulus declared individually can be referred to by its tag, e.g. <code class="docutils literal notranslate"><span class="pre">red_circle</span></code>.  A stimulus declared in a stimulus group can be referenced either via its own tag (if present) or by using the group’s tag and a zero-based index, e.g. <code class="docutils literal notranslate"><span class="pre">circles[0]</span></code>, <code class="docutils literal notranslate"><span class="pre">circles[2]</span></code>.</p>
+</div>
+<div class="section" id="queuing-and-dequeuing-stimuli">
+<h3>Queuing and Dequeuing Stimuli<a class="headerlink" href="#queuing-and-dequeuing-stimuli" title="Permalink to this headline">¶</a></h3>
+<p>To display a stimulus, you must first add it to the display queue via the <a class="reference internal" href="../components/queue_stimulus.html#queue-stimulus"><span class="std std-ref">Queue Stimulus</span></a> action:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>queue_stimulus (red_circle)
+</pre></div>
+</div>
+<p>To display multiple stimuli simultaneously, queue the stimuli in <em>back-to-front</em> order.  For example, the following will result in the red circle being drawn first, followed by the green circle, followed by the blue circle.  Since the red and green circles overlap, and the green circle is queued <em>after</em> the red circle, the green circle will partly cover the red one.  Similarly, the blue circle will partly cover the green one:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>queue_stimulus (circles[0])
+queue_stimulus (circles[1])
+queue_stimulus (circles[2])
+</pre></div>
+</div>
+<p>Changing the queuing order also changes the drawing order.  For example, the following will result in the green circle partly covering <em>both</em> the red and blue ones:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>queue_stimulus (circles[0])
+queue_stimulus (circles[2])
+queue_stimulus (circles[1])
+</pre></div>
+</div>
+<p>When all the desired stimuli are queued, you commit your changes and trigger a display update with the <a class="reference internal" href="../components/update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>update_display ()
+</pre></div>
+</div>
+<p>To remove a stimulus from the display, you must first dequeue it with the <a class="reference internal" href="../components/dequeue_stimulus.html#dequeue-stimulus"><span class="std std-ref">Dequeue Stimulus</span></a> action.  As with queuing, multiple stimuli can be dequeued at the same time, and <code class="docutils literal notranslate"><span class="pre">update_display</span></code> commits your changes.  For example, the following will remove the red and blue circles from the display, but the green one will still be visible:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dequeue_stimulus (circles[0])
+dequeue_stimulus (circles[2])
+update_display ()
+</pre></div>
+</div>
+<p>By combining queue and dequeue actions, you can both add and remove stimuli in a single display update:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Remove green circle and restore red and blue ones
+dequeue_stimulus (circles[1])
+queue_stimulus (circles[0])
+queue_stimulus (circles[2])
+update_display ()
+</pre></div>
+</div>
+</div>
+<div class="section" id="understanding-display-updates">
+<span id="id1"></span><h3>Understanding Display Updates<a class="headerlink" href="#understanding-display-updates" title="Permalink to this headline">¶</a></h3>
+<p>Computer displays typically update at a fixed <a class="reference external" href="https://en.wikipedia.org/wiki/Refresh_rate">refresh rate</a>.  For example, a display with a 60Hz refresh rate will redraw itself approximately once every 16.67 milliseconds.</p>
+<p>To optimize graphics performance and avoid visual artifacts like <a class="reference external" href="https://en.wikipedia.org/wiki/Screen_tearing">screen tearing</a>, MWorks performs all stimulus-drawing operations in synchrony with the display’s refresh cycle.  Specifically, all drawing code executes on a dedicated operating system <a class="reference external" href="https://en.wikipedia.org/wiki/Thread_(computing)">thread</a>, independent of the thread on which the running protocol executes, and rendered frames are transferred to the display hardware only during the <a class="reference external" href="https://en.wikipedia.org/wiki/Vertical_blanking_interval">vertical blanking interval</a>, which occurs once per refresh period.</p>
+<p>Contrary to what you might expect, the completion of an <a class="reference internal" href="../components/update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action does <em>not</em> signal that the display has actually been updated.  Rather, it indicates only that all stimulus drawing commands have been submitted to the graphics hardware, and that their effects will become visible during the next refresh of the display (which should begin less than one refresh period in the future).</p>
+<p>Every time MWorks updates the display, it announces the update via the <a class="reference internal" href="../reference/sysvars.html#stimdisplayupdate-var"><span class="std std-ref">#stimDisplayUpdate</span></a> system variable.  As with <code class="docutils literal notranslate"><span class="pre">update_display</span></code>, this announcement is made <em>before</em> the display is actually updated.  The time stamp on the announcement event is the operating system’s best guess for when the rendered frame will start to appear on the display.  (More precisely, it is the operating system’s estimate, based on past data, of when the next <a class="reference external" href="https://en.wikipedia.org/wiki/Vertical_blank_interrupt">vertical blank interrupt</a> will occur.  The display should begin redrawing itself shortly afterward.)</p>
+<p>If you need access to this predicted time within your experiment, set the <code class="docutils literal notranslate"><span class="pre">predicted_output_time</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">update_display</span></code> to the name of a variable in which to store the value:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>update_display(predicted_output_time = my_var)
+</pre></div>
+</div>
+<p>Regardless of when or how you use this time stamp, remember that it is only a <em>prediction</em> of when a future display update will begin.  If you need to know precisely when a particular stimulus appears on screen, you must measure its onset time yourself (e.g. with a photodiode attached to the display).</p>
+</div>
+</div>
+<div class="section" id="advanced-tools-and-techniques">
+<h2>Advanced Tools and Techniques<a class="headerlink" href="#advanced-tools-and-techniques" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="variable-attached-actions">
+<h3>Variable-Attached Actions<a class="headerlink" href="#variable-attached-actions" title="Permalink to this headline">¶</a></h3>
+<p>Although <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a> normally reside inside a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a>, you can also attach them to <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variables</span></a>.</p>
+<p>Actions that are attached to a variable execute every time the variable is assigned a value.  For example, by attaching a <a class="reference internal" href="../components/report_message.html#report-message"><span class="std std-ref">report</span></a> action to a variable, you can log a message every time the variable’s value is set:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var x = 0 {
+    report (&#39;x = $x&#39;)
+}
+</pre></div>
+</div>
+<p>Variable-attached actions will execute <em>even if no protocol is running</em>.  If you load an experiment containing the above declarion of <code class="docutils literal notranslate"><span class="pre">x</span></code> and, before pressing the start button, assign the value 7 to <code class="docutils literal notranslate"><span class="pre">x</span></code> via MWClient’s variables window, you will see the message <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">7</span></code> in the console.</p>
+<p>Be aware that attaching an <a class="reference internal" href="../components/assign_variable.html#assign-variable"><span class="std std-ref">assignment</span></a> to the assignment’s target variable will result in <a class="reference external" href="https://en.wikipedia.org/wiki/Deadlock">deadlock</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var y = 0 {
+    // Don&#39;t do this!
+    y += 1
+}
+</pre></div>
+</div>
+<p>Variable-attached actions are a powerful tool that enable a form of <a class="reference external" href="https://en.wikipedia.org/wiki/Event-driven_programming">event-driven programming</a> within  MWorks experiments.  They can even play a role similar to <a class="reference external" href="https://en.wikipedia.org/wiki/Subroutine">subroutines</a>, where assignment to the parent variable “calls” the routine.  (However, MWEL <a class="reference internal" href="../mwel/index.html#statement-macros"><span class="std std-ref">statement macros</span></a> are better suited to this task.)</p>
+</div>
+<div class="section" id="replicators">
+<h3>Replicators<a class="headerlink" href="#replicators" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../components/replicators.html#replicators"><span class="std std-ref">Replicators</span></a> are confusing, difficult to use correctly, and should be avoided whenever possible.  However, a few experiment-construction tasks would be difficult or impossible to accomplish without replicators, so you should know the basics of how they work.</p>
+<p>Most commonly, replicators are employed in the declaration of related stimuli.  For example, suppose you are implementing an experiment in which you will present 100 <a class="reference internal" href="../components/image_stimulus.html#image-stimulus"><span class="std std-ref">image stimuli</span></a>, all of the same size and at the same on-screen position.  In the absence of replicators, your experiment would include a large list of nearly-identical stimulus declarations, one for each image file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var img_size = 5
+var img_pos_x = 0
+var img_pos_y = 0
+
+stimulus_group images {
+    image_file image1 (
+        path = &#39;images/img1.png&#39;
+        x_size = img_size
+        x_position = img_pos_x
+        y_position = img_pos_y
+        )
+
+    image_file image2 (
+        path = &#39;images/img2.png&#39;
+        x_size = img_size
+        x_position = img_pos_x
+        y_position = img_pos_y
+        )
+
+    ...
+
+    image_file image100 (
+        path = &#39;images/img100.png&#39;
+        x_size = img_size
+        x_position = img_pos_x
+        y_position = img_pos_y
+        )
+}
+</pre></div>
+</div>
+<p>Because each declaration differs only in the numeric index of the image, you can replace this long, redundant list with a single image declaration contained in a <a class="reference internal" href="../components/range_replicator.html#range-replicator"><span class="std std-ref">range replicator</span></a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var index = 0 (scope = local)
+
+stimulus_group images {
+    range_replicator (
+        variable = index
+        from = 1
+        to = 100
+        step = 1
+        ) {
+        image_file image${index} (
+            path = &#39;images/img${index}.png&#39;
+            x_size = img_size
+            x_position = img_pos_x
+            y_position = img_pos_y
+            )
+    }
+}
+</pre></div>
+</div>
+<p>There are two important points to note here:</p>
+<ol class="arabic simple">
+<li><p>The replicator variable, <code class="docutils literal notranslate"><span class="pre">index</span></code>, includes <code class="docutils literal notranslate"><span class="pre">scope=local</span></code> in its declaration.</p></li>
+<li><p>Inside the replicator, the text <code class="docutils literal notranslate"><span class="pre">${index}</span></code> is replaced with the value of <code class="docutils literal notranslate"><span class="pre">index</span></code> for the current iteration.</p></li>
+</ol>
+<p>Alternatively, to avoid the requirement that your image files be named with ascending numeric indices, you can use a <a class="reference internal" href="../components/list_replicator.html#list-replicator"><span class="std std-ref">list replicator</span></a> with a <code class="docutils literal notranslate"><span class="pre">filenames</span></code> directive:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var filename (scope = local; type = string; default_value = not_a_file)
+
+stimulus_group images {
+    list_replicator (
+        variable = filename
+        values = &#39;filenames(images/*.png)&#39;
+        ) {
+        image_file ${filename} (
+            path = &#39;${filename}&#39;
+            x_size = img_size
+            x_position = img_pos_x
+            y_position = img_pos_y
+            )
+    }
+}
+</pre></div>
+</div>
+<p>Replicators can also be used to create sets of related <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocols</span></a>, <a class="reference internal" href="../components/block.html#block"><span class="std std-ref">blocks</span></a>, <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trials</span></a>, and <a class="reference internal" href="../components/list.html#list"><span class="std std-ref">lists</span></a>.  For example, suppose you want your experiment to contain 100 trials.  The trials will be identical, except each will present a different image.  You can avoid having a separate declaration for each trial by using a replicator:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>protocol {
+    range_replicator (
+        variable = index
+        from = 0
+        to = 99
+        step = 1
+        ) {
+        trial {
+            queue_stimulus (images[index])
+            ...
+        }
+    }
+}
+</pre></div>
+</div>
+<p>Notice that, in this case, the replicator variable is referred to simply by name (<code class="docutils literal notranslate"><span class="pre">index</span></code>) and <em>not</em> like it is in the image declaration (<code class="docutils literal notranslate"><span class="pre">${index}</span></code>).  In fact, if you try to use the latter syntax, you will get an “unknown variable” error at run time.  This is but one of many quirks and limitations that make replicators difficult to understand and use.</p>
+</div>
+<div class="section" id="selection">
+<span id="id2"></span><h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
+<p>In MWorks, <em>selection</em> is a mechanism for controlling the ordering and repetition of experimental tasks and parameters.  A <em>selectable object</em> is a container from which items are drawn (“selected”) in sequential or random order.  After being drawn, selected items can be <em>accepted</em> (removed from the container permanently) or <em>rejected</em> (placed back in the container to be selected again).</p>
+<div class="section" id="selection-parameters">
+<h4>Selection Parameters<a class="headerlink" href="#selection-parameters" title="Permalink to this headline">¶</a></h4>
+<p>The behavior of selectable objects is controlled by three parameters:</p>
+<dl class="simple">
+<dt>selection</dt><dd><p>The selection method, which controls the order in which samples are drawn.  Allowed values are <code class="docutils literal notranslate"><span class="pre">sequential</span></code> (aka <code class="docutils literal notranslate"><span class="pre">sequential_ascending</span></code>), <code class="docutils literal notranslate"><span class="pre">sequential_descending</span></code>, <code class="docutils literal notranslate"><span class="pre">random_without_replacement</span></code>, and <code class="docutils literal notranslate"><span class="pre">random_with_replacement</span></code>.</p>
+</dd>
+<dt>nsamples</dt><dd><p>The number of samples that may be drawn before the selectable object is exhausted</p>
+</dd>
+<dt>sampling_method</dt><dd><p>Determines what constitutes a sample.  <code class="docutils literal notranslate"><span class="pre">cycles</span></code> means that <em>all</em> possible selections must be made to complete one sample, whereas <code class="docutils literal notranslate"><span class="pre">samples</span></code> indicates that each individual selection counts as a sample.</p>
+</dd>
+</dl>
+<p><a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">Protocols</span></a>, <a class="reference internal" href="../components/block.html#block"><span class="std std-ref">blocks</span></a>, <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trials</span></a>, and <a class="reference internal" href="../components/list.html#list"><span class="std std-ref">lists</span></a> are all selectable objects.  The items that they contain and offer for selection are their immediate child components (i.e. <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a> and other <a class="reference internal" href="../components/paradigm_components.html#paradigm-components"><span class="std std-ref">paradigm components</span></a>).  This is easiest to understand via an example.</p>
+<p>Consider a block that contains three assignments to variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, whose initial value is 0:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>block {
+    x = 10*x + 1
+    x = 10*x + 2
+    x = 10*x + 3
+}
+</pre></div>
+</div>
+<p>When the block executes, it will perform each assignment exactly once, in order of appearance, after which the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> will be 123.  This execution behavior results from the default values used for the block’s selection parameters, which we can also specify explicitly:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>block (
+    selection = sequential
+    nsamples = 1
+    sampling_method = cycles
+    ) {
+    ...
+}
+</pre></div>
+</div>
+<p>Now, consider how the final value of <code class="docutils literal notranslate"><span class="pre">x</span></code> changes as we alter each selection parameter is turn.  Suppose we change the value of <code class="docutils literal notranslate"><span class="pre">selection</span></code> from <code class="docutils literal notranslate"><span class="pre">sequential</span></code> to <code class="docutils literal notranslate"><span class="pre">sequential_descending</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>block (
+    selection = sequential_descending
+    nsamples = 1
+    sampling_method = cycles
+    ) {
+    ...
+}
+</pre></div>
+</div>
+<p>This reverses the order in which the block executes its child actions, giving <code class="docutils literal notranslate"><span class="pre">x</span></code> a final value of 321.</p>
+<p>Next, suppose we change <code class="docutils literal notranslate"><span class="pre">sampling_method</span></code> from <code class="docutils literal notranslate"><span class="pre">cycles</span></code> to <code class="docutils literal notranslate"><span class="pre">samples</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>block (
+    selection = sequential_descending
+    nsamples = 1
+    sampling_method = samples
+    ) {
+    ...
+}
+</pre></div>
+</div>
+<p>Execution of a single child action now constitutes a sample.  Because <code class="docutils literal notranslate"><span class="pre">nsamples</span></code> is 1, the block will perform just one action, after which all selections will be exhausted, and its execution will terminate.  Hence, the final value of <code class="docutils literal notranslate"><span class="pre">x</span></code> will be 3.</p>
+<p>Finally, suppose we change <code class="docutils literal notranslate"><span class="pre">nsamples</span></code> to 5:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>block (
+    selection = sequential_descending
+    nsamples = 5
+    sampling_method = samples
+    ) {
+    ...
+}
+</pre></div>
+</div>
+<p>Now, the block will draw five samples from its child components.  Because the number of samples is greater than the number of children, after reaching the end of its child list, the block will loop back to the beginning.  The final value of <code class="docutils literal notranslate"><span class="pre">x</span></code> will be 32132.</p>
+</div>
+<div class="section" id="accepting-and-rejecting-samples">
+<h4>Accepting and Rejecting Samples<a class="headerlink" href="#accepting-and-rejecting-samples" title="Permalink to this headline">¶</a></h4>
+<p>While the examples in the previous section illustrate the meaning of the different selection parameters, they are not typical of real experiments.  Most commonly, selection is used to exercise a set of experimental conditions, in random order, with each condition having associated acceptance criteria.</p>
+<p>The example experiment <code class="docutils literal notranslate"><span class="pre">RSVPDemo.mwel</span></code> contains a protocol named “Eye Calibration”, which calibrates the eye positions received from an eye tracker.  The protocol requires the subject to fixate on 49 different points on screen, which are presented in random order.  It is implemented with a <a class="reference internal" href="../components/list.html#list"><span class="std std-ref">list</span></a> (<code class="docutils literal notranslate"><span class="pre">calibration_list</span></code>), whose <code class="docutils literal notranslate"><span class="pre">selection</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">random_without_replacement</span></code>.  The list contains 49 <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trials</span></a>, generated with two nested <a class="reference internal" href="../components/range_replicator.html#range-replicator"><span class="std std-ref">range replicators</span></a>, each of which presents the fixation point at a different location:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>list calibration_list (selection = random_without_replacement) {
+    range_replicator (
+        variable = cal_fix_pos_x
+        from = -15
+        to = 15
+        step = 5
+    ) {
+        range_replicator (
+            variable = cal_fix_pos_y
+            from = -15
+            to = 15
+            step = 5
+        ) {
+            trial {
+                ...
+            }
+        }
+    }
+}
+</pre></div>
+</div>
+<p>Each trial requires the subject to fixate on the relevant point for a specified length of time.  If the subject never fixates or breaks fixation early, the trial must be repeated.  This is accomplished via the <a class="reference internal" href="../components/reject_selections.html#reject-selections"><span class="std std-ref">Reject Selections</span></a> action:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>reject_selections (calibration_list)
+</pre></div>
+</div>
+<p>This action tells the selectable object (<code class="docutils literal notranslate"><span class="pre">calibration_list</span></code>) to put the current selection (the executing trial) back in the sample pool, ready to be chosen (and, hence, executed) again on a later draw.</p>
+<p>Conversely, if the subject does successfully fixate for the desired length of time, then the trial takes a calibration sample for the current screen location.  After this, there’s no need for the trial to execute again, so it removes itself from the sample pool with the <a class="reference internal" href="../components/accept_selections.html#accept-selections"><span class="std std-ref">Accept Selections</span></a> action:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>accept_selections (calibration_list)
+</pre></div>
+</div>
+<p>The list will continue to execute, choosing trials at random from its pool of non-accepted children, until all trials have been accepted.</p>
+</div>
+<div class="section" id="selection-variables">
+<h4>Selection Variables<a class="headerlink" href="#selection-variables" title="Permalink to this headline">¶</a></h4>
+<p>In all of the selection examples so far, the selectable object has been a <a class="reference internal" href="../components/paradigm_components.html#paradigm-components"><span class="std std-ref">paradigm component</span></a>.  However, MWorks also provides another, more flexible type of selectable object: the <a class="reference internal" href="../components/selection_variable.html#selection-variable"><span class="std std-ref">Selection Variable</span></a>.</p>
+<p>A selection variable is essentially a bag of user-specified values, to which MWorks’ selection machinery is applied.  Unlike selection-capable paradigm components, selection variables do not advance through their sample lists automatically.  Instead, each subsequent selection must be made explicitly, via the <a class="reference internal" href="../components/next_selection.html#next-selection"><span class="std std-ref">Next Selection</span></a> action.  Within expressions, selection variables can be referred to by name, like regular variables, and evaluate to their currently-selected value.</p>
+<p>For a demonstration of selection variables in action, see the “RSVP” protocol in <code class="docutils literal notranslate"><span class="pre">RSVPDemo.mwel</span></code>, which uses a selection variable (<code class="docutils literal notranslate"><span class="pre">RSVP_test_stim_index</span></code>) to draw images in random order from a <a class="reference internal" href="../components/stimulus_group.html#stimulus-group"><span class="std std-ref">stimulus group</span></a>.</p>
+</div>
+</div>
+<div class="section" id="stimulus-animation">
+<h3>Stimulus Animation<a class="headerlink" href="#stimulus-animation" title="Permalink to this headline">¶</a></h3>
+<p>Although some of MWorks’ visual stimuli (such as <a class="reference internal" href="../components/video_stimulus.html#video-stimulus"><span class="std std-ref">videos</span></a> and <a class="reference internal" href="../components/drifting_grating_stimulus.html#drifting-grating-stimulus"><span class="std std-ref">drifting gratings</span></a>) are inherently dynamic, most are  designed for static display, with changes to their color, size, position, etc. being made explicitly by the experiment.  However, with a little work, these normally-static stimuli can be animated, opening the door to user-defined dynamic stimulus presentations.</p>
+<p>Animating a non-dynamic stimulus involves three steps:</p>
+<ol class="arabic simple">
+<li><p>Writing the stimulus parameters that you want to animate as time-varying expressions,</p></li>
+<li><p>Arranging for the stimulus display to redraw itself on every display refesh, and</p></li>
+<li><p>Ensuring that the stimulus’ parameters are re-evaluated every time the stimulus is drawn.</p></li>
+</ol>
+<p>Consider the following <a class="reference internal" href="../components/ellipse_stimulus.html#ellipse-stimulus"><span class="std std-ref">circle stimulus</span></a> declaration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var start_time = 0
+
+circle ball (
+    color = 1,0,0
+    x_size = 5
+    x_position = -15 * cos(2*pi() * (next_frame_time() - start_time) / 3s)
+    )
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">color</span></code> and <code class="docutils literal notranslate"><span class="pre">x_size</span></code> parameters have simple, constant values.  However, the value of <code class="docutils literal notranslate"><span class="pre">x_position</span></code> is an expression that depends on <code class="docutils literal notranslate"><span class="pre">next_frame_time</span></code>.  This function returns the predicted output time of the frame that the stimulus display is currently rendering.  (For more information, see <a class="reference internal" href="#understanding-display-updates">Understanding Display Updates</a>.)  Every time the expression is evaluated, it will return a different value, varying sinusoidally with a period of three seconds.  (Including the <code class="docutils literal notranslate"><span class="pre">start_time</span></code> variable in the expression for <code class="docutils literal notranslate"><span class="pre">x_position</span></code> allows us to control the initial position of the ball.  While not really necessary in this example, the starting time is a crucial parameter in most real-world stimulus animations, so we illustrate its use here.)</p>
+<p>Now that we have a stimulus parameter with a time-varying value (step 1), we must force the stimulus display to redraw during every refresh cycle (step 2).  There are two ways to accomplish this.  The first is to include a <a class="reference internal" href="../components/stimulus_display.html#stimulus-display"><span class="std std-ref">Stimulus Display</span></a> device declaration in your experiment, and set its <code class="docutils literal notranslate"><span class="pre">redraw_on_every_refresh</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">true</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stimulus_display (
+    background_color = 0,0,0
+    redraw_on_every_refresh = true
+    )
+</pre></div>
+</div>
+<p>The second method entails “wrapping” the stimulus you want to animate in a <a class="reference internal" href="../components/frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">frame list</span></a> that is configured to loop indefinitely:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>frame_list ball (
+    stimulus_group = ball_frames
+    loop = true
+    autoplay = true
+    )
+
+stimulus_group ball_frames {
+    circle (
+        color = 1,0,0
+        x_size = 5
+        x_position = -15 * cos(2*pi() * (next_frame_time() - start_time) / 3s)
+        )
+}
+</pre></div>
+</div>
+<p>This method is more complicated, but it has the advantage that the display is forced to refresh <em>only</em> while the animated stimulus is on screen.</p>
+<p>Finally, to ensure that the stimulus’ parameters are re-evaluated every time it is drawn (step 3), we simply <a class="reference internal" href="../components/live_queue_stimulus.html#live-queue-stimulus"><span class="std std-ref">live queue</span></a> the stimulus:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>start_time = next_frame_time ()
+live_queue_stimulus (ball)
+update_display ()
+</pre></div>
+</div>
+<p>For a demonstration of more complex stimulus animation, see the example experiment <code class="docutils literal notranslate"><span class="pre">BouncingBall.mwel</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../reference/index.html" title="Reference Manual"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="data_analysis.html" title="Analyzing Experimental Data"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >User Guide</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>

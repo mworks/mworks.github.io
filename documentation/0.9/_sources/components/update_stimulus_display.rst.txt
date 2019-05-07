@@ -1,0 +1,59 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Update Stimulus Display
+   single: Actions; Update Stimulus Display
+
+.. _Update Stimulus Display:
+
+Update Stimulus Display
+=======================
+
+
+Description
+-----------
+Commit pending changes to the display queue, and trigger a redraw of the
+stimulus display.  On the next display refresh, any stimuli that have been
+`queued <Queue Stimulus>` will be drawn, and any stimuli that have been
+`dequeued <Dequeue Stimulus>` will *not* be drawn (and thus will be erased
+if they were previously visible).
+
+*Note*: Before completing, this action waits for all stimulus drawing
+commands to be submitted to the graphics hardware.  However, it does *not*
+wait for the actual display update to occur.  If your experiment must
+coordinate other actions with the actual display update, it will need
+to wait until the time provided by `predicted_output_time`_.
+
+
+
+Signature
+---------
+``action/update_stimulus_display``
+
+:Alias: ``action/update_display``
+
+
+Optional Parameters
+-------------------
+
+predicted_output_time
+^^^^^^^^^^^^^^^^^^^^^
+
+Name of a variable in which to store the predicted output time of the frame in which the update will take effect.  This time is the operating system's best guess for when the rendered frame will start to appear on screen.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

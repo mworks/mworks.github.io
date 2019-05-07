@@ -1,0 +1,339 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Analyzing Experimental Data &#8212; MWorks 0.9 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Designing an Experiment" href="designing.html" />
+    <link rel="prev" title="Running an Experiment" href="running.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="designing.html" title="Designing an Experiment"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="running.html" title="Running an Experiment"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">User Guide</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Analyzing Experimental Data</a><ul>
+<li><a class="reference internal" href="#events-event-stream-and-event-file">Events, Event Stream, and Event File</a></li>
+<li><a class="reference internal" href="#accessing-the-event-file">Accessing the Event File</a><ul>
+<li><a class="reference internal" href="#macos">macOS</a></li>
+<li><a class="reference internal" href="#ios">iOS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#analyzing-the-event-file">Analyzing the Event File</a><ul>
+<li><a class="reference internal" href="#using-python">Using Python</a><ul>
+<li><a class="reference internal" href="#setup">Setup</a></li>
+<li><a class="reference internal" href="#opening-and-closing">Opening and Closing</a></li>
+<li><a class="reference internal" href="#selecting-events">Selecting Events</a></li>
+<li><a class="reference internal" href="#accessing-event-data">Accessing Event Data</a></li>
+<li><a class="reference internal" href="#using-the-codec">Using the Codec</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-matlab">Using MATLAB</a><ul>
+<li><a class="reference internal" href="#id2">Setup</a></li>
+<li><a class="reference internal" href="#id3">Selecting Events</a></li>
+<li><a class="reference internal" href="#id4">Accessing Event Data</a></li>
+<li><a class="reference internal" href="#id5">Using the Codec</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="running.html"
+                        title="previous chapter">Running an Experiment</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="designing.html"
+                        title="next chapter">Designing an Experiment</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="analyzing-experimental-data">
+<span id="id1"></span><h1>Analyzing Experimental Data<a class="headerlink" href="#analyzing-experimental-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="events-event-stream-and-event-file">
+<h2>Events, Event Stream, and Event File<a class="headerlink" href="#events-event-stream-and-event-file" title="Permalink to this headline">¶</a></h2>
+<p>The basic unit of MWorks experimental data is the <em>event</em>.  An MWorks event consists of an event code, a time stamp, and a value (i.e. the payload).</p>
+<p>Most events announce a change in the value of a <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variable</span></a>.  The <em>codec</em> (or <em>variable codec</em>) provides the mapping between event codes and their associated variables.  Additionally, some <a class="reference internal" href="../reference/sysvars.html#system-event-codes"><span class="std std-ref">system events</span></a> use codes that are not associated with a variable.</p>
+<p>The sequence of events generated by a running experiment is called the <em>event stream</em>.   The on-disk record of an experiment’s event stream is known as the <em>event file</em>.</p>
+</div>
+<div class="section" id="accessing-the-event-file">
+<h2>Accessing the Event File<a class="headerlink" href="#accessing-the-event-file" title="Permalink to this headline">¶</a></h2>
+<p>Event files are stored on the machine running the MWorks server application (MWServer on macOS, the MWorks app on iOS).</p>
+<div class="section" id="macos">
+<h3>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
+<p>On macOS, event files are stored in the directory <code class="docutils literal notranslate"><span class="pre">$HOME/Documents/MWorks/Data</span></code>, where <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> is the path to the user’s home directory (e.g. <code class="docutils literal notranslate"><span class="pre">/Users/chris</span></code>).</p>
+</div>
+<div class="section" id="ios">
+<h3>iOS<a class="headerlink" href="#ios" title="Permalink to this headline">¶</a></h3>
+<p>To access event files stored on iOS, open the <a class="reference external" href="https://itunes.apple.com/us/app/files/id1232058109?mt=8">Files</a> app and navigate to On My iPad ➝ MWorks ➝ MWorks ➝ Data.  From here, you can share one or more event files with a Mac using <a class="reference external" href="https://support.apple.com/en-us/HT204144">AirDrop</a> or copy them to a cloud storage service like iCloud Drive or Dropbox.  You can also duplicate, move, and delete files.</p>
+<p>Alternatively, you can share your event files with a Mac <a class="reference external" href="https://support.apple.com/en-us/HT201301">using iTunes</a>.  However, this is less convenient than using the Files app and requires you to copy the entire “MWorks” subfolder to your computer.</p>
+</div>
+</div>
+<div class="section" id="analyzing-the-event-file">
+<h2>Analyzing the Event File<a class="headerlink" href="#analyzing-the-event-file" title="Permalink to this headline">¶</a></h2>
+<p>To analyze the results of a completed run of an experiment, you must extract the relevant events from the run’s event file.  MWorks provides tools for loading event data in to <a class="reference external" href="https://www.python.org">Python</a> or <a class="reference external" href="https://www.mathworks.com/products/matlab.html">MATLAB</a>.</p>
+<div class="section" id="using-python">
+<h3>Using Python<a class="headerlink" href="#using-python" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="setup">
+<h4>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h4>
+<p>To use MWorks’ data analysis tools for Python, you must first make the <code class="docutils literal notranslate"><span class="pre">mworks</span></code> package available to your Python code.  You can do this on a per-script basis by adding the directory <code class="docutils literal notranslate"><span class="pre">/Library/Application</span> <span class="pre">Support/MWorks/Scripting/Python</span></code> to the module search path:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import sys
+sys.path.insert(0, &#39;/Library/Application Support/MWorks/Scripting/Python&#39;)
+</pre></div>
+</div>
+<p>If you want the <code class="docutils literal notranslate"><span class="pre">mworks</span></code> package to be available to <em>all</em> Python code you run, you can create an <code class="docutils literal notranslate"><span class="pre">mworks.pth</span></code> file in your per-user <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> directory.  For example, for Python 3.7, execute the following commands in a Terminal window:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/Library/Python/3.7/lib/python/site-packages
+echo &#39;/Library/Application Support/MWorks/Scripting/Python&#39; &gt; ~/Library/Python/3.7/lib/python/site-packages/mworks.pth
+</pre></div>
+</div>
+</div>
+<div class="section" id="opening-and-closing">
+<h4>Opening and Closing<a class="headerlink" href="#opening-and-closing" title="Permalink to this headline">¶</a></h4>
+<p>To open an event file, use the <code class="docutils literal notranslate"><span class="pre">MWKFile</span></code> class from the <code class="docutils literal notranslate"><span class="pre">mworks.data</span></code> module:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from mworks.data import MWKFile
+f = MWKFile(&#39;my_data.mwk2&#39;)
+f.open()
+</pre></div>
+</div>
+<p>When you are done using the file, you should close it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f.close()
+</pre></div>
+</div>
+<p>Alternatively, you can use the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-with-statement">with statement</a> to handle opening and closing of the file in an implicit, exception-safe fashion:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with MWKFile(&#39;my_data.mwk2&#39;) as f:
+    # Analysis code goes here
+    ...
+</pre></div>
+</div>
+</div>
+<div class="section" id="selecting-events">
+<h4>Selecting Events<a class="headerlink" href="#selecting-events" title="Permalink to this headline">¶</a></h4>
+<p>Once the file is open, extract events using the <code class="docutils literal notranslate"><span class="pre">get_events</span></code> method.  If called with no arguments, this method returns <em>all</em> events in the file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>all_events = f.get_events()
+</pre></div>
+</div>
+<p>You can also use keyword arguments to filter events by code or time.  The <code class="docutils literal notranslate"><span class="pre">codes</span></code> argument takes a list of event codes or variable names and selects only events with matching codes.  For example, we can extract all events for the variables <code class="docutils literal notranslate"><span class="pre">red_selected</span></code>, <code class="docutils literal notranslate"><span class="pre">green_selected</span></code>, and <code class="docutils literal notranslate"><span class="pre">blue_selected</span></code> (which appear in the “Find the Circle” example in <a class="reference internal" href="running.html#running-an-experiment"><span class="std std-ref">Running an Experiment</span></a>) like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = f.get_events(codes=[&#39;red_selected&#39;, &#39;green_selected&#39;, &#39;blue_selected&#39;])
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">time_range</span></code> argument takes a list containing a start time and stop time and selects only events whose time stamps fall within that range:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = f.get_events(time_range=[t1, t2])
+</pre></div>
+</div>
+<p>You can specify both <code class="docutils literal notranslate"><span class="pre">codes</span></code> and <code class="docutils literal notranslate"><span class="pre">time_range</span></code> to filter on code and time simultaneously.</p>
+<p>When analyzing large event files, you may want to extract events one at a time, in order to avoid filling up system memory.  To do this, use the <code class="docutils literal notranslate"><span class="pre">get_events_iter</span></code> method.  This method takes the same arguments as <code class="docutils literal notranslate"><span class="pre">get_events</span></code>.  However, instead of loading all matching events in to a single, list-like object, <code class="docutils literal notranslate"><span class="pre">get_events_iter</span></code> returns an <a class="reference external" href="https://docs.python.org/3/glossary.html#term-iterator">iterator</a>, each iteration of which loads a single event from the data file.  For example, here is how you would use <code class="docutils literal notranslate"><span class="pre">get_events_iter</span></code> to process every event:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for event in f.get_events_iter():
+    # Use data from event
+    ...
+</pre></div>
+</div>
+</div>
+<div class="section" id="accessing-event-data">
+<h4>Accessing Event Data<a class="headerlink" href="#accessing-event-data" title="Permalink to this headline">¶</a></h4>
+<p>Once you have extracted an event, you can access its event code, time stamp, and value via the <code class="docutils literal notranslate"><span class="pre">code</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>, and <code class="docutils literal notranslate"><span class="pre">data</span></code> properties of the event object:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; evt = events[0]
+&gt;&gt;&gt; evt.code
+36
+&gt;&gt;&gt; evt.time
+30343102
+&gt;&gt;&gt; evt.data
+0
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">code</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code> properties always have integer values.  However, <code class="docutils literal notranslate"><span class="pre">data</span></code> can be a boolean, integer, float, string, list, or dictionary:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; events = f.get_events(codes=[&#39;#announceMessage&#39;])
+&gt;&gt;&gt; events[15].data
+{&#39;origin&#39;: 1, &#39;message&#39;: &#39;4 of 10 trials were correct (68217117)&#39;, &#39;type&#39;: 0, &#39;domain&#39;: 0}
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-codec">
+<h4>Using the Codec<a class="headerlink" href="#using-the-codec" title="Permalink to this headline">¶</a></h4>
+<p>To convert an event code to a variable name, use the <code class="docutils literal notranslate"><span class="pre">codec</span></code> property of the <code class="docutils literal notranslate"><span class="pre">MWKFile</span></code> object:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; f.codec[36]
+&#39;red_selected&#39;
+</pre></div>
+</div>
+<p>To convert a variable name to an event code, use the <code class="docutils literal notranslate"><span class="pre">reverse_codec</span></code> property:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; f.reverse_codec[&#39;red_selected&#39;]
+36
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="using-matlab">
+<h3>Using MATLAB<a class="headerlink" href="#using-matlab" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h4>Setup<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>To use MWorks’ data analysis tools for MATLAB, you must first add the directory <code class="docutils literal notranslate"><span class="pre">/Library/Application</span> <span class="pre">Support/MWorks/Scripting/MATLAB</span></code> to the search path:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>addpath(&#39;/Library/Application Support/MWorks/Scripting/MATLAB&#39;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h4>Selecting Events<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p>To extract events from an event file, use the <code class="docutils literal notranslate"><span class="pre">getEvents</span></code> function.  If called with just the filename, this function returns <em>all</em> events in the file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>all_events = getEvents(&#39;my_data.mwk2&#39;)
+</pre></div>
+</div>
+<p>To extract only events with specific event codes, provide an array containing the desired codes as the second argument:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = getEvents(&#39;my_data.mwk2&#39;, [36, 37, 38])
+</pre></div>
+</div>
+<p>To further restrict the retrieved events to a particular time range, specify a minimum and maximum time as the third and fourth arguments, respectively:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = getEvents(&#39;my_data.mwk2&#39;, [36, 37, 38], t1, t2)
+</pre></div>
+</div>
+<p>To extract all events in a given time range, pass an empty array as the second argument:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = getEvents(&#39;my_data.mwk2&#39;, [], t1, t2)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h4>Accessing Event Data<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">getEvents</span></code> function returns a <a class="reference external" href="https://www.mathworks.com/help/matlab/structures.html">structure array</a> containing all selected events.  The event code, time stamp, and value of each event are accessible via the <code class="docutils literal notranslate"><span class="pre">event_code</span></code>, <code class="docutils literal notranslate"><span class="pre">time_us</span></code>, and <code class="docutils literal notranslate"><span class="pre">data</span></code> fields of each array element:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; evt = events(1);
+&gt;&gt; evt.event_code
+
+ans =
+
+  int32
+
+   36
+
+&gt;&gt; evt.time_us
+
+ans =
+
+  int64
+
+   30343102
+
+&gt;&gt; evt.data
+
+ans =
+
+  int64
+
+   0
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">event_code</span></code> and <code class="docutils literal notranslate"><span class="pre">time_us</span></code> fields always have integer values.  However, the type of <code class="docutils literal notranslate"><span class="pre">data</span></code> can be logical, integer, floating point, string, <a class="reference external" href="https://www.mathworks.com/help/matlab/cell-arrays.html">cell</a>, <a class="reference external" href="https://www.mathworks.com/help/matlab/structures.html">struct</a>, or <a class="reference external" href="https://www.mathworks.com/help/matlab/map-containers.html">Map</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; events = getEvents(&#39;my_data.mwk2&#39;, [6]);
+&gt;&gt; events(16).data
+
+ans =
+
+  struct with fields:
+
+    message: &#39;4 of 10 trials were correct (68217117)&#39;
+     origin: 1
+       type: 0
+     domain: 0
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>Using the Codec<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>To convert an event code to a variable name, use the Map returned by the <code class="docutils literal notranslate"><span class="pre">getCodec</span></code> function:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; codec = getCodec(&#39;my_data.mwk2&#39;);
+&gt;&gt; codec(36)
+
+ans =
+
+    &#39;red_selected&#39;
+</pre></div>
+</div>
+<p>To convert a variable name to an event code, use the Map returned by the <code class="docutils literal notranslate"><span class="pre">getReverseCodec</span></code> function:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; reverse_codec = getReverseCodec(&#39;my_data.mwk2&#39;);
+&gt;&gt; reverse_codec(&#39;red_selected&#39;)
+
+ans =
+
+  int64
+
+   36
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="designing.html" title="Designing an Experiment"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="running.html" title="Running an Experiment"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.9 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >User Guide</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2019, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>
