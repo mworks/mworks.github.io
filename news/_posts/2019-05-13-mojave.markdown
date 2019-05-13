@@ -1,0 +1,21 @@
+---
+layout: post
+title: MWorks and Mojave
+author: cstawarz
+---
+
+If you're thinking about upgrading to [macOS Mojave (10.14)](https://en.wikipedia.org/wiki/MacOS_Mojave) (perhaps to take advantage of the new [Dark Mode](https://support.apple.com/en-us/HT208976) support in [MWorks 0.9]({% post_url news/2019-05-13-0.9-released %})), here are a few things to consider first.
+
+
+### Issue with multiple displays
+
+macOS Mojave appears to have trouble driving multiple displays simultaneously.  The issue manifests as [visible stuttering](https://forums.developer.apple.com/thread/112468) in on-screen graphics.  In MWorks, these stutters are accompanied by bouts of "Skipped *xx* display refresh cycles" messages.  In my experience, the stuttering episodes occur cyclically, with 1-2 minutes of stuttering followed by 5-10 minutes of normal graphics performance.  The only remedy is to reduce the total number of connected displays (both internal and external) to one.
+
+I have observed this issue on a late-2013 Mac Pro and a 2018 Mac mini, both running macOS 10.14.4 (though it may affect earlier 10.14 releases, too).  I have not observed it on earlier macOS versions.  Also, this issue is not present on iOS.
+
+
+### Support for 2010/2012 Mac Pro
+
+Mojave is the first macOS release to require a graphics card that supports [Metal](https://developer.apple.com/metal/), Apple's modern graphics programming framework.  Most Mac computers released since 2012 [support Metal](https://support.apple.com/en-us/HT205073).  However, the stock graphics cards in the 2010/2012 Mac Pro (i.e. the last ["cheese grater"](https://512pixels.net/2017/04/the-cheese-grater-mac-pro/) Mac Pro) do not.
+
+Fortunately, you can make a 2010/2012 Mac Pro compatible with Mojave by upgrading its graphics card.  Apple provides a [list of supported graphics cards](https://support.apple.com/en-us/HT208898#cards), any of which should be fine for use with MWorks.  Even if you don't plan to switch to Mojave any time soon, this upgrade may still be worthwhile as a future-proofing step.  (I recently installed an [MSI Gaming Radeon RX 560 128-bit 4GB GDRR5](https://www.amazon.com/dp/B072J422CZ/) in one of my MWorks test systems, a 2010 Mac Pro running macOS 10.13.6, and have been very happy with its  performance.)
