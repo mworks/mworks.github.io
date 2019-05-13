@@ -1,0 +1,202 @@
+---
+layout: post
+title: MWorks 0.9 released
+author: cstawarz
+---
+
+MWorks 0.9 is now available for [macOS](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.9.dmg) and [iOS](https://itunes.apple.com/us/app/mworks/id1389408331?ls=1&mt=8).  Highlights of this release include:
+
+* [Layer](/documentation/0.9/components/layer_stimulus.html) and [mask](/documentation/0.9/components/mask_stimulus.html) stimuli
+* Embedded Python execution on iOS
+* [EyeLink](/documentation/0.9/components/eyelink_device.html) tracker-driven calibration and blink, saccade, and fixation events
+* New event file format ([MWK2](/documentation/0.9/reference/event_file_format/current.html))
+* [XML-to-MWEL](/documentation/0.9/mwel/index.html#converting-to-and-from-xml) converter
+* Support for macOS [Dark Mode](https://support.apple.com/en-us/HT208976)
+
+MWorks 0.9 requires a Mac running macOS Sierra (10.12) or later or an iPad running iOS 12.2 or later.
+
+For a full list of changes in this release, please see the release notes below.
+
+
+### MWEL
+
+* Added [xml2mwel](/documentation/0.9/mwel/index.html#converting-to-and-from-xml) script for converting XML experiment files into MWEL
+
+* [Variable declarations](/documentation/0.9/mwel/index.html#variable-declarations) are now a special case of [component declaration](/documentation/0.9/mwel/index.html#component-declarations) and therefore can include [parameters](/documentation/0.9/mwel/index.html#parameters) and/or [children](/documentation/0.9/mwel/index.html#children)
+
+* [Statement macro](/documentation/0.9/mwel/index.html#statement) invocations can now include a default value with `=` (as long as the macro body is a single variable declaration that does not include a default value)
+
+* Added support for nestable, multiline [comments](/documentation/0.9/mwel/index.html#comments) delimited by `/*` and `*/`
+
+* Parser now expands all enclosing macro parameters in children attached to macro invocations
+
+* Improved error reporting for unterminated string literals
+
+* [mwel2xml](/documentation/0.9/mwel/index.html#converting-to-and-from-xml) now accepts `--omit-metadata` as a command-line option, which inhibits the inclusion of location info and experiment source in the generated XML
+
+
+### Core
+
+
+#### Visual Stimuli
+
+* Added [layer](/documentation/0.9/components/layer_stimulus.html) and [mask](/documentation/0.9/components/mask_stimulus.html) stimuli
+
+* [Movie](/documentation/0.9/components/movie_stimulus.html) and [frame list](/documentation/0.9/components/frame_list_stimulus.html) stimuli can now have their frames attached as children (instead of being contained in a [stimulus group](/documentation/0.9/components/stimulus_group.html))
+
+* [Image file](/documentation/0.9/components/image_stimulus.html) stimulus now prevents image color values from being altered when color management is disabled
+
+* [Drifting grating](/documentation/0.9/components/drifting_grating_stimulus.html)
+
+  * Added support for using a grating as a [mask](/documentation/0.9/components/drifting_grating_stimulus.html#mask)
+
+  * Added smoothing to discontinuous edges in square and sawtooth gratings
+
+  * [inverted](/documentation/0.9/components/drifting_grating_stimulus.html#inverted) parameter now applies to all grating types
+
+* [Moving dots](/documentation/0.9/components/moving_dots.html)
+
+  * Added [rand_seed](/documentation/0.9/components/moving_dots.html#rand-seed) parameter
+
+  * Added default values for [field_center_x](/documentation/0.9/components/moving_dots.html#field-center-x), [field_center_y](/documentation/0.9/components/moving_dots.html#field-center-y), and [direction](/documentation/0.9/components/moving_dots.html#direction) parameters
+
+* Stimulus display is now backed by [Metal](https://developer.apple.com/metal/) (always on iOS, and on Macs running macOS 10.13 or later that [support Metal](https://support.apple.com/en-us/HT205073))
+
+* Added support for setting the stimulus display's gamma function (only on macOS, and only if color management is disabled)
+
+* Added support for making the main stimulus display window non-opaque (mirror window is still always opaque)
+
+* Stimulus display is now created only if the experiment uses it
+
+* [Update Stimulus Display](/documentation/0.9/components/update_stimulus_display.html) action now issues a warning if it takes more than two display refresh cycles to complete
+
+* Dropped support for `render_at_full_resolution` key of [#mainScreenInfo](/documentation/0.9/reference/sysvars.html#mainscreeninfo).  Stimuli are now always rendered at the full, native resolution of the display.
+
+
+#### I/O Devices
+
+* Added [word output](/documentation/0.9/components/firmata_word_output_channel.html) and [digital input pullup](/documentation/0.9/components/firmata_digital_input_pullup_channel.html) channels for [Firmata](/documentation/0.9/components/firmata_device.html) devices
+
+* [EyeLink](/documentation/0.9/components/eyelink_device.html)
+
+  * Added support for tracker-driven calibration
+
+  * Enabled reporting of EyeLink blink, saccade, and fixation events
+
+  * [tracking_dist](/documentation/0.9/components/eyelink_device.html#tracking-dist) is now required only when [eye_x](/documentation/0.9/components/eyelink_device.html#eye-x), [eye_y](/documentation/0.9/components/eyelink_device.html#eye-y), and/or [eye_z](/documentation/0.9/components/eyelink_device.html#eye-z) are specified
+
+  * Error messages now include EyeLink error message (if available)
+
+* [NIDAQ](/documentation/0.9/components/nidaq_device.html)
+
+  * Improvements to [analog output voltage channels](/documentation/0.9/components/nidaq_analog_output_voltage_waveform_channel.html)
+
+    * All waveform parameters can now be modified at run time.  Changes take effect after the device is stopped and restarted.
+    * Parameter [offset](/documentation/0.9/components/nidaq_analog_output_voltage_waveform_channel.html#offset) is now optional and defaults to zero
+    * Added optional parameters [amplitude](/documentation/0.9/components/nidaq_analog_output_voltage_waveform_channel.html#amplitude) and [mean](/documentation/0.9/components/nidaq_analog_output_voltage_waveform_channel.html#mean)
+
+  * Added [analog_output_enabled](/documentation/0.9/components/nidaq_device.html#analog-output-enabled) parameter
+
+  * When stopping device, all digital output lines are now set to low, and all (non-waveform) analog output voltage channels are set to zero
+
+  * Added workaround for bug in NI-DAQmx Base that manifests in 64-bit processes on macOS 10.12 and later
+
+  * Now requires 64-bit variant of NI-DAQmx Base (i.e. version 14.0 or later)
+
+
+#### Other
+
+* New on-disk format for event files ([MWK2](/documentation/0.9/reference/event_file_format/current.html))
+
+* Expression parser now supports multiplication of strings and lists by integers.  Multiplying a list or string by integer *n* results in the concatenation of *n* copies of the list or string, e.g.
+
+        [1, 2, 3] * 2 == [1, 2, 3, 1, 2, 3]
+        3 * 'abc' == 'abcabcabc'
+
+
+### Applications
+
+* New app icons
+
+* Version info for all apps now includes the build date
+
+* MWClient and MWServer now support [Dark Mode](https://support.apple.com/en-us/HT208976)
+
+* macOS installer now backs up existing MWorks installation silently (without popping up a dialog box)
+
+* MWServer and MWClient now preserve the location of their preferences windows between sessions
+
+* iOS MWorks app now supports hiding the "Choose experiment" button
+
+
+#### MWClient
+
+* New user interface icons
+
+* Eliminated some spurious connection failures
+
+* Calibrator and reward window's action buttons now end editing in all fields (thereby committing any pending changes) before performing their task
+
+* Eye window now presents its options in a panel (instead of a drawer)
+
+
+#### MWServer
+
+* Added code to prevent [App Nap](https://developer.apple.com/library/archive/documentation/Performance/Conceptual/power_efficiency_guidelines_osx/AppNap.html) from delaying response to client connection requests
+
+* Now preserves the selected preferences window tab between sessions
+
+
+### Python and MATLAB Tools
+
+* Python and MATLAB data tools now transparently support both [MWK](/documentation/0.9/reference/event_file_format/legacy.html) and [MWK2](/documentation/0.9/reference/event_file_format/current.html) files
+
+* Python plugin is now available on iOS.  Includes all features available on macOS ([run file](/documentation/0.9/components/run_python_file.html) and [run string](/documentation/0.9/components/run_python_string.html) actions, [Python file resources](/documentation/0.9/components/python_file_resource.html), and the [expression parser](/documentation/0.9/expressions/index.html) functions `py_eval` and `py_call`).
+
+* Functions `message`, `warning`, and `error` are now available to code executed by the Python plugin
+
+* Python plugin now embeds Python 3.7 (instead of 2.7).  In addition, the plugin now includes its own copies of Python and NumPy (no external Python installation required).
+
+* Removed `MWKStream` class from Python data tools
+
+* Python tools now support Python 2.7 and 3.7.  (Python 3.6 is no longer supported.)
+
+* MATLAB tools now require MATLAB R2016b or later
+
+
+### Documentation and Examples
+
+* Added iOS [installation](/documentation/0.9/guide/installation.html#ios) and [configuration](/documentation/0.9/guide/installation.html#id4) instructions
+
+* Updated [Running an Experiment](/documentation/0.9/guide/running.html) to cover launching and connecting to MWorks on iOS
+
+* Added iOS version of [FindTheCircle](https://github.com/mworks/mworks/tree/0.9/examples/Examples/FindTheCircle) example
+
+* [Analyzing Experimental Data](/documentation/0.9/guide/data_analysis.html) now explains how to [access event files stored on iOS](/documentation/0.9/guide/data_analysis.html#ios)
+
+* Added descriptions of current and legacy [event file formats](/documentation/0.9/reference/event_file_format/index.html)
+
+* Added documentation on the Python `mworkscore` module and the execution environment of embedded Python code (see [Run Python File](/documentation/0.9/components/run_python_file.html))
+
+* Other minor improvements
+
+
+### Internals/Development
+
+* Upgraded to new versions of several supporting libraries:
+
+  * boost: 1.66.0 ➞ 1.69.0
+  * zeromq: 4.2.3 ➞ 4.3.1
+  * msgpack: 2.1.5 ➞ 3.1.1
+
+* Added [OpenSSL](https://www.openssl.org) 1.1.1b, [Python](https://www.python.org) 3.7.3, [NumPy](https://www.numpy.org) 1.16.2, and [SQLite](https://sqlite.org) 3.27.2 to supporting libs
+
+* All code is now compiled using the C++14 and C11 language standards
+
+* Added support for stimuli with child components
+
+* `BasicTransformStimulus` now enables blending when drawing; subclasses can override the blend equation
+
+* Added new `MacOSOpenGLContextManager` (used only on systems running macOS 10.13 or later that support Metal).  Old `MacOSOpenGLContextManager` is now called `LegacyMacOSOpenGLContextManager`.
+
+* `IOSOpenGLContextManager`, `MacOSOpenGLContextManager`, and `LegacyMacOSOpenGLContextManager` are now private to MWorksCore.  Plugins that need access to platform-specific resources should use `AppleOpenGLContextManager`.

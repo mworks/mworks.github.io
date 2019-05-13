@@ -19,9 +19,14 @@ The following macOS installer packages are available:
     <a href="https://github.com/mworks/mw_suite">source code</a>.  Requires macOS 10.12 or later.
   </dd>
 
+  <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.9.dmg">Release 0.9</a></dt>
+  <dd>
+    Current release.  Requires macOS 10.12 or later.
+  </dd>
+
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.8.dmg">Release 0.8</a></dt>
   <dd>
-    Current release.  Requires OS X 10.11 or later.
+    Previous release.  Requires OS X 10.11 or later.
   </dd>
 
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.7.dmg">Release 0.7</a></dt>
