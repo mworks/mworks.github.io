@@ -4,7 +4,7 @@ title: MWorks 0.9 released
 author: cstawarz
 ---
 
-MWorks 0.9 is now available for [macOS](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.9.dmg) and [iOS](https://itunes.apple.com/us/app/mworks/id1389408331?ls=1&mt=8).  Highlights of this release include:
+MWorks 0.9 is now available for [macOS](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.9.dmg) and [iOS](https://apps.apple.com/us/app/mworks/id1389408331?ls=1).  Highlights of this release include:
 
 * [Layer](/documentation/0.9/components/layer_stimulus.html) and [mask](/documentation/0.9/components/mask_stimulus.html) stimuli
 * Embedded Python execution on iOS

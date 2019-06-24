@@ -4,7 +4,7 @@ title: MWorks for iOS now available
 author: cstawarz
 ---
 
-MWorks for iOS is now [available on the App Store](https://itunes.apple.com/us/app/mworks/id1389408331?ls=1&mt=8).
+MWorks for iOS is now [available on the App Store](https://apps.apple.com/us/app/mworks/id1389408331?ls=1).
 
 MWorks' iOS app is a port of MWServer to the iOS platform.  It supports nearly all of the [component types](/documentation/latest/components/) available on macOS.  (The only exceptions are some [I/O devices](https://mworks.tenderapp.com/kb/ios-app/inputoutput-devices) and Python actions and resources, though the latter may be added in a subsequent release.)  The app can load and run MWorks experiments stored locally or in the cloud, or you can connect to and control it from MWClient on a Mac.
 

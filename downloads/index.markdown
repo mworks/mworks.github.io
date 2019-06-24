@@ -5,7 +5,7 @@ title: MWorks Downloads
 
 ## MWorks for iOS ##
 
-MWorks for iOS is [available on the App Store](https://itunes.apple.com/us/app/mworks/id1389408331?ls=1&mt=8).  For more information, visit the [knowledge base](https://mworks.tenderapp.com/kb/ios-app).
+MWorks for iOS is [available on the App Store](https://apps.apple.com/us/app/mworks/id1389408331?ls=1).  For more information, visit the [knowledge base](https://mworks.tenderapp.com/kb/ios-app).
 
 
 ## MWorks for macOS ##
