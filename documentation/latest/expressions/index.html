@@ -76,10 +76,10 @@
   <p class="topless"><a href="../reference/sysvars.html"
                         title="next chapter">System Variables</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -99,7 +99,7 @@
 <div class="section" id="literals">
 <h2>Literals<a class="headerlink" href="#literals" title="Permalink to this headline">¶</a></h2>
 <p>The expression parser recognizes literal values for a variety of data types.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -179,7 +179,7 @@ NO
 <div class="section" id="operators">
 <h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
 <p>The expression parser supports a number of mathematical, logical, comparison, and other operators.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 28%" />
 <col style="width: 16%" />
@@ -375,7 +375,7 @@ NO
 <p>The general form of a range expression is <em>start:stop:step</em>, where <em>start</em>, <em>stop</em>, and <em>step</em> are expressions that evaluate to integers.  <em>step</em> is optional.  If provided, it must evaluate to a positive integer; if omitted, it defaults to 1.  If <em>start</em> is less than <em>stop</em>, the sequence will be increasing; otherwise, it will be decreasing.  <em>start</em> is always included in the sequence.  If <em>start</em> and <em>stop</em> are separated by a multiple of <em>step</em>, <em>stop</em> will be included as well.</p>
 <p>List literals, function calls, and <a class="reference internal" href="../components/selection_variable.html#selection-variable"><span class="std std-ref">selection variable</span></a> value lists can all incorporate range expressions.  In all cases, range expressions can be mixed with other expressions, so long as all items are separated by commas.</p>
 <p>The following table shows some examples of range expression usage, with equivalent, range-expression-free versions shown alongside.</p>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -539,7 +539,7 @@ NO
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2019, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

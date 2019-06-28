@@ -16,6 +16,7 @@ Input/output (I/O) devices
    blackrock_led_driver
    easyeye_device
    eyelink_device
+   face_recognizer
    fake_monkey_eye_channel
    fake_monkey_io_device
    fake_monkey_juice_channel

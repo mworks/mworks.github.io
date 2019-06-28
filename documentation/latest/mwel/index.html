@@ -75,10 +75,10 @@
   <p class="topless"><a href="../expressions/index.html"
                         title="next chapter">Expressions</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -94,7 +94,7 @@
             
   <div class="section" id="experiment-language-mwel">
 <span id="mwel"></span><h1>Experiment Language (MWEL)<a class="headerlink" href="#experiment-language-mwel" title="Permalink to this headline">¶</a></h1>
-<p>MWorks Experiment Language (MWEL) provides a user-friendly, programming-language-like alternative to the <a class="reference external" href="https://en.wikipedia.org/wiki/XML">XML</a>-based experiments created by MWEditor.  It is designed to be read and written via a text editor and is optimized for conciseness and clarity, with minimal syntactic “noise”.</p>
+<p>MWorks Experiment Language (MWEL) provides a user-friendly, programming-language-like alternative to <a class="reference external" href="https://en.wikipedia.org/wiki/XML">XML</a>-based experiments.  It is designed to be read and written via a text editor and is optimized for conciseness and clarity, with minimal syntactic “noise”.</p>
 <p>At runtime, MWEL experiments are translated into MWorks’ XML, after which they are parsed and executed in exactly the same way as traditional, XML-based experiments.  This ensures that equivalent experiments written in MWEL and XML perform identically.  (However, it also means that some of the limitations of XML-based experiments apply to MWEL-based ones, too.)</p>
 <p>To be loadable by MWorks, MWEL experiment files must be named with the extension <code class="docutils literal notranslate"><span class="pre">.mwel</span></code>.</p>
 <p>The following sections describe MWEL in detail.</p>
@@ -494,7 +494,7 @@ reported_var y = 3 (message = &#39;y = $y&#39;) {
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2019, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
     </div>
   </body>
 </html>

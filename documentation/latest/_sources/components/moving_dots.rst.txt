@@ -101,8 +101,8 @@ announce_dots
 ^^^^^^^^^^^^^
 :Default: ``NO``
 
-If ``YES``, stimulus announcements (i.e. ``#announceStimulus`` and
-``#stimDisplayUpdate`` events) will include dot positions.
+If ``YES``, stimulus announcements (i.e. ``#stimDisplayUpdate`` events)
+will include dot positions.
 
 Position data is encoded as a binary array of single-precision floating
 point values (in platform `byte order
