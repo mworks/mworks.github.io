@@ -58,6 +58,7 @@
 <li><a class="reference internal" href="#timer">Timer</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#variable-and-expression-interpolation">Variable and Expression Interpolation</a></li>
 <li><a class="reference internal" href="#functions">Functions</a><ul>
 <li><a class="reference internal" href="#mathematical">Mathematical</a></li>
 <li><a class="reference internal" href="#random-number-generators">Random Number Generators</a></li>
@@ -151,7 +152,7 @@ NO
 </pre></div>
 </div>
 </td>
-<td><p>Supports some C/C++ <a class="reference external" href="http://en.cppreference.com/w/cpp/language/escape">escape sequences</a></p></td>
+<td><p>Supports <a class="reference internal" href="#variable-and-expression-interpolation"><span class="std std-ref">variable and expression interpolation</span></a> and some C/C++ <a class="reference external" href="http://en.cppreference.com/w/cpp/language/escape">escape sequences</a></p></td>
 </tr>
 <tr class="row-even"><td><p>List</p></td>
 <td><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[]
@@ -421,6 +422,29 @@ NO
 <p><em>Note</em>: <code class="docutils literal notranslate"><span class="pre">timer_expired</span></code> (see <a class="reference internal" href="#time-related">Time-Related</a> functions below) actually just passes its input value unchanged.  However, using it may help to clarify the intent of an expression.</p>
 </div>
 </div>
+<div class="section" id="variable-and-expression-interpolation">
+<span id="id2"></span><h2>Variable and Expression Interpolation<a class="headerlink" href="#variable-and-expression-interpolation" title="Permalink to this headline">¶</a></h2>
+<p>A string literal can incorporate the value of one or more variables via variable interpolation.  When a string literal containing placeholder text of the form <code class="docutils literal notranslate"><span class="pre">$var</span></code> or <code class="docutils literal notranslate"><span class="pre">${var}</span></code> is evaluated, the placeholder is replaced with the current value of variable <code class="docutils literal notranslate"><span class="pre">var</span></code> (converted to a string).  For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var greeting = &#39;Hello&#39;
+var subject = &#39;World&#39;
+
+var message = &#39;$greeting, ${subject}!&#39;  // message contains &quot;Hello, World!&quot;
+</pre></div>
+</div>
+<p>To inhibit variable interpolation, preface the dollar sign with a backslash:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var text = &#39;123\$abc&#39;  // text contains &quot;123$abc&quot;
+</pre></div>
+</div>
+<p>A string literal may also incorporate the value of one or more expressions via expression interpolation.  When a string literal containing placeholder text of the form <code class="docutils literal notranslate"><span class="pre">$(expr)</span></code> is evaluated, the placeholder is replaced with the result of evaluating the expression, converted to a string.  For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>message = &#39;1 + 2 = $(1 + 2)&#39;  // message contains &quot;1 + 2 = 3&quot;
+text = &#39;$(round(pi())) is a magic number&#39;  // text contains &quot;3 is a magic number&quot;
+</pre></div>
+</div>
+<p>As with variable interpolation, expression interpolation can be inhibited by prefacing the dollar sign with a backslash:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>text = &#39;123\$abc\$(whee!)&#39;  // text contains &quot;123$abc$(whee!)&quot;
+</pre></div>
+</div>
+</div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>The expression parser recognizes a number of pre-defined functions, many of which are found in other programming or scripting languages.  Note that function names are <em>not</em> case sensitive, so <code class="docutils literal notranslate"><span class="pre">now()</span></code>, <code class="docutils literal notranslate"><span class="pre">NOW()</span></code>, and <code class="docutils literal notranslate"><span class="pre">Now()</span></code> are all equivalent.</p>
@@ -436,6 +460,8 @@ NO
 <dt><code class="docutils literal notranslate"><span class="pre">exp(x)</span></code></dt><dd><p>Euler’s number (<em>e</em>) raised to the power <em>x</em></p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">floor(x)</span></code></dt><dd><p>Nearest integer not greater than <em>x</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">fmod(x,y)</span></code></dt><dd><p>Floating-point remainder of <em>x/y</em></p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">logn(x)</span></code></dt><dd><p>Natural logarithm of <em>x</em></p>
 </dd>
@@ -494,7 +520,7 @@ NO
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">filenames(glob_expr)</span></code></dt><dd><p>Given <em>glob_expr</em>, a string containing a <a class="reference external" href="http://tomecat.com/jeffy/tttt/glob.html">shell-style file name pattern</a>, returns a list of strings containing the names of all matching files (or any empty list, if no files match)</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">format(fmt,...)</span></code></dt><dd><p><a class="reference external" href="http://www.boost.org/doc/libs/1_66_0/libs/format/doc/format.html#printf_directives">printf-style</a> string formatting.  <em>fmt</em> is the format string, and any subsequent arguments are items to be formatted.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">format(fmt,...)</span></code></dt><dd><p><a class="reference external" href="https://www.boost.org/doc/libs/release/libs/format/doc/format.html#printf_directives">printf-style</a> string formatting.  <em>fmt</em> is the format string, and any subsequent arguments are items to be formatted.</p>
 </dd>
 <dt><code class="docutils literal notranslate"><span class="pre">num_accepted('sel')</span></code></dt><dd><p>Takes the name of a selectable object (as a string) and returns the number of accepted selections that have been made on it</p>
 </dd>

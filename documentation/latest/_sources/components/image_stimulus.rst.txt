@@ -44,6 +44,13 @@ Filesystem path to the image file
 Optional Parameters
 -------------------
 
+announce_load
+^^^^^^^^^^^^^
+:Default: ``YES``
+
+If ``YES``, messages will be posted to the console and event stream when the image is loaded or unloaded.
+
+
 alpha_multiplier
 ^^^^^^^^^^^^^^^^
 :Default: ``1.0``

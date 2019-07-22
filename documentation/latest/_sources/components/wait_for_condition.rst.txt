@@ -45,7 +45,12 @@ Optional Parameters
 timeout_message
 ^^^^^^^^^^^^^^^
 
-Error message to report if the wait times out.  If omitted, a default message is used.
+Error message to report if the wait times out.  If omitted, a default
+message is used.
+
+To include the values of variables or arbitrary expressions in the
+message, you can use `variable and expression interpolation <Variable and
+Expression Interpolation>` (e.g. ``x = $x, y = ${y}, x+y = $(x+y)``).
 
 
 stop_on_timeout

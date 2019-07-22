@@ -506,14 +506,13 @@ stimulus_group images {
         step = 1
         ) {
         trial {
-            queue_stimulus (images[index])
+            queue_stimulus (images[${index}])
             ...
         }
     }
 }
 </pre></div>
 </div>
-<p>Notice that, in this case, the replicator variable is referred to simply by name (<code class="docutils literal notranslate"><span class="pre">index</span></code>) and <em>not</em> like it is in the image declaration (<code class="docutils literal notranslate"><span class="pre">${index}</span></code>).  In fact, if you try to use the latter syntax, you will get an “unknown variable” error at run time.  This is but one of many quirks and limitations that make replicators difficult to understand and use.</p>
 </div>
 <div class="section" id="selection">
 <span id="id2"></span><h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>

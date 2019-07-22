@@ -108,11 +108,10 @@
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="message">
 <h3>message<a class="headerlink" href="#message" title="Permalink to this headline">¶</a></h3>
-<p>Error message to report if the assertion fails.  You can include variable
-values in the message by placing a <code class="docutils literal notranslate"><span class="pre">$</span></code> before each variable’s name
-(e.g. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">$x,</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">$y</span></code>).</p>
-<p>If omitted, a default message containing the condition expression is
-used.</p>
+<p>Error message to report if the assertion fails.  If omitted, a default
+message containing the condition expression is used.</p>
+<p>To include the values of variables or arbitrary expressions in the
+message, you can use <a class="reference internal" href="../expressions/index.html#variable-and-expression-interpolation"><span class="std std-ref">variable and expression interpolation</span></a> (e.g. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">$x,</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">${y},</span> <span class="pre">x+y</span> <span class="pre">=</span> <span class="pre">$(x+y)</span></code>).</p>
 </div>
 <div class="section" id="stop-on-failure">
 <h3>stop_on_failure<a class="headerlink" href="#stop-on-failure" title="Permalink to this headline">¶</a></h3>

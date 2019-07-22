@@ -332,7 +332,16 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
 </dd>
 </dl>
-<p>Standard deviation of Gaussian mask</p>
+<p>Standard deviation of Gaussian mask.</p>
+<p>The Gaussian mask is computed on a 2x2 square, centered at the origin,
+using the equation:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>exp(-1.0 * (dist - mean) * (dist - mean) / (2.0 * std_dev * std_dev))
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">dist</span></code> is distance from the center.  The mask is then stretched
+to cover a rectangle of <a class="reference internal" href="#x-size">x_size</a> by <a class="reference internal" href="#y-size">y_size</a> degrees.  If the x and y
+sizes are equal, then the mask is scaled by size/2 in both directions,
+so std_dev has units of size/2 degrees.</p>
 </div>
 <div class="section" id="mean">
 <h3>mean<a class="headerlink" href="#mean" title="Permalink to this headline">¶</a></h3>
