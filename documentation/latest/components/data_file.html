@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>EasyEye Device &#8212; MWorks 0.10.dev documentation</title>
+    <title>Data File &#8212; MWorks 0.10.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
@@ -17,8 +17,8 @@
     <script type="text/javascript" src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="EyeLink Device" href="eyelink_device.html" />
-    <link rel="prev" title="Data File" href="data_file.html" />
+    <link rel="next" title="EasyEye Device" href="easyeye_device.html" />
+    <link rel="prev" title="Blackrock LED Driver" href="blackrock_led_driver.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -31,10 +31,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="eyelink_device.html" title="EyeLink Device"
+          <a href="easyeye_device.html" title="EasyEye Device"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="data_file.html" title="Data File"
+          <a href="blackrock_led_driver.html" title="Blackrock LED Driver"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.10.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
@@ -46,14 +46,11 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">EasyEye Device</a><ul>
+<li><a class="reference internal" href="#">Data File</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
-<li><a class="reference internal" href="#address">address</a></li>
-<li><a class="reference internal" href="#port">port</a></li>
-<li><a class="reference internal" href="#eye-x">eye_x</a></li>
-<li><a class="reference internal" href="#eye-y">eye_y</a></li>
+<li><a class="reference internal" href="#filename">filename</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
@@ -67,11 +64,11 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="data_file.html"
-                        title="previous chapter">Data File</a></p>
+  <p class="topless"><a href="blackrock_led_driver.html"
+                        title="previous chapter">Blackrock LED Driver</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="eyelink_device.html"
-                        title="next chapter">EyeLink Device</a></p>
+  <p class="topless"><a href="easyeye_device.html"
+                        title="next chapter">EasyEye Device</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -90,47 +87,57 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="easyeye-device">
-<span id="index-0"></span><span id="id1"></span><h1>EasyEye Device<a class="headerlink" href="#easyeye-device" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="data-file">
+<span id="index-0"></span><span id="id1"></span><h1>Data File<a class="headerlink" href="#data-file" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Interface to an EasyEye eye tracker</p>
+<p>By default, opening and closing of data files (aka event files) is
+controlled via MWClient.  By including a data file device in your
+experiment, you can transfer responsibility for data-file management to the
+experiment itself.</p>
+<p>If an experiment includes a data file device, a data file will be opened
+automatically when the experiment starts running.  If a data file with the
+specified <a class="reference internal" href="#filename">filename</a> is already open (e.g. because this is the second run
+of a protocol), then the existing file remains open.  If a data file with a
+different name is open, that file is closed before the new file is created.
+If a data file with the specified filename already exists and is not
+currently open, the existing file will <em>not</em> be overwritten.  If opening the
+data file fails for this or any other reason, the experiment will not start.</p>
+<p>While an experiment with a data file device is loaded, data files cannot be
+opened or closed via MWClient.  However, the client will still
+display the name of the current data file.</p>
+<p><em>Note</em>: An experiment can include only one data file device.  Also, <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a>, <a class="reference internal" href="stop_io_device.html#stop-io-device"><span class="std std-ref">Stop IO Device</span></a>, and <a class="reference internal" href="#autostart">autostart</a> have no effect on this
+device.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">iodevice/easy_eye</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">iodevice/data_file</span></code></p>
 </div>
 <div class="section" id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="address">
-<h3>address<a class="headerlink" href="#address" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="filename">
+<h3>filename<a class="headerlink" href="#filename" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Examples</dt>
 <dd class="field-odd"><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">localhost</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">&quot;mytracker.mylab.net&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">18.9.22.69</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">my_file</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">my_experiment/${subject}/run-${run_counter}</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">/Volumes/Data/exp1/$(date(&quot;%Y%m%d-%H%M%S&quot;))</span></code></div>
 </div>
 </dd>
 </dl>
-<p>Tracker host name or IP address</p>
-</div>
-<div class="section" id="port">
-<h3>port<a class="headerlink" href="#port" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Example</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5204</span></code></p>
-</dd>
-</dl>
-<p>Tracker listening port</p>
-</div>
-<div class="section" id="eye-x">
-<h3>eye_x<a class="headerlink" href="#eye-x" title="Permalink to this headline">¶</a></h3>
-<p>Variable in which to store horizontal eye position</p>
-</div>
-<div class="section" id="eye-y">
-<h3>eye_y<a class="headerlink" href="#eye-y" title="Permalink to this headline">¶</a></h3>
-<p>Variable in which to store vertical eye position</p>
+<p>Filesystem path and name for the data file, excluding the file
+extension (<code class="docutils literal notranslate"><span class="pre">.mwk2</span></code>), which is appended automatically.</p>
+<p>If the filename is a relative path (i.e. it does not begin with <code class="docutils literal notranslate"><span class="pre">/</span></code>),
+then the <a class="reference internal" href="../guide/data_analysis.html#accessing-the-event-file"><span class="std std-ref">standard data-file directory</span></a> is
+prepended to it before the file is created.  Absolute paths are not
+modified.</p>
+<p>Typically, the filename will make use of <a class="reference internal" href="../expressions/index.html#variable-and-expression-interpolation"><span class="std std-ref">variable and/or expression
+interpolation</span></a> to ensure that
+each experimental session produces a unique data file.  The interpolated
+components of the filename are re-evaluated each time the experiment
+starts, so changes to variable values and expression results between
+runs in a given session will result in different filenames for each run.</p>
 </div>
 </div>
 <div class="section" id="optional-parameters">
@@ -180,10 +187,10 @@ stops running, irrespective of this setting.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="eyelink_device.html" title="EyeLink Device"
+          <a href="easyeye_device.html" title="EasyEye Device"
              >next</a> |</li>
         <li class="right" >
-          <a href="data_file.html" title="Data File"
+          <a href="blackrock_led_driver.html" title="Blackrock LED Driver"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.10.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>

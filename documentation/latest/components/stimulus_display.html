@@ -94,7 +94,13 @@
 <span id="index-0"></span><span id="id1"></span><h1>Stimulus Display<a class="headerlink" href="#stimulus-display" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>A stimulus display device.  At present, MWorks always creates one (and only one) of these per experiment, regardless of whether the experiment file defines one.  By including a definition in your experiment file, you can change the display’s default background color and configure its run-time behavior.</p>
+<p>A stimulus display device.</p>
+<p>At present, MWorks creates one (and only one) of these automatically when
+needed, regardless of whether the experiment file defines one.  By including
+a definition in your experiment file, you can change the display’s default
+background color and configure its run-time behavior.</p>
+<p><em>Note</em>: <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a>, <a class="reference internal" href="stop_io_device.html#stop-io-device"><span class="std std-ref">Stop IO Device</span></a>, and <a class="reference internal" href="#autostart">autostart</a> have no effect
+on this device.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
@@ -143,7 +149,7 @@ of <a class="reference internal" href="#background-color">background_color</a> t
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
 </dd>
 </dl>
-<p>Controls the announcement of stimuli during “implicit” display updates (i.e. updates requested by running dynamic stimuli and <em>not</em> triggered by an explicit <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action).  If set to <code class="docutils literal notranslate"><span class="pre">NO</span></code>, <code class="docutils literal notranslate"><span class="pre">#stimDisplayUpdate</span></code> events for implicit updates will contain only the number of stimuli displayed (in place of the usual list of stimulus parameters).</p>
+<p>Controls the announcement of stimuli during “implicit” display updates (i.e. updates requested by running dynamic stimuli and <em>not</em> triggered by an explicit <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action).  If set to <code class="docutils literal notranslate"><span class="pre">NO</span></code>, <a class="reference internal" href="../reference/sysvars.html#stimdisplayupdate-var"><span class="std std-ref">#stimDisplayUpdate</span></a> events for implicit updates will contain only the number of stimuli displayed (in place of the usual list of stimulus parameters).</p>
 </div>
 <div class="section" id="autostart">
 <h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>

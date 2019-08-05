@@ -14,6 +14,7 @@ Input/output (I/O) devices
    :maxdepth: 1
 
    blackrock_led_driver
+   data_file
    easyeye_device
    eyelink_device
    face_recognizer

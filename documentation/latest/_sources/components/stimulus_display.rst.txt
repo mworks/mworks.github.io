@@ -15,7 +15,15 @@ Stimulus Display
 
 Description
 -----------
-A stimulus display device.  At present, MWorks always creates one (and only one) of these per experiment, regardless of whether the experiment file defines one.  By including a definition in your experiment file, you can change the display's default background color and configure its run-time behavior.
+A stimulus display device.
+
+At present, MWorks creates one (and only one) of these automatically when
+needed, regardless of whether the experiment file defines one.  By including
+a definition in your experiment file, you can change the display's default
+background color and configure its run-time behavior.
+
+*Note*: `Start IO Device`, `Stop IO Device`, and `autostart`_ have no effect
+on this device.
 
 
 
@@ -63,7 +71,7 @@ announce_stimuli_on_implicit_updates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :Default: ``YES``
 
-Controls the announcement of stimuli during "implicit" display updates (i.e. updates requested by running dynamic stimuli and *not* triggered by an explicit `Update Stimulus Display` action).  If set to ``NO``, ``#stimDisplayUpdate`` events for implicit updates will contain only the number of stimuli displayed (in place of the usual list of stimulus parameters).
+Controls the announcement of stimuli during "implicit" display updates (i.e. updates requested by running dynamic stimuli and *not* triggered by an explicit `Update Stimulus Display` action).  If set to ``NO``, `stimDisplayUpdate var` events for implicit updates will contain only the number of stimuli displayed (in place of the usual list of stimulus parameters).
 
 
 autostart
