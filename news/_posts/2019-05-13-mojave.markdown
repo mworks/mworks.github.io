@@ -9,9 +9,11 @@ If you're thinking about upgrading to [macOS Mojave (10.14)](https://en.wikipedi
 
 ### Issue with multiple displays
 
-macOS Mojave appears to have trouble driving multiple displays simultaneously.  The issue manifests as [visible stuttering](https://forums.developer.apple.com/thread/112468) in on-screen graphics.  In MWorks, these stutters are accompanied by bouts of "Skipped *xx* display refresh cycles" messages.  In my experience, the stuttering episodes occur cyclically, with 1-2 minutes of stuttering followed by 5-10 minutes of normal graphics performance.  The only remedy is to reduce the total number of connected displays (both internal and external) to one.
+**Update (2019/8/12)**: The issue described below appears to be fixed in macOS 10.14.6.  I no longer observe the telltale stuttering on either of my Mojave systems.  Reportedly, the issue is [absent in the macOS Catalina beta](https://forums.developer.apple.com/thread/112468#368882) as well.
 
-I have observed this issue on a late-2013 Mac Pro and a 2018 Mac mini, both running macOS 10.14.4 (though it may affect earlier 10.14 releases, too).  I have not observed it on earlier macOS versions.  Also, this issue is not present on iOS.
+~~macOS Mojave appears to have trouble driving multiple displays simultaneously.  The issue manifests as [visible stuttering](https://forums.developer.apple.com/thread/112468) in on-screen graphics.  In MWorks, these stutters are accompanied by bouts of "Skipped *xx* display refresh cycles" messages.  In my experience, the stuttering episodes occur cyclically, with 1-2 minutes of stuttering followed by 5-10 minutes of normal graphics performance.  The only remedy is to reduce the total number of connected displays (both internal and external) to one.~~
+
+~~I have observed this issue on a late-2013 Mac Pro and a 2018 Mac mini, both running macOS 10.14.4 (though it may affect earlier 10.14 releases, too).  I have not observed it on earlier macOS versions.  Also, this issue is not present on iOS.~~
 
 
 ### Support for 2010/2012 Mac Pro
