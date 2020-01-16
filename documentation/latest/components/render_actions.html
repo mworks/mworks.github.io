@@ -1,0 +1,255 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Render Actions &#8212; MWorks 0.10.dev documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Stimulus Group" href="stimulus_group.html" />
+    <link rel="prev" title="Rectangle Stimulus" href="rectangle_stimulus.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="stimulus_group.html" title="Stimulus Group"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="rectangle_stimulus.html" title="Rectangle Stimulus"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.10.dev documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="stimuli.html" accesskey="U">Stimuli</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Render Actions</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#elapsed-time">elapsed_time</a></li>
+<li><a class="reference internal" href="#autoplay">autoplay</a></li>
+<li><a class="reference internal" href="#deferred">deferred</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="rectangle_stimulus.html"
+                        title="previous chapter">Rectangle Stimulus</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="stimulus_group.html"
+                        title="next chapter">Stimulus Group</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="render-actions">
+<span id="index-0"></span><span id="id1"></span><h1>Render Actions<a class="headerlink" href="#render-actions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Render Actions is a special type of stimulus that enables dynamic parameter
+changes to (i.e. animation of) other stimulus types.</p>
+<p>Like other stimuli, a Render Actions stimulus must be added to the display
+queue with <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">Queue Stimulus</span></a> and made active with <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a>.
+However, instead of drawing to the display like a normal stimulus, a Render
+Actions instance executes a set of attached <a class="reference internal" href="actions.html#actions"><span class="std std-ref">actions</span></a>.  By
+changing the values of variables used in the parameters of other stimuli,
+these actions can alter the appearance of said stimuli on a frame-by-frame
+basis.</p>
+<p>For example, consider the following <a class="reference internal" href="ellipse_stimulus.html#ellipse-stimulus"><span class="std std-ref">circle stimulus</span></a>,
+whose <code class="docutils literal notranslate"><span class="pre">x_position</span></code> and <code class="docutils literal notranslate"><span class="pre">x_size</span></code> parameters are given by variables:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var position = 0
+var size = 0
+
+circle ball (
+    color = 1,0,0
+    x_position = position
+    x_size = size
+    )
+</pre></div>
+</div>
+<p>By using a Render Actions instance to alter the variables’ values, we can
+turn this normally static circle into an animated one:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var elapsed_time = 0
+
+render_actions update_position_and_size (
+    elapsed_time = elapsed_time
+    ) {
+    // Vary position and size sinusoidally with a period of
+    // three seconds
+    position = -15 * cos(2*pi() * elapsed_time / 3s)
+    size = 3 * (sin(2*pi() * elapsed_time / 3s) + 1) + 2
+}
+</pre></div>
+</div>
+<p>Inside our protocol, we can start the animation by queuing both stimuli
+and updating the stimulus display:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>queue_stimulus (update_position_and_size)
+live_queue_stimulus (ball)
+update_display ()
+</pre></div>
+</div>
+<p>(<em>Note</em>: In order for changes to its position and size to take effect
+immediately, we must <a class="reference internal" href="live_queue_stimulus.html#live-queue-stimulus"><span class="std std-ref">live queue</span></a> the circle.)</p>
+<p>As with other dynamic stimuli, an experiment can <a class="reference internal" href="pause_dynamic_stimulus.html#pause-dynamic-stimulus"><span class="std std-ref">pause</span></a>, <a class="reference internal" href="unpause_dynamic_stimulus.html#unpause-dynamic-stimulus"><span class="std std-ref">resume</span></a>, <a class="reference internal" href="stop_dynamic_stimulus.html#stop-dynamic-stimulus"><span class="std std-ref">stop</span></a>, and <a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">restart</span></a> a Render Actions stimulus.
+While the stimulus is paused, its attached actions do not execute, and the
+value reported by <a class="reference internal" href="#elapsed-time">elapsed_time</a> does not increase.  Stopping and
+restarting the stimulus resets the elapsed time to zero.</p>
+<p class="rubric">Restrictions</p>
+<p>Because a Render Actions stimulus executes on the stimulus display update
+thread, there are some restrictions on the actions that it can perform.</p>
+<p>The following actions must <em>not</em> be executed by a Render Actions stimulus
+(either directly or via <a class="reference internal" href="../guide/designing.html#variable-attached-actions"><span class="std std-ref">variable-attached actions</span></a>), as they can cause the MWorks server to deadlock:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="clear_stimulus_display.html#clear-stimulus-display"><span class="std std-ref">Clear Stimulus Display</span></a></p></li>
+<li><p><a class="reference internal" href="dequeue_stimulus.html#dequeue-stimulus"><span class="std std-ref">Dequeue Stimulus</span></a></p></li>
+<li><p><a class="reference internal" href="live_queue_stimulus.html#live-queue-stimulus"><span class="std std-ref">Live Queue Stimulus</span></a></p></li>
+<li><p><a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">Load Stimulus</span></a></p></li>
+<li><p><a class="reference internal" href="pause_experiment.html#pause-experiment"><span class="std std-ref">Pause Experiment</span></a></p></li>
+<li><p><a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">Queue Stimulus</span></a></p></li>
+<li><p><a class="reference internal" href="resume_experiment.html#resume-experiment"><span class="std std-ref">Resume Experiment</span></a></p></li>
+<li><p><a class="reference internal" href="stop_experiment.html#stop-experiment"><span class="std std-ref">Stop Experiment</span></a></p></li>
+<li><p><a class="reference internal" href="unload_stimulus.html#unload-stimulus"><span class="std std-ref">Unload Stimulus</span></a></p></li>
+<li><p><a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a></p></li>
+</ul>
+<p>A Render Actions stimulus can safely use the following actions on other
+stimuli but not on itself:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="bring_stimulus_to_front.html#bring-stimulus-to-front"><span class="std std-ref">Bring Stimulus to Front</span></a></p></li>
+<li><p><a class="reference internal" href="pause_dynamic_stimulus.html#pause-dynamic-stimulus"><span class="std std-ref">Pause Dynamic Stimulus</span></a></p></li>
+<li><p><a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">Play Dynamic Stimulus</span></a></p></li>
+<li><p><a class="reference internal" href="send_stimulus_to_back.html#send-stimulus-to-back"><span class="std std-ref">Send Stimulus to Back</span></a></p></li>
+<li><p><a class="reference internal" href="stop_dynamic_stimulus.html#stop-dynamic-stimulus"><span class="std std-ref">Stop Dynamic Stimulus</span></a></p></li>
+<li><p><a class="reference internal" href="unpause_dynamic_stimulus.html#unpause-dynamic-stimulus"><span class="std std-ref">Unpause Dynamic Stimulus</span></a></p></li>
+</ul>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">stimulus/render_actions</span></code></p>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="elapsed-time">
+<h3>elapsed_time<a class="headerlink" href="#elapsed-time" title="Permalink to this headline">¶</a></h3>
+<p>Name of a variable in which to store the elapsed time (in microseconds)
+since the stimulus started playing (either implicitly due to <a class="reference internal" href="#autoplay">autoplay</a>
+being <code class="docutils literal notranslate"><span class="pre">YES</span></code> or via an explicit <a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">Play Dynamic Stimulus</span></a> action).</p>
+<p>If the stimulus has been paused (e.g. via <a class="reference internal" href="pause_dynamic_stimulus.html#pause-dynamic-stimulus"><span class="std std-ref">Pause Dynamic Stimulus</span></a> or
+<a class="reference internal" href="pause_experiment.html#pause-experiment"><span class="std std-ref">Pause Experiment</span></a>), the time elapsed while paused is excluded from the
+reported elapsed time.</p>
+</div>
+<div class="section" id="autoplay">
+<h3>autoplay<a class="headerlink" href="#autoplay" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus will begin executing its actions automatically (as if by an implicit <a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">Play Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> has been invoked.  It will also stop executing automatically (as if by an implicit <a class="reference internal" href="stop_dynamic_stimulus.html#stop-dynamic-stimulus"><span class="std std-ref">Stop Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="dequeue_stimulus.html#dequeue-stimulus"><span class="std std-ref">dequeued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> is invoked.</p>
+</div>
+<div class="section" id="deferred">
+<h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">no</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">yes</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">explicit</span></code></div>
+</div>
+</dd>
+<dt class="field-even">Default</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">no</span></code></p>
+</dd>
+</dl>
+<p>Controls when the stimulus is loaded.  If <code class="docutils literal notranslate"><span class="pre">no</span></code>, the stimulus is loaded at experiment load time.  If <code class="docutils literal notranslate"><span class="pre">yes</span></code>, the stimulus is loaded the first time it is <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a>.  If <code class="docutils literal notranslate"><span class="pre">explicit</span></code>, the stimulus must be loaded explictly with <a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">Load Stimulus</span></a>.</p>
+</div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">Layer Stimulus</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="movie_stimulus.html#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Allowed children:</p></th>
+<td><p><a class="reference internal" href="actions.html#actions"><span class="std std-ref">Action</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="stimulus_group.html" title="Stimulus Group"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="rectangle_stimulus.html" title="Rectangle Stimulus"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.10.dev documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="stimuli.html" >Stimuli</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2020, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
+    </div>
+  </body>
+</html>

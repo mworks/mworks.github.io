@@ -26,6 +26,7 @@ Visual stimuli
    movie_stimulus
    moving_dots
    rectangle_stimulus
+   render_actions
    stimulus_group
    text_stimulus
    video_stimulus

@@ -72,7 +72,11 @@
 <li><a class="reference internal" href="#selection-variables">Selection Variables</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#stimulus-animation">Stimulus Animation</a></li>
+<li><a class="reference internal" href="#stimulus-animation">Stimulus Animation</a><ul>
+<li><a class="reference internal" href="#render-actions">Render Actions</a></li>
+<li><a class="reference internal" href="#time-varying-parameter-expressions">Time-Varying Parameter Expressions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -402,7 +406,7 @@ update_display ()
 <div class="section" id="advanced-tools-and-techniques">
 <h2>Advanced Tools and Techniques<a class="headerlink" href="#advanced-tools-and-techniques" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="variable-attached-actions">
-<h3>Variable-Attached Actions<a class="headerlink" href="#variable-attached-actions" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>Variable-Attached Actions<a class="headerlink" href="#variable-attached-actions" title="Permalink to this headline">¶</a></h3>
 <p>Although <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a> normally reside inside a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a>, you can also attach them to <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variables</span></a>.</p>
 <p>Actions that are attached to a variable execute every time the variable is assigned a value.  For example, by attaching a <a class="reference internal" href="../components/report_message.html#report-message"><span class="std std-ref">report</span></a> action to a variable, you can log a message every time the variable’s value is set:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var x = 0 {
@@ -515,7 +519,7 @@ stimulus_group images {
 </div>
 </div>
 <div class="section" id="selection">
-<span id="id2"></span><h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
 <p>In MWorks, <em>selection</em> is a mechanism for controlling the ordering and repetition of experimental tasks and parameters.  A <em>selectable object</em> is a container from which items are drawn (“selected”) in sequential or random order.  After being drawn, selected items can be <em>accepted</em> (removed from the container permanently) or <em>rejected</em> (placed back in the container to be selected again).</p>
 <div class="section" id="selection-parameters">
 <h4>Selection Parameters<a class="headerlink" href="#selection-parameters" title="Permalink to this headline">¶</a></h4>
@@ -627,7 +631,13 @@ stimulus_group images {
 <div class="section" id="stimulus-animation">
 <h3>Stimulus Animation<a class="headerlink" href="#stimulus-animation" title="Permalink to this headline">¶</a></h3>
 <p>Although some of MWorks’ visual stimuli (such as <a class="reference internal" href="../components/video_stimulus.html#video-stimulus"><span class="std std-ref">videos</span></a> and <a class="reference internal" href="../components/drifting_grating_stimulus.html#drifting-grating-stimulus"><span class="std std-ref">drifting gratings</span></a>) are inherently dynamic, most are  designed for static display, with changes to their color, size, position, etc. being made explicitly by the experiment.  However, with a little work, these normally-static stimuli can be animated, opening the door to user-defined dynamic stimulus presentations.</p>
-<p>Animating a non-dynamic stimulus involves three steps:</p>
+<div class="section" id="render-actions">
+<h4>Render Actions<a class="headerlink" href="#render-actions" title="Permalink to this headline">¶</a></h4>
+<p>The easiest and most straightforward way to animate a non-dynamic stimulus is to use <a class="reference internal" href="../components/render_actions.html#render-actions"><span class="std std-ref">Render Actions</span></a>.  For a demonstration of moderately complex stimulus animation using this technique, see the example experiment <code class="docutils literal notranslate"><span class="pre">BouncingBall.mwel</span></code>.</p>
+</div>
+<div class="section" id="time-varying-parameter-expressions">
+<h4>Time-Varying Parameter Expressions<a class="headerlink" href="#time-varying-parameter-expressions" title="Permalink to this headline">¶</a></h4>
+<p>Although <a class="reference internal" href="../components/render_actions.html#render-actions"><span class="std std-ref">Render Actions</span></a> is the right choice for most new experiments, older experiments may employ an alternative technique to animate non-dynamic stimuli.  This technique involves three steps:</p>
 <ol class="arabic simple">
 <li><p>Writing the stimulus parameters that you want to animate as time-varying expressions,</p></li>
 <li><p>Arranging for the stimulus display to redraw itself on every display refesh, and</p></li>
@@ -674,7 +684,7 @@ live_queue_stimulus (ball)
 update_display ()
 </pre></div>
 </div>
-<p>For a demonstration of more complex stimulus animation, see the example experiment <code class="docutils literal notranslate"><span class="pre">BouncingBall.mwel</span></code>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -702,8 +712,8 @@ update_display ()
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2019, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+        &#169; Copyright 2016-2020, The MWorks Project.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
     </div>
   </body>
 </html>
