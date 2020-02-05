@@ -55,6 +55,7 @@
 <li><a class="reference internal" href="#temp-b">temp_b</a></li>
 <li><a class="reference internal" href="#temp-c">temp_c</a></li>
 <li><a class="reference internal" href="#temp-d">temp_d</a></li>
+<li><a class="reference internal" href="#temp-calc">temp_calc</a></li>
 <li><a class="reference internal" href="#autostart">autostart</a></li>
 <li><a class="reference internal" href="#alt">alt</a></li>
 </ul>
@@ -107,19 +108,39 @@
 </div>
 <div class="section" id="temp-a">
 <h3>temp_a<a class="headerlink" href="#temp-a" title="Permalink to this headline">¶</a></h3>
-<p>Variable in which to store thermistor readout from bank A (reported in degrees Celsius)</p>
+<p>Variable in which to store thermistor readout from bank A</p>
 </div>
 <div class="section" id="temp-b">
 <h3>temp_b<a class="headerlink" href="#temp-b" title="Permalink to this headline">¶</a></h3>
-<p>Variable in which to store thermistor readout from bank B (reported in degrees Celsius)</p>
+<p>Variable in which to store thermistor readout from bank B</p>
 </div>
 <div class="section" id="temp-c">
 <h3>temp_c<a class="headerlink" href="#temp-c" title="Permalink to this headline">¶</a></h3>
-<p>Variable in which to store thermistor readout from bank C (reported in degrees Celsius)</p>
+<p>Variable in which to store thermistor readout from bank C</p>
 </div>
 <div class="section" id="temp-d">
 <h3>temp_d<a class="headerlink" href="#temp-d" title="Permalink to this headline">¶</a></h3>
-<p>Variable in which to store thermistor readout from bank D (reported in degrees Celsius)</p>
+<p>Variable in which to store thermistor readout from bank D</p>
+</div>
+<div class="section" id="temp-calc">
+<h3>temp_calc<a class="headerlink" href="#temp-calc" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">5k</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">10k</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">none</span></code></div>
+</div>
+</dd>
+<dt class="field-even">Default</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">none</span></code></p>
+</dd>
+</dl>
+<p>Calculation to use to convert raw thermistor readouts to temperatures in
+degrees Celsius.</p>
+<p>Normally, either <code class="docutils literal notranslate"><span class="pre">5k</span></code> or <code class="docutils literal notranslate"><span class="pre">10k</span></code> should be used, depending on the
+connector type.  If <code class="docutils literal notranslate"><span class="pre">none</span></code> is specified, the raw thermistor readouts
+(divided by 1000) are reported.</p>
 </div>
 <div class="section" id="autostart">
 <h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>

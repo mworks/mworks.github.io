@@ -37,25 +37,40 @@ Variable to set to true when the LED program starts running, false when it stops
 temp_a
 ^^^^^^
 
-Variable in which to store thermistor readout from bank A (reported in degrees Celsius)
+Variable in which to store thermistor readout from bank A
 
 
 temp_b
 ^^^^^^
 
-Variable in which to store thermistor readout from bank B (reported in degrees Celsius)
+Variable in which to store thermistor readout from bank B
 
 
 temp_c
 ^^^^^^
 
-Variable in which to store thermistor readout from bank C (reported in degrees Celsius)
+Variable in which to store thermistor readout from bank C
 
 
 temp_d
 ^^^^^^
 
-Variable in which to store thermistor readout from bank D (reported in degrees Celsius)
+Variable in which to store thermistor readout from bank D
+
+
+temp_calc
+^^^^^^^^^
+:Options: | ``5k``
+          | ``10k``
+          | ``none``
+:Default: ``none``
+
+Calculation to use to convert raw thermistor readouts to temperatures in
+degrees Celsius.
+
+Normally, either ``5k`` or ``10k`` should be used, depending on the
+connector type.  If ``none`` is specified, the raw thermistor readouts
+(divided by 1000) are reported.
 
 
 autostart

@@ -58,6 +58,7 @@ Actions are the smallest unit of execution logic within an experiment. They init
    set_timebase
    start_io_device
    start_timer
+   stop_blackrock_led_driver
    stop_dynamic_stimulus
    stop_experiment
    stop_io_device
