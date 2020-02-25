@@ -9,19 +9,19 @@
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Image Stimulus" href="image_stimulus.html" />
     <link rel="prev" title="Frame List Stimulus" href="frame_list_stimulus.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -55,14 +55,6 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
-<li><a class="reference internal" href="#x-size">x_size</a></li>
-<li><a class="reference internal" href="#y-size">y_size</a></li>
-<li><a class="reference internal" href="#x-position">x_position</a></li>
-<li><a class="reference internal" href="#y-position">y_position</a></li>
-<li><a class="reference internal" href="#rotation">rotation</a></li>
-<li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
-<li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
-<li><a class="reference internal" href="#announce-load">announce_load</a></li>
 <li><a class="reference internal" href="#ended">ended</a></li>
 <li><a class="reference internal" href="#loop">loop</a></li>
 <li><a class="reference internal" href="#repeats">repeats</a></li>
@@ -90,7 +82,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -104,10 +96,8 @@
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>A movie stimulus that gets its frames from a directory of image files.</p>
-<p><em>Note</em>:  To preserve each image’s aspect ratio on screen, <a class="reference internal" href="#x-size">x_size</a> and
-<a class="reference internal" href="#y-size">y_size</a> must be equal.  When drawn, the larger dimension spans the full
-specified size, while the smaller dimension is scaled to maintain the
-aspect ratio.</p>
+<p><em>Note</em>:  In addition to the parameters described below, this stimulus also
+accepts all the parameters of <a class="reference internal" href="image_stimulus.html#image-stimulus"><span class="std std-ref">Image Stimulus</span></a> (excluding <code class="docutils literal notranslate"><span class="pre">path</span></code>).</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
@@ -128,82 +118,6 @@ ordered according to the lexical sort order of the file names.</p>
 </div>
 <div class="section" id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="x-size">
-<h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Example</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5.0</span></code></p>
-</dd>
-</dl>
-<p>Horizontal size (degrees).</p>
-<p>If omitted, the value of <a class="reference internal" href="#y-size">y_size</a> is used.  It is an error to omit both
-x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
-</div>
-<div class="section" id="y-size">
-<h3>y_size<a class="headerlink" href="#y-size" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Example</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5.0</span></code></p>
-</dd>
-</dl>
-<p>Vertical size (degrees).</p>
-<p>If omitted, the value of <a class="reference internal" href="#x-size">x_size</a> is used.  It is an error to omit both
-x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
-</div>
-<div class="section" id="x-position">
-<h3>x_position<a class="headerlink" href="#x-position" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Default</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
-</dd>
-</dl>
-<p>Horizontal center position (degrees)</p>
-</div>
-<div class="section" id="y-position">
-<h3>y_position<a class="headerlink" href="#y-position" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Default</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
-</dd>
-</dl>
-<p>Vertical center position (degrees)</p>
-</div>
-<div class="section" id="rotation">
-<h3>rotation<a class="headerlink" href="#rotation" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Default</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
-</dd>
-</dl>
-<p>Rotation (degrees)</p>
-</div>
-<div class="section" id="alpha-multiplier">
-<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Default</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
-</dd>
-</dl>
-<p>Controls the transparency of the stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
-</div>
-<div class="section" id="fullscreen">
-<h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Default</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
-</dd>
-</dl>
-<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus is sized to fill the display.  In this mode, <a class="reference internal" href="#x-size">x_size</a>, <a class="reference internal" href="#y-size">y_size</a>, <a class="reference internal" href="#x-position">x_position</a>, <a class="reference internal" href="#y-position">y_position</a>, and <a class="reference internal" href="#rotation">rotation</a> are ignored.</p>
-</div>
-<div class="section" id="announce-load">
-<h3>announce_load<a class="headerlink" href="#announce-load" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Default</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
-</dd>
-</dl>
-<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, messages will be posted to the console and event stream when images are loaded or unloaded.</p>
-</div>
 <div class="section" id="ended">
 <h3>ended<a class="headerlink" href="#ended" title="Permalink to this headline">¶</a></h3>
 <p>Variable that will be set to true after the last frame has displayed. (Specifically, it will be set to true at the time that the next frame <em>after</em> the last would have been drawn, if there were one.)</p>
@@ -295,7 +209,7 @@ will always run at least once, even if this value is less than one.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.3.
     </div>
   </body>
 </html>

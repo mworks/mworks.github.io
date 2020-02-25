@@ -9,19 +9,19 @@
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Video Stimulus" href="video_stimulus.html" />
     <link rel="prev" title="Stimulus Group" href="stimulus_group.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <script src="_static/css3-mediaqueries.js"></script>
     <![endif]-->
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -59,6 +59,10 @@
 <li><a class="reference internal" href="#text-alignment">text_alignment</a></li>
 <li><a class="reference internal" href="#color">color</a></li>
 <li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
+<li><a class="reference internal" href="#source-blend-factor">source_blend_factor</a></li>
+<li><a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a></li>
+<li><a class="reference internal" href="#source-alpha-blend-factor">source_alpha_blend_factor</a></li>
+<li><a class="reference internal" href="#dest-alpha-blend-factor">dest_alpha_blend_factor</a></li>
 <li><a class="reference internal" href="#x-size">x_size</a></li>
 <li><a class="reference internal" href="#y-size">y_size</a></li>
 <li><a class="reference internal" href="#x-position">x_position</a></li>
@@ -88,7 +92,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -177,7 +181,66 @@
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
 </dd>
 </dl>
-<p>Controls the transparency of the stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
+<p>By default, the alpha multiplier controls the transparency of the
+stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
+<p>Changes to the parameters <a class="reference internal" href="#source-blend-factor">source_blend_factor</a> and
+<a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a> can alter how (or if) the alpha multiplier is used.</p>
+</div>
+<div class="section" id="source-blend-factor">
+<h3>source_blend_factor<a class="headerlink" href="#source-blend-factor" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zero</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">one</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">source_color</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">one_minus_source_color</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dest_color</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">one_minus_dest_color</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">source_alpha</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">one_minus_source_alpha</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dest_alpha</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">one_minus_dest_alpha</span></code></div>
+</div>
+</dd>
+<dt class="field-even">Default</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">source_alpha</span></code></p>
+</dd>
+</dl>
+<p>Source blending factor.</p>
+<p>The parameters <a class="reference internal" href="#source-blend-factor">source_blend_factor</a>, <a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a>,
+<a class="reference internal" href="#source-alpha-blend-factor">source_alpha_blend_factor</a>, and <a class="reference internal" href="#dest-alpha-blend-factor">dest_alpha_blend_factor</a> provide
+detailed control over how the color components and alpha multiplier of
+each fragment of the stimulus (the “source”) are combined with the color
+and alpha values already present in the framebuffer (the “destination”),
+which in turn result from blending the stimulus display background with
+any stimuli drawn beneath the source stimulus.  These parameters
+correspond directly to the four arguments of the <a class="reference external" href="https://www.opengl.org">OpenGL</a> function <a class="reference external" href="https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendFuncSeparate.xhtml">glBlendFuncSeparate</a>.
+Please refer to that function’s reference page for explanations of the
+different blend factor options.</p>
+<p><em>Note</em>:  Irrespective of the blend factors used, the <a class="reference external" href="https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendEquation.xhtml">blend equation</a>
+is always <code class="docutils literal notranslate"><span class="pre">GL_FUNC_ADD</span></code>.</p>
+</div>
+<div class="section" id="dest-blend-factor">
+<h3>dest_blend_factor<a class="headerlink" href="#dest-blend-factor" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">one_minus_source_alpha</span></code></p>
+</dd>
+</dl>
+<p>Destination blending factor.  Accepts the same values as <a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
+</div>
+<div class="section" id="source-alpha-blend-factor">
+<h3>source_alpha_blend_factor<a class="headerlink" href="#source-alpha-blend-factor" title="Permalink to this headline">¶</a></h3>
+<p>Source alpha blending factor.  Accepts the same values as
+<a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
+<p>If omitted, the value of <a class="reference internal" href="#source-blend-factor">source_blend_factor</a> is used.</p>
+</div>
+<div class="section" id="dest-alpha-blend-factor">
+<h3>dest_alpha_blend_factor<a class="headerlink" href="#dest-alpha-blend-factor" title="Permalink to this headline">¶</a></h3>
+<p>Destination alpha blending factor.  Accepts the same values as
+<a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
+<p>If omitted, the value of <a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a> is used.</p>
 </div>
 <div class="section" id="x-size">
 <h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
@@ -295,7 +358,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.3.
     </div>
   </body>
 </html>

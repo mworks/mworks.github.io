@@ -22,6 +22,10 @@ An image stimulus loaded from any standard-format image file.
 specified size, while the smaller dimension is scaled to maintain the
 aspect ratio.
 
+*Note*:  If the image contains an `alpha channel
+<https://en.wikipedia.org/wiki/Alpha_compositing>`_, the embedded alpha
+value for each pixel is multiplied by the value of `alpha_multiplier`_.
+
 
 
 Signature
@@ -55,7 +59,70 @@ alpha_multiplier
 ^^^^^^^^^^^^^^^^
 :Default: ``1.0``
 
-Controls the transparency of the stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+By default, the alpha multiplier controls the transparency of the
+stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+Changes to the parameters `source_blend_factor`_ and
+`dest_blend_factor`_ can alter how (or if) the alpha multiplier is used.
+
+
+source_blend_factor
+^^^^^^^^^^^^^^^^^^^
+:Options: | ``zero``
+          | ``one``
+          | ``source_color``
+          | ``one_minus_source_color``
+          | ``dest_color``
+          | ``one_minus_dest_color``
+          | ``source_alpha``
+          | ``one_minus_source_alpha``
+          | ``dest_alpha``
+          | ``one_minus_dest_alpha``
+:Default: ``source_alpha``
+
+Source blending factor.
+
+The parameters `source_blend_factor`_, `dest_blend_factor`_,
+`source_alpha_blend_factor`_, and `dest_alpha_blend_factor`_ provide
+detailed control over how the color components and alpha multiplier of
+each fragment of the stimulus (the "source") are combined with the color
+and alpha values already present in the framebuffer (the "destination"),
+which in turn result from blending the stimulus display background with
+any stimuli drawn beneath the source stimulus.  These parameters
+correspond directly to the four arguments of the `OpenGL
+<https://www.opengl.org>`_ function `glBlendFuncSeparate
+<https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendFuncSeparate.xhtml>`_.
+Please refer to that function's reference page for explanations of the
+different blend factor options.
+
+*Note*:  Irrespective of the blend factors used, the `blend equation
+<https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendEquation.xhtml>`_
+is always ``GL_FUNC_ADD``.
+
+
+dest_blend_factor
+^^^^^^^^^^^^^^^^^
+:Default: ``one_minus_source_alpha``
+
+Destination blending factor.  Accepts the same values as `source_blend_factor`_.
+
+
+source_alpha_blend_factor
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Source alpha blending factor.  Accepts the same values as
+`source_blend_factor`_.
+
+If omitted, the value of `source_blend_factor`_ is used.
+
+
+dest_alpha_blend_factor
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Destination alpha blending factor.  Accepts the same values as
+`source_blend_factor`_.
+
+If omitted, the value of `dest_blend_factor`_ is used.
 
 
 x_size
