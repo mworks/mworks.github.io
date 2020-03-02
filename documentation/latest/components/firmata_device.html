@@ -53,6 +53,8 @@
 <li><a class="reference internal" href="#serial-port">serial_port</a></li>
 <li><a class="reference internal" href="#bluetooth-local-name">bluetooth_local_name</a></li>
 <li><a class="reference internal" href="#data-interval">data_interval</a></li>
+<li><a class="reference internal" href="#connected">connected</a></li>
+<li><a class="reference internal" href="#reconnect-interval">reconnect_interval</a></li>
 <li><a class="reference internal" href="#autostart">autostart</a></li>
 <li><a class="reference internal" href="#alt">alt</a></li>
 </ul>
@@ -135,6 +137,34 @@ parameter specifies its local name</p>
 </dd>
 </dl>
 <p>Sampling interval for analog inputs.  Must be a whole number of milliseconds.</p>
+</div>
+<div class="section" id="connected">
+<h3>connected<a class="headerlink" href="#connected" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store connection state of the Firmata device (true
+if currently connected, false otherwise).</p>
+<p>Normally, the device should be connected at all times.  However, by
+monitoring the value of the specified variable, you can detect and
+respond to unexpected disconnections.</p>
+</div>
+<div class="section" id="reconnect-interval">
+<h3>reconnect_interval<a class="headerlink" href="#reconnect-interval" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+<dt class="field-even">Example</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">10s</span></code></p>
+</dd>
+</dl>
+<p>If the Firmata device disconnects unexpectedly (e.g. due to power
+failure), and the value of this parameter is greater than zero, then the
+device will attempt to reconnect at this interval.</p>
+<p>For example, if this parameter is set to <code class="docutils literal notranslate"><span class="pre">10s</span></code>, then, upon
+disconnection, the device will wait for 10 seconds and then try to
+reconnect.  If the reconnection attempt fails, the device will wait for
+another 10 seconds, then try again, and so on.</p>
+<p>If the value of this parameter is zero, the device will never attempt to
+reconnect.</p>
 </div>
 <div class="section" id="autostart">
 <h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
