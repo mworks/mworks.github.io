@@ -15,6 +15,13 @@ Input/output (I/O) devices
 
    blackrock_led_driver
    data_file
+   datapixx_analog_input_channel
+   datapixx_analog_output_channel
+   datapixx_bit_input_channel
+   datapixx_bit_output_channel
+   datapixx_device
+   datapixx_word_input_channel
+   datapixx_word_output_channel
    easyeye_device
    eyelink_device
    face_recognizer
