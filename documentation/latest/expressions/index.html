@@ -2,9 +2,10 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expressions &#8212; MWorks 0.10.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -37,57 +38,10 @@
           <a href="../mwel/index.html" title="Experiment Language (MWEL)"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.10.dev documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../reference/index.html" accesskey="U">Reference Manual</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" accesskey="U">Reference Manual</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Expressions</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Expressions</a><ul>
-<li><a class="reference internal" href="#literals">Literals</a></li>
-<li><a class="reference internal" href="#operators">Operators</a><ul>
-<li><a class="reference internal" href="#units">Units</a></li>
-<li><a class="reference internal" href="#subscripting">Subscripting</a></li>
-<li><a class="reference internal" href="#precedence">Precedence</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ranges">Ranges</a></li>
-<li><a class="reference internal" href="#variables">Variables</a><ul>
-<li><a class="reference internal" href="#selection">Selection</a></li>
-<li><a class="reference internal" href="#timer">Timer</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#variable-and-expression-interpolation">Variable and Expression Interpolation</a></li>
-<li><a class="reference internal" href="#functions">Functions</a><ul>
-<li><a class="reference internal" href="#mathematical">Mathematical</a></li>
-<li><a class="reference internal" href="#random-number-generators">Random Number Generators</a></li>
-<li><a class="reference internal" href="#time-related">Time-Related</a></li>
-<li><a class="reference internal" href="#other">Other</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../mwel/index.html"
-                        title="previous chapter">Experiment Language (MWEL)</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../reference/sysvars.html"
-                        title="next chapter">System Variables</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -550,7 +504,56 @@ text = &#39;$(round(pi())) is a magic number&#39;  // text contains &quot;3 is a
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Expressions</a><ul>
+<li><a class="reference internal" href="#literals">Literals</a></li>
+<li><a class="reference internal" href="#operators">Operators</a><ul>
+<li><a class="reference internal" href="#units">Units</a></li>
+<li><a class="reference internal" href="#subscripting">Subscripting</a></li>
+<li><a class="reference internal" href="#precedence">Precedence</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ranges">Ranges</a></li>
+<li><a class="reference internal" href="#variables">Variables</a><ul>
+<li><a class="reference internal" href="#selection">Selection</a></li>
+<li><a class="reference internal" href="#timer">Timer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variable-and-expression-interpolation">Variable and Expression Interpolation</a></li>
+<li><a class="reference internal" href="#functions">Functions</a><ul>
+<li><a class="reference internal" href="#mathematical">Mathematical</a></li>
+<li><a class="reference internal" href="#random-number-generators">Random Number Generators</a></li>
+<li><a class="reference internal" href="#time-related">Time-Related</a></li>
+<li><a class="reference internal" href="#other">Other</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../mwel/index.html"
+                        title="previous chapter">Experiment Language (MWEL)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../reference/sysvars.html"
+                        title="next chapter">System Variables</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -568,12 +571,13 @@ text = &#39;$(round(pi())) is a magic number&#39;  // text contains &quot;3 is a
           <a href="../mwel/index.html" title="Experiment Language (MWEL)"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.10.dev documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Expressions</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
     </div>
   </body>
 </html>

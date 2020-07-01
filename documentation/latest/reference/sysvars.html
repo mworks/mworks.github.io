@@ -2,9 +2,10 @@
 
 <!doctype html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System Variables &#8212; MWorks 0.10.dev documentation</title>
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -37,64 +38,10 @@
           <a href="../expressions/index.html" title="Expressions"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.10.dev documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Reference Manual</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Reference Manual</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">System Variables</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">System Variables</a><ul>
-<li><a class="reference internal" href="#configuration">Configuration</a><ul>
-<li><a class="reference internal" href="#allowaltfailover">#allowAltFailover</a></li>
-<li><a class="reference internal" href="#mainscreeninfo">#mainScreenInfo</a></li>
-<li><a class="reference internal" href="#realtimecomponents">#realtimeComponents</a></li>
-<li><a class="reference internal" href="#servername">#serverName</a></li>
-<li><a class="reference internal" href="#stoponerror">#stopOnError</a></li>
-<li><a class="reference internal" href="#warnonskippedrefresh">#warnOnSkippedRefresh</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#experiment-state">Experiment State</a><ul>
-<li><a class="reference internal" href="#announceassertion">#announceAssertion</a></li>
-<li><a class="reference internal" href="#announceblock">#announceBlock</a></li>
-<li><a class="reference internal" href="#announcecalibrator">#announceCalibrator</a></li>
-<li><a class="reference internal" href="#announcecurrentstate">#announceCurrentState</a></li>
-<li><a class="reference internal" href="#announcemessage">#announceMessage</a></li>
-<li><a class="reference internal" href="#announcesound">#announceSound</a></li>
-<li><a class="reference internal" href="#announcetrial">#announceTrial</a></li>
-<li><a class="reference internal" href="#loadedexperiment">#loadedExperiment</a></li>
-<li><a class="reference internal" href="#state-system-mode">#state_system_mode</a></li>
-<li><a class="reference internal" href="#stimdisplayupdate">#stimDisplayUpdate</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#internal">Internal</a><ul>
-<li><a class="reference internal" href="#experimentloadprogress">#experimentLoadProgress</a></li>
-<li><a class="reference internal" href="#requestcalibrator">#requestCalibrator</a></li>
-<li><a class="reference internal" href="#system-event-codes">System Event Codes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="../expressions/index.html"
-                        title="previous chapter">Expressions</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../glossary.html"
-                        title="next chapter">Glossary</a></p>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -341,7 +288,63 @@
 </div>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">System Variables</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="#allowaltfailover">#allowAltFailover</a></li>
+<li><a class="reference internal" href="#mainscreeninfo">#mainScreenInfo</a></li>
+<li><a class="reference internal" href="#realtimecomponents">#realtimeComponents</a></li>
+<li><a class="reference internal" href="#servername">#serverName</a></li>
+<li><a class="reference internal" href="#stoponerror">#stopOnError</a></li>
+<li><a class="reference internal" href="#warnonskippedrefresh">#warnOnSkippedRefresh</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#experiment-state">Experiment State</a><ul>
+<li><a class="reference internal" href="#announceassertion">#announceAssertion</a></li>
+<li><a class="reference internal" href="#announceblock">#announceBlock</a></li>
+<li><a class="reference internal" href="#announcecalibrator">#announceCalibrator</a></li>
+<li><a class="reference internal" href="#announcecurrentstate">#announceCurrentState</a></li>
+<li><a class="reference internal" href="#announcemessage">#announceMessage</a></li>
+<li><a class="reference internal" href="#announcesound">#announceSound</a></li>
+<li><a class="reference internal" href="#announcetrial">#announceTrial</a></li>
+<li><a class="reference internal" href="#loadedexperiment">#loadedExperiment</a></li>
+<li><a class="reference internal" href="#state-system-mode">#state_system_mode</a></li>
+<li><a class="reference internal" href="#stimdisplayupdate">#stimDisplayUpdate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#internal">Internal</a><ul>
+<li><a class="reference internal" href="#experimentloadprogress">#experimentLoadProgress</a></li>
+<li><a class="reference internal" href="#requestcalibrator">#requestCalibrator</a></li>
+<li><a class="reference internal" href="#system-event-codes">System Event Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../expressions/index.html"
+                        title="previous chapter">Expressions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../glossary.html"
+                        title="next chapter">Glossary</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -359,12 +362,13 @@
           <a href="../expressions/index.html" title="Expressions"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.10.dev documentation</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" >Reference Manual</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" >Reference Manual</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">System Variables</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, The MWorks Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
     </div>
   </body>
 </html>

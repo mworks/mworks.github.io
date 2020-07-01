@@ -73,6 +73,13 @@ connector type.  If ``none`` is specified, the raw thermistor readouts
 (divided by 1000) are reported.
 
 
+simulate_device
+^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, simulation mode will be enabled.  In this mode, the actual LED driver hardware is not required (and will be ignored if present). All LED driver actions will execute, although communication with the driver hardware will be omitted, and `running`_ will be updated at the appropriate times.  However, `thermistor readout requests <Read Blackrock LED Driver Temperatures>` will *not* update the corresponding variables.  If you need to test your experiment's response to temperature changes, you must assign values to the temperature variables yourself.
+
+
 autostart
 ^^^^^^^^^
 :Default: ``NO``
