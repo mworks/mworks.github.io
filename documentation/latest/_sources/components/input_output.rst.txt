@@ -34,7 +34,9 @@ Input/output (I/O) devices
    firmata_device
    firmata_digital_input_channel
    firmata_digital_input_pullup_channel
+   firmata_digital_input_pulse_channel
    firmata_digital_output_channel
+   firmata_digital_output_pulse_channel
    firmata_servo_channel
    firmata_word_output_channel
    iscan_device

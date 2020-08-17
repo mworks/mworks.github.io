@@ -1,0 +1,62 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Firmata Digital Input Pulse Channel
+   single: Input/Output; Firmata Digital Input Pulse Channel
+
+.. _Firmata Digital Input Pulse Channel:
+
+Firmata Digital Input Pulse Channel
+===================================
+
+
+Description
+-----------
+Digital input pulse channel on a `Firmata Device`.
+
+A digital input pulse channel measures the duration of input "pulses" on its
+associated pin.  Whenever the pin transitions to high/true, the Firmata
+device records the pulse start time (as measured by its onboard clock). 
+When the pin transitions back to low/false, the device subtracts the start
+time from the current time and reports the elapsed duration to MWorks.
+
+*Note*: Firmata devices always report pulse durations in milliseconds. 
+MWorks converts these to microseconds before assigning them to `value`_.
+
+
+
+Signature
+---------
+``iochannel/firmata_digital_input_pulse``
+
+
+Required Parameters
+-------------------
+
+pin_number
+^^^^^^^^^^
+:Example: ``13``
+
+Input pin number
+
+value
+^^^^^
+
+Variable in which to store measured pulse duration (in microseconds)
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Firmata Device`
