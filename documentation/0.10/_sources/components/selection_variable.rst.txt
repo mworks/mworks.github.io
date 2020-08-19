@@ -1,0 +1,99 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Selection Variable
+   single: Variables; Selection Variable
+
+.. _Selection Variable:
+
+Selection Variable
+==================
+
+
+Description
+-----------
+A variable whose current value is drawn from a list of possible values.  The order and number of selected values are determined by `selection`_, `nsamples`_, and `sampling_method`_.  Use `Next Selection` to advance to the next value.
+
+
+
+Signature
+---------
+``variable/selection``
+
+
+Required Parameters
+-------------------
+
+values
+^^^^^^
+
+Comma-separated list of values from which the variable's current value is drawn.  May include :ref:`range expressions <Range Expressions>`.
+
+
+
+
+Optional Parameters
+-------------------
+
+advance_on_accept
+^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, `Accept Selections` will automatically invoke `Next Selection` (unless all selections have been exhausted)
+
+
+autoreset
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, `Reset Selections` will be invoked automatically when all selections have been exhausted
+
+
+groups
+^^^^^^
+
+Comma-separated list containing the names of groups to which the variable belongs.  Variable groups are displayed as expandable sections in MWClient's variables window.
+
+
+selection
+^^^^^^^^^
+:Options: | ``sequential``
+          | ``sequential_ascending``
+          | ``sequential_descending``
+          | ``random_without_replacement``
+          | ``random_with_replacement``
+:Default: ``sequential``
+
+Order in which to draw selections
+
+nsamples
+^^^^^^^^
+:Default: ``1``
+
+Number of samples to allow before `Reset Selections` is required
+
+
+sampling_method
+^^^^^^^^^^^^^^^
+:Options: | ``cycles``
+          | ``samples``
+:Default: ``cycles``
+
+Controls the interpretation of `nsamples`_.  If set to ``cycles``, *all* possible selections must be made to complete one sample.  If set to ``samples``, each individual selection counts as a sample.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

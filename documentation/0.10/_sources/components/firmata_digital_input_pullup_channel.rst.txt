@@ -1,0 +1,60 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Firmata Digital Input Pullup Channel
+   single: Input/Output; Firmata Digital Input Pullup Channel
+
+.. _Firmata Digital Input Pullup Channel:
+
+Firmata Digital Input Pullup Channel
+====================================
+
+
+Description
+-----------
+Digital input pullup channel on a `Firmata Device`.
+
+Unlike a standard `digital input channel <Firmata Digital Input Channel>`,
+a digital input pullup channel enables the built-in pullup resistor for its
+associated pin.  This causes the input to be high/true when unconnected and
+low/false when connected to ground. For more information, see the Arduino
+documentation on  `digital pins
+<https://www.arduino.cc/en/Tutorial/DigitalPins>`_.
+
+
+
+Signature
+---------
+``iochannel/firmata_digital_input_pullup``
+
+
+Required Parameters
+-------------------
+
+pin_number
+^^^^^^^^^^
+:Example: ``8``
+
+Input pin number
+
+value
+^^^^^
+
+Variable in which to store input state (true or false)
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Firmata Device`

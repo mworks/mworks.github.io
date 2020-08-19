@@ -1,0 +1,134 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: MSSW Gamepad
+   single: Input/Output; MSSW Gamepad
+
+.. _MSSW Gamepad:
+
+MSSW Gamepad
+============
+
+*Available on macOS*
+
+
+Description
+-----------
+Used for interfacing to a `Microsoft SideWinder
+<https://en.wikipedia.org/wiki/Microsoft_SideWinder>`_ gamepad.
+
+Button state variables are set to 1 if the button is depressed, 0 if
+released.
+
+
+
+Signature
+---------
+``iodevice/sidewinder_gamepad``
+
+
+Required Parameters
+-------------------
+
+data_type
+^^^^^^^^^
+:Recommended: ``event``
+:Options: | ``event``
+          | ``continuous``
+
+If ``event``, variables are updated only when the corresponding button's state changes.  If ``continuous``, variables are updated every `data_interval`_ period of time, even if the corresponding button's state has not changed.
+
+
+data_interval
+^^^^^^^^^^^^^
+:Example: ``50ms``
+
+Button state polling interval (microseconds)
+
+
+
+Optional Parameters
+-------------------
+
+up
+^^
+
+Variable for D-pad up
+
+down
+^^^^
+
+Variable for D-pad down
+
+left
+^^^^
+
+Variable for D-pad left
+
+right
+^^^^^
+
+Variable for D-pad right
+
+trigger_right
+^^^^^^^^^^^^^
+
+Variable for right trigger
+
+trigger_left
+^^^^^^^^^^^^
+
+Variable for left trigger
+
+a
+^
+
+Variable for A button
+
+b
+^
+
+Variable for B button
+
+x
+^
+
+Variable for X button
+
+y
+^
+
+Variable for Y button
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

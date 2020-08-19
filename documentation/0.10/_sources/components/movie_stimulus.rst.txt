@@ -1,0 +1,108 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Movie Stimulus
+   single: Stimuli; Movie Stimulus
+
+.. _Movie Stimulus:
+
+Movie Stimulus
+==============
+
+
+Description
+-----------
+A simple movie stimulus that presents its frames at a specified frame rate.
+The frames can be provided by a stimulus group or attached directly to the
+movie as child components.
+
+*Note*:  For compatibility with previous MWorks versions, this stimulus
+ignores the `deferred`_ parameter.  Instead, the stimulus instance itself is
+marked as loaded at creation (as if `deferred`_ were ``no``), but it does
+not automatically load its frame stimuli (as if `deferred`_ were
+``explicit``).  However, explicit `load <Load Stimulus>` and `unload <Unload
+Stimulus>` actions *will* load/unload the frames along with the movie
+stimulus itself.
+
+
+
+Signature
+---------
+``stimulus/movie``
+
+
+Required Parameters
+-------------------
+
+frames_per_second
+^^^^^^^^^^^^^^^^^
+
+Rate at which to display the movie's frames
+
+
+
+Optional Parameters
+-------------------
+
+stimulus_group
+^^^^^^^^^^^^^^
+
+Stimulus group providing the frames
+
+ended
+^^^^^
+
+Variable that will be set to true after the last frame has displayed. (Specifically, it will be set to true at the time that the next frame *after* the last would have been drawn, if there were one.)
+
+
+loop
+^^^^
+:Default: ``NO``
+
+If ``YES``, the presentation will repeat indefinitely (or until `Stop Dynamic Stimulus` is invoked)
+
+
+repeats
+^^^^^^^
+:Default: ``0``
+
+Number of times to repeat the presentation.  Note that the presentation
+will always run at least once, even if this value is less than one.
+
+If `loop`_ is ``YES``, this parameter is ignored.
+
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+autoplay
+^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus will start playing automatically (as if by an implicit `Play Dynamic Stimulus` action) after it has been `queued <Queue Stimulus>` and `Update Stimulus Display` has been invoked.  It will also stop playing automatically (as if by an implicit `Stop Dynamic Stimulus` action) after it has been `dequeued <Dequeue Stimulus>` and `Update Stimulus Display` is invoked.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`
+   * - Allowed children:
+     - `List Replicator`, `Range Replicator`, `Stimulus <Stimuli>`

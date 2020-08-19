@@ -1,0 +1,96 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Mouse Input Device
+   single: Input/Output; Mouse Input Device
+
+.. _Mouse Input Device:
+
+Mouse Input Device
+==================
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to the system mouse or other pointing device
+
+
+Signature
+---------
+``iodevice/mouse_input``
+
+
+Required Parameters
+-------------------
+
+mouse_position_x
+^^^^^^^^^^^^^^^^
+
+Variable in which to store the horizontal position of the pointer (in degrees) on the stimulus display
+
+
+mouse_position_y
+^^^^^^^^^^^^^^^^
+
+Variable in which to store the vertical position of the pointer (in degrees) on the stimulus display
+
+
+
+
+Optional Parameters
+-------------------
+
+mouse_down
+^^^^^^^^^^
+
+Variable in which to store the state of the primary mouse button (true if down/clicked, false if up/released)
+
+
+hide_cursor
+^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, hide the cursor inside the stimulus display window
+
+
+use_mirror_window
+^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, track pointer location on the mirror window instead of the main stimulus display window
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

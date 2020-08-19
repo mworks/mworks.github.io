@@ -1,0 +1,65 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: DATAPixx Word Input Channel
+   single: Input/Output; DATAPixx Word Input Channel
+
+.. _DATAPixx Word Input Channel:
+
+DATAPixx Word Input Channel
+===========================
+
+
+Description
+-----------
+Word input channel on a `DATAPixx Device`
+
+
+Signature
+---------
+``iochannel/datapixx_word_input``
+
+
+Required Parameters
+-------------------
+
+bit_numbers
+^^^^^^^^^^^
+:Examples: | ``2,3,4``
+           | ``5:8``
+           | ``4:2,11``
+
+Digital input bits from which to read the individual bits of words stored in `value`_.  The first input bit is used as the word's least significant bit, the last bit the most significant.
+
+
+value
+^^^^^
+
+Variable in which to store input word (an integer)
+
+
+
+Optional Parameters
+-------------------
+
+device_time_nanos
+^^^^^^^^^^^^^^^^^
+
+Variable in which to store the device time (in nanoseconds) when each value is recorded by the device
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `DATAPixx Device`

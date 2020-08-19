@@ -1,0 +1,20 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Variables:
+
+Variables
+=========
+
+Variables are a fundamental part of all MWorks experiments.  They store parameters, collect results, and mediate the transfer of data between components.
+
+
+.. toctree::
+   :maxdepth: 1
+
+   folder
+   selection_variable
+   variable
+   variable_assignment

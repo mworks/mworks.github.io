@@ -1,0 +1,99 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Open Ephys Network Events Client
+   single: Input/Output; Open Ephys Network Events Client
+
+.. _Open Ephys Network Events Client:
+
+Open Ephys Network Events Client
+================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to a `Network Events <https://open- ephys.atlassian.net/wiki/display/OEW/Network+Events>`_ module in the `Open Ephys GUI <http://www.open-ephys.org/gui/>`_ application
+
+
+
+Signature
+---------
+``iodevice/open_ephys_network_events_client``
+
+
+Required Parameters
+-------------------
+
+hostname
+^^^^^^^^
+:Examples: | ``localhost``
+           | ``dicarlo-open-ephys-12.mit.edu``
+
+Hostname of the computer running the Open Ephys GUI
+
+
+port
+^^^^
+:Example: ``5556``
+
+TCP port used by the Network Events module
+
+
+request
+^^^^^^^
+
+Variable from which to read messages to send to the Network Events
+module.
+
+`Assigning <Assign Variable>` a value to the variable causes the message
+to be sent immediately.  The assignment action will not complete until a
+response is received or an error or timeout occurs.
+
+Non-string values are converted to strings before being sent.
+
+
+response
+^^^^^^^^
+
+Variable in which to store responses from the Network Events module. Response values are always strings.
+
+
+
+
+Optional Parameters
+-------------------
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

@@ -1,0 +1,27 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Resources:
+
+Resources
+=========
+
+Resource files (images, scripts, etc.) needed by an experiment.  At run
+time, all resource files are copied, along with the experiment file itself,
+to the system running MWServer.
+
+*Note*:  In the absence of resource declarations, the MWorks parser
+infers the required resources from the ``path`` and ``directory_path``
+attributes of other components.  However, if the experiment declares
+any resources, then this inference step is skipped.  Hence, an experiment
+that declares any resources must include *all* required files in its
+resource declarations.
+
+
+.. toctree::
+   :maxdepth: 1
+
+   file_resource
+   python_file_resource

@@ -1,0 +1,52 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Firmata Digital Output Channel
+   single: Input/Output; Firmata Digital Output Channel
+
+.. _Firmata Digital Output Channel:
+
+Firmata Digital Output Channel
+==============================
+
+
+Description
+-----------
+Digital output channel on a `Firmata Device`
+
+
+Signature
+---------
+``iochannel/firmata_digital_output``
+
+
+Required Parameters
+-------------------
+
+pin_number
+^^^^^^^^^^
+:Example: ``4``
+
+Output pin number
+
+value
+^^^^^
+
+Variable from which to read output state (true or false).  `Assigning <Assign Variable>` a value to the variable causes the output state to be changed immediately.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Firmata Device`

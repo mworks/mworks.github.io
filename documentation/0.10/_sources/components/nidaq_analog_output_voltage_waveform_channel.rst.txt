@@ -1,0 +1,110 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: NIDAQ Analog Output Voltage Waveform Channel
+   single: Input/Output; NIDAQ Analog Output Voltage Waveform Channel
+
+.. _NIDAQ Analog Output Voltage Waveform Channel:
+
+NIDAQ Analog Output Voltage Waveform Channel
+============================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Generates a periodic analog output voltage signal on a `NIDAQ Device`.
+
+All waveform parameters (`waveform`_, `period`_, `offset`_, `amplitude`_,
+and `mean`_) can be modified at run time.  Changes take effect after output
+is stopped and restarted, either by `stopping <Stop IO Device>` and
+`restarting <Start IO Device>` the device, or by setting the device's
+``analog_output_enabled`` parameter to ``NO`` and then ``YES``.
+
+
+
+Signature
+---------
+``iochannel/nidaq_analog_output_voltage_waveform``
+
+
+Required Parameters
+-------------------
+
+channel_number
+^^^^^^^^^^^^^^
+:Example: ``0``
+
+Analog output channel number (``0`` for AO0, ``1`` for AO1, etc.)
+
+
+range_min
+^^^^^^^^^
+:Example: ``-10.0``
+
+Minimum permitted output value (volts)
+
+range_max
+^^^^^^^^^
+:Example: ``10.0``
+
+Maximum permitted output value (volts)
+
+waveform
+^^^^^^^^
+:Options: | ``sinusoid``
+          | ``square``
+          | ``triangle``
+          | ``sawtooth``
+
+Waveform type
+
+period
+^^^^^^
+:Example: ``500ms``
+
+Waveform period (microseconds)
+
+
+
+Optional Parameters
+-------------------
+
+offset
+^^^^^^
+:Default: ``0ms``
+
+Waveform time offset (microseconds).  Determines the initial phase of the waveform.
+
+
+amplitude
+^^^^^^^^^
+:Example: ``2.5``
+
+Waveform amplitude (volts).  If omitted, defaults to ``(range_max-range_min)/2``.
+
+
+mean
+^^^^
+:Example: ``5.0``
+
+Waveform mean (volts).  If omitted, defaults to
+``(range_min+range_max)/2``.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `NIDAQ Device`

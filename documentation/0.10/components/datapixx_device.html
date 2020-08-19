@@ -1,0 +1,284 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DATAPixx Device &#8212; MWorks 0.10 documentation</title>
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DATAPixx Word Input Channel" href="datapixx_word_input_channel.html" />
+    <link rel="prev" title="DATAPixx Bit Output Channel" href="datapixx_bit_output_channel.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="datapixx_word_input_channel.html" title="DATAPixx Word Input Channel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="datapixx_bit_output_channel.html" title="DATAPixx Bit Output Channel"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.10 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" accesskey="U">Input/Output</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DATAPixx Device</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="datapixx-device">
+<span id="index-0"></span><span id="id1"></span><h1>DATAPixx Device<a class="headerlink" href="#datapixx-device" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>Interface to a <a class="reference external" href="https://vpixx.com/our-products/video-i-o-hub/">DATAPixx</a> or <a class="reference external" href="https://vpixx.com/our-products/crt-replacement/">VIEWPixx</a> device</p>
+</div>
+<div class="section" id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">iodevice/datapixx</span></code></p>
+</div>
+<div class="section" id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="update-interval">
+<h3>update_interval<a class="headerlink" href="#update-interval" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">3ms</span></code></p>
+</dd>
+</dl>
+<p>MWorks will poll the device for new input data every <code class="docutils literal notranslate"><span class="pre">update_interval</span></code> microseconds</p>
+</div>
+</div>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="clock-offset-nanos">
+<h3>clock_offset_nanos<a class="headerlink" href="#clock-offset-nanos" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store the computed offset (in nanoseconds) between
+the device clock and MWorks’ clock.</p>
+<p>The clock offset is recomputed once per second and is used to convert
+DATAPixx event and sample times to MWorks times.  Use this parameter if
+you want a record of the computed clock offsets in your event file.</p>
+</div>
+<div class="section" id="enable-dout-pixel-mode">
+<h3>enable_dout_pixel_mode<a class="headerlink" href="#enable-dout-pixel-mode" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the digital output port will be used to output the RGB value
+of the first upper left pixel of the screen.</p>
+<p>In this mode, the digital output port cannot be used for <a class="reference internal" href="datapixx_bit_output_channel.html#datapixx-bit-output-channel"><span class="std std-ref">bit output</span></a> or <a class="reference internal" href="datapixx_word_output_channel.html#datapixx-word-output-channel"><span class="std std-ref">word output</span></a> channels.  However, these channels may still be configured on
+the digital input port.</p>
+</div>
+<div class="section" id="enable-dout-vsync-mode">
+<h3>enable_dout_vsync_mode<a class="headerlink" href="#enable-dout-vsync-mode" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the VSYNC signal will be output on bit 23 of the digital
+output port.</p>
+<p>This mode cannot be enabled if <a class="reference internal" href="#enable-dout-pixel-mode">enable_dout_pixel_mode</a> is set to
+<code class="docutils literal notranslate"><span class="pre">YES</span></code>.</p>
+</div>
+<div class="section" id="enable-din-stabilize">
+<h3>enable_din_stabilize<a class="headerlink" href="#enable-din-stabilize" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, digital input transitions are recognized only after the entire digital input bus has been stable for 80 nanoseconds</p>
+</div>
+<div class="section" id="enable-din-debounce">
+<h3>enable_din_debounce<a class="headerlink" href="#enable-din-debounce" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, after a digital input transitions, further transitions will be ignored for the next 30 milliseconds</p>
+</div>
+<div class="section" id="enable-dout-din-loopback">
+<h3>enable_dout_din_loopback<a class="headerlink" href="#enable-dout-din-loopback" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, digital output bits are looped back to the corresponding digital input bits.  This is useful primarily for testing the device.</p>
+</div>
+<div class="section" id="din-event-buffer-size">
+<h3>din_event_buffer_size<a class="headerlink" href="#din-event-buffer-size" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">100</span></code></p>
+</dd>
+</dl>
+<p>Transitions on digital input bits 0-15 are logged to an on-device buffer and read by MWorks at the rate specified by <a class="reference internal" href="#update-interval">update_interval</a>. This parameter sets the maximum size (in number of events) of the buffer.  If the buffer is too small, writes will “wrap”, and new events will overwrite old ones.</p>
+</div>
+<div class="section" id="analog-input-data-interval">
+<h3>analog_input_data_interval<a class="headerlink" href="#analog-input-data-interval" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1ms</span></code></p>
+</dd>
+</dl>
+<p>Interval between acquired samples on analog input channels (microseconds)</p>
+</div>
+<div class="section" id="enable-dac-adc-loopback">
+<h3>enable_dac_adc_loopback<a class="headerlink" href="#enable-dac-adc-loopback" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, analog outputs are looped back to analog inputs as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DAC_DATA0 → ADC_DATA0/2/4/6/8/10/12/14
+DAC_DATA1 → ADC_DATA1/3/5/7/9/11/13/15
+DAC_DATA2 → ADC_REF0
+DAC_DATA3 → ADC_REF1
+</pre></div>
+</div>
+<p>This is useful primarily for testing the device.</p>
+</div>
+<div class="section" id="autostart">
+<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the device will start I/O automatically (as if by an
+implicit <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> action) when the experiment starts running.</p>
+<p><em>Note</em>: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.</p>
+</div>
+<div class="section" id="alt">
+<h3>alt<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h3>
+<p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
+</div>
+</div>
+<div class="section" id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Allowed children:</p></th>
+<td><p><a class="reference internal" href="datapixx_analog_input_channel.html#datapixx-analog-input-channel"><span class="std std-ref">DATAPixx Analog Input Channel</span></a>, <a class="reference internal" href="datapixx_analog_output_channel.html#datapixx-analog-output-channel"><span class="std std-ref">DATAPixx Analog Output Channel</span></a>, <a class="reference internal" href="datapixx_bit_input_channel.html#datapixx-bit-input-channel"><span class="std std-ref">DATAPixx Bit Input Channel</span></a>, <a class="reference internal" href="datapixx_bit_output_channel.html#datapixx-bit-output-channel"><span class="std std-ref">DATAPixx Bit Output Channel</span></a>, <a class="reference internal" href="datapixx_word_input_channel.html#datapixx-word-input-channel"><span class="std std-ref">DATAPixx Word Input Channel</span></a>, <a class="reference internal" href="datapixx_word_output_channel.html#datapixx-word-output-channel"><span class="std std-ref">DATAPixx Word Output Channel</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">DATAPixx Device</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#update-interval">update_interval</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#clock-offset-nanos">clock_offset_nanos</a></li>
+<li><a class="reference internal" href="#enable-dout-pixel-mode">enable_dout_pixel_mode</a></li>
+<li><a class="reference internal" href="#enable-dout-vsync-mode">enable_dout_vsync_mode</a></li>
+<li><a class="reference internal" href="#enable-din-stabilize">enable_din_stabilize</a></li>
+<li><a class="reference internal" href="#enable-din-debounce">enable_din_debounce</a></li>
+<li><a class="reference internal" href="#enable-dout-din-loopback">enable_dout_din_loopback</a></li>
+<li><a class="reference internal" href="#din-event-buffer-size">din_event_buffer_size</a></li>
+<li><a class="reference internal" href="#analog-input-data-interval">analog_input_data_interval</a></li>
+<li><a class="reference internal" href="#enable-dac-adc-loopback">enable_dac_adc_loopback</a></li>
+<li><a class="reference internal" href="#autostart">autostart</a></li>
+<li><a class="reference internal" href="#alt">alt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="datapixx_bit_output_channel.html"
+                        title="previous chapter">DATAPixx Bit Output Channel</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="datapixx_word_input_channel.html"
+                        title="next chapter">DATAPixx Word Input Channel</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="datapixx_word_input_channel.html" title="DATAPixx Word Input Channel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="datapixx_bit_output_channel.html" title="DATAPixx Bit Output Channel"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.10 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" >Input/Output</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">DATAPixx Device</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2020, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+    </div>
+  </body>
+</html>

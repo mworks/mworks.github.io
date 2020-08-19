@@ -1,0 +1,18 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Replicators:
+
+Replicators
+===========
+
+Replicators are not run-time components.  Instead, they are constructs that replicate, at *parse time*, the components contained within them.  They provide a way to generate a set of related components from a parameterized "template".
+
+
+.. toctree::
+   :maxdepth: 1
+
+   list_replicator
+   range_replicator

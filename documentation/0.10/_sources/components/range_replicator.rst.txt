@@ -1,0 +1,67 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Range Replicator
+   single: Replicators; Range Replicator
+
+.. _Range Replicator:
+
+Range Replicator
+================
+
+
+Description
+-----------
+A construct that replicates its contents (textually) at parse time.  Each replication assigns a different, sequential value to the specified `variable`_ (similar to a `for loop <https://en.wikipedia.org/wiki/For_loop>`_). This can be used, for example, to generate a separate `Trial` for each element in a `Stimulus Group` by using the replicator variable as the index in to the group.
+
+
+
+Signature
+---------
+``range_replicator``
+
+
+Required Parameters
+-------------------
+
+variable
+^^^^^^^^
+
+Replicator variable.  The variable must have local scope.
+
+
+from
+^^^^
+
+First value assigned to `variable`_
+
+
+to
+^^
+
+Replication stops when `variable`_ is greater than this value
+
+
+step
+^^^^
+
+Amount by which to increment the value of `variable`_ after each replication.  Must be greater than zero.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Block`, `Experiment`, `Folder`, `Frame List Stimulus`, `List`, `List Replicator`, `Movie Stimulus`, `Protocol`, `Range Replicator`, `Stimulus Group`, `Trial`
+   * - Allowed children:
+     - `Block`, `List`, `List Replicator`, `Protocol`, `Range Replicator`, `Stimulus <Stimuli>`, `Stimulus Group`, `Trial`

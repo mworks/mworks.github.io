@@ -1,0 +1,65 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Linear Eye Calibrator
+   single: Filters; Linear Eye Calibrator
+
+.. _Linear Eye Calibrator:
+
+Linear Eye Calibrator
+=====================
+
+
+Description
+-----------
+An I/O calibrator specially tailored for eye movement signals.  Uses a first-order (linear) fit function.
+
+
+
+Signature
+---------
+``calibrator/linear_eye_calibrator``
+
+
+Required Parameters
+-------------------
+
+eyeh_raw
+^^^^^^^^
+
+Variable from which to read the raw (input) horizontal eye position
+
+
+eyev_raw
+^^^^^^^^
+
+Variable from which to read the raw (input) vertical eye position
+
+
+eyeh_calibrated
+^^^^^^^^^^^^^^^
+
+Variable in which to store the calibrated (output) horizontal eye position
+
+
+eyev_calibrated
+^^^^^^^^^^^^^^^
+
+Variable in which to store the calibrated (output) vertical eye position
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
