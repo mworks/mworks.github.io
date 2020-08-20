@@ -3,14 +3,14 @@ layout: default
 title: MWorks Downloads
 ---
 
-## MWorks for iOS ##
+## MWorks for iPad ##
 
-MWorks for iOS is [available on the App Store](https://apps.apple.com/us/app/mworks/id1389408331?ls=1).  For more information, visit the [knowledge base](https://mworks.tenderapp.com/kb/ios-app).
+MWorks for iPad is [available on the App Store](https://apps.apple.com/us/app/mworks/id1389408331?ls=1).  For more information, visit the [knowledge base](https://mworks.tenderapp.com/kb/ios-app).
 
 
-## MWorks for macOS ##
+## MWorks for Mac ##
 
-The following macOS installer packages are available:
+The following Mac installer packages are available:
 
 <dl>
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/nightly/MWorks-NIGHTLY.dmg">Nightly build</a></dt>
@@ -19,9 +19,14 @@ The following macOS installer packages are available:
     <a href="https://github.com/mworks/mw_suite">source code</a>.  Requires macOS 10.13 or later.
   </dd>
 
+  <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.10.dmg">Release 0.10</a></dt>
+  <dd>
+    Current release.  Requires macOS 10.13 or later.
+  </dd>
+
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.9.dmg">Release 0.9</a></dt>
   <dd>
-    Current release.  Requires macOS 10.12 or later.
+    Previous release.  Requires macOS 10.12 or later.
   </dd>
 
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.8.dmg">Release 0.8</a></dt>

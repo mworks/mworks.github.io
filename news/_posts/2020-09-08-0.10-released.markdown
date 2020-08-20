@@ -1,0 +1,197 @@
+---
+layout: post
+title: MWorks 0.10 released
+author: cstawarz
+---
+
+MWorks 0.10 is now available for [Mac](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.10.dmg) and [iPad](https://apps.apple.com/us/app/mworks/id1389408331?ls=1).  Highlights of this release include:
+
+* Support for [VIEWPixx displays](https://vpixx.com/our-products/crt-replacement/) and [DATAPixx I/O hubs](https://vpixx.com/our-products/video-i-o-hub/)
+* [Render actions](/documentation/0.10/components/render_actions.html), which greatly simplify custom stimulus animations
+* [Face recognition](/documentation/0.10/components/face_recognizer.html) support
+* Automatic, experiment-side [data file management](/documentation/0.10/components/data_file.html)
+* [Variable and expression interpolation](/documentation/0.10/expressions/index.html#variable-and-expression-interpolation) in string literals
+* Python tools now support multiple Python versions (3.5 and later)
+
+MWorks 0.10 requires a Mac running macOS High Sierra (10.13) or later or an iPad running iPadOS 13.7 or later.
+
+For a full list of changes in this release, please see the release notes below.
+
+
+### Core
+
+
+#### Visual Stimuli
+
+* Added [render actions](/documentation/0.10/components/render_actions.html) stimulus, which simplifies animation of other stimulus types
+
+* Most [stimulus types](/documentation/0.10/components/stimuli.html) now have [blending parameters](/documentation/0.10/components/drifting_grating_stimulus.html#source-blend-factor) that allow detailed control over color and alpha blending
+
+* [Image file](/documentation/0.10/components/image_stimulus.html)
+
+  * Added [option](/documentation/0.10/components/image_stimulus.html#announce-load) to disable image load/unload messages
+
+  * Blending is now handled correctly, even if the image file has an alpha channel
+
+* [Movie](/documentation/0.10/components/movie_stimulus.html) and [frame list](/documentation/0.10/components/frame_list_stimulus.html) stimuli with no frames now issue an error when starting to play
+
+* In previous releases, enabling [redraw_on_every_refresh](/documentation/0.10/components/stimulus_display.html#redraw-on-every-refresh) caused the stimulus display to continue updating even when the experiment was paused.  This is no longer the case; display updates are now paused when the experiment is paused and resume when the experiment resumes.
+
+* [Layer](/documentation/0.10/components/layer_stimulus.html) stimulus now renders in to a half-precision float, RGBA framebuffer texture.  This resolves a potential, subtle [blending issue](https://mworks.tenderapp.com/discussions/problems/431) on Mac's with Intel graphics hardware.
+
+* Fixed an intermittent crash in [video](/documentation/0.10/components/video_stimulus.html) stimulus
+
+* MWorks now prevents the creation of two stimuli with the same name
+
+
+#### I/O Devices
+
+* Added [DATAPixx](/documentation/0.10/components/datapixx_device.html) device, which supports [VIEWPixx displays](https://vpixx.com/our-products/crt-replacement/) and [DATAPixx I/O hubs](https://vpixx.com/our-products/video-i-o-hub/)
+
+* Added [face recognizer](/documentation/0.10/components/face_recognizer.html) device, which captures images from a camera and uses a [Core ML](https://developer.apple.com/machine-learning/core-ml/) model to classify them
+
+* [Firmata](/documentation/0.10/components/firmata_device.html)
+
+  * Added [digital input pulse](/documentation/0.10/components/firmata_digital_input_pulse_channel.html) and [digital output pulse](/documentation/0.10/components/firmata_digital_output_pulse_channel.html) channels.  (Note that these rely on non-standard extensions of the Firmata protocol and require [MWorks-specific firmware](https://github.com/mworks/mworks-firmata-arduino) on the device.)
+
+  * Now supports optional [automatic reconnection](/documentation/0.10/components/firmata_device.html#reconnect-interval)
+
+  * Now optionally reports the current [connection state](/documentation/0.10/components/firmata_device.html#connected)
+
+* [Blackrock LED driver](/documentation/0.10/components/blackrock_led_driver.html)
+
+  * Added [stop action](/documentation/0.10/components/stop_blackrock_led_driver.html) for stopping an active run before it completes
+
+  * MWorks now stops the driver, terminating any active run, when [Stop I/O Device](/documentation/0.10/components/stop_io_device.html) executes or the experiment ends
+
+  * Added [temp_calc](/documentation/0.10/components/blackrock_led_driver.html#temp-calc) parameter
+
+  * Added [simulation mode](/documentation/0.10/components/blackrock_led_driver.html#simulate-device)
+
+* Removed undocumented, unused HIDPlugin (not to be confused with [USB HID device](/documentation/0.10/components/usb_hid_device.html), which is alive and well)
+
+
+#### Expression Parser
+
+* Added support for [variable and expression interpolation](/documentation/0.10/expressions/index.html#variable-and-expression-interpolation) in string literals
+
+* Added [functions](/documentation/0.10/expressions/index.html#functions) `acos`, `asin`, `atan`, `atan2`, `date`, and `fmod`
+
+* Modulus (`%`) operator now warns when truncating either of its operands
+
+* `$varname` and `${varname}` are now accepted as variable names (and are equivalent to plain `varname`)
+
+
+#### Event Files
+
+* Added support for automatic, experiment-side data file management via the new [data file](/documentation/0.10/components/data_file.html) device ([more info](https://mworks.tenderapp.com/discussions/questions/1203#comment_47501141))
+
+* When creating an event file, MWorks now prepends the [standard data file path](/documentation/0.10/guide/data_analysis.html#accessing-the-event-file) only if the user-provided filename is not itself an absolute path.  This allows users to store event files in any directory, as long as they provide an absolute path as the filename ([more info](https://mworks.tenderapp.com/discussions/questions/1203#comment_47501141)).
+
+* Resolved potentially severe [reduction in data file write speed](https://mworks.tenderapp.com/discussions/problems/413#comment_47901072) when system is under heavy I/O load
+
+* Removed `#announceStimulus` system variable, as its values were 100% redundant with [#stimDisplayUpdate](/documentation/0.10/reference/sysvars.html#stimdisplayupdate) and served only to increase event file size
+
+
+#### Other
+
+* [Task system state](/documentation/0.10/components/task_system_state.html) now forbids the placement of actions after transitions.  (Previously, actions placed after transitions were silently moved to the end of the action list and always executed before transitions were evaluated.)
+
+* [Wait for condition](/documentation/0.10/components/wait_for_condition.html) can now execute outside of the main state system (e.g. in a [scheduled action](/documentation/0.10/components/schedule_actions.html))
+
+* [MWEL](/documentation/0.10/mwel/index.html) now accepts `$id` (in addition to `${id}`) as an identifier part
+
+* MWorks now prevents the creation of two variables with the same name
+
+
+### Applications
+
+* Removed MWEditor along with all related files and documentation.  (Existing XML-based experiments remain fully supported, but new experiments should be written in [MWEL](/documentation/0.10/mwel/index.html).)
+
+* MWorks for iPad now supports [Dark Mode](https://support.apple.com/en-us/HT210332)
+
+
+#### MWClient
+
+* Added Image Viewer window, which enables viewing of images [logged by a face recognizer](/documentation/0.10/components/face_recognizer.html#image-data)
+
+* Python bridge window
+
+  * Now requires the user to specify the Python executable to invoke (must be Python 3.5 or later)
+
+  * Now sets the [PYTHONPATH](https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH) environment variable to `/Library/Application Support/MWorks/Scripting/Python`
+
+  * Now truncates displayed script names at the beginning (instead of in the middle or at the end)
+
+  * Now limits length of recent Python scripts list
+
+* Variables window now displays `<binary data>` in place of values that cannot be converted to text
+
+* All plugin windows now include the server address in their title
+
+* Added tooltips containing the entire, non-truncated paths of the experiment and data file
+
+* Saved variable set names are now sorted
+
+* Now limits length of recent servers list
+
+
+### Python and MATLAB Tools
+
+* Python plugin now embeds Python 3.8 (instead of 3.7)
+
+* Python plugin now supports [ctypes](https://docs.python.org/3/library/ctypes.html) on both Mac and iPad (although its usefulness on an iPad is very limited)
+
+* Python tools now support Python 3.5 and later, but no longer support Python 2
+
+* Python tools no longer require NumPy but still interoperate with it when available
+
+* Added `_stop_main_loop` method to Python conduit classes
+
+* Added context manager methods `__enter__` and `__exit__` to Python conduit classes; the former initializes the conduit, and the latter finalizes it
+
+* Added `dump_codec` and `dump_events` scripts to Python tools.  They are installed in `/Library/Application Support/MWorks/Scripting/Python`.
+
+* MATLAB tools now require MATLAB R2017b or later
+
+
+### Internals/Development
+
+* Upgraded to new versions of many supporting libraries:
+
+  * boost: 1.69.0 ➞ 1.73.0
+  * cppunit: 1.14.0 ➞ 1.15.1
+  * msgpack: 3.1.1 ➞ 3.3.0
+  * numpy: 1.16.2 ➞ 1.19.1
+  * openssl: 1.1.1b ➞ 1.1.1g
+  * python: 3.7.3 ➞ 3.8.5
+  * sqlite: 3.27.2 ➞ 3.32.3
+  * zeromq: 4.3.1 ➞ 4.3.2
+
+* Added [libffi](https://github.com/libffi/libffi) 3.3 and [libusb](https://github.com/libusb/libusb) 1.0.23 to supporting libs
+
+* Removed [matlab-xunit](https://github.com/psexton/matlab-xunit) from supporting libs
+
+* Removed all `MWLibrary.xml` files
+
+* Reworked build and installation to avoid the need to change permissions on system directories.  Updated [build instructions](https://mworks.tenderapp.com/kb/development/building-mworks-from-source) accordingly.
+
+* macOS installer package is now [notarized](https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution)
+
+* macOS and iOS builds now use separate code signing config files
+
+* C++ code is now compiled using the C++17 language standard
+
+* All Objective-C/Objective-C++ code now uses [Automatic Reference Counting](https://clang.llvm.org/docs/AutomaticReferenceCounting.html) (ARC)
+
+* Added MWorksSwift framework, which aims to enable development of MWServer, MWClient, and client plugins in [Swift](https://swift.org/about/) (and Objective-C), without requiring any C++ code
+
+* Moved embedded Python out of PythonPlugin and in to the new MWorksPython framework (which PythonPlugin uses)
+
+* MWEL scripts now invoke a custom, private Python executable (which links against the MWorksPython framework)
+
+* Addressed issues raised by Python test suite on iOS
+
+* NumPy is no longer built against [Accelerate](https://developer.apple.com/documentation/accelerate), as it seems to make things worse rather than better
+
+* Replaced all usage of `/bin/bash` (and some usage of `/bin/sh`) with `/bin/zsh`
