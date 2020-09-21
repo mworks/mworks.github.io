@@ -12,6 +12,8 @@
 DATAPixx Word Input Channel
 ===========================
 
+*Available on macOS*
+
 
 Description
 -----------

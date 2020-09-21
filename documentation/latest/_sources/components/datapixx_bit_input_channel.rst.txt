@@ -12,6 +12,8 @@
 DATAPixx Bit Input Channel
 ==========================
 
+*Available on macOS*
+
 
 Description
 -----------

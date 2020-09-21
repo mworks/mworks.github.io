@@ -12,6 +12,8 @@
 DATAPixx Device
 ===============
 
+*Available on macOS*
+
 
 Description
 -----------

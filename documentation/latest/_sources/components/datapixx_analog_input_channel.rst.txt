@@ -12,6 +12,8 @@
 DATAPixx Analog Input Channel
 =============================
 
+*Available on macOS*
+
 
 Description
 -----------
