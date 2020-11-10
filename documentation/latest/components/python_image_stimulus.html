@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Text Stimulus &#8212; MWorks 0.11.dev documentation</title>
+    <title>Python Image Stimulus &#8212; MWorks 0.11.dev documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     
@@ -18,8 +18,8 @@
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Video Stimulus" href="video_stimulus.html" />
-    <link rel="prev" title="Stimulus Group" href="stimulus_group.html" />
+    <link rel="next" title="Rectangle Stimulus" href="rectangle_stimulus.html" />
+    <link rel="prev" title="Moving Dots" href="moving_dots.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
@@ -32,16 +32,16 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="video_stimulus.html" title="Video Stimulus"
+          <a href="rectangle_stimulus.html" title="Rectangle Stimulus"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="stimulus_group.html" title="Stimulus Group"
+          <a href="moving_dots.html" title="Moving Dots"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.11.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="stimuli.html" accesskey="U">Stimuli</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Text Stimulus</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Python Image Stimulus</a></li> 
       </ul>
     </div>  
 
@@ -50,78 +50,89 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="text-stimulus">
-<span id="index-0"></span><span id="id1"></span><h1>Text Stimulus<a class="headerlink" href="#text-stimulus" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="python-image-stimulus">
+<span id="index-0"></span><span id="id1"></span><h1>Python Image Stimulus<a class="headerlink" href="#python-image-stimulus" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>A stimulus that renders user-specified text within a rectangular region</p>
+<p>An image stimulus whose content is generated dynamically by Python code.</p>
+<p>For information on the modules and functions available to your Python code,
+see <a class="reference internal" href="run_python_file.html#run-python-file"><span class="std std-ref">Run Python File</span></a>.</p>
+<p><em>Note</em>:  To preserve the image’s aspect ratio on screen, <a class="reference internal" href="#x-size">x_size</a> and
+<a class="reference internal" href="#y-size">y_size</a> must be equal.  When drawn, the larger dimension spans the full
+specified size, while the smaller dimension is scaled to maintain the
+aspect ratio.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">stimulus/text</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">stimulus/python_image</span></code></p>
 </div>
 <div class="section" id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="text">
-<h3>text<a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pixel-buffer-format">
+<h3>pixel_buffer_format<a class="headerlink" href="#pixel-buffer-format" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list">
-<dt class="field-odd">Examples</dt>
+<dt class="field-odd">Options</dt>
 <dd class="field-odd"><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">Hello,</span> <span class="pre">world!</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">&quot;Good</span> <span class="pre">morning&quot;</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RGB8</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sRGB8</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RGBA8</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sRGBA8</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RGBA16F</span></code></div>
 </div>
 </dd>
 </dl>
-<p>Text to display</p>
+<p>Pixel buffer format</p>
 </div>
-<div class="section" id="font-name">
-<h3>font_name<a class="headerlink" href="#font-name" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list">
-<dt class="field-odd">Examples</dt>
-<dd class="field-odd"><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">Helvetica</span> <span class="pre">Neue</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">&quot;Courier&quot;</span></code></div>
-</div>
-</dd>
-</dl>
-<p>Font name</p>
-</div>
-<div class="section" id="font-size">
-<h3>font_size<a class="headerlink" href="#font-size" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pixel-buffer-width">
+<h3>pixel_buffer_width<a class="headerlink" href="#pixel-buffer-width" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">24</span></code></p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">512</span></code></p>
 </dd>
 </dl>
-<p>Font size (points)</p>
+<p>Pixel buffer width</p>
+</div>
+<div class="section" id="pixel-buffer-height">
+<h3>pixel_buffer_height<a class="headerlink" href="#pixel-buffer-height" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">512</span></code></p>
+</dd>
+</dl>
+<p>Pixel buffer height</p>
+</div>
+<div class="section" id="pixel-buffer-expr">
+<h3>pixel_buffer_expr<a class="headerlink" href="#pixel-buffer-expr" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Examples</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">render_scene()</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">img.update()</span></code></div>
+</div>
+</dd>
+</dl>
+<p>Pixel buffer expression</p>
 </div>
 </div>
 <div class="section" id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="text-alignment">
-<h3>text_alignment<a class="headerlink" href="#text-alignment" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list">
-<dt class="field-odd">Options</dt>
-<dd class="field-odd"><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">left</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">right</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">center</span></code></div>
+<div class="section" id="elapsed-time">
+<h3>elapsed_time<a class="headerlink" href="#elapsed-time" title="Permalink to this headline">¶</a></h3>
+<p>Name of a variable in which to store the elapsed time (in microseconds)
+since the stimulus started playing (either implicitly due to <a class="reference internal" href="#autoplay">autoplay</a>
+being <code class="docutils literal notranslate"><span class="pre">YES</span></code> or via an explicit <a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">Play Dynamic Stimulus</span></a> action).</p>
+<p>If the stimulus has been paused (e.g. via <a class="reference internal" href="pause_dynamic_stimulus.html#pause-dynamic-stimulus"><span class="std std-ref">Pause Dynamic Stimulus</span></a> or
+<a class="reference internal" href="pause_experiment.html#pause-experiment"><span class="std std-ref">Pause Experiment</span></a>), the time elapsed while paused is excluded from the
+reported elapsed time.</p>
 </div>
-</dd>
-<dt class="field-even">Default</dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">left</span></code></p>
-</dd>
-</dl>
-<p>Text alignment</p>
-</div>
-<div class="section" id="color">
-<h3>color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="autoplay">
+<h3>autoplay<a class="headerlink" href="#autoplay" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0,1.0,1.0</span></code></p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
 </dd>
 </dl>
-<p>The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus will start playing automatically (as if by an implicit <a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">Play Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> has been invoked.  It will also stop playing automatically (as if by an implicit <a class="reference internal" href="stop_dynamic_stimulus.html#stop-dynamic-stimulus"><span class="std std-ref">Stop Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="dequeue_stimulus.html#dequeue-stimulus"><span class="std std-ref">dequeued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> is invoked.</p>
 </div>
 <div class="section" id="alpha-multiplier">
 <h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
@@ -134,6 +145,8 @@
 stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
 <p>Changes to the parameters <a class="reference internal" href="#source-blend-factor">source_blend_factor</a> and
 <a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a> can alter how (or if) the alpha multiplier is used.</p>
+<p><em>Note</em>:  If the image contains an <a class="reference external" href="https://en.wikipedia.org/wiki/Alpha_compositing">alpha channel</a>, the embedded alpha
+value for each pixel is multiplied by the value of this parameter.</p>
 </div>
 <div class="section" id="source-blend-factor">
 <h3>source_blend_factor<a class="headerlink" href="#source-blend-factor" title="Permalink to this headline">¶</a></h3>
@@ -290,18 +303,19 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Text Stimulus</a><ul>
+<li><a class="reference internal" href="#">Python Image Stimulus</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
-<li><a class="reference internal" href="#text">text</a></li>
-<li><a class="reference internal" href="#font-name">font_name</a></li>
-<li><a class="reference internal" href="#font-size">font_size</a></li>
+<li><a class="reference internal" href="#pixel-buffer-format">pixel_buffer_format</a></li>
+<li><a class="reference internal" href="#pixel-buffer-width">pixel_buffer_width</a></li>
+<li><a class="reference internal" href="#pixel-buffer-height">pixel_buffer_height</a></li>
+<li><a class="reference internal" href="#pixel-buffer-expr">pixel_buffer_expr</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
-<li><a class="reference internal" href="#text-alignment">text_alignment</a></li>
-<li><a class="reference internal" href="#color">color</a></li>
+<li><a class="reference internal" href="#elapsed-time">elapsed_time</a></li>
+<li><a class="reference internal" href="#autoplay">autoplay</a></li>
 <li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
 <li><a class="reference internal" href="#source-blend-factor">source_blend_factor</a></li>
 <li><a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a></li>
@@ -322,11 +336,11 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="stimulus_group.html"
-                        title="previous chapter">Stimulus Group</a></p>
+  <p class="topless"><a href="moving_dots.html"
+                        title="previous chapter">Moving Dots</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="video_stimulus.html"
-                        title="next chapter">Video Stimulus</a></p>
+  <p class="topless"><a href="rectangle_stimulus.html"
+                        title="next chapter">Rectangle Stimulus</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -348,16 +362,16 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="video_stimulus.html" title="Video Stimulus"
+          <a href="rectangle_stimulus.html" title="Rectangle Stimulus"
              >next</a> |</li>
         <li class="right" >
-          <a href="stimulus_group.html" title="Stimulus Group"
+          <a href="moving_dots.html" title="Moving Dots"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.11.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="stimuli.html" >Stimuli</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Text Stimulus</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Python Image Stimulus</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

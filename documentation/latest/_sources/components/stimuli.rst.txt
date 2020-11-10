@@ -25,6 +25,7 @@ Visual stimuli
    mask_stimulus
    movie_stimulus
    moving_dots
+   python_image_stimulus
    rectangle_stimulus
    render_actions
    stimulus_group

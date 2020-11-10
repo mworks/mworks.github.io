@@ -7,8 +7,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Image Stimulus &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -59,8 +59,6 @@
 <a class="reference internal" href="#y-size">y_size</a> must be equal.  When drawn, the larger dimension spans the full
 specified size, while the smaller dimension is scaled to maintain the
 aspect ratio.</p>
-<p><em>Note</em>:  If the image contains an <a class="reference external" href="https://en.wikipedia.org/wiki/Alpha_compositing">alpha channel</a>, the embedded alpha
-value for each pixel is multiplied by the value of <a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a>.</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
@@ -103,6 +101,8 @@ value for each pixel is multiplied by the value of <a class="reference internal"
 stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
 <p>Changes to the parameters <a class="reference internal" href="#source-blend-factor">source_blend_factor</a> and
 <a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a> can alter how (or if) the alpha multiplier is used.</p>
+<p><em>Note</em>:  If the image contains an <a class="reference external" href="https://en.wikipedia.org/wiki/Alpha_compositing">alpha channel</a>, the embedded alpha
+value for each pixel is multiplied by the value of this parameter.</p>
 </div>
 <div class="section" id="source-blend-factor">
 <h3>source_blend_factor<a class="headerlink" href="#source-blend-factor" title="Permalink to this headline">¶</a></h3>
@@ -328,7 +328,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2020, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.0.
     </div>
   </body>
 </html>

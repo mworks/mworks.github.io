@@ -4,18 +4,21 @@
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 .. index::
-   single: Image Stimulus
-   single: Stimuli; Image Stimulus
+   single: Python Image Stimulus
+   single: Stimuli; Python Image Stimulus
 
-.. _Image Stimulus:
+.. _Python Image Stimulus:
 
-Image Stimulus
-==============
+Python Image Stimulus
+=====================
 
 
 Description
 -----------
-An image stimulus loaded from any standard-format image file.
+An image stimulus whose content is generated dynamically by Python code.
+
+For information on the modules and functions available to your Python code,
+see `Run Python File`.
 
 *Note*:  To preserve the image's aspect ratio on screen, `x_size`_ and
 `y_size`_ must be equal.  When drawn, the larger dimension spans the full
@@ -26,29 +29,63 @@ aspect ratio.
 
 Signature
 ---------
-``stimulus/image_file``
+``stimulus/python_image``
 
 
 Required Parameters
 -------------------
 
-path
-^^^^
-:Examples: | ``images/image1.png``
-           | ``/path/to/image.png``
+pixel_buffer_format
+^^^^^^^^^^^^^^^^^^^
+:Options: | ``RGB8``
+          | ``sRGB8``
+          | ``RGBA8``
+          | ``sRGBA8``
+          | ``RGBA16F``
 
-Filesystem path to the image file
+Pixel buffer format
+
+pixel_buffer_width
+^^^^^^^^^^^^^^^^^^
+:Example: ``512``
+
+Pixel buffer width
+
+pixel_buffer_height
+^^^^^^^^^^^^^^^^^^^
+:Example: ``512``
+
+Pixel buffer height
+
+pixel_buffer_expr
+^^^^^^^^^^^^^^^^^
+:Examples: | ``render_scene()``
+           | ``img.update()``
+
+Pixel buffer expression
 
 
 
 Optional Parameters
 -------------------
 
-announce_load
-^^^^^^^^^^^^^
+elapsed_time
+^^^^^^^^^^^^
+
+Name of a variable in which to store the elapsed time (in microseconds)
+since the stimulus started playing (either implicitly due to `autoplay`_
+being ``YES`` or via an explicit `Play Dynamic Stimulus` action).
+
+If the stimulus has been paused (e.g. via `Pause Dynamic Stimulus` or
+`Pause Experiment`), the time elapsed while paused is excluded from the
+reported elapsed time.
+
+
+autoplay
+^^^^^^^^
 :Default: ``YES``
 
-If ``YES``, messages will be posted to the console and event stream when the image is loaded or unloaded.
+If ``YES``, the stimulus will start playing automatically (as if by an implicit `Play Dynamic Stimulus` action) after it has been `queued <Queue Stimulus>` and `Update Stimulus Display` has been invoked.  It will also stop playing automatically (as if by an implicit `Stop Dynamic Stimulus` action) after it has been `dequeued <Dequeue Stimulus>` and `Update Stimulus Display` is invoked.
 
 
 alpha_multiplier

@@ -21,9 +21,10 @@ code.
 .. rubric:: Available Modules and Functions
 
 Python code executed by `Run Python File`, `Run Python String`, a `Python
-File Resource`, or the `expression parser <Expressions>` functions
-``py_eval`` and ``py_call`` can make use of both the `Python standard
-library <https://docs.python.org/3/library/index.html>`_ and `NumPy
+File Resource`, a `Python Image Stimulus`, or the `expression parser
+<Expressions>` functions ``py_eval`` and ``py_call`` can make use of both
+the `Python standard library
+<https://docs.python.org/3/library/index.html>`_ and `NumPy
 <https://www.numpy.org>`_.  In addition, the following MWorks-specific
 functions are available:
 
