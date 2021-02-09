@@ -15,14 +15,15 @@ MWorks was originally created for conducting visual neurophysiology experiments,
 
 MWorks is in active use in labs at the following institutions:
 
+* [Columbia University](https://www.columbia.edu/)
 * [Duke University](https://www.duke.edu/)
-* [German Primate Center](http://www.dpz.eu/en/home.html) (DPZ)
+* [German Primate Center](https://www.dpz.eu/) (DPZ)
 * [Harvard University](https://www.harvard.edu/)
-* [International School for Advanced Studies](http://www.sissa.it/) (SISSA)
-* [Massachusetts Institute of Technology](http://mit.edu/) (MIT)
+* [International School for Advanced Studies](https://www.sissa.it/) (SISSA)
+* [Massachusetts Institute of Technology](https://web.mit.edu) (MIT)
 * [National Institutes of Health](https://www.nih.gov/) (NIH)
 * [New York University](https://www.nyu.edu/) (NYU)
-* [Newcastle University](http://www.newcastle.ac.uk/)
+* [University of Fribourg](https://www.unifr.ch/)
 * [University of Pennsylvania](https://www.upenn.edu/)
 
 ## Can I use MWorks? ##
