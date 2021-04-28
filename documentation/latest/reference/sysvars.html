@@ -14,7 +14,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -237,6 +236,11 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="stimdisplaycapture">
+<span id="stimdisplaycapture-var"></span><h3>#stimDisplayCapture<a class="headerlink" href="#stimdisplaycapture" title="Permalink to this headline">¶</a></h3>
+<p>Used to record captured stimulus display frames.  To configure display frame capture, include a <a class="reference internal" href="../components/stimulus_display.html#stimulus-display"><span class="std std-ref">Stimulus Display</span></a> device in your experiment, and set its <code class="docutils literal notranslate"><span class="pre">capture_format</span></code> parameter to an appropriate value.</p>
+<p>The time stamp of a <code class="docutils literal notranslate"><span class="pre">#stimDisplayCapture</span></code> event is identical to that of the corresponding <a class="reference internal" href="#stimdisplayupdate-var"><span class="std std-ref">#stimDisplayUpdate</span></a> event.</p>
+</div>
 <div class="section" id="stimdisplayupdate">
 <span id="stimdisplayupdate-var"></span><h3>#stimDisplayUpdate<a class="headerlink" href="#stimdisplayupdate" title="Permalink to this headline">¶</a></h3>
 <p>Used to announce updates to the visual stimulus presentation.</p>
@@ -316,6 +320,7 @@
 <li><a class="reference internal" href="#announcetrial">#announceTrial</a></li>
 <li><a class="reference internal" href="#loadedexperiment">#loadedExperiment</a></li>
 <li><a class="reference internal" href="#state-system-mode">#state_system_mode</a></li>
+<li><a class="reference internal" href="#stimdisplaycapture">#stimDisplayCapture</a></li>
 <li><a class="reference internal" href="#stimdisplayupdate">#stimDisplayUpdate</a></li>
 </ul>
 </li>
@@ -367,8 +372,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2020, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.0.
+        &#169; Copyright 2016-2021, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
     </div>
   </body>
 </html>

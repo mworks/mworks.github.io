@@ -14,7 +14,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -54,7 +53,7 @@
 <span id="index-0"></span><span id="id1"></span><h1>Moving Dots<a class="headerlink" href="#moving-dots" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>A moving dot field stimulus</p>
+<p>A moving dot field (aka dynamic random dots) stimulus</p>
 </div>
 <div class="section" id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
@@ -142,7 +141,19 @@
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
-<p>Dot lifetime (seconds).  When a dot reaches the end of its lifetime, it is removed and replaced by a new dot in a random location.</p>
+<p>Dot lifetime (seconds).  When a dot reaches the end of its lifetime, it
+is removed and replaced by a new dot in a random location.</p>
+<p>If set to zero, dots have an infinite lifetime.</p>
+</div>
+<div class="section" id="rand-seed">
+<h3>rand_seed<a class="headerlink" href="#rand-seed" title="Permalink to this headline">¶</a></h3>
+<p>Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.</p>
+</div>
+<div class="section" id="max-num-dots">
+<h3>max_num_dots<a class="headerlink" href="#max-num-dots" title="Permalink to this headline">¶</a></h3>
+<p>Maximum number of dots.</p>
+<p>If omitted, the maximum number of dots is determined by the values of
+<a class="reference internal" href="#field-radius">field_radius</a> and <a class="reference internal" href="#dot-density">dot_density</a> when the stimulus is loaded.</p>
 </div>
 <div class="section" id="announce-dots">
 <h3>announce_dots<a class="headerlink" href="#announce-dots" title="Permalink to this headline">¶</a></h3>
@@ -158,10 +169,6 @@ point values (in platform <a class="reference external" href="https://en.wikiped
 pair of values representing the (x,y) coordinates of a dot.  The
 coordinates are scaled to lie in the range [-1,1] and rotated so that
 the direction of coherent motion is zero degrees.</p>
-</div>
-<div class="section" id="rand-seed">
-<h3>rand_seed<a class="headerlink" href="#rand-seed" title="Permalink to this headline">¶</a></h3>
-<p>Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.</p>
 </div>
 <div class="section" id="deferred">
 <h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
@@ -231,8 +238,9 @@ the direction of coherent motion is zero degrees.</p>
 <li><a class="reference internal" href="#direction">direction</a></li>
 <li><a class="reference internal" href="#coherence">coherence</a></li>
 <li><a class="reference internal" href="#lifetime">lifetime</a></li>
-<li><a class="reference internal" href="#announce-dots">announce_dots</a></li>
 <li><a class="reference internal" href="#rand-seed">rand_seed</a></li>
+<li><a class="reference internal" href="#max-num-dots">max_num_dots</a></li>
+<li><a class="reference internal" href="#announce-dots">announce_dots</a></li>
 <li><a class="reference internal" href="#deferred">deferred</a></li>
 <li><a class="reference internal" href="#autoplay">autoplay</a></li>
 </ul>
@@ -282,8 +290,8 @@ the direction of coherent motion is zero degrees.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2020, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.0.
+        &#169; Copyright 2016-2021, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
     </div>
   </body>
 </html>

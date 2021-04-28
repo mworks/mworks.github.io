@@ -14,7 +14,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -120,7 +119,8 @@ thread, there are some restrictions on the actions that it can perform.</p>
 <li><p><a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a></p></li>
 </ul>
 <p>A Render Actions stimulus can safely use the following actions on other
-stimuli but not on itself:</p>
+stimuli but not on itself.  However, the effects of these actions may not be
+visible until the <em>next</em> display update pass:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="bring_stimulus_to_front.html#bring-stimulus-to-front"><span class="std std-ref">Bring Stimulus to Front</span></a></p></li>
 <li><p><a class="reference internal" href="pause_dynamic_stimulus.html#pause-dynamic-stimulus"><span class="std std-ref">Pause Dynamic Stimulus</span></a></p></li>
@@ -252,8 +252,8 @@ reported elapsed time.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2020, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.0.
+        &#169; Copyright 2016-2021, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
     </div>
   </body>
 </html>

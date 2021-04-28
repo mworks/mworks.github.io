@@ -20,9 +20,9 @@ An ellipse stimulus
 
 Signature
 ---------
-``stimulus/circle``
+``stimulus/ellipse``
 
-:Alias: ``stimulus/ellipse``
+:Alias: ``stimulus/circle``
 
 
 Optional Parameters

@@ -15,7 +15,7 @@ Moving Dots
 
 Description
 -----------
-A moving dot field stimulus
+A moving dot field (aka dynamic random dots) stimulus
 
 
 Signature
@@ -94,7 +94,25 @@ lifetime
 ^^^^^^^^
 :Default: ``0.0``
 
-Dot lifetime (seconds).  When a dot reaches the end of its lifetime, it is removed and replaced by a new dot in a random location.
+Dot lifetime (seconds).  When a dot reaches the end of its lifetime, it
+is removed and replaced by a new dot in a random location.
+
+If set to zero, dots have an infinite lifetime.
+
+
+rand_seed
+^^^^^^^^^
+
+Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.
+
+
+max_num_dots
+^^^^^^^^^^^^
+
+Maximum number of dots.
+
+If omitted, the maximum number of dots is determined by the values of
+`field_radius`_ and `dot_density`_ when the stimulus is loaded.
 
 
 announce_dots
@@ -110,12 +128,6 @@ point values (in platform `byte order
 pair of values representing the (x,y) coordinates of a dot.  The
 coordinates are scaled to lie in the range [-1,1] and rotated so that
 the direction of coherent motion is zero degrees.
-
-
-rand_seed
-^^^^^^^^^
-
-Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.
 
 
 deferred

@@ -14,7 +14,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -66,20 +65,17 @@ on this device.</p>
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/stimulus_display</span></code></p>
 </div>
-<div class="section" id="required-parameters">
-<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="background-color">
 <h3>background_color<a class="headerlink" href="#background-color" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Example</dt>
+<dt class="field-odd">Default</dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.5,0.5,0.5</span></code></p>
 </dd>
 </dl>
 <p>The background color, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).</p>
 </div>
-</div>
-<div class="section" id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="background-alpha-multiplier">
 <h3>background_alpha_multiplier<a class="headerlink" href="#background-alpha-multiplier" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
@@ -110,6 +106,59 @@ of <a class="reference internal" href="#background-color">background_color</a> t
 </dd>
 </dl>
 <p>Controls the announcement of stimuli during “implicit” display updates (i.e. updates requested by running dynamic stimuli and <em>not</em> triggered by an explicit <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action).  If set to <code class="docutils literal notranslate"><span class="pre">NO</span></code>, <a class="reference internal" href="../reference/sysvars.html#stimdisplayupdate-var"><span class="std std-ref">#stimDisplayUpdate</span></a> events for implicit updates will contain only the number of stimuli displayed (in place of the usual list of stimulus parameters).</p>
+</div>
+<div class="section" id="capture-format">
+<h3>capture_format<a class="headerlink" href="#capture-format" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">none</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">JPEG</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">PNG</span></code></div>
+</div>
+</dd>
+<dt class="field-even">Default</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">none</span></code></p>
+</dd>
+</dl>
+<p>Format in which to capture display frames.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">none</span></code>, display frames will not be captured.  Otherwise, for every
+display redraw for which <a class="reference internal" href="#capture-enabled">capture_enabled</a> evaluates to true, the
+contents of the display will be captured in the specified format, at the
+resolution determined by <a class="reference internal" href="#capture-height-pixels">capture_height_pixels</a>, and stored (as binary
+data) in the variable <a class="reference internal" href="../reference/sysvars.html#stimdisplaycapture-var"><span class="std std-ref">#stimDisplayCapture</span></a>.</p>
+</div>
+<div class="section" id="capture-height-pixels">
+<h3>capture_height_pixels<a class="headerlink" href="#capture-height-pixels" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd>
+</dl>
+<p>Height (in pixels) of captured display frames.</p>
+<p>If the value of this parameter is less than or equal to zero, frames
+will be captured at the full height and width of the display.
+Otherwise, each frame will be scaled down to the specified height, with
+the width chosen to match the aspect ratio of the display.</p>
+<p><em>Note</em>: The cost of frame capture, in terms of both CPU usage and
+required storage space, depends almost entirely on the size of the
+captured frames.  If you experience performance issues with capture
+enabled, try reducing the value of this parameter.</p>
+</div>
+<div class="section" id="capture-enabled">
+<h3>capture_enabled<a class="headerlink" href="#capture-enabled" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
+</dd>
+</dl>
+<p>If <a class="reference internal" href="#capture-format">capture_format</a> is not <code class="docutils literal notranslate"><span class="pre">none</span></code>, every time the display redraws, it
+will test the value of this parameter.  If the parameter evaluates to a
+true value (e.g. <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">true</span></code>), the current frame will be captured.</p>
+<p>By setting this parameter to the name of a variable, your experiment can
+dynamically enable or disable frame capture by assigning a true or false
+value, respectively, to the variable.  This allows you to capture frames
+only when needed.</p>
 </div>
 <div class="section" id="autostart">
 <h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
@@ -155,14 +204,14 @@ stops running, irrespective of this setting.</p>
 <li><a class="reference internal" href="#">Stimulus Display</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
-<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
-<li><a class="reference internal" href="#background-color">background_color</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#background-color">background_color</a></li>
 <li><a class="reference internal" href="#background-alpha-multiplier">background_alpha_multiplier</a></li>
 <li><a class="reference internal" href="#redraw-on-every-refresh">redraw_on_every_refresh</a></li>
 <li><a class="reference internal" href="#announce-stimuli-on-implicit-updates">announce_stimuli_on_implicit_updates</a></li>
+<li><a class="reference internal" href="#capture-format">capture_format</a></li>
+<li><a class="reference internal" href="#capture-height-pixels">capture_height_pixels</a></li>
+<li><a class="reference internal" href="#capture-enabled">capture_enabled</a></li>
 <li><a class="reference internal" href="#autostart">autostart</a></li>
 <li><a class="reference internal" href="#alt">alt</a></li>
 </ul>
@@ -212,8 +261,8 @@ stops running, irrespective of this setting.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2020, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.0.
+        &#169; Copyright 2016-2021, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
     </div>
   </body>
 </html>

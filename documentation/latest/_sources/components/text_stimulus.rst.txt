@@ -61,6 +61,24 @@ text_alignment
 
 Text alignment
 
+max_size_x
+^^^^^^^^^^
+
+Maximum horizontal size (degrees).
+
+If omitted, the maximum horizontal size is set to the value of `x_size`_
+when the stimulus is loaded.
+
+
+max_size_y
+^^^^^^^^^^
+
+Maximum vertical size (degrees).
+
+If omitted, the maximum vertical size is set to the value of `y_size`_
+when the stimulus is loaded.
+
+
 color
 ^^^^^
 :Default: ``1.0,1.0,1.0``

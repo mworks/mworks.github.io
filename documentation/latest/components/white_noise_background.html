@@ -14,7 +14,6 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -102,12 +101,9 @@ stimulus).</p>
 <p>To generate dynamic white noise that updates on every display refresh,
 use this parameter in conjuction with a <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>frame_list dynamic_noise (
-    stimulus_group = dynamic_noise_frames
     loop = true
     autoplay = true
-    )
-
-stimulus_group dynamic_noise_frames {
+    ) {
     white_noise_background (
         randomize_on_draw = true
         )
@@ -212,8 +208,8 @@ stimulus_group dynamic_noise_frames {
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2020, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.0.
+        &#169; Copyright 2016-2021, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
     </div>
   </body>
 </html>

@@ -32,20 +32,15 @@ Signature
 ``iodevice/stimulus_display``
 
 
-Required Parameters
+Optional Parameters
 -------------------
 
 background_color
 ^^^^^^^^^^^^^^^^
-:Example: ``0.5,0.5,0.5``
+:Default: ``0.5,0.5,0.5``
 
 The background color, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).
 
-
-
-
-Optional Parameters
--------------------
 
 background_alpha_multiplier
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,6 +67,53 @@ announce_stimuli_on_implicit_updates
 :Default: ``YES``
 
 Controls the announcement of stimuli during "implicit" display updates (i.e. updates requested by running dynamic stimuli and *not* triggered by an explicit `Update Stimulus Display` action).  If set to ``NO``, `stimDisplayUpdate var` events for implicit updates will contain only the number of stimuli displayed (in place of the usual list of stimulus parameters).
+
+
+capture_format
+^^^^^^^^^^^^^^
+:Options: | ``none``
+          | ``JPEG``
+          | ``PNG``
+:Default: ``none``
+
+Format in which to capture display frames.
+
+If ``none``, display frames will not be captured.  Otherwise, for every
+display redraw for which `capture_enabled`_ evaluates to true, the
+contents of the display will be captured in the specified format, at the
+resolution determined by `capture_height_pixels`_, and stored (as binary
+data) in the variable `stimDisplayCapture var`.
+
+
+capture_height_pixels
+^^^^^^^^^^^^^^^^^^^^^
+:Default: ``0``
+
+Height (in pixels) of captured display frames.
+
+If the value of this parameter is less than or equal to zero, frames
+will be captured at the full height and width of the display. 
+Otherwise, each frame will be scaled down to the specified height, with
+the width chosen to match the aspect ratio of the display.
+
+*Note*: The cost of frame capture, in terms of both CPU usage and
+required storage space, depends almost entirely on the size of the
+captured frames.  If you experience performance issues with capture
+enabled, try reducing the value of this parameter.
+
+
+capture_enabled
+^^^^^^^^^^^^^^^
+:Default: ``YES``
+
+If `capture_format`_ is not ``none``, every time the display redraws, it
+will test the value of this parameter.  If the parameter evaluates to a
+true value (e.g. ``1``, ``true``), the current frame will be captured.
+
+By setting this parameter to the name of a variable, your experiment can
+dynamically enable or disable frame capture by assigning a true or false
+value, respectively, to the variable.  This allows you to capture frames
+only when needed.
 
 
 autostart
