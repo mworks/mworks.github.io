@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Simple Staircase Optimizer &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -49,56 +50,56 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="simple-staircase-optimizer">
+  <section id="simple-staircase-optimizer">
 <span id="index-0"></span><span id="id1"></span><h1>Simple Staircase Optimizer<a class="headerlink" href="#simple-staircase-optimizer" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description">
+<section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>An object that watches a variable (e.g. a flag reporting success in a behavioral task) and moves another variable up and down according to some criteria</p>
-</div>
-<div class="section" id="signature">
+</section>
+<section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">staircase</span></code></p>
-</div>
-<div class="section" id="required-parameters">
+</section>
+<section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="watch">
+<section id="watch">
 <h3>watch<a class="headerlink" href="#watch" title="Permalink to this headline">¶</a></h3>
 <p>Variable to watch</p>
-</div>
-<div class="section" id="output">
+</section>
+<section id="output">
 <h3>output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
 <p>Variable to vary</p>
-</div>
-<div class="section" id="lower-limit">
+</section>
+<section id="lower-limit">
 <h3>lower_limit<a class="headerlink" href="#lower-limit" title="Permalink to this headline">¶</a></h3>
 <p>Lower bound for output</p>
-</div>
-<div class="section" id="upper-limit">
+</section>
+<section id="upper-limit">
 <h3>upper_limit<a class="headerlink" href="#upper-limit" title="Permalink to this headline">¶</a></h3>
 <p>Upper bound for output</p>
-</div>
-<div class="section" id="up-criterion">
+</section>
+<section id="up-criterion">
 <h3>up_criterion<a class="headerlink" href="#up-criterion" title="Permalink to this headline">¶</a></h3>
 <p>If watched variable value is greater than or equal to this value, output steps up</p>
-</div>
-<div class="section" id="down-criterion">
+</section>
+<section id="down-criterion">
 <h3>down_criterion<a class="headerlink" href="#down-criterion" title="Permalink to this headline">¶</a></h3>
 <p>If watched variable value is less than or equal to this value, output steps down</p>
-</div>
-<div class="section" id="step-size">
+</section>
+<section id="step-size">
 <h3>step_size<a class="headerlink" href="#step-size" title="Permalink to this headline">¶</a></h3>
 <p>Step size for changing output</p>
-</div>
-<div class="section" id="grace-period">
+</section>
+<section id="grace-period">
 <h3>grace_period<a class="headerlink" href="#grace-period" title="Permalink to this headline">¶</a></h3>
 <p>Don’t step anywhere unless watched variable has been updated at least this many times</p>
-</div>
-<div class="section" id="history">
+</section>
+<section id="history">
 <h3>history<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h3>
 <p>Number of samples to store in internal <a class="reference internal" href="box_car_filter.html#box-car-filter"><span class="std std-ref">boxcar filter</span></a> used to average watched variable values</p>
-</div>
-</div>
-<div class="section" id="placement">
+</section>
+</section>
+<section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto docutils align-default">
 <tbody>
@@ -110,8 +111,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -183,7 +184,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>

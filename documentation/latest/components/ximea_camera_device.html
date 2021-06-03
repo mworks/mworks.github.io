@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>EasyEye Device &#8212; MWorks 0.11.dev documentation</title>
+    <title>XIMEA Camera Device &#8212; MWorks 0.11.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
@@ -18,8 +18,8 @@
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="EyeLink Device" href="eyelink_device.html" />
-    <link rel="prev" title="DATAPixx Word Output Channel" href="datapixx_word_output_channel.html" />
+    <link rel="next" title="Optimizers and Variable Monitors" href="optimizers_and_variable_monitors.html" />
+    <link rel="prev" title="USB HID Input Channel" href="usb_hid_input_channel.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
@@ -32,16 +32,16 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="eyelink_device.html" title="EyeLink Device"
+          <a href="optimizers_and_variable_monitors.html" title="Optimizers and Variable Monitors"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="datapixx_word_output_channel.html" title="DATAPixx Word Output Channel"
+          <a href="usb_hid_input_channel.html" title="USB HID Input Channel"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.11.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="input_output.html" accesskey="U">Input/Output</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">EasyEye Device</a></li> 
+        <li class="nav-item nav-item-this"><a href="">XIMEA Camera Device</a></li> 
       </ul>
     </div>  
 
@@ -50,51 +50,64 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="easyeye-device">
-<span id="index-0"></span><span id="id1"></span><h1>EasyEye Device<a class="headerlink" href="#easyeye-device" title="Permalink to this headline">¶</a></h1>
+  <section id="ximea-camera-device">
+<span id="index-0"></span><span id="id1"></span><h1>XIMEA Camera Device<a class="headerlink" href="#ximea-camera-device" title="Permalink to this headline">¶</a></h1>
+<p><em>Available on macOS</em></p>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Interface to an EasyEye eye tracker</p>
+<p>Interface to a <a class="reference external" href="https://www.ximea.com/">XIMEA</a> camera.</p>
+<p>MWorks configures the camera to capture 8-bit, grayscale images.  Each frame
+capture is triggered by MWorks (i.e. software triggering).  In addition, the
+output pin on the camera (OUT1 if there are multiple outputs) is configured
+to be on during frame exposure.</p>
+<p>Multiple cameras can be connected and used simultaneously, as long as
+<a class="reference internal" href="#serial-number">serial_number</a> is specified for each device.</p>
 </section>
 <section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">iodevice/easy_eye</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">iodevice/ximea_camera</span></code></p>
 </section>
 <section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<section id="address">
-<h3>address<a class="headerlink" href="#address" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list">
-<dt class="field-odd">Examples</dt>
-<dd class="field-odd"><div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">localhost</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">&quot;mytracker.mylab.net&quot;</span></code></div>
-<div class="line"><code class="docutils literal notranslate"><span class="pre">18.9.22.69</span></code></div>
-</div>
-</dd>
-</dl>
-<p>Tracker host name or IP address</p>
-</section>
-<section id="port">
-<h3>port<a class="headerlink" href="#port" title="Permalink to this headline">¶</a></h3>
+<section id="exposure-time">
+<h3>exposure_time<a class="headerlink" href="#exposure-time" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5204</span></code></p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">2ms</span></code></p>
 </dd>
 </dl>
-<p>Tracker listening port</p>
+<p>Exposure time for each captured frame.  Must be greater than zero.</p>
 </section>
-<section id="eye-x">
-<h3>eye_x<a class="headerlink" href="#eye-x" title="Permalink to this headline">¶</a></h3>
-<p>Variable in which to store horizontal eye position</p>
+<section id="capture-interval">
+<h3>capture_interval<a class="headerlink" href="#capture-interval" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">33.33ms</span></code></p>
+</dd>
+</dl>
+<p>Interval between frame captures.  Must be greater than zero.</p>
 </section>
-<section id="eye-y">
-<h3>eye_y<a class="headerlink" href="#eye-y" title="Permalink to this headline">¶</a></h3>
-<p>Variable in which to store vertical eye position</p>
+<section id="image-data">
+<h3>image_data<a class="headerlink" href="#image-data" title="Permalink to this headline">¶</a></h3>
+<p>Variable in which to store captured frames.</p>
+<p>The value assigned to the variable is a binary string containing a <a class="reference external" href="https://en.wikipedia.org/wiki/JPEG">JPEG</a>-encoded image.  The time stamp of
+the assignment is taken immediately after MWorks triggers the frame
+capture.</p>
 </section>
 </section>
 <section id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<section id="serial-number">
+<h3>serial_number<a class="headerlink" href="#serial-number" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">12345678</span></code></p>
+</dd>
+</dl>
+<p>Serial number of the desired camera.</p>
+<p>If only one camera is connected, this parameter can be omitted, and
+MWorks will connect to the one available device.</p>
+</section>
 <section id="autostart">
 <h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
@@ -136,17 +149,17 @@ stops running, irrespective of this setting.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">EasyEye Device</a><ul>
+<li><a class="reference internal" href="#">XIMEA Camera Device</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
-<li><a class="reference internal" href="#address">address</a></li>
-<li><a class="reference internal" href="#port">port</a></li>
-<li><a class="reference internal" href="#eye-x">eye_x</a></li>
-<li><a class="reference internal" href="#eye-y">eye_y</a></li>
+<li><a class="reference internal" href="#exposure-time">exposure_time</a></li>
+<li><a class="reference internal" href="#capture-interval">capture_interval</a></li>
+<li><a class="reference internal" href="#image-data">image_data</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#serial-number">serial_number</a></li>
 <li><a class="reference internal" href="#autostart">autostart</a></li>
 <li><a class="reference internal" href="#alt">alt</a></li>
 </ul>
@@ -157,11 +170,11 @@ stops running, irrespective of this setting.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="datapixx_word_output_channel.html"
-                        title="previous chapter">DATAPixx Word Output Channel</a></p>
+  <p class="topless"><a href="usb_hid_input_channel.html"
+                        title="previous chapter">USB HID Input Channel</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="eyelink_device.html"
-                        title="next chapter">EyeLink Device</a></p>
+  <p class="topless"><a href="optimizers_and_variable_monitors.html"
+                        title="next chapter">Optimizers and Variable Monitors</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -183,16 +196,16 @@ stops running, irrespective of this setting.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="eyelink_device.html" title="EyeLink Device"
+          <a href="optimizers_and_variable_monitors.html" title="Optimizers and Variable Monitors"
              >next</a> |</li>
         <li class="right" >
-          <a href="datapixx_word_output_channel.html" title="DATAPixx Word Output Channel"
+          <a href="usb_hid_input_channel.html" title="USB HID Input Channel"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.11.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="input_output.html" >Input/Output</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">EasyEye Device</a></li> 
+        <li class="nav-item nav-item-this"><a href="">XIMEA Camera Device</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

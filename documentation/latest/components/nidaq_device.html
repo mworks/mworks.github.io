@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>NIDAQ Device &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -49,20 +50,20 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="nidaq-device">
+  <section id="nidaq-device">
 <span id="index-0"></span><span id="id1"></span><h1>NIDAQ Device<a class="headerlink" href="#nidaq-device" title="Permalink to this headline">¶</a></h1>
 <p><em>Available on macOS</em></p>
-<div class="section" id="description">
+<section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Interface to a <a class="reference external" href="http://www.ni.com">National Instruments</a> data acquisition (DAQ) device</p>
-</div>
-<div class="section" id="signature">
+</section>
+<section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/nidaq</span></code></p>
-</div>
-<div class="section" id="required-parameters">
+</section>
+<section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="name">
+<section id="name">
 <h3>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -72,8 +73,8 @@
 <p>Device name.</p>
 <p>Run <code class="docutils literal notranslate"><span class="pre">/Applications/National</span> <span class="pre">Instruments/NI-DAQmx</span> <span class="pre">Base/lsdaq.app</span></code> to
 detect available devices and determine their assigned names.</p>
-</div>
-<div class="section" id="update-interval">
+</section>
+<section id="update-interval">
 <h3>update_interval<a class="headerlink" href="#update-interval" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -81,8 +82,8 @@ detect available devices and determine their assigned names.</p>
 </dd>
 </dl>
 <p>MWorks will poll the device for new input data every <code class="docutils literal notranslate"><span class="pre">update_interval</span></code> microseconds</p>
-</div>
-<div class="section" id="analog-input-data-interval">
+</section>
+<section id="analog-input-data-interval">
 <h3>analog_input_data_interval<a class="headerlink" href="#analog-input-data-interval" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -90,8 +91,8 @@ detect available devices and determine their assigned names.</p>
 </dd>
 </dl>
 <p>Interval between acquired samples on analog input channels (microseconds)</p>
-</div>
-<div class="section" id="analog-output-data-interval">
+</section>
+<section id="analog-output-data-interval">
 <h3>analog_output_data_interval<a class="headerlink" href="#analog-output-data-interval" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -99,11 +100,11 @@ detect available devices and determine their assigned names.</p>
 </dd>
 </dl>
 <p>Interval between generated samples on analog output channels (microseconds)</p>
-</div>
-</div>
-<div class="section" id="optional-parameters">
+</section>
+</section>
+<section id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="analog-read-timeout">
+<section id="analog-read-timeout">
 <h3>analog_read_timeout<a class="headerlink" href="#analog-read-timeout" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -114,8 +115,8 @@ detect available devices and determine their assigned names.</p>
 (microseconds).  If the samples are not received in the allotted time,
 issue an error message.</p>
 <p>If omitted, defaults to <a class="reference internal" href="#update-interval">update_interval</a>.</p>
-</div>
-<div class="section" id="analog-output-enabled">
+</section>
+<section id="analog-output-enabled">
 <h3>analog_output_enabled<a class="headerlink" href="#analog-output-enabled" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -131,8 +132,8 @@ to <code class="docutils literal notranslate"><span class="pre">NO</span></code>
 subsequently setting the variable to <code class="docutils literal notranslate"><span class="pre">YES</span></code> will restart analog output.
 Hence, it provides a means to start and stop analog output independently
 of other input and output tasks.</p>
-</div>
-<div class="section" id="assume-multiplexed-adc">
+</section>
+<section id="assume-multiplexed-adc">
 <h3>assume_multiplexed_adc<a class="headerlink" href="#assume-multiplexed-adc" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -140,8 +141,8 @@ of other input and output tasks.</p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, MWorks assumes that all analog input channels share a single analog-to-digital converter (ADC) and adjusts sample timestamps accordingly.  If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, MWorks assumes that each analog input channel has its own ADC and that samples for all channels are acquired simultaneously.</p>
-</div>
-<div class="section" id="autostart">
+</section>
+<section id="autostart">
 <h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -152,13 +153,13 @@ of other input and output tasks.</p>
 implicit <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> action) when the experiment starts running.</p>
 <p><em>Note</em>: Device I/O will always stop automatically when the experiment
 stops running, irrespective of this setting.</p>
-</div>
-<div class="section" id="alt">
+</section>
+<section id="alt">
 <h3>alt<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h3>
 <p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
-</div>
-</div>
-<div class="section" id="placement">
+</section>
+</section>
+<section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto docutils align-default">
 <tbody>
@@ -173,8 +174,8 @@ stops running, irrespective of this setting.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -249,7 +250,7 @@ stops running, irrespective of this setting.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>

@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>NIDAQ Analog Output Voltage Waveform Channel &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -49,10 +50,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="nidaq-analog-output-voltage-waveform-channel">
+  <section id="nidaq-analog-output-voltage-waveform-channel">
 <span id="index-0"></span><span id="id1"></span><h1>NIDAQ Analog Output Voltage Waveform Channel<a class="headerlink" href="#nidaq-analog-output-voltage-waveform-channel" title="Permalink to this headline">¶</a></h1>
 <p><em>Available on macOS</em></p>
-<div class="section" id="description">
+<section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Generates a periodic analog output voltage signal on a <a class="reference internal" href="nidaq_device.html#nidaq-device"><span class="std std-ref">NIDAQ Device</span></a>.</p>
 <p>All waveform parameters (<a class="reference internal" href="#waveform">waveform</a>, <a class="reference internal" href="#period">period</a>, <a class="reference internal" href="#offset">offset</a>, <a class="reference internal" href="#amplitude">amplitude</a>,
@@ -60,14 +61,14 @@ and <a class="reference internal" href="#mean">mean</a>) can be modified at run 
 is stopped and restarted, either by <a class="reference internal" href="stop_io_device.html#stop-io-device"><span class="std std-ref">stopping</span></a> and
 <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">restarting</span></a> the device, or by setting the device’s
 <code class="docutils literal notranslate"><span class="pre">analog_output_enabled</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">NO</span></code> and then <code class="docutils literal notranslate"><span class="pre">YES</span></code>.</p>
-</div>
-<div class="section" id="signature">
+</section>
+<section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iochannel/nidaq_analog_output_voltage_waveform</span></code></p>
-</div>
-<div class="section" id="required-parameters">
+</section>
+<section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="channel-number">
+<section id="channel-number">
 <h3>channel_number<a class="headerlink" href="#channel-number" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -75,8 +76,8 @@ is stopped and restarted, either by <a class="reference internal" href="stop_io_
 </dd>
 </dl>
 <p>Analog output channel number (<code class="docutils literal notranslate"><span class="pre">0</span></code> for AO0, <code class="docutils literal notranslate"><span class="pre">1</span></code> for AO1, etc.)</p>
-</div>
-<div class="section" id="range-min">
+</section>
+<section id="range-min">
 <h3>range_min<a class="headerlink" href="#range-min" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -84,8 +85,8 @@ is stopped and restarted, either by <a class="reference internal" href="stop_io_
 </dd>
 </dl>
 <p>Minimum permitted output value (volts)</p>
-</div>
-<div class="section" id="range-max">
+</section>
+<section id="range-max">
 <h3>range_max<a class="headerlink" href="#range-max" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -93,8 +94,8 @@ is stopped and restarted, either by <a class="reference internal" href="stop_io_
 </dd>
 </dl>
 <p>Maximum permitted output value (volts)</p>
-</div>
-<div class="section" id="waveform">
+</section>
+<section id="waveform">
 <h3>waveform<a class="headerlink" href="#waveform" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options</dt>
@@ -107,8 +108,8 @@ is stopped and restarted, either by <a class="reference internal" href="stop_io_
 </dd>
 </dl>
 <p>Waveform type</p>
-</div>
-<div class="section" id="period">
+</section>
+<section id="period">
 <h3>period<a class="headerlink" href="#period" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -116,11 +117,11 @@ is stopped and restarted, either by <a class="reference internal" href="stop_io_
 </dd>
 </dl>
 <p>Waveform period (microseconds)</p>
-</div>
-</div>
-<div class="section" id="optional-parameters">
+</section>
+</section>
+<section id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="offset">
+<section id="offset">
 <h3>offset<a class="headerlink" href="#offset" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -128,8 +129,8 @@ is stopped and restarted, either by <a class="reference internal" href="stop_io_
 </dd>
 </dl>
 <p>Waveform time offset (microseconds).  Determines the initial phase of the waveform.</p>
-</div>
-<div class="section" id="amplitude">
+</section>
+<section id="amplitude">
 <h3>amplitude<a class="headerlink" href="#amplitude" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -137,8 +138,8 @@ is stopped and restarted, either by <a class="reference internal" href="stop_io_
 </dd>
 </dl>
 <p>Waveform amplitude (volts).  If omitted, defaults to <code class="docutils literal notranslate"><span class="pre">(range_max-range_min)/2</span></code>.</p>
-</div>
-<div class="section" id="mean">
+</section>
+<section id="mean">
 <h3>mean<a class="headerlink" href="#mean" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -147,9 +148,9 @@ is stopped and restarted, either by <a class="reference internal" href="stop_io_
 </dl>
 <p>Waveform mean (volts).  If omitted, defaults to
 <code class="docutils literal notranslate"><span class="pre">(range_min+range_max)/2</span></code>.</p>
-</div>
-</div>
-<div class="section" id="placement">
+</section>
+</section>
+<section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto docutils align-default">
 <tbody>
@@ -161,8 +162,8 @@ is stopped and restarted, either by <a class="reference internal" href="stop_io_
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -236,7 +237,7 @@ is stopped and restarted, either by <a class="reference internal" href="stop_io_
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>

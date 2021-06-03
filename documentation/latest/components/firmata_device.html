@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Firmata Device &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -49,9 +50,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="firmata-device">
+  <section id="firmata-device">
 <span id="index-0"></span><span id="id1"></span><h1>Firmata Device<a class="headerlink" href="#firmata-device" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description">
+<section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Interface to a microcontroller that supports the
 <a class="reference external" href="https://github.com/firmata/protocol">Firmata protocol</a>.</p>
@@ -63,14 +64,14 @@ the Firmata protocol via the Arduino
 <a class="reference internal" href="#serial-port">serial_port</a> and <a class="reference internal" href="#bluetooth-local-name">bluetooth_local_name</a> are omitted, MWorks looks for a
 single, connected serial device.  If it finds one, it assumes it to be the
 desired Firmata device and attempts to connect.</p>
-</div>
-<div class="section" id="signature">
+</section>
+<section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/firmata</span></code></p>
-</div>
-<div class="section" id="optional-parameters">
+</section>
+<section id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="serial-port">
+<section id="serial-port">
 <h3>serial_port<a class="headerlink" href="#serial-port" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -79,8 +80,8 @@ desired Firmata device and attempts to connect.</p>
 </dl>
 <p>If the Firmata device is connected via a serial port, this parameter
 specifies the filesystem path that represents the serial port</p>
-</div>
-<div class="section" id="bluetooth-local-name">
+</section>
+<section id="bluetooth-local-name">
 <h3>bluetooth_local_name<a class="headerlink" href="#bluetooth-local-name" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -89,8 +90,8 @@ specifies the filesystem path that represents the serial port</p>
 </dl>
 <p>If the Firmata device is connected via Bluetooth low energy, this
 parameter specifies its local name</p>
-</div>
-<div class="section" id="data-interval">
+</section>
+<section id="data-interval">
 <h3>data_interval<a class="headerlink" href="#data-interval" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -98,16 +99,16 @@ parameter specifies its local name</p>
 </dd>
 </dl>
 <p>Sampling interval for analog inputs.  Must be a whole number of milliseconds.</p>
-</div>
-<div class="section" id="connected">
+</section>
+<section id="connected">
 <h3>connected<a class="headerlink" href="#connected" title="Permalink to this headline">¶</a></h3>
 <p>Variable in which to store connection state of the Firmata device (true
 if currently connected, false otherwise).</p>
 <p>Normally, the device should be connected at all times.  However, by
 monitoring the value of the specified variable, you can detect and
 respond to unexpected disconnections.</p>
-</div>
-<div class="section" id="reconnect-interval">
+</section>
+<section id="reconnect-interval">
 <h3>reconnect_interval<a class="headerlink" href="#reconnect-interval" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -126,8 +127,8 @@ reconnect.  If the reconnection attempt fails, the device will wait for
 another 10 seconds, then try again, and so on.</p>
 <p>If the value of this parameter is zero, the device will never attempt to
 reconnect.</p>
-</div>
-<div class="section" id="autostart">
+</section>
+<section id="autostart">
 <h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -138,13 +139,13 @@ reconnect.</p>
 implicit <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> action) when the experiment starts running.</p>
 <p><em>Note</em>: Device I/O will always stop automatically when the experiment
 stops running, irrespective of this setting.</p>
-</div>
-<div class="section" id="alt">
+</section>
+<section id="alt">
 <h3>alt<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h3>
 <p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
-</div>
-</div>
-<div class="section" id="placement">
+</section>
+</section>
+<section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto docutils align-default">
 <tbody>
@@ -159,8 +160,8 @@ stops running, irrespective of this setting.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -230,7 +231,7 @@ stops running, irrespective of this setting.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>

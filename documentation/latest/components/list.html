@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>List &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -49,21 +50,21 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="list">
+  <section id="list">
 <span id="index-0"></span><span id="id1"></span><h1>List<a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description">
+<section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>A container paradigm component.</p>
 <p>The execution order and number of repetitions of a list’s sub-components are
 determined by <a class="reference internal" href="#selection">selection</a>, <a class="reference internal" href="#nsamples">nsamples</a>, and <a class="reference internal" href="#sampling-method">sampling_method</a>.</p>
-</div>
-<div class="section" id="signature">
+</section>
+<section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">list</span></code></p>
-</div>
-<div class="section" id="optional-parameters">
+</section>
+<section id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="interruptible">
+<section id="interruptible">
 <h3>interruptible<a class="headerlink" href="#interruptible" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -71,8 +72,8 @@ determined by <a class="reference internal" href="#selection">selection</a>, <a 
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, then any request to pause or stop the experiment while this component is executing will be deferred until said execution completes. This behavior is inherited by the component’s children, making them non-interruptible as well.</p>
-</div>
-<div class="section" id="selection">
+</section>
+<section id="selection">
 <h3>selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options</dt>
@@ -89,8 +90,8 @@ determined by <a class="reference internal" href="#selection">selection</a>, <a 
 </dd>
 </dl>
 <p>Order in which to draw selections</p>
-</div>
-<div class="section" id="nsamples">
+</section>
+<section id="nsamples">
 <h3>nsamples<a class="headerlink" href="#nsamples" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -98,8 +99,8 @@ determined by <a class="reference internal" href="#selection">selection</a>, <a 
 </dd>
 </dl>
 <p>Number of samples to allow before <a class="reference internal" href="reset_selections.html#reset-selections"><span class="std std-ref">Reset Selections</span></a> is required</p>
-</div>
-<div class="section" id="sampling-method">
+</section>
+<section id="sampling-method">
 <h3>sampling_method<a class="headerlink" href="#sampling-method" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options</dt>
@@ -113,9 +114,9 @@ determined by <a class="reference internal" href="#selection">selection</a>, <a 
 </dd>
 </dl>
 <p>Controls the interpretation of <a class="reference internal" href="#nsamples">nsamples</a>.  If set to <code class="docutils literal notranslate"><span class="pre">cycles</span></code>, <em>all</em> possible selections must be made to complete one sample.  If set to <code class="docutils literal notranslate"><span class="pre">samples</span></code>, each individual selection counts as a sample.</p>
-</div>
-</div>
-<div class="section" id="placement">
+</section>
+</section>
+<section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto docutils align-default">
 <tbody>
@@ -130,8 +131,8 @@ determined by <a class="reference internal" href="#selection">selection</a>, <a 
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -198,7 +199,7 @@ determined by <a class="reference internal" href="#selection">selection</a>, <a 
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>

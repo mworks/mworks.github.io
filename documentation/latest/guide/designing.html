@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Designing an Experiment &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -47,19 +48,19 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="designing-an-experiment">
+  <section id="designing-an-experiment">
 <h1>Designing an Experiment<a class="headerlink" href="#designing-an-experiment" title="Permalink to this headline">¶</a></h1>
 <p>For both new and experienced MWorks users, designing an experiment can be a daunting task.  This guide attempts to break down and explain the elements of experimental design, both to help you better understand the working of existing experiments and to provide you with a mental framework for creating your own.</p>
 <p><em>Note</em>: The examples included in and referred to by this guide all use <a class="reference internal" href="../mwel/index.html#mwel"><span class="std std-ref">MWEL</span></a>, which is recommended for new experiments.  However, the ideas and tools described here are equally applicable to XML-based experiments.  Any example files referred to by name can be found in the directory <code class="docutils literal notranslate"><span class="pre">/Library/Application</span> <span class="pre">Support/MWorks/Examples</span></code>.</p>
-<div class="section" id="data-flow">
+<section id="data-flow">
 <h2>Data Flow<a class="headerlink" href="#data-flow" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="variables">
+<section id="variables">
 <h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">Variables</span></a> play several essential roles in MWorks experiments.</p>
 <p>Like the variables you may know from scripting or programming languages, MWorks variables associate names with values.  You can use them to store experiment parameters and record results.  Every <a class="reference internal" href="../components/assign_variable.html#assign-variable"><span class="std std-ref">assignment</span></a> to a variable generates an event that is recorded in the event file and can be <a class="reference internal" href="data_analysis.html#analyzing-experimental-data"><span class="std std-ref">extracted for analysis</span></a>.</p>
 <p>In addition to their data storage role, variables also enable the flow of information between different MWorks <a class="reference internal" href="../components/index.html#components"><span class="std std-ref">components</span></a>.  This is described in more detail in the next section.</p>
-</div>
-<div class="section" id="i-o-devices-and-filters">
+</section>
+<section id="i-o-devices-and-filters">
 <h3>I/O Devices and Filters<a class="headerlink" href="#i-o-devices-and-filters" title="Permalink to this headline">¶</a></h3>
 <p>MWorks interacts with the outside world via <a class="reference internal" href="../components/input_output.html#input-output"><span class="std std-ref">input/output</span></a> (I/O) devices.</p>
 <p>Each time an input device receives new data, it assigns the relevant value(s) to one or more variables.  The target variables may be read directly by other parts of the experiment, or they can serve as inputs to <a class="reference internal" href="../components/filters.html#filters"><span class="std std-ref">filters</span></a>, which perform additional data processing and output new values (again via variables).</p>
@@ -136,24 +137,24 @@ filter/basic_eye_monitor (
     )
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="control-flow">
+</section>
+</section>
+<section id="control-flow">
 <h2>Control Flow<a class="headerlink" href="#control-flow" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="protocols">
+<section id="protocols">
 <h3>Protocols<a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">Protocols</span></a> encompass all the runtime logic of an MWorks experiment.  To “run” an experiment really means to execute one or more of its protocols.</p>
 <p>A protocol is a container for other components.  Its child components can be simple <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a>, or they can be other container components (<a class="reference internal" href="../components/block.html#block"><span class="std std-ref">blocks</span></a>, <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trials</span></a>, <a class="reference internal" href="../components/task_system.html#task-system"><span class="std std-ref">task systems</span></a>, etc.) with their own children.</p>
 <p>The example experiment <code class="docutils literal notranslate"><span class="pre">HelloWorld.mwel</span></code> contains three protocols.  They range in complexity from extremely simple (a single action) to moderately complex (a task system and multiple trials).</p>
 <p><em>Note</em>: The components of an experiment that are defined outside of any protocol (variables, I/O devices, visual stimuli, etc.) are shared by <em>all</em> protocols in the experiment.</p>
-</div>
-<div class="section" id="blocks-trials-and-lists">
+</section>
+<section id="blocks-trials-and-lists">
 <h3>Blocks, Trials, and Lists<a class="headerlink" href="#blocks-trials-and-lists" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="../components/block.html#block"><span class="std std-ref">Blocks</span></a>, <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trials</span></a>, and <a class="reference internal" href="../components/list.html#list"><span class="std std-ref">lists</span></a> provide high-level structure within a protocol.</p>
 <p>Functionally, they are nearly identical.  All three are containers for other  components, and all support <a class="reference internal" href="#selection"><span class="std std-ref">selection</span></a>-based execution of their children.  They differ only in that entry to and exit from a block or trial is announced via a system variable (<a class="reference internal" href="../reference/sysvars.html#announceblock-var"><span class="std std-ref">#announceBlock</span></a> for blocks, <a class="reference internal" href="../reference/sysvars.html#announcetrial-var"><span class="std std-ref">#announceTrial</span></a> for trials), whereas no such announcement is made for lists.</p>
 <p>Despite their suggestive names, MWorks makes no assumptions about the content and usage of these components.  Your experiment may employ them in any way that makes sense to you.</p>
-</div>
-<div class="section" id="task-systems">
+</section>
+<section id="task-systems">
 <h3>Task Systems<a class="headerlink" href="#task-systems" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="../components/task_system.html#task-system"><span class="std std-ref">Task systems</span></a> are the most powerful and flexible tool that MWorks’ provides for managing the flow of control within an experiment.  The core execution logic of a protocol is typically implemented as a task system.</p>
 <p>A task system is a form of <a class="reference external" href="https://en.wikipedia.org/wiki/Finite-state_machine">finite state machine</a>.  It is composed of one or more <a class="reference internal" href="../components/task_system_state.html#task-system-state"><span class="std std-ref">states</span></a>, each of which contains both <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a> and <a class="reference internal" href="../components/transitions.html#transitions"><span class="std std-ref">transitions</span></a>.</p>
@@ -222,8 +223,8 @@ state &#39;No selection&#39; {
 }
 </pre></div>
 </div>
-</div>
-<div class="section" id="if-if-else-and-while">
+</section>
+<section id="if-if-else-and-while">
 <h3>If, If/Else, and While<a class="headerlink" href="#if-if-else-and-while" title="Permalink to this headline">¶</a></h3>
 <p>For the most part, <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a> are the “atoms” of an experiment’s execution logic.  They perform a single task (e.g. <a class="reference internal" href="../components/start_io_device.html#start-io-device"><span class="std std-ref">starting an I/O device</span></a> or <a class="reference internal" href="../components/play_sound.html#play-sound"><span class="std std-ref">playing a sound</span></a>) and have no child components.  However, a few actions defy these constraints and serve as tools of control flow.</p>
 <p>An <a class="reference internal" href="../components/conditionally_execute_actions_if.html#conditionally-execute-actions-if"><span class="std std-ref">if</span></a> action tests a condition expression.  If the expression evaluates to a true value (e.g. <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">true</span></code>), the <code class="docutils literal notranslate"><span class="pre">if</span></code> action then executues its child actions:</p>
@@ -257,12 +258,12 @@ while (index &lt; num_images) {
 }
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="visual-stimuli-and-display-management">
+</section>
+</section>
+<section id="visual-stimuli-and-display-management">
 <h2>Visual Stimuli and Display Management<a class="headerlink" href="#visual-stimuli-and-display-management" title="Permalink to this headline">¶</a></h2>
 <p>Throughout its history, MWorks’ primary users have been researchers studying vision.  Because of this, MWorks provides a rich set of <a class="reference internal" href="../components/stimuli.html#stimuli"><span class="std std-ref">visual stimuli</span></a> and tools for controlling their presentation on a display.</p>
-<div class="section" id="declaring-stimuli">
+<section id="declaring-stimuli">
 <h3>Declaring Stimuli<a class="headerlink" href="#declaring-stimuli" title="Permalink to this headline">¶</a></h3>
 <p>Like variables and I/O devices, the stimuli in an MWorks experiment are declared outside of all protocols (and, therefore, are available to <em>all</em> protocols):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stimulus/circle red_circle (
@@ -292,8 +293,8 @@ while (index &lt; num_images) {
 </pre></div>
 </div>
 <p>A stimulus declared individually can be referred to by its tag, e.g. <code class="docutils literal notranslate"><span class="pre">red_circle</span></code>.  A stimulus declared in a stimulus group can be referenced either via its own tag (if present) or by using the group’s tag and a zero-based index, e.g. <code class="docutils literal notranslate"><span class="pre">circles[0]</span></code>, <code class="docutils literal notranslate"><span class="pre">circles[2]</span></code>.</p>
-</div>
-<div class="section" id="queuing-and-dequeuing-stimuli">
+</section>
+<section id="queuing-and-dequeuing-stimuli">
 <h3>Queuing and Dequeuing Stimuli<a class="headerlink" href="#queuing-and-dequeuing-stimuli" title="Permalink to this headline">¶</a></h3>
 <p>To display a stimulus, you must first add it to the display queue via the <a class="reference internal" href="../components/queue_stimulus.html#queue-stimulus"><span class="std std-ref">Queue Stimulus</span></a> action:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>queue_stimulus (red_circle)
@@ -329,8 +330,8 @@ queue_stimulus (circles[2])
 update_display ()
 </pre></div>
 </div>
-</div>
-<div class="section" id="understanding-display-updates">
+</section>
+<section id="understanding-display-updates">
 <span id="id1"></span><h3>Understanding Display Updates<a class="headerlink" href="#understanding-display-updates" title="Permalink to this headline">¶</a></h3>
 <p>Computer displays typically update at a fixed <a class="reference external" href="https://en.wikipedia.org/wiki/Refresh_rate">refresh rate</a>.  For example, a display with a 60Hz refresh rate will redraw itself approximately once every 16.67 milliseconds.</p>
 <p>To optimize graphics performance and avoid visual artifacts like <a class="reference external" href="https://en.wikipedia.org/wiki/Screen_tearing">screen tearing</a>, MWorks performs all stimulus-drawing operations in synchrony with the display’s refresh cycle.  Specifically, all drawing code executes on a dedicated operating system <a class="reference external" href="https://en.wikipedia.org/wiki/Thread_(computing)">thread</a>, independent of the thread on which the running protocol executes, and rendered frames are transferred to the display hardware only during the <a class="reference external" href="https://en.wikipedia.org/wiki/Vertical_blanking_interval">vertical blanking interval</a>, which occurs once per refresh period.</p>
@@ -341,11 +342,11 @@ update_display ()
 </pre></div>
 </div>
 <p>Regardless of when or how you use this time stamp, remember that it is only a <em>prediction</em> of when a future display update will begin.  If you need to know precisely when a particular stimulus appears on screen, you must measure its onset time yourself (e.g. with a photodiode attached to the display).</p>
-</div>
-</div>
-<div class="section" id="advanced-tools-and-techniques">
+</section>
+</section>
+<section id="advanced-tools-and-techniques">
 <h2>Advanced Tools and Techniques<a class="headerlink" href="#advanced-tools-and-techniques" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="variable-attached-actions">
+<section id="variable-attached-actions">
 <span id="id2"></span><h3>Variable-Attached Actions<a class="headerlink" href="#variable-attached-actions" title="Permalink to this headline">¶</a></h3>
 <p>Although <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a> normally reside inside a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a>, you can also attach them to <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variables</span></a>.</p>
 <p>Actions that are attached to a variable execute every time the variable is assigned a value.  For example, by attaching a <a class="reference internal" href="../components/report_message.html#report-message"><span class="std std-ref">report</span></a> action to a variable, you can log a message every time the variable’s value is set:</p>
@@ -363,8 +364,8 @@ update_display ()
 </pre></div>
 </div>
 <p>Variable-attached actions are a powerful tool that enable a form of <a class="reference external" href="https://en.wikipedia.org/wiki/Event-driven_programming">event-driven programming</a> within  MWorks experiments.  They can even play a role similar to <a class="reference external" href="https://en.wikipedia.org/wiki/Subroutine">subroutines</a>, where assignment to the parent variable “calls” the routine.  (However, MWEL <a class="reference internal" href="../mwel/index.html#statement-macros"><span class="std std-ref">statement macros</span></a> are better suited to this task.)</p>
-</div>
-<div class="section" id="replicators">
+</section>
+<section id="replicators">
 <h3>Replicators<a class="headerlink" href="#replicators" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="../components/replicators.html#replicators"><span class="std std-ref">Replicators</span></a> are confusing, difficult to use correctly, and should be avoided whenever possible.  However, a few experiment-construction tasks would be difficult or impossible to accomplish without replicators, so you should know the basics of how they work.</p>
 <p>Most commonly, replicators are employed in the declaration of related stimuli.  For example, suppose you are implementing an experiment in which you will present 100 <a class="reference internal" href="../components/image_stimulus.html#image-stimulus"><span class="std std-ref">image stimuli</span></a>, all of the same size and at the same on-screen position.  In the absence of replicators, your experiment would include a large list of nearly-identical stimulus declarations, one for each image file:</p>
@@ -457,11 +458,11 @@ stimulus_group images {
 }
 </pre></div>
 </div>
-</div>
-<div class="section" id="selection">
+</section>
+<section id="selection">
 <span id="id3"></span><h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
 <p>In MWorks, <em>selection</em> is a mechanism for controlling the ordering and repetition of experimental tasks and parameters.  A <em>selectable object</em> is a container from which items are drawn (“selected”) in sequential or random order.  After being drawn, selected items can be <em>accepted</em> (removed from the container permanently) or <em>rejected</em> (placed back in the container to be selected again).</p>
-<div class="section" id="selection-parameters">
+<section id="selection-parameters">
 <h4>Selection Parameters<a class="headerlink" href="#selection-parameters" title="Permalink to this headline">¶</a></h4>
 <p>The behavior of selectable objects is controlled by three parameters:</p>
 <dl class="simple">
@@ -524,8 +525,8 @@ stimulus_group images {
 </pre></div>
 </div>
 <p>Now, the block will draw five samples from its child components.  Because the number of samples is greater than the number of children, after reaching the end of its child list, the block will loop back to the beginning.  The final value of <code class="docutils literal notranslate"><span class="pre">x</span></code> will be 32132.</p>
-</div>
-<div class="section" id="accepting-and-rejecting-samples">
+</section>
+<section id="accepting-and-rejecting-samples">
 <h4>Accepting and Rejecting Samples<a class="headerlink" href="#accepting-and-rejecting-samples" title="Permalink to this headline">¶</a></h4>
 <p>While the examples in the previous section illustrate the meaning of the different selection parameters, they are not typical of real experiments.  Most commonly, selection is used to exercise a set of experimental conditions, in random order, with each condition having associated acceptance criteria.</p>
 <p>The example experiment <code class="docutils literal notranslate"><span class="pre">RSVPDemo.mwel</span></code> contains a protocol named “Eye Calibration”, which calibrates the eye positions received from an eye tracker.  The protocol requires the subject to fixate on 49 different points on screen, which are presented in random order.  It is implemented with a <a class="reference internal" href="../components/list.html#list"><span class="std std-ref">list</span></a> (<code class="docutils literal notranslate"><span class="pre">calibration_list</span></code>), whose <code class="docutils literal notranslate"><span class="pre">selection</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">random_without_replacement</span></code>.  The list contains 49 <a class="reference internal" href="../components/trial.html#trial"><span class="std std-ref">trials</span></a>, generated with two nested <a class="reference internal" href="../components/range_replicator.html#range-replicator"><span class="std std-ref">range replicators</span></a>, each of which presents the fixation point at a different location:</p>
@@ -560,22 +561,22 @@ stimulus_group images {
 </pre></div>
 </div>
 <p>The list will continue to execute, choosing trials at random from its pool of non-accepted children, until all trials have been accepted.</p>
-</div>
-<div class="section" id="selection-variables">
+</section>
+<section id="selection-variables">
 <h4>Selection Variables<a class="headerlink" href="#selection-variables" title="Permalink to this headline">¶</a></h4>
 <p>In all of the selection examples so far, the selectable object has been a <a class="reference internal" href="../components/paradigm_components.html#paradigm-components"><span class="std std-ref">paradigm component</span></a>.  However, MWorks also provides another, more flexible type of selectable object: the <a class="reference internal" href="../components/selection_variable.html#selection-variable"><span class="std std-ref">Selection Variable</span></a>.</p>
 <p>A selection variable is essentially a bag of user-specified values, to which MWorks’ selection machinery is applied.  Unlike selection-capable paradigm components, selection variables do not advance through their sample lists automatically.  Instead, each subsequent selection must be made explicitly, via the <a class="reference internal" href="../components/next_selection.html#next-selection"><span class="std std-ref">Next Selection</span></a> action.  Within expressions, selection variables can be referred to by name, like regular variables, and evaluate to their currently-selected value.</p>
 <p>For a demonstration of selection variables in action, see the “RSVP” protocol in <code class="docutils literal notranslate"><span class="pre">RSVPDemo.mwel</span></code>, which uses a selection variable (<code class="docutils literal notranslate"><span class="pre">RSVP_test_stim_index</span></code>) to draw images in random order from a <a class="reference internal" href="../components/stimulus_group.html#stimulus-group"><span class="std std-ref">stimulus group</span></a>.</p>
-</div>
-</div>
-<div class="section" id="stimulus-animation">
+</section>
+</section>
+<section id="stimulus-animation">
 <h3>Stimulus Animation<a class="headerlink" href="#stimulus-animation" title="Permalink to this headline">¶</a></h3>
 <p>Although some of MWorks’ visual stimuli (such as <a class="reference internal" href="../components/video_stimulus.html#video-stimulus"><span class="std std-ref">videos</span></a> and <a class="reference internal" href="../components/drifting_grating_stimulus.html#drifting-grating-stimulus"><span class="std std-ref">drifting gratings</span></a>) are inherently dynamic, most are  designed for static display, with changes to their color, size, position, etc. being made explicitly by the experiment.  However, with a little work, these normally-static stimuli can be animated, opening the door to user-defined dynamic stimulus presentations.</p>
-<div class="section" id="render-actions">
+<section id="render-actions">
 <h4>Render Actions<a class="headerlink" href="#render-actions" title="Permalink to this headline">¶</a></h4>
 <p>The easiest and most straightforward way to animate a non-dynamic stimulus is to use <a class="reference internal" href="../components/render_actions.html#render-actions"><span class="std std-ref">Render Actions</span></a>.  For a demonstration of moderately complex stimulus animation using this technique, see the example experiment <code class="docutils literal notranslate"><span class="pre">BouncingBall.mwel</span></code>.</p>
-</div>
-<div class="section" id="time-varying-parameter-expressions">
+</section>
+<section id="time-varying-parameter-expressions">
 <h4>Time-Varying Parameter Expressions<a class="headerlink" href="#time-varying-parameter-expressions" title="Permalink to this headline">¶</a></h4>
 <p>Although <a class="reference internal" href="../components/render_actions.html#render-actions"><span class="std std-ref">Render Actions</span></a> is the right choice for most new experiments, older experiments may employ an alternative technique to animate non-dynamic stimuli.  This technique involves three steps:</p>
 <ol class="arabic simple">
@@ -624,10 +625,10 @@ live_queue_stimulus (ball)
 update_display ()
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -716,7 +717,7 @@ update_display ()
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>

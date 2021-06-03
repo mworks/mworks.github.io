@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>MSSW Gamepad &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -49,22 +50,22 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="mssw-gamepad">
+  <section id="mssw-gamepad">
 <span id="index-0"></span><span id="id1"></span><h1>MSSW Gamepad<a class="headerlink" href="#mssw-gamepad" title="Permalink to this headline">¶</a></h1>
 <p><em>Available on macOS</em></p>
-<div class="section" id="description">
+<section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Used for interfacing to a <a class="reference external" href="https://en.wikipedia.org/wiki/Microsoft_SideWinder">Microsoft SideWinder</a> gamepad.</p>
 <p>Button state variables are set to 1 if the button is depressed, 0 if
 released.</p>
-</div>
-<div class="section" id="signature">
+</section>
+<section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/sidewinder_gamepad</span></code></p>
-</div>
-<div class="section" id="required-parameters">
+</section>
+<section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="data-type">
+<section id="data-type">
 <h3>data_type<a class="headerlink" href="#data-type" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Recommended</dt>
@@ -78,8 +79,8 @@ released.</p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">event</span></code>, variables are updated only when the corresponding button’s state changes.  If <code class="docutils literal notranslate"><span class="pre">continuous</span></code>, variables are updated every <a class="reference internal" href="#data-interval">data_interval</a> period of time, even if the corresponding button’s state has not changed.</p>
-</div>
-<div class="section" id="data-interval">
+</section>
+<section id="data-interval">
 <h3>data_interval<a class="headerlink" href="#data-interval" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -87,51 +88,51 @@ released.</p>
 </dd>
 </dl>
 <p>Button state polling interval (microseconds)</p>
-</div>
-</div>
-<div class="section" id="optional-parameters">
+</section>
+</section>
+<section id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="up">
+<section id="up">
 <h3>up<a class="headerlink" href="#up" title="Permalink to this headline">¶</a></h3>
 <p>Variable for D-pad up</p>
-</div>
-<div class="section" id="down">
+</section>
+<section id="down">
 <h3>down<a class="headerlink" href="#down" title="Permalink to this headline">¶</a></h3>
 <p>Variable for D-pad down</p>
-</div>
-<div class="section" id="left">
+</section>
+<section id="left">
 <h3>left<a class="headerlink" href="#left" title="Permalink to this headline">¶</a></h3>
 <p>Variable for D-pad left</p>
-</div>
-<div class="section" id="right">
+</section>
+<section id="right">
 <h3>right<a class="headerlink" href="#right" title="Permalink to this headline">¶</a></h3>
 <p>Variable for D-pad right</p>
-</div>
-<div class="section" id="trigger-right">
+</section>
+<section id="trigger-right">
 <h3>trigger_right<a class="headerlink" href="#trigger-right" title="Permalink to this headline">¶</a></h3>
 <p>Variable for right trigger</p>
-</div>
-<div class="section" id="trigger-left">
+</section>
+<section id="trigger-left">
 <h3>trigger_left<a class="headerlink" href="#trigger-left" title="Permalink to this headline">¶</a></h3>
 <p>Variable for left trigger</p>
-</div>
-<div class="section" id="a">
+</section>
+<section id="a">
 <h3>a<a class="headerlink" href="#a" title="Permalink to this headline">¶</a></h3>
 <p>Variable for A button</p>
-</div>
-<div class="section" id="b">
+</section>
+<section id="b">
 <h3>b<a class="headerlink" href="#b" title="Permalink to this headline">¶</a></h3>
 <p>Variable for B button</p>
-</div>
-<div class="section" id="x">
+</section>
+<section id="x">
 <h3>x<a class="headerlink" href="#x" title="Permalink to this headline">¶</a></h3>
 <p>Variable for X button</p>
-</div>
-<div class="section" id="y">
+</section>
+<section id="y">
 <h3>y<a class="headerlink" href="#y" title="Permalink to this headline">¶</a></h3>
 <p>Variable for Y button</p>
-</div>
-<div class="section" id="autostart">
+</section>
+<section id="autostart">
 <h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -142,13 +143,13 @@ released.</p>
 implicit <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> action) when the experiment starts running.</p>
 <p><em>Note</em>: Device I/O will always stop automatically when the experiment
 stops running, irrespective of this setting.</p>
-</div>
-<div class="section" id="alt">
+</section>
+<section id="alt">
 <h3>alt<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h3>
 <p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
-</div>
-</div>
-<div class="section" id="placement">
+</section>
+</section>
+<section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto docutils align-default">
 <tbody>
@@ -160,8 +161,8 @@ stops running, irrespective of this setting.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -241,7 +242,7 @@ stops running, irrespective of this setting.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>

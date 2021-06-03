@@ -66,3 +66,4 @@ Input/output (I/O) devices
    touch_input_device
    usb_hid_device
    usb_hid_input_channel
+   ximea_camera_device

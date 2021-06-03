@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Installation &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -47,33 +48,33 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="installation">
+  <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="macos">
+<section id="macos">
 <h2>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="install-or-upgrade">
+<section id="install-or-upgrade">
 <h3>Install or Upgrade<a class="headerlink" href="#install-or-upgrade" title="Permalink to this headline">¶</a></h3>
 <p>To install or upgrade MWorks on macOS, first <a class="reference external" href="https://mworks.github.io/downloads/">download</a> an installer disk image.  Double click the disk image to mount it, then double click the <em>MWorks.pkg</em> icon to start the installer.  The installer will guide you through the rest of the installation process.</p>
 <p>If the installer detects an existing MWorks or MonkeyWorks installation, it will move all the existing components to a folder called <em>MWorks Backup</em> on your desktop.  To remove this backup, simply drag the folder to the trash.</p>
-</div>
-<div class="section" id="uninstall-or-revert">
+</section>
+<section id="uninstall-or-revert">
 <h3>Uninstall or Revert<a class="headerlink" href="#uninstall-or-revert" title="Permalink to this headline">¶</a></h3>
 <p>The MWorks installer disk image includes a script that will completely remove any current or legacy release of MWorks or MonkeyWorks from a macOS system.</p>
 <p>To uninstall, open the disk image (<em>.dmg</em> file) you installed from (or <a class="reference external" href="https://mworks.github.io/downloads/">download</a> a more recent one), and double click the <em>Uninstall MWorks</em> icon.  A terminal window will open, and you will be prompted to enter your macOS password.  Once you do so, the uninstaller will move all MWorks components to a folder called <em>Uninstalled MWorks</em> in the trash. To permanently delete the uninstalled components, simply empty the trash.</p>
 <p>If the uninstaller finds a previous MWorks version in the <em>MWorks Backup</em> folder on your desktop (which it will if you upgraded an existing MWorks installation and have not moved or deleted the backup), then after uninstalling the current version, it will re-install the old one. To uninstall the re-installed version, simply run <em>Uninstall MWorks</em> again.</p>
-</div>
-</div>
-<div class="section" id="ios">
+</section>
+</section>
+<section id="ios">
 <h2>iOS<a class="headerlink" href="#ios" title="Permalink to this headline">¶</a></h2>
 <p>To install MWorks on iOS, <a class="reference external" href="https://apps.apple.com/us/app/mworks/id1389408331?ls=1">download it from the App Store</a>.  To uninstall, simply delete the <em>MWorks</em> application.</p>
-</div>
-</div>
-<div class="section" id="configuration">
+</section>
+</section>
+<section id="configuration">
 <span id="id2"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
 <p>If this is your first time installing MWorks, or you are upgrading from MonkeyWorks, you will need to configure your installation before running experiments.</p>
-<div class="section" id="id3">
+<section id="id3">
 <h2>macOS<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="configuration-file">
+<section id="configuration-file">
 <h3>Configuration File<a class="headerlink" href="#configuration-file" title="Permalink to this headline">¶</a></h3>
 <p>To configure MWorks, you assign values to a special set of <a class="reference internal" href="../reference/sysvars.html#config-vars"><span class="std std-ref">system variables</span></a>.  The desired values are stored in a file called <code class="docutils literal notranslate"><span class="pre">setup_variables.xml</span></code>.   On macOS, this file can reside in one of two directories:</p>
 <ul class="simple">
@@ -88,19 +89,19 @@
 </ul>
 <p>To use either of these examples, you must copy the file to one of the aforementioned directories and rename it <code class="docutils literal notranslate"><span class="pre">setup_variables.xml</span></code>.</p>
 <p>During installation, the MWorks installer checks for an existing configuration file.  If none is found, it installs a copy of <code class="docutils literal notranslate"><span class="pre">setup_variables_macbook.xml</span></code> for system-wide use.</p>
-</div>
-<div class="section" id="changing-configuration-options">
+</section>
+<section id="changing-configuration-options">
 <h3>Changing Configuration Options<a class="headerlink" href="#changing-configuration-options" title="Permalink to this headline">¶</a></h3>
 <p>The easiest way to modify configuration variables and save the changes to the configuration file is via MWServer’s preferences window, which provides a graphical interface to all settings controlled by <code class="docutils literal notranslate"><span class="pre">setup_variables.xml</span></code>.  Configuration changes made via the preferences window are stored in the user-specific configuration file.</p>
 <p>Alternatively, since the configuration file is an XML document, it can be edited with any text editor (TextEdit, Emacs, Vim, etc.).</p>
-</div>
-</div>
-<div class="section" id="id4">
+</section>
+</section>
+<section id="id4">
 <h2>iOS<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>To configure MWorks for iOS, use the system <em>Settings</em> app.  You can find all of MWorks’ settings in the section titled “MWorks”.</p>
 <p>The iOS version of MWorks supports most of the <a class="reference internal" href="../reference/sysvars.html#config-vars"><span class="std std-ref">configuration options</span></a> available in the macOS version.  At a minimum, you should change the display width, height, and distance parameters to match your device and experimental setup.  If you leave the server name blank, MWorks will use the device name specified in Settings → General → About → Name.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -170,7 +171,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>

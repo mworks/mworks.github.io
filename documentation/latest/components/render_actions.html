@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Render Actions &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -49,9 +50,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="render-actions">
+  <section id="render-actions">
 <span id="index-0"></span><span id="id1"></span><h1>Render Actions<a class="headerlink" href="#render-actions" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description">
+<section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Render Actions is a special type of stimulus that enables dynamic parameter
 changes to (i.e. animation of) other stimulus types.</p>
@@ -129,14 +130,14 @@ visible until the <em>next</em> display update pass:</p>
 <li><p><a class="reference internal" href="stop_dynamic_stimulus.html#stop-dynamic-stimulus"><span class="std std-ref">Stop Dynamic Stimulus</span></a></p></li>
 <li><p><a class="reference internal" href="unpause_dynamic_stimulus.html#unpause-dynamic-stimulus"><span class="std std-ref">Unpause Dynamic Stimulus</span></a></p></li>
 </ul>
-</div>
-<div class="section" id="signature">
+</section>
+<section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">stimulus/render_actions</span></code></p>
-</div>
-<div class="section" id="optional-parameters">
+</section>
+<section id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="elapsed-time">
+<section id="elapsed-time">
 <h3>elapsed_time<a class="headerlink" href="#elapsed-time" title="Permalink to this headline">¶</a></h3>
 <p>Name of a variable in which to store the elapsed time (in microseconds)
 since the stimulus started playing (either implicitly due to <a class="reference internal" href="#autoplay">autoplay</a>
@@ -144,8 +145,8 @@ being <code class="docutils literal notranslate"><span class="pre">YES</span></c
 <p>If the stimulus has been paused (e.g. via <a class="reference internal" href="pause_dynamic_stimulus.html#pause-dynamic-stimulus"><span class="std std-ref">Pause Dynamic Stimulus</span></a> or
 <a class="reference internal" href="pause_experiment.html#pause-experiment"><span class="std std-ref">Pause Experiment</span></a>), the time elapsed while paused is excluded from the
 reported elapsed time.</p>
-</div>
-<div class="section" id="autoplay">
+</section>
+<section id="autoplay">
 <h3>autoplay<a class="headerlink" href="#autoplay" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -153,8 +154,8 @@ reported elapsed time.</p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus will begin executing its actions automatically (as if by an implicit <a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">Play Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> has been invoked.  It will also stop executing automatically (as if by an implicit <a class="reference internal" href="stop_dynamic_stimulus.html#stop-dynamic-stimulus"><span class="std std-ref">Stop Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="dequeue_stimulus.html#dequeue-stimulus"><span class="std std-ref">dequeued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> is invoked.</p>
-</div>
-<div class="section" id="deferred">
+</section>
+<section id="deferred">
 <h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options</dt>
@@ -169,9 +170,9 @@ reported elapsed time.</p>
 </dd>
 </dl>
 <p>Controls when the stimulus is loaded.  If <code class="docutils literal notranslate"><span class="pre">no</span></code>, the stimulus is loaded at experiment load time.  If <code class="docutils literal notranslate"><span class="pre">yes</span></code>, the stimulus is loaded the first time it is <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a>.  If <code class="docutils literal notranslate"><span class="pre">explicit</span></code>, the stimulus must be loaded explictly with <a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">Load Stimulus</span></a>.</p>
-</div>
-</div>
-<div class="section" id="placement">
+</section>
+</section>
+<section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto docutils align-default">
 <tbody>
@@ -186,8 +187,8 @@ reported elapsed time.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -253,7 +254,7 @@ reported elapsed time.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>

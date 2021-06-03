@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Drifting Grating Stimulus &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -49,19 +50,19 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="drifting-grating-stimulus">
+  <section id="drifting-grating-stimulus">
 <span id="index-0"></span><span id="id1"></span><h1>Drifting Grating Stimulus<a class="headerlink" href="#drifting-grating-stimulus" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description">
+<section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>A drifting grating stimulus</p>
-</div>
-<div class="section" id="signature">
+</section>
+<section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">stimulus/drifting_grating</span></code></p>
-</div>
-<div class="section" id="required-parameters">
+</section>
+<section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="spatial-frequency">
+<section id="spatial-frequency">
 <h3>spatial_frequency<a class="headerlink" href="#spatial-frequency" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -69,8 +70,8 @@
 </dd>
 </dl>
 <p>Spatial frequency (cycles per degree)</p>
-</div>
-<div class="section" id="speed">
+</section>
+<section id="speed">
 <h3>speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -78,8 +79,8 @@
 </dd>
 </dl>
 <p>Drift speed (degrees per second)</p>
-</div>
-<div class="section" id="grating-type">
+</section>
+<section id="grating-type">
 <h3>grating_type<a class="headerlink" href="#grating-type" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options</dt>
@@ -92,11 +93,11 @@
 </dd>
 </dl>
 <p>Grating type</p>
-</div>
-</div>
-<div class="section" id="optional-parameters">
+</section>
+</section>
+<section id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="direction">
+<section id="direction">
 <h3>direction<a class="headerlink" href="#direction" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -104,8 +105,8 @@
 </dd>
 </dl>
 <p>Direction of drift (degrees)</p>
-</div>
-<div class="section" id="central-starting-phase">
+</section>
+<section id="central-starting-phase">
 <h3>central_starting_phase<a class="headerlink" href="#central-starting-phase" title="Permalink to this headline">¶</a></h3>
 <p>Starting phase at the grating’s center (degrees).</p>
 <p>Only one of central_starting_phase and <a class="reference internal" href="#starting-phase">starting_phase</a> may be
@@ -114,8 +115,8 @@ starting_phase were set to zero.  Because the interpretation of
 starting_phase is often unintuitive and generally unhelpful, it is
 recommended that grating definitions always include
 central_starting_phase.</p>
-</div>
-<div class="section" id="compute-phase-incrementally">
+</section>
+<section id="compute-phase-incrementally">
 <h3>compute_phase_incrementally<a class="headerlink" href="#compute-phase-incrementally" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -135,8 +136,8 @@ and/or <a class="reference internal" href="#speed">speed</a> are changed while t
 notably, if the parameter’s value is <code class="docutils literal notranslate"><span class="pre">NO</span></code>, then changes to <a class="reference internal" href="#speed">speed</a>
 will cause a discontinuous jump in phase.  If the value is <code class="docutils literal notranslate"><span class="pre">YES</span></code>, then
 changes to <a class="reference internal" href="#speed">speed</a> will be smooth, with no phase jump.</p>
-</div>
-<div class="section" id="mask">
+</section>
+<section id="mask">
 <h3>mask<a class="headerlink" href="#mask" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -157,8 +158,8 @@ parameter can also be one of <code class="docutils literal notranslate"><span cl
 <code class="docutils literal notranslate"><span class="pre">gaussian</span></code>, in which case it specifies the type of mask to apply to
 the grating.  However, this usage is deprecated, and new experiments
 should use a <a class="reference internal" href="mask_stimulus.html#mask-stimulus"><span class="std std-ref">Mask Stimulus</span></a> instead.</p>
-</div>
-<div class="section" id="inverted">
+</section>
+<section id="inverted">
 <h3>inverted<a class="headerlink" href="#inverted" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -166,8 +167,8 @@ should use a <a class="reference internal" href="mask_stimulus.html#mask-stimulu
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, all grating values are inverted, e.g. high values become low, and low values become high</p>
-</div>
-<div class="section" id="color">
+</section>
+<section id="color">
 <h3>color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -175,8 +176,8 @@ should use a <a class="reference internal" href="mask_stimulus.html#mask-stimulu
 </dd>
 </dl>
 <p>The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).</p>
-</div>
-<div class="section" id="alpha-multiplier">
+</section>
+<section id="alpha-multiplier">
 <h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -187,8 +188,8 @@ should use a <a class="reference internal" href="mask_stimulus.html#mask-stimulu
 stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
 <p>Changes to the parameters <a class="reference internal" href="#source-blend-factor">source_blend_factor</a> and
 <a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a> can alter how (or if) the alpha multiplier is used.</p>
-</div>
-<div class="section" id="source-blend-factor">
+</section>
+<section id="source-blend-factor">
 <h3>source_blend_factor<a class="headerlink" href="#source-blend-factor" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options</dt>
@@ -222,8 +223,8 @@ Please refer to that function’s reference page for explanations of the
 different blend factor options.</p>
 <p><em>Note</em>:  Irrespective of the blend factors used, the <a class="reference external" href="https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendEquation.xhtml">blend equation</a>
 is always <code class="docutils literal notranslate"><span class="pre">GL_FUNC_ADD</span></code>.</p>
-</div>
-<div class="section" id="dest-blend-factor">
+</section>
+<section id="dest-blend-factor">
 <h3>dest_blend_factor<a class="headerlink" href="#dest-blend-factor" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -231,20 +232,20 @@ is always <code class="docutils literal notranslate"><span class="pre">GL_FUNC_A
 </dd>
 </dl>
 <p>Destination blending factor.  Accepts the same values as <a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
-</div>
-<div class="section" id="source-alpha-blend-factor">
+</section>
+<section id="source-alpha-blend-factor">
 <h3>source_alpha_blend_factor<a class="headerlink" href="#source-alpha-blend-factor" title="Permalink to this headline">¶</a></h3>
 <p>Source alpha blending factor.  Accepts the same values as
 <a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
 <p>If omitted, the value of <a class="reference internal" href="#source-blend-factor">source_blend_factor</a> is used.</p>
-</div>
-<div class="section" id="dest-alpha-blend-factor">
+</section>
+<section id="dest-alpha-blend-factor">
 <h3>dest_alpha_blend_factor<a class="headerlink" href="#dest-alpha-blend-factor" title="Permalink to this headline">¶</a></h3>
 <p>Destination alpha blending factor.  Accepts the same values as
 <a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
 <p>If omitted, the value of <a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a> is used.</p>
-</div>
-<div class="section" id="x-size">
+</section>
+<section id="x-size">
 <h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -254,8 +255,8 @@ is always <code class="docutils literal notranslate"><span class="pre">GL_FUNC_A
 <p>Horizontal size (degrees).</p>
 <p>If omitted, the value of <a class="reference internal" href="#y-size">y_size</a> is used.  It is an error to omit both
 x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
-</div>
-<div class="section" id="y-size">
+</section>
+<section id="y-size">
 <h3>y_size<a class="headerlink" href="#y-size" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -265,8 +266,8 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <p>Vertical size (degrees).</p>
 <p>If omitted, the value of <a class="reference internal" href="#x-size">x_size</a> is used.  It is an error to omit both
 x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
-</div>
-<div class="section" id="x-position">
+</section>
+<section id="x-position">
 <h3>x_position<a class="headerlink" href="#x-position" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -274,8 +275,8 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </dd>
 </dl>
 <p>Horizontal center position (degrees)</p>
-</div>
-<div class="section" id="y-position">
+</section>
+<section id="y-position">
 <h3>y_position<a class="headerlink" href="#y-position" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -283,8 +284,8 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </dd>
 </dl>
 <p>Vertical center position (degrees)</p>
-</div>
-<div class="section" id="rotation">
+</section>
+<section id="rotation">
 <h3>rotation<a class="headerlink" href="#rotation" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -292,8 +293,8 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </dd>
 </dl>
 <p>Rotation (degrees)</p>
-</div>
-<div class="section" id="fullscreen">
+</section>
+<section id="fullscreen">
 <h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -301,8 +302,8 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus is sized to fill the display.  In this mode, <a class="reference internal" href="#x-size">x_size</a>, <a class="reference internal" href="#y-size">y_size</a>, <a class="reference internal" href="#x-position">x_position</a>, <a class="reference internal" href="#y-position">y_position</a>, and <a class="reference internal" href="#rotation">rotation</a> are ignored.</p>
-</div>
-<div class="section" id="deferred">
+</section>
+<section id="deferred">
 <h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options</dt>
@@ -317,8 +318,8 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </dd>
 </dl>
 <p>Controls when the stimulus is loaded.  If <code class="docutils literal notranslate"><span class="pre">no</span></code>, the stimulus is loaded at experiment load time.  If <code class="docutils literal notranslate"><span class="pre">yes</span></code>, the stimulus is loaded the first time it is <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a>.  If <code class="docutils literal notranslate"><span class="pre">explicit</span></code>, the stimulus must be loaded explictly with <a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">Load Stimulus</span></a>.</p>
-</div>
-<div class="section" id="autoplay">
+</section>
+<section id="autoplay">
 <h3>autoplay<a class="headerlink" href="#autoplay" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -326,15 +327,15 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus will start playing automatically (as if by an implicit <a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">Play Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> has been invoked.  It will also stop playing automatically (as if by an implicit <a class="reference internal" href="stop_dynamic_stimulus.html#stop-dynamic-stimulus"><span class="std std-ref">Stop Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="dequeue_stimulus.html#dequeue-stimulus"><span class="std std-ref">dequeued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> is invoked.</p>
-</div>
-</div>
-<div class="section" id="deprecated-parameters">
+</section>
+</section>
+<section id="deprecated-parameters">
 <h2>Deprecated Parameters<a class="headerlink" href="#deprecated-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="starting-phase">
+<section id="starting-phase">
 <h3>starting_phase<a class="headerlink" href="#starting-phase" title="Permalink to this headline">¶</a></h3>
 <p>Starting phase (degrees) at the “starting” edge of the grating.  Exactly what constitutes the starting edge depends on <a class="reference internal" href="#direction">direction</a>, <a class="reference internal" href="#x-size">x_size</a>, and <a class="reference internal" href="#y-size">y_size</a> in a manner that is often unintuitive and generally unhelpful. Please use <a class="reference internal" href="#central-starting-phase">central_starting_phase</a> instead.</p>
-</div>
-<div class="section" id="std-dev">
+</section>
+<section id="std-dev">
 <h3>std_dev<a class="headerlink" href="#std-dev" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -351,8 +352,8 @@ using the equation:</p>
 to cover a rectangle of <a class="reference internal" href="#x-size">x_size</a> by <a class="reference internal" href="#y-size">y_size</a> degrees.  If the x and y
 sizes are equal, then the mask is scaled by size/2 in both directions,
 so std_dev has units of size/2 degrees.</p>
-</div>
-<div class="section" id="mean">
+</section>
+<section id="mean">
 <h3>mean<a class="headerlink" href="#mean" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -364,8 +365,8 @@ so std_dev has units of size/2 degrees.</p>
 center of the grating.  If non-zero, the peak will be a circle, rather
 than a point, and luminance will decrease both inside and outside the
 circle, producing a toroidal stimulus.</p>
-</div>
-<div class="section" id="normalized">
+</section>
+<section id="normalized">
 <h3>normalized<a class="headerlink" href="#normalized" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -373,9 +374,9 @@ circle, producing a toroidal stimulus.</p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the Gaussian mask includes a multiplicative normalization term (<code class="docutils literal notranslate"><span class="pre">1/(std_dev*sqrt(2*pi))</span></code>).  If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, this term is omitted.</p>
-</div>
-</div>
-<div class="section" id="placement">
+</section>
+</section>
+<section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto docutils align-default">
 <tbody>
@@ -387,8 +388,8 @@ circle, producing a toroidal stimulus.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -483,7 +484,7 @@ circle, producing a toroidal stimulus.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>

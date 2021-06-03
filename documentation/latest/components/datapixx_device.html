@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>DATAPixx Device &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -49,20 +50,20 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="datapixx-device">
+  <section id="datapixx-device">
 <span id="index-0"></span><span id="id1"></span><h1>DATAPixx Device<a class="headerlink" href="#datapixx-device" title="Permalink to this headline">¶</a></h1>
 <p><em>Available on macOS</em></p>
-<div class="section" id="description">
+<section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Interface to a <a class="reference external" href="https://vpixx.com/our-products/video-i-o-hub/">DATAPixx</a> or <a class="reference external" href="https://vpixx.com/our-products/crt-replacement/">VIEWPixx</a> device</p>
-</div>
-<div class="section" id="signature">
+</section>
+<section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/datapixx</span></code></p>
-</div>
-<div class="section" id="required-parameters">
+</section>
+<section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="update-interval">
+<section id="update-interval">
 <h3>update_interval<a class="headerlink" href="#update-interval" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -70,19 +71,19 @@
 </dd>
 </dl>
 <p>MWorks will poll the device for new input data every <code class="docutils literal notranslate"><span class="pre">update_interval</span></code> microseconds</p>
-</div>
-</div>
-<div class="section" id="optional-parameters">
+</section>
+</section>
+<section id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="clock-offset-nanos">
+<section id="clock-offset-nanos">
 <h3>clock_offset_nanos<a class="headerlink" href="#clock-offset-nanos" title="Permalink to this headline">¶</a></h3>
 <p>Variable in which to store the computed offset (in nanoseconds) between
 the device clock and MWorks’ clock.</p>
 <p>The clock offset is recomputed once per second and is used to convert
 DATAPixx event and sample times to MWorks times.  Use this parameter if
 you want a record of the computed clock offsets in your event file.</p>
-</div>
-<div class="section" id="enable-dout-pixel-mode">
+</section>
+<section id="enable-dout-pixel-mode">
 <h3>enable_dout_pixel_mode<a class="headerlink" href="#enable-dout-pixel-mode" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -93,8 +94,8 @@ you want a record of the computed clock offsets in your event file.</p>
 of the first upper left pixel of the screen.</p>
 <p>In this mode, the digital output port cannot be used for <a class="reference internal" href="datapixx_bit_output_channel.html#datapixx-bit-output-channel"><span class="std std-ref">bit output</span></a> or <a class="reference internal" href="datapixx_word_output_channel.html#datapixx-word-output-channel"><span class="std std-ref">word output</span></a> channels.  However, these channels may still be configured on
 the digital input port.</p>
-</div>
-<div class="section" id="enable-dout-vsync-mode">
+</section>
+<section id="enable-dout-vsync-mode">
 <h3>enable_dout_vsync_mode<a class="headerlink" href="#enable-dout-vsync-mode" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -105,8 +106,8 @@ the digital input port.</p>
 output port.</p>
 <p>This mode cannot be enabled if <a class="reference internal" href="#enable-dout-pixel-mode">enable_dout_pixel_mode</a> is set to
 <code class="docutils literal notranslate"><span class="pre">YES</span></code>.</p>
-</div>
-<div class="section" id="enable-din-stabilize">
+</section>
+<section id="enable-din-stabilize">
 <h3>enable_din_stabilize<a class="headerlink" href="#enable-din-stabilize" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -114,8 +115,8 @@ output port.</p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, digital input transitions are recognized only after the entire digital input bus has been stable for 80 nanoseconds</p>
-</div>
-<div class="section" id="enable-din-debounce">
+</section>
+<section id="enable-din-debounce">
 <h3>enable_din_debounce<a class="headerlink" href="#enable-din-debounce" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -123,8 +124,8 @@ output port.</p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, after a digital input transitions, further transitions will be ignored for the next 30 milliseconds</p>
-</div>
-<div class="section" id="enable-dout-din-loopback">
+</section>
+<section id="enable-dout-din-loopback">
 <h3>enable_dout_din_loopback<a class="headerlink" href="#enable-dout-din-loopback" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -132,8 +133,8 @@ output port.</p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, digital output bits are looped back to the corresponding digital input bits.  This is useful primarily for testing the device.</p>
-</div>
-<div class="section" id="din-event-buffer-size">
+</section>
+<section id="din-event-buffer-size">
 <h3>din_event_buffer_size<a class="headerlink" href="#din-event-buffer-size" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -141,8 +142,8 @@ output port.</p>
 </dd>
 </dl>
 <p>Transitions on digital input bits 0-15 are logged to an on-device buffer and read by MWorks at the rate specified by <a class="reference internal" href="#update-interval">update_interval</a>. This parameter sets the maximum size (in number of events) of the buffer.  If the buffer is too small, writes will “wrap”, and new events will overwrite old ones.</p>
-</div>
-<div class="section" id="analog-input-data-interval">
+</section>
+<section id="analog-input-data-interval">
 <h3>analog_input_data_interval<a class="headerlink" href="#analog-input-data-interval" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example</dt>
@@ -150,8 +151,8 @@ output port.</p>
 </dd>
 </dl>
 <p>Interval between acquired samples on analog input channels (microseconds)</p>
-</div>
-<div class="section" id="enable-dac-adc-loopback">
+</section>
+<section id="enable-dac-adc-loopback">
 <h3>enable_dac_adc_loopback<a class="headerlink" href="#enable-dac-adc-loopback" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -166,8 +167,8 @@ DAC_DATA3 → ADC_REF1
 </pre></div>
 </div>
 <p>This is useful primarily for testing the device.</p>
-</div>
-<div class="section" id="autostart">
+</section>
+<section id="autostart">
 <h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default</dt>
@@ -178,13 +179,13 @@ DAC_DATA3 → ADC_REF1
 implicit <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> action) when the experiment starts running.</p>
 <p><em>Note</em>: Device I/O will always stop automatically when the experiment
 stops running, irrespective of this setting.</p>
-</div>
-<div class="section" id="alt">
+</section>
+<section id="alt">
 <h3>alt<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h3>
 <p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
-</div>
-</div>
-<div class="section" id="placement">
+</section>
+</section>
+<section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto docutils align-default">
 <tbody>
@@ -199,8 +200,8 @@ stops running, irrespective of this setting.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -278,7 +279,7 @@ stops running, irrespective of this setting.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>

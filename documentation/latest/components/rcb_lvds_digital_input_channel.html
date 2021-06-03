@@ -5,12 +5,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>RCB-LVDS Digital Input Channel &#8212; MWorks 0.11.dev documentation</title>
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -49,9 +50,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="rcb-lvds-digital-input-channel">
+  <section id="rcb-lvds-digital-input-channel">
 <span id="index-0"></span><span id="id1"></span><h1>RCB-LVDS Digital Input Channel<a class="headerlink" href="#rcb-lvds-digital-input-channel" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description">
+<section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Digital input channel on a <a class="reference internal" href="rcb_lvds_device.html#rcb-lvds-device"><span class="std std-ref">RCB-LVDS Device</span></a>.</p>
 <p><em>Note</em>: RCB-LVDS digital channels are inputs from the perspective of the
@@ -59,14 +60,14 @@ device, in that their values are recorded along with the amplifier channel
 data and streamed to the recording software.  However, from MWorks’
 perspective, they function as outputs and can be used to add time stamps or
 other information to the RCB-LVDS data stream.</p>
-</div>
-<div class="section" id="signature">
+</section>
+<section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iochannel/rcb_lvds_digital_input</span></code></p>
-</div>
-<div class="section" id="required-parameters">
+</section>
+<section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="channel">
+<section id="channel">
 <h3>channel<a class="headerlink" href="#channel" title="Permalink to this headline">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Examples</dt>
@@ -79,17 +80,17 @@ other information to the RCB-LVDS data stream.</p>
 </dd>
 </dl>
 <p>Channel number(s) to control via assignment to the variable provided in <a class="reference internal" href="#value">value</a>.  Each channel number must be between 0 and 15 (inclusive).</p>
-</div>
-<div class="section" id="value">
+</section>
+<section id="value">
 <h3>value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
 <p>Variable from which to read channel state.  <a class="reference internal" href="assign_variable.html#assign-variable"><span class="std std-ref">Assigning</span></a> a value to the variable causes the channel state to be
 changed immediately.</p>
 <p>The state value is treated as a multi-bit word.  The least significant
 bit controls the state of the first channel specified in <a class="reference internal" href="#channel">channel</a> (0
 for low, 1 for high), the next bit controls the second channel, etc.</p>
-</div>
-</div>
-<div class="section" id="placement">
+</section>
+</section>
+<section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-auto docutils align-default">
 <tbody>
@@ -101,8 +102,8 @@ for low, 1 for high), the next bit controls the second channel, etc.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -167,7 +168,7 @@ for low, 1 for high), the next bit controls the second channel, etc.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
     </div>
   </body>
 </html>
