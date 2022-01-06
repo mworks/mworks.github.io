@@ -57,4 +57,4 @@ Placement
    * - Allowed at top level:
      - Yes
    * - Allowed parent:
-     - `Folder`
+     - `Folder`, `List Replicator`, `Range Replicator`

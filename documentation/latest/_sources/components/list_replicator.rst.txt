@@ -76,4 +76,4 @@ Placement
    * - Allowed parent:
      - `Block`, `Experiment`, `Folder`, `Frame List Stimulus`, `List`, `List Replicator`, `Movie Stimulus`, `Protocol`, `Range Replicator`, `Stimulus Group`, `Trial`
    * - Allowed children:
-     - `Block`, `List`, `List Replicator`, `Protocol`, `Range Replicator`, `Stimulus <Stimuli>`, `Stimulus Group`, `Trial`
+     - `Block`, `List`, `List Replicator`, `Protocol`, `Range Replicator`, `Sound Stimulus`, `Stimulus <Stimuli>`, `Stimulus Group`, `Trial`

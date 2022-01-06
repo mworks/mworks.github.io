@@ -55,6 +55,14 @@
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>An image stimulus whose content is generated dynamically by Python code.</p>
+<p>Every time the stimulus draws, it evaluates the Python expression provided
+in <a class="reference internal" href="#pixel-buffer-expr">pixel_buffer_expr</a>.  The result of evaluating the expression must be a
+<a class="reference external" href="https://docs.python.org/3/glossary.html#term-bytes-like-object">bytes-like object</a>,
+typically a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes-objects">bytes object</a> or a
+C-style, contiguous <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.ndarray.html">NumPy array</a>.  The raw
+bytes associated with the object must contain the image data, whose layout
+is specified by <a class="reference internal" href="#pixel-buffer-format">pixel_buffer_format</a>, <a class="reference internal" href="#pixel-buffer-width">pixel_buffer_width</a>, and
+<a class="reference internal" href="#pixel-buffer-height">pixel_buffer_height</a>.</p>
 <p>For information on the modules and functions available to your Python code,
 see <a class="reference internal" href="run_python_file.html#run-python-file"><span class="std std-ref">Run Python File</span></a>.</p>
 <p><em>Note</em>:  To preserve the image’s aspect ratio on screen, <a class="reference internal" href="#x-size">x_size</a> and
@@ -81,7 +89,72 @@ aspect ratio.</p>
 </div>
 </dd>
 </dl>
-<p>Pixel buffer format</p>
+<p>Pixel buffer format.</p>
+<p>The specified format determines how the stimulus interprets the data
+obtained by evaluating <a class="reference internal" href="#pixel-buffer-expr">pixel_buffer_expr</a>.  The format name indicates
+the number and order of each pixel’s color components.  <code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">B</span></code> refer to the pixel’s red, green, and blue components,
+respectively, while <code class="docutils literal notranslate"><span class="pre">A</span></code> denotes the pixel’s alpha channel, if any.
+The following table provides details on each supported format:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 29%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Number of components</p></th>
+<th class="head"><p>Bytes per component</p></th>
+<th class="head"><p>Component data type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RGB8</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>Unsigned integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>sRGB8</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>Unsigned integer</p></td>
+</tr>
+<tr class="row-even"><td><p>RGBA8</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>Unsigned integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>sRGBA8</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>Unsigned integer</p></td>
+</tr>
+<tr class="row-even"><td><p>RGBA16F</p></td>
+<td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>Floating point</p></td>
+</tr>
+</tbody>
+</table>
+<p>The total size, in bytes, of the data buffer provided by
+<a class="reference internal" href="#pixel-buffer-expr">pixel_buffer_expr</a> must be equal to the product of
+<a class="reference internal" href="#pixel-buffer-width">pixel_buffer_width</a>, <a class="reference internal" href="#pixel-buffer-height">pixel_buffer_height</a>, the number of components
+per pixel, and the number of bytes per component.  For example, if the
+format is <code class="docutils literal notranslate"><span class="pre">RGBA16F</span></code>, the width is 400, and the height is 300, then the
+buffer size in bytes must be 400 * 300 * 4 * 2 = 960,000.</p>
+<p>1-byte, unsigned integer components must have values between 0 and 255,
+inclusive.  The values of floating-point components must lie between
+0.0 and 1.0, inclusive.  Multi-byte component values must be in native
+<a class="reference external" href="https://en.wikipedia.org/wiki/Endianness">byte order</a>.</p>
+<p>A leading <code class="docutils literal notranslate"><span class="pre">s</span></code> in the format name indicates that the red, green, and
+blue component values are specified in the <a class="reference external" href="https://en.wikipedia.org/wiki/SRGB">sRGB color space</a>.  Before these component values
+are used to draw the image, they are converted from sRGB’s non-linear
+gamma to linear gamma.  Such formats should be preferred when using
+integer-valued pixels with color management enabled(see <a class="reference internal" href="../reference/sysvars.html#mainscreeninfo-var"><span class="std std-ref">#mainScreenInfo</span></a>).  When using integer-valued pixels with color management
+disabled, the non-<code class="docutils literal notranslate"><span class="pre">s</span></code> formats should be used. Floating-point-valued
+pixels may be used with or without color management enabled.</p>
 </section>
 <section id="pixel-buffer-width">
 <h3>pixel_buffer_width<a class="headerlink" href="#pixel-buffer-width" title="Permalink to this headline">¶</a></h3>
@@ -90,7 +163,7 @@ aspect ratio.</p>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">512</span></code></p>
 </dd>
 </dl>
-<p>Pixel buffer width</p>
+<p>Width of generated image in pixels</p>
 </section>
 <section id="pixel-buffer-height">
 <h3>pixel_buffer_height<a class="headerlink" href="#pixel-buffer-height" title="Permalink to this headline">¶</a></h3>
@@ -99,7 +172,7 @@ aspect ratio.</p>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">512</span></code></p>
 </dd>
 </dl>
-<p>Pixel buffer height</p>
+<p>Height of generated image in pixels</p>
 </section>
 <section id="pixel-buffer-expr">
 <h3>pixel_buffer_expr<a class="headerlink" href="#pixel-buffer-expr" title="Permalink to this headline">¶</a></h3>
@@ -111,7 +184,10 @@ aspect ratio.</p>
 </div>
 </dd>
 </dl>
-<p>Pixel buffer expression</p>
+<p>Pixel buffer expression.</p>
+<p>Must evaluate to either a <a class="reference external" href="https://docs.python.org/3/glossary.html#term-bytes-like-object">bytes-like object</a>
+containing the current image data or <code class="docutils literal notranslate"><span class="pre">None</span></code>.  If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the most
+recently provided image data is reused.</p>
 </section>
 </section>
 <section id="optional-parameters">
@@ -345,7 +421,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -375,8 +451,8 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2021, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.0.2.
+        &#169; Copyright 2016-2022, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.3.2.
     </div>
   </body>
 </html>
