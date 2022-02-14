@@ -1,0 +1,108 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: XIMEA Camera Device
+   single: Input/Output; XIMEA Camera Device
+
+.. _XIMEA Camera Device:
+
+XIMEA Camera Device
+===================
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to a `XIMEA <https://www.ximea.com/>`_ camera.
+
+MWorks configures the camera to capture 8-bit, grayscale images.  Each frame
+capture is triggered by MWorks (i.e. software triggering).  In addition, the
+output pin on the camera (OUT1 if there are multiple outputs) is configured
+to be on during frame exposure.
+
+Multiple cameras can be connected and used simultaneously, as long as
+`serial_number`_ is specified for each device.
+
+
+
+Signature
+---------
+``iodevice/ximea_camera``
+
+
+Required Parameters
+-------------------
+
+exposure_time
+^^^^^^^^^^^^^
+:Example: ``2ms``
+
+Exposure time for each captured frame.  Must be greater than zero.
+
+
+capture_interval
+^^^^^^^^^^^^^^^^
+:Example: ``33.33ms``
+
+Interval between frame captures.  Must be greater than zero.
+
+
+image_data
+^^^^^^^^^^
+
+Variable in which to store captured frames.
+
+The value assigned to the variable is a binary string containing a `JPEG
+<https://en.wikipedia.org/wiki/JPEG>`_-encoded image.  The time stamp of
+the assignment is taken immediately after MWorks triggers the frame
+capture.
+
+
+
+
+Optional Parameters
+-------------------
+
+serial_number
+^^^^^^^^^^^^^
+:Example: ``12345678``
+
+Serial number of the desired camera.
+
+If only one camera is connected, this parameter can be omitted, and
+MWorks will connect to the one available device.
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

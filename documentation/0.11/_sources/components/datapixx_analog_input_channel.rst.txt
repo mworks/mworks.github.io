@@ -1,0 +1,91 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: DATAPixx Analog Input Channel
+   single: Input/Output; DATAPixx Analog Input Channel
+
+.. _DATAPixx Analog Input Channel:
+
+DATAPixx Analog Input Channel
+=============================
+
+*Available on macOS*
+
+
+Description
+-----------
+Analog input channel on a `DATAPixx Device`
+
+
+Signature
+---------
+``iochannel/datapixx_analog_input``
+
+
+Required Parameters
+-------------------
+
+channel_number
+^^^^^^^^^^^^^^
+:Examples: | ``0``
+           | ``7``
+           | ``15``
+
+Analog input channel number
+
+value
+^^^^^
+
+Variable in which to store input voltage values
+
+
+
+Optional Parameters
+-------------------
+
+reference_source
+^^^^^^^^^^^^^^^^
+:Options: | ``GND``
+          | ``DIFF``
+          | ``REF0``
+          | ``REF1``
+:Default: ``GND``
+
+Differential reference source for the channel.  The following values
+are supported:
+
+``GND``
+    Referenced to ground
+
+``DIFF``
+    Referenced to adjacent analog input (e.g. channel 0 is referenced to
+    channel 1, channel 2 is referenced to channel 3, etc.)
+
+``REF0``
+    Referenced to REF0 analog input
+
+``REF1``
+    Referenced to REF1 analog input
+
+
+device_time_nanos
+^^^^^^^^^^^^^^^^^
+
+Variable in which to store the device time (in nanoseconds) when each value is acquired by the device
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `DATAPixx Device`

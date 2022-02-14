@@ -1,0 +1,56 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Python File Resource
+   single: Resources; Python File Resource
+
+.. _Python File Resource:
+
+Python File Resource
+====================
+
+
+Description
+-----------
+A special type of `resource file <Resources>` that contains Python source
+code.
+
+The file is executed when the experiment loads.  The execution takes place
+after all experiment-defined `variables <Variables>` have been created, but
+before any other components are created.  Therefore, the Python code can set
+variable values or perform additional initialization tasks, and other
+components can make use of the results.
+
+For information on the modules and functions available to your Python code,
+see `Run Python File`.
+
+
+
+Signature
+---------
+``resource/python_file``
+
+
+Required Parameters
+-------------------
+
+path
+^^^^
+
+Filesystem path to the Python source file
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

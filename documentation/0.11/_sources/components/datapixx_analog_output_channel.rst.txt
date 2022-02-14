@@ -1,0 +1,66 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: DATAPixx Analog Output Channel
+   single: Input/Output; DATAPixx Analog Output Channel
+
+.. _DATAPixx Analog Output Channel:
+
+DATAPixx Analog Output Channel
+==============================
+
+*Available on macOS*
+
+
+Description
+-----------
+Analog output channel on a `DATAPixx Device`
+
+
+Signature
+---------
+``iochannel/datapixx_analog_output``
+
+
+Required Parameters
+-------------------
+
+channel_number
+^^^^^^^^^^^^^^
+:Examples: | ``0``
+           | ``3``
+
+Analog output channel number
+
+value
+^^^^^
+
+Variable from which to read output voltage values.  `Assigning <Assign Variable>` a value to the variable causes the output voltage to be changed immediately.
+
+
+
+
+Optional Parameters
+-------------------
+
+device_time_nanos
+^^^^^^^^^^^^^^^^^
+
+Variable in which to store the device time (in nanoseconds) when each value is output by the device
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `DATAPixx Device`

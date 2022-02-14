@@ -1,0 +1,30 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Components:
+
+Components
+==========
+
+Components are the building blocks of MWorks experiments.  Variables,
+input/output devices, visual stimuli, sounds, control-flow constructs, and more
+are all components.  To create an experiment, one must select, configure, and
+connect the required components.
+
+
+.. toctree::
+   :maxdepth: 1
+
+   actions
+   filters
+   input_output
+   optimizers_and_variable_monitors
+   paradigm_components
+   replicators
+   resources
+   sounds
+   stimuli
+   transitions
+   variables

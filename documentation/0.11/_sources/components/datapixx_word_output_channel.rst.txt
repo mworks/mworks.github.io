@@ -1,0 +1,75 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: DATAPixx Word Output Channel
+   single: Input/Output; DATAPixx Word Output Channel
+
+.. _DATAPixx Word Output Channel:
+
+DATAPixx Word Output Channel
+============================
+
+*Available on macOS*
+
+
+Description
+-----------
+Word output channel on a `DATAPixx Device`
+
+
+Signature
+---------
+``iochannel/datapixx_word_output``
+
+
+Required Parameters
+-------------------
+
+bit_numbers
+^^^^^^^^^^^
+:Examples: | ``2,3,4``
+           | ``5:8``
+           | ``4:2,11``
+
+Digital output bits used to output the individual bits of words assigned to `value`_.  The first output bit receives the word's least significant bit, the last bit the most significant.
+
+
+value
+^^^^^
+
+Variable from which to read output word (an integer).  `Assigning <Assign Variable>` a value to the variable causes the state of the bits specified in `bit_numbers`_ to be changed immediately.
+
+
+
+
+Optional Parameters
+-------------------
+
+use_input_port
+^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, use the specified `bit_numbers`_ on the digital *input* port, instead of the output port.  (DATAPixx digital input bits can be configured as either inputs or outputs.)
+
+
+device_time_nanos
+^^^^^^^^^^^^^^^^^
+
+Variable in which to store the device time (in nanoseconds) when each value is output by the device
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `DATAPixx Device`

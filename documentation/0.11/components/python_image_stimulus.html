@@ -1,0 +1,464 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Python Image Stimulus &#8212; MWorks 0.11 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Rectangle Stimulus" href="rectangle_stimulus.html" />
+    <link rel="prev" title="Moving Dots" href="moving_dots.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="rectangle_stimulus.html" title="Rectangle Stimulus"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="moving_dots.html" title="Moving Dots"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="stimuli.html" accesskey="U">Stimuli</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Python Image Stimulus</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="python-image-stimulus">
+<span id="index-0"></span><span id="id1"></span><h1>Python Image Stimulus<a class="headerlink" href="#python-image-stimulus" title="Permalink to this headline">¶</a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>An image stimulus whose content is generated dynamically by Python code.</p>
+<p>Every time the stimulus draws, it evaluates the Python expression provided
+in <a class="reference internal" href="#pixel-buffer-expr">pixel_buffer_expr</a>.  The result of evaluating the expression must be a
+<a class="reference external" href="https://docs.python.org/3/glossary.html#term-bytes-like-object">bytes-like object</a>,
+typically a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes-objects">bytes object</a> or a
+C-style, contiguous <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.ndarray.html">NumPy array</a>.  The raw
+bytes associated with the object must contain the image data, whose layout
+is specified by <a class="reference internal" href="#pixel-buffer-format">pixel_buffer_format</a>, <a class="reference internal" href="#pixel-buffer-width">pixel_buffer_width</a>, and
+<a class="reference internal" href="#pixel-buffer-height">pixel_buffer_height</a>.</p>
+<p>For information on the modules and functions available to your Python code,
+see <a class="reference internal" href="run_python_file.html#run-python-file"><span class="std std-ref">Run Python File</span></a>.</p>
+<p><em>Note</em>:  To preserve the image’s aspect ratio on screen, <a class="reference internal" href="#x-size">x_size</a> and
+<a class="reference internal" href="#y-size">y_size</a> must be equal.  When drawn, the larger dimension spans the full
+specified size, while the smaller dimension is scaled to maintain the
+aspect ratio.</p>
+</section>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">stimulus/python_image</span></code></p>
+</section>
+<section id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<section id="pixel-buffer-format">
+<h3>pixel_buffer_format<a class="headerlink" href="#pixel-buffer-format" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RGB8</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sRGB8</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RGBA8</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sRGBA8</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">RGBA16F</span></code></div>
+</div>
+</dd>
+</dl>
+<p>Pixel buffer format.</p>
+<p>The specified format determines how the stimulus interprets the data
+obtained by evaluating <a class="reference internal" href="#pixel-buffer-expr">pixel_buffer_expr</a>.  The format name indicates
+the number and order of each pixel’s color components.  <code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">B</span></code> refer to the pixel’s red, green, and blue components,
+respectively, while <code class="docutils literal notranslate"><span class="pre">A</span></code> denotes the pixel’s alpha channel, if any.
+The following table provides details on each supported format:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 29%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Number of components</p></th>
+<th class="head"><p>Bytes per component</p></th>
+<th class="head"><p>Component data type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RGB8</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>Unsigned integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>sRGB8</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>Unsigned integer</p></td>
+</tr>
+<tr class="row-even"><td><p>RGBA8</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>Unsigned integer</p></td>
+</tr>
+<tr class="row-odd"><td><p>sRGBA8</p></td>
+<td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>Unsigned integer</p></td>
+</tr>
+<tr class="row-even"><td><p>RGBA16F</p></td>
+<td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>Floating point</p></td>
+</tr>
+</tbody>
+</table>
+<p>The total size, in bytes, of the data buffer provided by
+<a class="reference internal" href="#pixel-buffer-expr">pixel_buffer_expr</a> must be equal to the product of
+<a class="reference internal" href="#pixel-buffer-width">pixel_buffer_width</a>, <a class="reference internal" href="#pixel-buffer-height">pixel_buffer_height</a>, the number of components
+per pixel, and the number of bytes per component.  For example, if the
+format is <code class="docutils literal notranslate"><span class="pre">RGBA16F</span></code>, the width is 400, and the height is 300, then the
+buffer size in bytes must be 400 * 300 * 4 * 2 = 960,000.</p>
+<p>1-byte, unsigned integer components must have values between 0 and 255,
+inclusive.  The values of floating-point components must lie between
+0.0 and 1.0, inclusive.  Multi-byte component values must be in native
+<a class="reference external" href="https://en.wikipedia.org/wiki/Endianness">byte order</a>.</p>
+<p>A leading <code class="docutils literal notranslate"><span class="pre">s</span></code> in the format name indicates that the red, green, and
+blue component values are specified in the <a class="reference external" href="https://en.wikipedia.org/wiki/SRGB">sRGB color space</a>.  Before these component values
+are used to draw the image, they are converted from sRGB’s non-linear
+gamma to linear gamma.  Such formats should be preferred when using
+integer-valued pixels with color management enabled(see <a class="reference internal" href="../reference/sysvars.html#mainscreeninfo-var"><span class="std std-ref">#mainScreenInfo</span></a>).  When using integer-valued pixels with color management
+disabled, the non-<code class="docutils literal notranslate"><span class="pre">s</span></code> formats should be used. Floating-point-valued
+pixels may be used with or without color management enabled.</p>
+</section>
+<section id="pixel-buffer-width">
+<h3>pixel_buffer_width<a class="headerlink" href="#pixel-buffer-width" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">512</span></code></p>
+</dd>
+</dl>
+<p>Width of generated image in pixels</p>
+</section>
+<section id="pixel-buffer-height">
+<h3>pixel_buffer_height<a class="headerlink" href="#pixel-buffer-height" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">512</span></code></p>
+</dd>
+</dl>
+<p>Height of generated image in pixels</p>
+</section>
+<section id="pixel-buffer-expr">
+<h3>pixel_buffer_expr<a class="headerlink" href="#pixel-buffer-expr" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Examples</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">render_scene()</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">img.update()</span></code></div>
+</div>
+</dd>
+</dl>
+<p>Pixel buffer expression.</p>
+<p>Must evaluate to either a <a class="reference external" href="https://docs.python.org/3/glossary.html#term-bytes-like-object">bytes-like object</a>
+containing the current image data or <code class="docutils literal notranslate"><span class="pre">None</span></code>.  If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the most
+recently provided image data is reused.</p>
+</section>
+</section>
+<section id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<section id="elapsed-time">
+<h3>elapsed_time<a class="headerlink" href="#elapsed-time" title="Permalink to this headline">¶</a></h3>
+<p>Name of a variable in which to store the elapsed time (in microseconds)
+since the stimulus started playing (either implicitly due to <a class="reference internal" href="#autoplay">autoplay</a>
+being <code class="docutils literal notranslate"><span class="pre">YES</span></code> or via an explicit <a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">Play Dynamic Stimulus</span></a> action).</p>
+<p>If the stimulus has been paused (e.g. via <a class="reference internal" href="pause_dynamic_stimulus.html#pause-dynamic-stimulus"><span class="std std-ref">Pause Dynamic Stimulus</span></a> or
+<a class="reference internal" href="pause_experiment.html#pause-experiment"><span class="std std-ref">Pause Experiment</span></a>), the time elapsed while paused is excluded from the
+reported elapsed time.</p>
+</section>
+<section id="autoplay">
+<h3>autoplay<a class="headerlink" href="#autoplay" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus will start playing automatically (as if by an implicit <a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">Play Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> has been invoked.  It will also stop playing automatically (as if by an implicit <a class="reference internal" href="stop_dynamic_stimulus.html#stop-dynamic-stimulus"><span class="std std-ref">Stop Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="dequeue_stimulus.html#dequeue-stimulus"><span class="std std-ref">dequeued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> is invoked.</p>
+</section>
+<section id="alpha-multiplier">
+<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
+</dd>
+</dl>
+<p>By default, the alpha multiplier controls the transparency of the
+stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
+<p>Changes to the parameters <a class="reference internal" href="#source-blend-factor">source_blend_factor</a> and
+<a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a> can alter how (or if) the alpha multiplier is used.</p>
+<p><em>Note</em>:  If the image contains an <a class="reference external" href="https://en.wikipedia.org/wiki/Alpha_compositing">alpha channel</a>, the embedded alpha
+value for each pixel is multiplied by the value of this parameter.</p>
+</section>
+<section id="source-blend-factor">
+<h3>source_blend_factor<a class="headerlink" href="#source-blend-factor" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">zero</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">one</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">source_color</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">one_minus_source_color</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dest_color</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">one_minus_dest_color</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">source_alpha</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">one_minus_source_alpha</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dest_alpha</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">one_minus_dest_alpha</span></code></div>
+</div>
+</dd>
+<dt class="field-even">Default</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">source_alpha</span></code></p>
+</dd>
+</dl>
+<p>Source blending factor.</p>
+<p>The parameters <a class="reference internal" href="#source-blend-factor">source_blend_factor</a>, <a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a>,
+<a class="reference internal" href="#source-alpha-blend-factor">source_alpha_blend_factor</a>, and <a class="reference internal" href="#dest-alpha-blend-factor">dest_alpha_blend_factor</a> provide
+detailed control over how the color components and alpha multiplier of
+each fragment of the stimulus (the “source”) are combined with the color
+and alpha values already present in the framebuffer (the “destination”),
+which in turn result from blending the stimulus display background with
+any stimuli drawn beneath the source stimulus.  These parameters
+correspond directly to the four arguments of the <a class="reference external" href="https://www.opengl.org">OpenGL</a> function <a class="reference external" href="https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendFuncSeparate.xhtml">glBlendFuncSeparate</a>.
+Please refer to that function’s reference page for explanations of the
+different blend factor options.</p>
+<p><em>Note</em>:  Irrespective of the blend factors used, the <a class="reference external" href="https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendEquation.xhtml">blend equation</a>
+is always <code class="docutils literal notranslate"><span class="pre">GL_FUNC_ADD</span></code>.</p>
+</section>
+<section id="dest-blend-factor">
+<h3>dest_blend_factor<a class="headerlink" href="#dest-blend-factor" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">one_minus_source_alpha</span></code></p>
+</dd>
+</dl>
+<p>Destination blending factor.  Accepts the same values as <a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
+</section>
+<section id="source-alpha-blend-factor">
+<h3>source_alpha_blend_factor<a class="headerlink" href="#source-alpha-blend-factor" title="Permalink to this headline">¶</a></h3>
+<p>Source alpha blending factor.  Accepts the same values as
+<a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
+<p>If omitted, the value of <a class="reference internal" href="#source-blend-factor">source_blend_factor</a> is used.</p>
+</section>
+<section id="dest-alpha-blend-factor">
+<h3>dest_alpha_blend_factor<a class="headerlink" href="#dest-alpha-blend-factor" title="Permalink to this headline">¶</a></h3>
+<p>Destination alpha blending factor.  Accepts the same values as
+<a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
+<p>If omitted, the value of <a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a> is used.</p>
+</section>
+<section id="x-size">
+<h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5.0</span></code></p>
+</dd>
+</dl>
+<p>Horizontal size (degrees).</p>
+<p>If omitted, the value of <a class="reference internal" href="#y-size">y_size</a> is used.  It is an error to omit both
+x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
+</section>
+<section id="y-size">
+<h3>y_size<a class="headerlink" href="#y-size" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5.0</span></code></p>
+</dd>
+</dl>
+<p>Vertical size (degrees).</p>
+<p>If omitted, the value of <a class="reference internal" href="#x-size">x_size</a> is used.  It is an error to omit both
+x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
+</section>
+<section id="x-position">
+<h3>x_position<a class="headerlink" href="#x-position" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+</dd>
+</dl>
+<p>Horizontal center position (degrees)</p>
+</section>
+<section id="y-position">
+<h3>y_position<a class="headerlink" href="#y-position" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+</dd>
+</dl>
+<p>Vertical center position (degrees)</p>
+</section>
+<section id="rotation">
+<h3>rotation<a class="headerlink" href="#rotation" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+</dd>
+</dl>
+<p>Rotation (degrees)</p>
+</section>
+<section id="fullscreen">
+<h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus is sized to fill the display.  In this mode, <a class="reference internal" href="#x-size">x_size</a>, <a class="reference internal" href="#y-size">y_size</a>, <a class="reference internal" href="#x-position">x_position</a>, <a class="reference internal" href="#y-position">y_position</a>, and <a class="reference internal" href="#rotation">rotation</a> are ignored.</p>
+</section>
+<section id="deferred">
+<h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Options</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">no</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">yes</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">explicit</span></code></div>
+</div>
+</dd>
+<dt class="field-even">Default</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">no</span></code></p>
+</dd>
+</dl>
+<p>Controls when the stimulus is loaded.  If <code class="docutils literal notranslate"><span class="pre">no</span></code>, the stimulus is loaded at experiment load time.  If <code class="docutils literal notranslate"><span class="pre">yes</span></code>, the stimulus is loaded the first time it is <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a>.  If <code class="docutils literal notranslate"><span class="pre">explicit</span></code>, the stimulus must be loaded explictly with <a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">Load Stimulus</span></a>.</p>
+</section>
+</section>
+<section id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-default">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">Layer Stimulus</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="movie_stimulus.html#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Python Image Stimulus</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#pixel-buffer-format">pixel_buffer_format</a></li>
+<li><a class="reference internal" href="#pixel-buffer-width">pixel_buffer_width</a></li>
+<li><a class="reference internal" href="#pixel-buffer-height">pixel_buffer_height</a></li>
+<li><a class="reference internal" href="#pixel-buffer-expr">pixel_buffer_expr</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#elapsed-time">elapsed_time</a></li>
+<li><a class="reference internal" href="#autoplay">autoplay</a></li>
+<li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
+<li><a class="reference internal" href="#source-blend-factor">source_blend_factor</a></li>
+<li><a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a></li>
+<li><a class="reference internal" href="#source-alpha-blend-factor">source_alpha_blend_factor</a></li>
+<li><a class="reference internal" href="#dest-alpha-blend-factor">dest_alpha_blend_factor</a></li>
+<li><a class="reference internal" href="#x-size">x_size</a></li>
+<li><a class="reference internal" href="#y-size">y_size</a></li>
+<li><a class="reference internal" href="#x-position">x_position</a></li>
+<li><a class="reference internal" href="#y-position">y_position</a></li>
+<li><a class="reference internal" href="#rotation">rotation</a></li>
+<li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
+<li><a class="reference internal" href="#deferred">deferred</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="moving_dots.html"
+                          title="previous chapter">Moving Dots</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="rectangle_stimulus.html"
+                          title="next chapter">Rectangle Stimulus</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="rectangle_stimulus.html" title="Rectangle Stimulus"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="moving_dots.html" title="Moving Dots"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.11 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="stimuli.html" >Stimuli</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Python Image Stimulus</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2022, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+  </body>
+</html>

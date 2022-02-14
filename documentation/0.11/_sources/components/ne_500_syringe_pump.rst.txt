@@ -1,0 +1,95 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: NE-500 Syringe Pump
+   single: Input/Output; NE-500 Syringe Pump
+
+.. _NE-500 Syringe Pump:
+
+NE-500 Syringe Pump
+===================
+
+*Available on macOS*
+
+
+Description
+-----------
+Used for interfacing to a specific pump within a `NE-500 Syringe Pump Network`
+
+
+
+Signature
+---------
+``iochannel/ne500``
+
+
+Required Parameters
+-------------------
+
+capability
+^^^^^^^^^^
+:Example: ``00``
+
+Network address of pump (0 to 99)
+
+syringe_diameter
+^^^^^^^^^^^^^^^^
+:Example: ``15.0``
+
+Syringe diameter (millimeters)
+
+flow_rate
+^^^^^^^^^
+:Example: ``5``
+
+Pumping rate (units given by `rate_unit`_)
+
+variable
+^^^^^^^^
+
+Variable from which to read the volume to dispense.  Assigning a nonzero value to the variable causes MWorks to prepare the pump's onboard dispensing program (updating rate, volume, and direction as needed). If the pump network is `enabled <Start IO Device>`, pumping will then begin.
+
+
+
+
+Optional Parameters
+-------------------
+
+rate_unit
+^^^^^^^^^
+:Options: | ``UM``
+          | ``MM``
+          | ``UH``
+          | ``MH``
+:Default: ``MM``
+
+Units of `flow_rate`_.  The options are uL/min, mL/min, uL/hr, and mL/hr.
+
+
+volume_unit
+^^^^^^^^^^^
+:Options: | ``UL``
+          | ``ML``
+
+Volume units.
+
+If omitted, volume units are determined by `syringe_diameter`_.  If the
+syringe diameter is less than or equal to 14mm, UL is used.  Otherwise,
+ML is used.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `NE-500 Syringe Pump Network`

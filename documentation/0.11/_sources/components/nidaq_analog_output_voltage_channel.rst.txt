@@ -1,0 +1,67 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: NIDAQ Analog Output Voltage Channel
+   single: Input/Output; NIDAQ Analog Output Voltage Channel
+
+.. _NIDAQ Analog Output Voltage Channel:
+
+NIDAQ Analog Output Voltage Channel
+===================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Analog output voltage channel on a `NIDAQ Device`
+
+
+Signature
+---------
+``iochannel/nidaq_analog_output_voltage``
+
+
+Required Parameters
+-------------------
+
+channel_number
+^^^^^^^^^^^^^^
+:Example: ``0``
+
+Analog output channel number (``0`` for AO0, ``1`` for AO1, etc.)
+
+
+range_min
+^^^^^^^^^
+:Example: ``-10.0``
+
+Minimum permitted output value (volts)
+
+range_max
+^^^^^^^^^
+:Example: ``10.0``
+
+Maximum permitted output value (volts)
+
+voltage
+^^^^^^^
+
+Variable from which to read output voltage values.  `Assigning <Assign Variable>` a value to the variable causes the output voltage to be changed immediately.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `NIDAQ Device`

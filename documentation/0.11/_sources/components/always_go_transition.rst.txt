@@ -1,0 +1,45 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Always Go Transition
+   single: Transitions; Always Go Transition
+
+.. _Always Go Transition:
+
+Always Go Transition
+====================
+
+
+Description
+-----------
+A transition that always goes to the specified target state
+
+
+Signature
+---------
+``transition/direct``
+
+
+Required Parameters
+-------------------
+
+target
+^^^^^^
+
+Name of the target state
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Task System State`

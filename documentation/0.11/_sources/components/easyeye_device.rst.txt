@@ -1,0 +1,86 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: EasyEye Device
+   single: Input/Output; EasyEye Device
+
+.. _EasyEye Device:
+
+EasyEye Device
+==============
+
+
+Description
+-----------
+Interface to an EasyEye eye tracker
+
+
+Signature
+---------
+``iodevice/easy_eye``
+
+
+Required Parameters
+-------------------
+
+address
+^^^^^^^
+:Examples: | ``localhost``
+           | ``"mytracker.mylab.net"``
+           | ``18.9.22.69``
+
+Tracker host name or IP address
+
+port
+^^^^
+:Example: ``5204``
+
+Tracker listening port
+
+eye_x
+^^^^^
+
+Variable in which to store horizontal eye position
+
+eye_y
+^^^^^
+
+Variable in which to store vertical eye position
+
+
+
+Optional Parameters
+-------------------
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
