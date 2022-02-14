@@ -1,0 +1,159 @@
+---
+layout: post
+title: MWorks 0.11 released
+author: cstawarz
+---
+
+MWorks 0.11 is now available for [Mac](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.11.dmg) and [iPad](https://apps.apple.com/app/mworks/id1389408331).  Highlights of this release include:
+
+* Native support for the arm64 (aka [Apple silicon](https://support.apple.com/en-us/HT211814)) architecture on macOS
+* Migration of stimulus code to Apple's [Metal](https://developer.apple.com/metal/) API
+* Stimulus display [frame capture](/documentation/0.11/components/stimulus_display.html#capture-format)
+* Support for [XIMEA cameras](/documentation/0.11/components/ximea_camera_device.html)
+* [Python image](/documentation/0.11/components/python_image_stimulus.html) stimulus
+* Python conduit improvements
+
+*Please note*: This is the last MWorks release that will support [ITC-18](/documentation/0.11/components/itc_18_io_device.html) and [NI-DAQ](/documentation/0.11/components/nidaq_device.html) devices.
+
+MWorks 0.11 requires a Mac running macOS Mojave (10.14.6) or later or an iPad running iPadOS 14.7 or later.
+
+For a full list of changes in this release, please see the release notes below.
+
+
+### Apple Silicon Support
+
+MWorks now provides native support for the arm64 (aka [Apple silicon](https://support.apple.com/en-us/HT211814)) processor architecture on macOS.  All macOS applications, plugins, and tools now include native binaries for both arm64 and x86_64 (Intel) processors, except for the following components, which depend on Intel-only external libraries:
+
+* [EyeLink device](/documentation/0.11/components/eyelink_device.html)
+* [ITC-18 device](/documentation/0.11/components/itc_18_io_device.html)
+* [XIMEA camera device](/documentation/0.11/components/ximea_camera_device.html)
+* MATLAB data tools and MWClient MATLAB window
+
+Native arm64 versions of these components will be added in a future release if/when arm64 versions of the required libraries become available.
+
+
+### Core
+
+
+#### Visual Stimuli
+
+* All standard stimulus types have been reimplemented using Apple's [Metal](https://developer.apple.com/metal/) API.  Existing [OpenGL](https://www.opengl.org)-based stimuli are still supported and can be used alongside Metal-based stimuli, but this support will likely end in the next MWorks release.
+
+* The transition to Metal necessitated changes (mostly minor) to some stimulus types:
+
+  * [Blend factors](/documentation/0.11/components/rectangle_stimulus.html#source-blend-factor) can no longer be changed after the stimulus is loaded
+
+  * Added [max_num_dots](/documentation/0.11/components/moving_dots.html#max-num-dots) parameter to [moving dots](/documentation/0.11/components/moving_dots.html)
+
+  * Added [max_size_x](/documentation/0.11/components/text_stimulus.html#max-size-x) and [max_size_y](/documentation/0.11/components/text_stimulus.html#max-size-y) parameters to [text stimulus](/documentation/0.11/components/text_stimulus.html)
+
+  * The effects of some stimulus-related actions performed by [render actions](/documentation/0.11/components/render_actions.html) may not be visible until the next display update pass
+
+* Added support for [stimulus display frame capture](/documentation/0.11/components/stimulus_display.html#capture-format) ([more info](https://mworks.tenderapp.com/discussions/suggestions/495))
+
+* Added [Python image](/documentation/0.11/components/python_image_stimulus.html) stimulus
+
+* Added [central_starting_phase](/documentation/0.11/components/drifting_grating_stimulus.html#central-starting-phase) parameter to [drifting grating](/documentation/0.11/components/drifting_grating_stimulus.html)
+
+* Normalized Gaussian mask values are now clamped to [0,1].  This fixes an issue where the mask could produce unintended colors when blending with a non-grayscale background.  Applies to both the [mask](/documentation/0.11/components/mask_stimulus.html) and [drifting grating](/documentation/0.11/components/drifting_grating_stimulus.html) stimuli.
+
+* Fixed a rendering error that produced unintended edge effects in [text stimulus](/documentation/0.11/components/text_stimulus.html)
+
+* Attempts to create a [video stimulus](/documentation/0.11/components/video_stimulus.html) from an audio-only file are now handled properly
+
+* [Image file](/documentation/0.11/components/image_stimulus.html) stimulus no longer uses [mipmaps](https://en.wikipedia.org/wiki/Mipmap), as they consume GPU resources and seem unlikely to offer any benefit in actual usage
+
+* The display update thread now gets a brief "warm up" interval before the experiment starts.  This seems to eliminate the single "update_stimulus_display action took more than two display refresh cycles" warning often seen when an experiment starts on iOS.
+
+* Reduced lock contention between main state system thread and stimulus display update thread, which could lead to [serious performance issues](https://mworks.tenderapp.com/discussions/problems/553) on iOS
+
+
+#### I/O Devices
+
+* Added support for [XIMEA cameras](/documentation/0.11/components/ximea_camera_device.html) ([more info](https://mworks.tenderapp.com/discussions/suggestions/499))
+
+* [USB HID device](/documentation/0.11/components/usb_hid_device.html) now detects and reports device removal and can recover if the device is reconnected ([more info](https://mworks.tenderapp.com/discussions/problems/563))
+
+* [Mouse input device](/documentation/0.11/components/mouse_input_device.html) parameters [mouse_position_x](/documentation/0.11/components/mouse_input_device.html#mouse-position-x) and [mouse_position_y](/documentation/0.11/components/mouse_input_device.html#mouse-position-y) are now optional, so that the device can be used just to hide the cursor
+
+* [DATAPixx device](/documentation/0.11/components/datapixx_device.html)
+
+  * Ensure that [clock offset](/documentation/0.11/components/datapixx_device.html#clock-offset-nanos) is computed even when there are no input channels
+
+  * Handle devices that don't support [pixel mode](/documentation/0.11/components/datapixx_device.html#enable-dout-pixel-mode) and/or [VSYNC mode](/documentation/0.11/components/datapixx_device.html#enable-dout-vsync-mode) (e.g the [original DATAPixx](https://vpixx.com/products/datapixx/))
+
+* [Stimulus display device](/documentation/0.11/components/stimulus_display.html) parameter [background_color](/documentation/0.11/components/stimulus_display.html#background-color) is now optional
+
+
+#### Other
+
+* [Replicators](/documentation/0.11/components/replicators.html) can now contain [sounds](/documentation/0.11/components/sounds.html)
+
+* Added [predicted_output_time](/documentation/0.11/components/clear_stimulus_display.html#predicted-output-time) parameter to [clear stimulus display](/documentation/0.11/components/clear_stimulus_display.html) action
+
+* [Update stimulus display](/documentation/0.11/components/update_stimulus_display.html) action is now slightly more lenient when deciding if a display update has taken too long to complete
+
+* Fixed some issues in and improved the method of getting the server address on iOS
+
+
+### Applications
+
+* Addressed some UI issues on macOS 11 and 12
+
+* On iOS, don't block the first-run dialog asking for permission to use the local network
+
+* Clarified MWServer's "Use color management" preference
+
+
+#### MWClient
+
+* Python bridge window now alerts the user if the script fails to launch (e.g. because the selected Python executable doesn't exist)
+
+* Variables window now permits selection of group headings
+
+* Variables window now discards input that contains only whitespace
+
+
+### Python and MATLAB Tools
+
+* Python plugin now embeds Python 3.9 (instead of 3.8)
+
+* Python tools now require Python 3.6 or later
+
+* Python conduits
+
+  * Added `CachingIPCClientConduit`, which receives events for all codes and caches the most recent data for each ([more info](https://mworks.tenderapp.com/discussions/questions/6102#comment_49262998))
+
+  * Added `register_callback_for_all_events` method
+
+  * `register_callback_for_code` now actually works in all situations
+
+* MATLAB tools now require MATLAB R2018b or later
+
+
+### Internals/Development
+
+* Upgraded to new versions of many supporting libraries:
+
+  * boost: 1.73.0 ➞ 1.77.0
+  * libffi: 3.3 ➞ 3.4.2
+  * libusb: 1.0.23 ➞ 1.0.24
+  * libxslt: 1.1.29 ➞ 1.1.34
+  * msgpack: 3.3.0 ➞ 4.0.3
+  * numpy: 1.19.1 ➞ 1.21.4
+  * openssl: 1.1.1g ➞ 1.1.1l
+  * python: 3.8.5 ➞ 3.9.9
+  * sqlite: 3.32.3 ➞ 3.37.0
+  * zeromq: 4.3.2 ➞ 4.3.4
+
+* StimulusDisplay, OpenGLContextManager, and their subclasses have been significantly reworked as part of the transition from OpenGL to Metal
+
+* Stimulus classes must now declare their required rendering mode by implementing (or inheriting) the method `getRenderingMode`
+
+* Removed support for OpenGL on iOS
+
+* Datum instances can now be marked non-compressible, which prevents MWK2Writer from trying to compress their serialized representation
+
+* All standard conduits (server, client, and Python) now use ZeroMQ for event transport (instead of shared-memory IPC)
+
+* The directories `/Library/Application Support/MWorks/Developer/include` and `/Library/Application Support/MWorks/Developer/lib` now contain architecture-specific subdirectories for arm64 and x86_64
