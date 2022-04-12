@@ -16,7 +16,7 @@ The following Mac installer packages are available:
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/nightly/MWorks-NIGHTLY.dmg">Nightly build</a></dt>
   <dd>
     "Bleeding edge" distribution.  Generated nightly from the latest
-    <a href="https://github.com/mworks/mworks">source code</a>.  Requires macOS 10.14.6 or later.
+    <a href="https://github.com/mworks/mworks">source code</a>.  Requires macOS 10.15 or later.
   </dd>
 
   <dt><a href="https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.11.dmg">Release 0.11</a></dt>
