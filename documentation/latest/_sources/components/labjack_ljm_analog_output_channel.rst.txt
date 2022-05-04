@@ -4,51 +4,39 @@
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 .. index::
-   single: NIDAQ Analog Output Voltage Channel
-   single: Input/Output; NIDAQ Analog Output Voltage Channel
+   single: LabJack LJM Analog Output Channel
+   single: Input/Output; LabJack LJM Analog Output Channel
 
-.. _NIDAQ Analog Output Voltage Channel:
+.. _LabJack LJM Analog Output Channel:
 
-NIDAQ Analog Output Voltage Channel
-===================================
+LabJack LJM Analog Output Channel
+=================================
 
 *Available on macOS*
 
 
 Description
 -----------
-Analog output voltage channel on a `NIDAQ Device`
+Analog output channel on a `LabJack LJM Device`
 
 
 Signature
 ---------
-``iochannel/nidaq_analog_output_voltage``
+``iochannel/labjack_ljm_analog_output``
 
 
 Required Parameters
 -------------------
 
-channel_number
-^^^^^^^^^^^^^^
-:Example: ``0``
+line
+^^^^
+:Examples: | ``DAC0``
+           | ``dac1``
 
-Analog output channel number (``0`` for AO0, ``1`` for AO1, etc.)
+Analog output line name
 
-
-range_min
-^^^^^^^^^
-:Example: ``-10.0``
-
-Minimum permitted output value (volts)
-
-range_max
-^^^^^^^^^
-:Example: ``10.0``
-
-Maximum permitted output value (volts)
-
-voltage
-^^^^^^^
+value
+^^^^^
 
 Variable from which to read output voltage values.  `Assigning <Assign Variable>` a value to the variable causes the output voltage to be changed immediately.
 
@@ -64,4 +52,4 @@ Placement
    * - Allowed at top level:
      - No
    * - Allowed parent:
-     - `NIDAQ Device`
+     - `LabJack LJM Device`

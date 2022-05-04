@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>NIDAQ Analog Output Voltage Channel &#8212; MWorks 0.12.dev documentation</title>
+    <title>LabJack LJM Analog Output Channel &#8212; MWorks 0.12.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
@@ -18,8 +18,8 @@
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="NIDAQ Analog Output Voltage Waveform Channel" href="nidaq_analog_output_voltage_waveform_channel.html" />
-    <link rel="prev" title="NIDAQ Analog Input Voltage Channel" href="nidaq_analog_input_voltage_channel.html" />
+    <link rel="next" title="LabJack LJM Counter Channel" href="labjack_ljm_counter_channel.html" />
+    <link rel="prev" title="LabJack LJM Analog Input Channel" href="labjack_ljm_analog_input_channel.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
@@ -32,16 +32,16 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="nidaq_analog_output_voltage_waveform_channel.html" title="NIDAQ Analog Output Voltage Waveform Channel"
+          <a href="labjack_ljm_counter_channel.html" title="LabJack LJM Counter Channel"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="nidaq_analog_input_voltage_channel.html" title="NIDAQ Analog Input Voltage Channel"
+          <a href="labjack_ljm_analog_input_channel.html" title="LabJack LJM Analog Input Channel"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.12.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="input_output.html" accesskey="U">Input/Output</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">NIDAQ Analog Output Voltage Channel</a></li> 
+        <li class="nav-item nav-item-this"><a href="">LabJack LJM Analog Output Channel</a></li> 
       </ul>
     </div>  
 
@@ -50,48 +50,33 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="nidaq-analog-output-voltage-channel">
-<span id="index-0"></span><span id="id1"></span><h1>NIDAQ Analog Output Voltage Channel<a class="headerlink" href="#nidaq-analog-output-voltage-channel" title="Permalink to this headline">¶</a></h1>
+  <section id="labjack-ljm-analog-output-channel">
+<span id="index-0"></span><span id="id1"></span><h1>LabJack LJM Analog Output Channel<a class="headerlink" href="#labjack-ljm-analog-output-channel" title="Permalink to this headline">¶</a></h1>
 <p><em>Available on macOS</em></p>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Analog output voltage channel on a <a class="reference internal" href="nidaq_device.html#nidaq-device"><span class="std std-ref">NIDAQ Device</span></a></p>
+<p>Analog output channel on a <a class="reference internal" href="labjack_ljm_device.html#labjack-ljm-device"><span class="std std-ref">LabJack LJM Device</span></a></p>
 </section>
 <section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">iochannel/nidaq_analog_output_voltage</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">iochannel/labjack_ljm_analog_output</span></code></p>
 </section>
 <section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
-<section id="channel-number">
-<h3>channel_number<a class="headerlink" href="#channel-number" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Example</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+<section id="line">
+<h3>line<a class="headerlink" href="#line" title="Permalink to this headline">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Examples</dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">DAC0</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">dac1</span></code></div>
+</div>
 </dd>
 </dl>
-<p>Analog output channel number (<code class="docutils literal notranslate"><span class="pre">0</span></code> for AO0, <code class="docutils literal notranslate"><span class="pre">1</span></code> for AO1, etc.)</p>
+<p>Analog output line name</p>
 </section>
-<section id="range-min">
-<h3>range_min<a class="headerlink" href="#range-min" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Example</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">-10.0</span></code></p>
-</dd>
-</dl>
-<p>Minimum permitted output value (volts)</p>
-</section>
-<section id="range-max">
-<h3>range_max<a class="headerlink" href="#range-max" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Example</dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">10.0</span></code></p>
-</dd>
-</dl>
-<p>Maximum permitted output value (volts)</p>
-</section>
-<section id="voltage">
-<h3>voltage<a class="headerlink" href="#voltage" title="Permalink to this headline">¶</a></h3>
+<section id="value">
+<h3>value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
 <p>Variable from which to read output voltage values.  <a class="reference internal" href="assign_variable.html#assign-variable"><span class="std std-ref">Assigning</span></a> a value to the variable causes the output voltage to be changed immediately.</p>
 </section>
 </section>
@@ -103,7 +88,7 @@
 <td><p>No</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
-<td><p><a class="reference internal" href="nidaq_device.html#nidaq-device"><span class="std std-ref">NIDAQ Device</span></a></p></td>
+<td><p><a class="reference internal" href="labjack_ljm_device.html#labjack-ljm-device"><span class="std std-ref">LabJack LJM Device</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -120,14 +105,12 @@
   <div>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">NIDAQ Analog Output Voltage Channel</a><ul>
+<li><a class="reference internal" href="#">LabJack LJM Analog Output Channel</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
-<li><a class="reference internal" href="#channel-number">channel_number</a></li>
-<li><a class="reference internal" href="#range-min">range_min</a></li>
-<li><a class="reference internal" href="#range-max">range_max</a></li>
-<li><a class="reference internal" href="#voltage">voltage</a></li>
+<li><a class="reference internal" href="#line">line</a></li>
+<li><a class="reference internal" href="#value">value</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#placement">Placement</a></li>
@@ -138,13 +121,13 @@
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="nidaq_analog_input_voltage_channel.html"
-                          title="previous chapter">NIDAQ Analog Input Voltage Channel</a></p>
+    <p class="topless"><a href="labjack_ljm_analog_input_channel.html"
+                          title="previous chapter">LabJack LJM Analog Input Channel</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="nidaq_analog_output_voltage_waveform_channel.html"
-                          title="next chapter">NIDAQ Analog Output Voltage Waveform Channel</a></p>
+    <p class="topless"><a href="labjack_ljm_counter_channel.html"
+                          title="next chapter">LabJack LJM Counter Channel</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -167,21 +150,21 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="nidaq_analog_output_voltage_waveform_channel.html" title="NIDAQ Analog Output Voltage Waveform Channel"
+          <a href="labjack_ljm_counter_channel.html" title="LabJack LJM Counter Channel"
              >next</a> |</li>
         <li class="right" >
-          <a href="nidaq_analog_input_voltage_channel.html" title="NIDAQ Analog Input Voltage Channel"
+          <a href="labjack_ljm_analog_input_channel.html" title="LabJack LJM Analog Input Channel"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.12.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="input_output.html" >Input/Output</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">NIDAQ Analog Output Voltage Channel</a></li> 
+        <li class="nav-item nav-item-this"><a href="">LabJack LJM Analog Output Channel</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>

@@ -40,23 +40,18 @@ Input/output (I/O) devices
    firmata_servo_channel
    firmata_word_output_channel
    iscan_device
-   itc_18_analog_input_channel
-   itc_18_aux_ttl_output_channel
-   itc_18_io_device
-   itc_18_triggered_analog_snippet
-   itc_18_ttl_input_channel
-   itc_18_word_output_channel
+   labjack_ljm_analog_input_channel
+   labjack_ljm_analog_output_channel
+   labjack_ljm_counter_channel
+   labjack_ljm_device
+   labjack_ljm_digital_input_channel
+   labjack_ljm_digital_output_channel
+   labjack_ljm_quadrature_input_channel
+   labjack_ljm_word_input_channel
+   labjack_ljm_word_output_channel
    mouse_input_device
-   mssw_gamepad
    ne_500_syringe_pump
    ne_500_syringe_pump_network
-   nidaq_analog_input_voltage_channel
-   nidaq_analog_output_voltage_channel
-   nidaq_analog_output_voltage_waveform_channel
-   nidaq_counter_input_count_edges_channel
-   nidaq_device
-   nidaq_digital_input_channel
-   nidaq_digital_output_channel
    open_ephys_interface
    open_ephys_network_events_client
    rcb_lvds_device

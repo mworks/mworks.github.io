@@ -1,0 +1,108 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: LabJack LJM Device
+   single: Input/Output; LabJack LJM Device
+
+.. _LabJack LJM Device:
+
+LabJack LJM Device
+==================
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to devices compatible with the `LabJack LJM library
+<https://labjack.com/ljm>`_.  Currently, the LabJack `T4
+<https://labjack.com/products/t4>`_ and `T7
+<https://labjack.com/products/t7>`_ are supported.
+
+For information on acceptable values for the parameters `device_type`_,
+`connection_type`_, and `identifier`_, see the documentation for the
+`LJM_OpenS function
+<https://labjack.com/support/software/api/ljm/function-reference/ljmopens>`_.
+
+
+
+Signature
+---------
+``iodevice/labjack_ljm``
+
+
+Required Parameters
+-------------------
+
+update_interval
+^^^^^^^^^^^^^^^
+:Example: ``3ms``
+
+Interval at which MWorks will poll the device for new input data
+
+
+
+
+Optional Parameters
+-------------------
+
+device_type
+^^^^^^^^^^^
+:Default: ``ANY``
+:Examples: | ``T4``
+           | ``T7``
+
+Desired device type
+
+connection_type
+^^^^^^^^^^^^^^^
+:Default: ``ANY``
+:Examples: | ``USB``
+           | ``ETHERNET``
+           | ``WIFI``
+
+Desired connection type
+
+identifier
+^^^^^^^^^^
+:Default: ``ANY``
+:Examples: | ``470010103``
+           | ``192.168.1.207``
+           | ``My T7 Device``
+
+Desired device identifier
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
+   * - Allowed children:
+     - `LabJack LJM Analog Input Channel`, `LabJack LJM Analog Output Channel`, `LabJack LJM Counter Channel`, `LabJack LJM Digital Input Channel`, `LabJack LJM Digital Output Channel`, `LabJack LJM Quadrature Input Channel`, `LabJack LJM Word Input Channel`, `LabJack LJM Word Output Channel`

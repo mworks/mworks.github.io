@@ -76,7 +76,15 @@
 </section>
 <section id="trigger-flag">
 <h3>trigger_flag<a class="headerlink" href="#trigger-flag" title="Permalink to this headline">¶</a></h3>
-<p>Variable to which fixation status is written. When the subject’s gaze (as reported by <a class="reference internal" href="#trigger-watch-x">trigger_watch_x</a> and <a class="reference internal" href="#trigger-watch-y">trigger_watch_y</a>) enters the fixation window, the variable is set to true.  When the subject’s gaze leaves the fixation window, the variable is set to false.</p>
+<p>Variable to which fixation status is written. When the
+subject’s gaze (as reported by <a class="reference internal" href="#trigger-watch-x">trigger_watch_x</a> and
+<a class="reference internal" href="#trigger-watch-y">trigger_watch_y</a>) enters the fixation window, the variable is set to
+true.  When the subject’s gaze leaves the fixation window, the variable
+is set to false.</p>
+<p><em>Note</em>: Fixation is reported only when the fixation point is on screen
+(i.e. after it has been <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a> and the display has
+been <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">updated</span></a>).  If you need a hidden
+fixation point, set <a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a> to zero.</p>
 </section>
 </section>
 <section id="optional-parameters">
@@ -335,7 +343,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
     </div>
   </body>
 </html>
