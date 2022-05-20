@@ -13,16 +13,12 @@ When MWClient connects to an MWServer instance running on a different Mac, or to
 
 ### Third-Party Services ###
 
-The MWorks website, including the online user manual, is hosted on GitHub.  You can view GitHub's privacy policy at
+The MWorks website, including the online user manual, and the MWorks issue tracker are hosted on GitHub.  You can view GitHub's privacy policy at
 
-[https://docs.github.com/en/github/site-policy/github-privacy-statement](https://docs.github.com/en/github/site-policy/github-privacy-statement)
+[https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
 
 MWorks uses the Tender web service to provide user support.  You can view Tender's privacy policy at
 
 [https://www.tenderapp.com/privacy/](https://www.tenderapp.com/privacy/)
 
-MWorks uses the Lighthouse web service for issue tracking.  You can view Lighthouse's privacy policy at
-
-[https://lighthouseapp.com/privacy](https://lighthouseapp.com/privacy)
-
-*This document was last updated on September 8, 2020.*
+*This document was last updated on May 20, 2022.*
