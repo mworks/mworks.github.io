@@ -264,7 +264,10 @@ var c = 2*a + 3
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define name = expression
 </pre></div>
 </div>
-<p><em>name</em> must be an <a class="reference internal" href="#identifiers"><span class="std std-ref">identifier</span></a>.  <em>expression</em> can be any <a class="reference internal" href="../expressions/index.html#expressions"><span class="std std-ref">expression</span></a>.</p>
+<p><em>name</em> must be an <a class="reference internal" href="#identifiers"><span class="std std-ref">identifier</span></a>.  <em>expression</em> can be any <a class="reference internal" href="../expressions/index.html#expressions"><span class="std std-ref">expression</span></a>.  You can also specify just a name, in which case <code class="docutils literal notranslate"><span class="pre">true</span></code> is used as the expression:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define name  // = true
+</pre></div>
+</div>
 <p>Expression macros that do take parameters are defined as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define name(param1, param2, ...) expression
 </pre></div>
@@ -384,6 +387,17 @@ reported_var y = 3 (message = &#39;y = $y&#39;) {
 </pre></div>
 </div>
 </section>
+<section id="requiring-macros">
+<h3>Requiring Macros<a class="headerlink" href="#requiring-macros" title="Permalink to this headline">¶</a></h3>
+<p>To ensure that your experiment defines a particular macro, use the <code class="docutils literal notranslate"><span class="pre">%require</span></code> directive:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%require subject_id
+%require total_num_images, num_images_per_trial
+</pre></div>
+</div>
+<p>In the preceding example, if the experiment has not defined macros named <code class="docutils literal notranslate"><span class="pre">subject_id</span></code>, <code class="docutils literal notranslate"><span class="pre">total_num_images</span></code>, and/or <code class="docutils literal notranslate"><span class="pre">num_images_per_trial</span></code>, the parser will issue an error message, and the experiment will not load.</p>
+<p>Requiring macros can be particularly useful inside MWEL files intended to be <a class="reference internal" href="#includes"><span class="std std-ref">included</span></a> by other files.  If the content of an included file depends on specific macros being defined <em>before</em> the file is included, that dependency can be made explicit by adding one or more <code class="docutils literal notranslate"><span class="pre">%require</span></code> directives at the beginning of the file.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">%require</span></code> directive can appear only at the top level of a source file.  It cannot be placed within a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other component.</p>
+</section>
 </section>
 <section id="whitespace">
 <h2>Whitespace<a class="headerlink" href="#whitespace" title="Permalink to this headline">¶</a></h2>
@@ -452,6 +466,7 @@ reported_var y = 3 (message = &#39;y = $y&#39;) {
 <li><a class="reference internal" href="#macros">Macros</a><ul>
 <li><a class="reference internal" href="#expression">Expression</a></li>
 <li><a class="reference internal" href="#statement">Statement</a></li>
+<li><a class="reference internal" href="#requiring-macros">Requiring Macros</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#whitespace">Whitespace</a></li>
