@@ -55,7 +55,7 @@
 <p>To be loadable by MWorks, MWEL experiment files must be named with the extension <code class="docutils literal notranslate"><span class="pre">.mwel</span></code>.</p>
 <p>The following sections describe MWEL in detail.</p>
 <section id="comments">
-<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
 <p>Comments are used to explain, clarify, or otherwise document parts of an experiment.  MWEL supports both single-line and multi-line comments.</p>
 <p>Single-line comments begin with <code class="docutils literal notranslate"><span class="pre">//</span></code> and continue to the end of the line:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// This is a single-line comment
@@ -85,7 +85,7 @@ var z = 3
 </div>
 </section>
 <section id="identifiers">
-<span id="id1"></span><h2>Identifiers<a class="headerlink" href="#identifiers" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>Identifiers<a class="headerlink" href="#identifiers" title="Permalink to this headline">¶</a></h2>
 <p>Identifiers are used to name <a class="reference internal" href="../components/variables.html#variables"><span class="std std-ref">variables</span></a>, other <a class="reference internal" href="../components/index.html#components"><span class="std std-ref">components</span></a>, and <a class="reference internal" href="#macros">macros</a>.  They consist of a letter followed by any number of letters, digits, and underscores.  Here are some examples of valid identifiers:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x
 abc123
@@ -98,7 +98,7 @@ A_Long_Name_With_Many_Words
 <p>Expressions in MWEL are identical to those used in XML-based experiments.  For details, see the <a class="reference internal" href="../expressions/index.html#expressions"><span class="std std-ref">expression reference</span></a>.</p>
 </section>
 <section id="assignments">
-<span id="id2"></span><h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Assignments<a class="headerlink" href="#assignments" title="Permalink to this headline">¶</a></h2>
 <p>An assignment changes the value of a <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variable</span></a>.  Assignments come in three different varieties.</p>
 <p>A simple assignment just replaces the old value with a new one:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a = &#39;foo&#39;
@@ -125,7 +125,7 @@ d /= 2  // d == 7.5
 <p>All binary arithmetic operators (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>) have corresponding augmented assignment operators (<code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code>, <code class="docutils literal notranslate"><span class="pre">/=</span></code>, <code class="docutils literal notranslate"><span class="pre">%=</span></code>).</p>
 </section>
 <section id="component-declarations">
-<span id="id3"></span><h2>Component Declarations<a class="headerlink" href="#component-declarations" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Component Declarations<a class="headerlink" href="#component-declarations" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="../components/index.html#components"><span class="std std-ref">Components</span></a> are the building blocks of MWorks experiments.  Consequently, an experiment written in MWEL consists primarily of component declarations.</p>
 <p>The general form of a component declaration is as follows:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>signature tag (
@@ -218,7 +218,7 @@ protocol C     // Not OK! (syntax error)
 </section>
 </section>
 <section id="variable-declarations">
-<span id="id4"></span><h2>Variable Declarations<a class="headerlink" href="#variable-declarations" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>Variable Declarations<a class="headerlink" href="#variable-declarations" title="Permalink to this headline">¶</a></h2>
 <p>Like other components, <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variables</span></a> are declared using <a class="reference internal" href="#component-declarations"><span class="std std-ref">component declaration</span></a> syntax:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var a (default_value = 1.5)
 </pre></div>
@@ -241,19 +241,19 @@ var c = 2*a + 3
 <p>Variables can be declared only at the top level of an experiment or inside a top-level <a class="reference internal" href="../components/folder.html#folder"><span class="std std-ref">folder</span></a>.  They cannot be declared inside a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other component.</p>
 </section>
 <section id="includes">
-<span id="id5"></span><h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Includes<a class="headerlink" href="#includes" title="Permalink to this headline">¶</a></h2>
 <p>To promote code reuse, or to simplify the management of a complex experiment, you may want to divide your experimental code in to multiple files.  MWEL supports this via the <code class="docutils literal notranslate"><span class="pre">%include</span></code> directive:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%include my_vars
 %include &#39;stims/setA.mwel&#39;
 %include &#39;/my_lab/shared/setup1_io.inc&#39;
 </pre></div>
 </div>
-<p>When the MWEL parser encounters an include statement, it loads and parses the specified file and inserts the result in to the including file’s parse tree at the location of the statement.  The provided file path may be absolute or relative to the including file.  If the path does not include a file extension, <code class="docutils literal notranslate"><span class="pre">.mwel</span></code> is assumed.</p>
+<p>When processing an include statement, the MWEL parser loads and parses the specified file and inserts the result in to the including file’s parse tree at the location of the statement.  The provided file path may be absolute or relative to the including file.  If the path does not include a file extension, <code class="docutils literal notranslate"><span class="pre">.mwel</span></code> is assumed.</p>
 <p>Included files can themselves include other files.  A file may even be included multiple times in multiple files; the parser will process only the first instance of the include that it encounters and ignore all others.</p>
 <p>Files can be included only at the top level of a source file.  They cannot be included within a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other component.</p>
 </section>
 <section id="macros">
-<span id="id6"></span><h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
 <p>Macros are another mechanism for code reuse in MWEL.  By defining a macro, you can write an expression or list of statements once and then use it any number of times throughout your experiment.</p>
 <p>In many ways, macros serve the same purpose that functions or subroutines would in a programming language.  By moving commonly-used macros to separate, <a class="reference internal" href="#includes"><span class="std std-ref">includable</span></a> files, you can establish a library of useful code that can be shared among multiple experiments, projects, and researchers.</p>
 <p>Macros are defined via the <code class="docutils literal notranslate"><span class="pre">%define</span></code> directive.  All macro definitions must be at the top level of a source file.  They cannot be defined inside a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other component.</p>
@@ -388,7 +388,7 @@ reported_var y = 3 (message = &#39;y = $y&#39;) {
 </div>
 </section>
 <section id="requiring-macros">
-<h3>Requiring Macros<a class="headerlink" href="#requiring-macros" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3>Requiring Macros<a class="headerlink" href="#requiring-macros" title="Permalink to this headline">¶</a></h3>
 <p>To ensure that your experiment defines a particular macro, use the <code class="docutils literal notranslate"><span class="pre">%require</span></code> directive:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%require subject_id
 %require total_num_images, num_images_per_trial
@@ -398,6 +398,62 @@ reported_var y = 3 (message = &#39;y = $y&#39;) {
 <p>Requiring macros can be particularly useful inside MWEL files intended to be <a class="reference internal" href="#includes"><span class="std std-ref">included</span></a> by other files.  If the content of an included file depends on specific macros being defined <em>before</em> the file is included, that dependency can be made explicit by adding one or more <code class="docutils literal notranslate"><span class="pre">%require</span></code> directives at the beginning of the file.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">%require</span></code> directive can appear only at the top level of a source file.  It cannot be placed within a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other component.</p>
 </section>
+</section>
+<section id="conditional-inclusion">
+<span id="id9"></span><h2>Conditional Inclusion<a class="headerlink" href="#conditional-inclusion" title="Permalink to this headline">¶</a></h2>
+<p>Conditional inclusion directives include or exclude parts of an experiment based on whether specific <a class="reference internal" href="#macros"><span class="std std-ref">macros</span></a> are defined.  This allows you to specialize your experiment code for particular conditions or use cases, without needing to maintain separate source files or <a class="reference internal" href="#comments"><span class="std std-ref">comment</span></a> out sections of code when conditions change.</p>
+<p>For example, you may want to use a <a class="reference internal" href="../components/fake_monkey_io_device.html#fake-monkey-io-device"><span class="std std-ref">fake monkey</span></a> for developing and testing your experiment but an <a class="reference internal" href="../components/eyelink_device.html#eyelink-device"><span class="std std-ref">EyeLink</span></a> when collecting real data:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%ifdef testing
+    fake_monkey eye_tracker {
+        ...
+    }
+%else
+    eyelink eye_tracker {
+        ...
+    }
+%end
+</pre></div>
+</div>
+<p>If a definition of the macro <code class="docutils literal notranslate"><span class="pre">testing</span></code> precedes the above code (either earlier in the same source file, or prior to the include statement in another file that <a class="reference internal" href="#includes"><span class="std std-ref">includes</span></a> the source file), e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%define testing
+</pre></div>
+</div>
+<p>the experiment will define a fake monkey.  Otherwise, it will define an EyeLink interface.  To switch from testing to production mode, simply remove or comment out the macro definition.</p>
+<p>In addition to <code class="docutils literal notranslate"><span class="pre">%ifdef</span></code>, MWEL provides the <code class="docutils literal notranslate"><span class="pre">%ifundef</span></code> directive, which includes code if a given macro is <em>not</em> defined:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%ifundef testing
+    firmata juice_pump {
+        ...
+    }
+%end
+</pre></div>
+</div>
+<p>Both <code class="docutils literal notranslate"><span class="pre">%ifdef</span></code> and <code class="docutils literal notranslate"><span class="pre">%ifundef</span></code> may be paired with an optional <code class="docutils literal notranslate"><span class="pre">%else</span></code> that provides code to include when the specified macro is or is not defined, respectively, as shown above.</p>
+<p>Unlike other directives, conditional inclusion directives can appear at any level in a source file.  (Specifically, they can appear anywhere a <a class="reference internal" href="#component-declarations"><span class="std std-ref">component declaration</span></a> is allowed.)  For example, you can use them to conditionally execute actions inside a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other <a class="reference internal" href="../components/paradigm_components.html#paradigm-components"><span class="std std-ref">paradigm component</span></a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%ifdef testing
+    fake_monkey_saccade_and_fixate (
+        fake_monkey = eye_tracker
+        ...
+        )
+%end
+</pre></div>
+</div>
+<p>If a conditional inclusion directive does appear at the top level of a source file, it can itself contain top-level-only directives.  This allows an experiment to conditionally include other files or conditionally define or <a class="reference internal" href="#requiring-macros"><span class="std std-ref">require</span></a> macros:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%ifundef testing
+    %include eyelink_def
+    %define simulate_fixation ()
+        // Do nothing
+    %end
+%else
+    %include fake_monkey_def
+    %define simulate_fixation ()
+        fake_monkey_saccade_and_fixate (
+            fake_monkey = eye_tracker
+            ...
+            )
+    %end
+%end
+</pre></div>
+</div>
 </section>
 <section id="whitespace">
 <h2>Whitespace<a class="headerlink" href="#whitespace" title="Permalink to this headline">¶</a></h2>
@@ -418,6 +474,7 @@ reported_var y = 3 (message = &#39;y = $y&#39;) {
 <li><p><a class="reference internal" href="#component-declarations"><span class="std std-ref">Component</span></a> and <a class="reference internal" href="#variable-declarations"><span class="std std-ref">variable</span></a> declarations</p></li>
 <li><p><a class="reference internal" href="#includes"><span class="std std-ref">Include statements</span></a></p></li>
 <li><p><a class="reference internal" href="#macros"><span class="std std-ref">Macro definitions</span></a></p></li>
+<li><p><a class="reference internal" href="#requiring-macros"><span class="std std-ref">Macro requirement</span></a> and <a class="reference internal" href="#conditional-inclusion"><span class="std std-ref">conditional inclusion</span></a> directives</p></li>
 </ul>
 </li>
 <li><p>Name/value pairs in a component declaration’s <a class="reference internal" href="#component-declaration-parameters"><span class="std std-ref">parameter list</span></a> must be separated by either newlines or semicolons.</p></li>
@@ -469,6 +526,7 @@ reported_var y = 3 (message = &#39;y = $y&#39;) {
 <li><a class="reference internal" href="#requiring-macros">Requiring Macros</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#conditional-inclusion">Conditional Inclusion</a></li>
 <li><a class="reference internal" href="#whitespace">Whitespace</a></li>
 <li><a class="reference internal" href="#converting-to-and-from-xml">Converting To and From XML</a></li>
 </ul>
