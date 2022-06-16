@@ -427,7 +427,7 @@ reported_var y = 3 (message = &#39;y = $y&#39;) {
 %end
 </pre></div>
 </div>
-<p>Both <code class="docutils literal notranslate"><span class="pre">%ifdef</span></code> and <code class="docutils literal notranslate"><span class="pre">%ifundef</span></code> may be paired with an optional <code class="docutils literal notranslate"><span class="pre">%else</span></code> that provides code to include when the specified macro is or is not defined, respectively, as shown above.</p>
+<p>Both <code class="docutils literal notranslate"><span class="pre">%ifundef</span></code> and <code class="docutils literal notranslate"><span class="pre">%ifdef</span></code> may be paired with an optional <code class="docutils literal notranslate"><span class="pre">%else</span></code> that provides code to include when the specified macro is or is not defined, respectively, as shown above.</p>
 <p>Unlike other directives, conditional inclusion directives can appear at any level in a source file.  (Specifically, they can appear anywhere a <a class="reference internal" href="#component-declarations"><span class="std std-ref">component declaration</span></a> is allowed.)  For example, you can use them to conditionally execute actions inside a <a class="reference internal" href="../components/protocol.html#protocol"><span class="std std-ref">protocol</span></a> or other <a class="reference internal" href="../components/paradigm_components.html#paradigm-components"><span class="std std-ref">paradigm component</span></a>:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%ifdef testing
     fake_monkey_saccade_and_fixate (
