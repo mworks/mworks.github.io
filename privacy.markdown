@@ -17,8 +17,8 @@ The MWorks website, including the online user manual, and the MWorks issue track
 
 [https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
 
-MWorks uses the Tender web service to provide user support.  You can view Tender's privacy policy at
+MWorks uses Discourse to provide user support.  You can view the Discourse privacy policy at
 
-[https://www.tenderapp.com/privacy/](https://www.tenderapp.com/privacy/)
+[https://mworks.discourse.group/privacy](https://mworks.discourse.group/privacy)
 
-*This document was last updated on May 20, 2022.*
+*This document was last updated on July 22, 2022.*

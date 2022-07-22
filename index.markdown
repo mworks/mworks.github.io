@@ -28,6 +28,6 @@ MWorks is in active use in labs at the following institutions:
 
 ## Can I use MWorks? ##
 
-Yes!  See the [installation guide](https://mworks.tenderapp.com/kb/installation/installing-mworks) to learn how to download and install the software, and read the [user manual](/documentation/latest/) to learn how it works.  If you need help, check out our [knowledge base](https://mworks.tenderapp.com/kb), and feel free to [contact us](https://mworks.tenderapp.com/discussion/new) with any questions.
+Yes!  See the [installation guide](https://mworks.discourse.group/docs?topic=36) to learn how to download and install the software, and read the [user manual](/documentation/latest/) to learn how it works.  If you need help, check out our [knowledge base](https://mworks.discourse.group/docs), search our [support site](https://mworks.discourse.group), and feel free to [contact us](https://mworks.discourse.group/new-topic?category=support) with any questions.
 
 *Please note*: While we'd like to support as many users as possible, our resources are limited.  Most of the labs currently using MWorks make significant contributions to its development, either by helping to maintain and improve the source code or by providing financial support to the development team.  If you use MWorks in your research and need ongoing support, we may ask you to contribute, too!

@@ -5,7 +5,7 @@ title: MWorks Downloads
 
 ## MWorks for iPad ##
 
-MWorks for iPad is [available on the App Store](https://apps.apple.com/app/mworks/id1389408331).  For more information, visit the [knowledge base](https://mworks.tenderapp.com/kb/ios-app).
+MWorks for iPad is [available on the App Store](https://apps.apple.com/app/mworks/id1389408331).  For more information, visit the [knowledge base](https://mworks.discourse.group/docs?category=15).
 
 
 ## MWorks for Mac ##
@@ -73,4 +73,4 @@ The following Mac installer packages are available:
   </dd>
 </dl>
 
-If you need to download a release prior to 0.4.4, please [contact support](https://mworks.tenderapp.com/discussion/new).
+If you need to download a release prior to 0.4.4, please [contact support](https://mworks.discourse.group/new-topic?category=support).
