@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Unload Stimulus &#8212; MWorks 0.12.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,12 +14,14 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Unpause Dynamic Stimulus" href="unpause_dynamic_stimulus.html" />
-    <link rel="prev" title="Unconditionally Execute Actions (else)" href="unconditionally_execute_actions_else.html" />
+    <link rel="prev" title="Unload Sound" href="unload_sound.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
@@ -35,7 +37,7 @@
           <a href="unpause_dynamic_stimulus.html" title="Unpause Dynamic Stimulus"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="unconditionally_execute_actions_else.html" title="Unconditionally Execute Actions (else)"
+          <a href="unload_sound.html" title="Unload Sound"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.12.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
@@ -51,25 +53,25 @@
           <div class="body" role="main">
             
   <section id="unload-stimulus">
-<span id="index-0"></span><span id="id1"></span><h1>Unload Stimulus<a class="headerlink" href="#unload-stimulus" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Unload Stimulus<a class="headerlink" href="#unload-stimulus" title="Permalink to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>Explicitly unload a stimulus object, thereby releasing any memory or other resources used by the stimulus.  This is useful when the <code class="docutils literal notranslate"><span class="pre">deferred</span></code> parameter on the stimulus is set to <code class="docutils literal notranslate"><span class="pre">yes</span></code> or <code class="docutils literal notranslate"><span class="pre">explicit</span></code>.</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">action/unload_stimulus</span></code></p>
 </section>
 <section id="required-parameters">
-<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this heading">¶</a></h2>
 <section id="stimulus">
-<h3>stimulus<a class="headerlink" href="#stimulus" title="Permalink to this headline">¶</a></h3>
+<h3>stimulus<a class="headerlink" href="#stimulus" title="Permalink to this heading">¶</a></h3>
 <p>Stimulus to unload</p>
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto docutils align-default">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
 <td><p>No</p></td>
@@ -107,8 +109,8 @@
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="unconditionally_execute_actions_else.html"
-                          title="previous chapter">Unconditionally Execute Actions (else)</a></p>
+    <p class="topless"><a href="unload_sound.html"
+                          title="previous chapter">Unload Sound</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
@@ -124,7 +126,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -139,7 +141,7 @@
           <a href="unpause_dynamic_stimulus.html" title="Unpause Dynamic Stimulus"
              >next</a> |</li>
         <li class="right" >
-          <a href="unconditionally_execute_actions_else.html" title="Unconditionally Execute Actions (else)"
+          <a href="unload_sound.html" title="Unload Sound"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.12.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
@@ -150,7 +152,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

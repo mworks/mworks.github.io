@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>White Noise Background &#8212; MWorks 0.12.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,7 +14,9 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -51,32 +53,32 @@
           <div class="body" role="main">
             
   <section id="white-noise-background">
-<span id="index-0"></span><span id="id1"></span><h1>White Noise Background<a class="headerlink" href="#white-noise-background" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>White Noise Background<a class="headerlink" href="#white-noise-background" title="Permalink to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>White noise background stimulus.</p>
 <p>Fills the display with random noise drawn from a uniform distribution.  The
 experiment can re-randomize the noise via the <a class="reference internal" href="randomize_white_noise_background.html#randomize-white-noise-background"><span class="std std-ref">Randomize White Noise Background</span></a> action.</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">stimulus/white_noise_background</span></code></p>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
 <section id="grayscale">
-<h3>grayscale<a class="headerlink" href="#grayscale" title="Permalink to this headline">¶</a></h3>
+<h3>grayscale<a class="headerlink" href="#grayscale" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, all three color channels (red, green, and blue) of a given noise grain will be assigned the same random value.  If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, each color channel will be set to an independent random value, thereby producing colored noise.</p>
 </section>
 <section id="grain-size">
-<h3>grain_size<a class="headerlink" href="#grain-size" title="Permalink to this headline">¶</a></h3>
+<h3>grain_size<a class="headerlink" href="#grain-size" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
@@ -86,13 +88,13 @@ integer.  Grain sizes less than or equal to the size of one pixel will
 result in per-pixel randomization.</p>
 </section>
 <section id="rand-seed">
-<h3>rand_seed<a class="headerlink" href="#rand-seed" title="Permalink to this headline">¶</a></h3>
+<h3>rand_seed<a class="headerlink" href="#rand-seed" title="Permalink to this heading">¶</a></h3>
 <p>Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.</p>
 </section>
 <section id="randomize-on-draw">
-<h3>randomize_on_draw<a class="headerlink" href="#randomize-on-draw" title="Permalink to this headline">¶</a></h3>
+<h3>randomize_on_draw<a class="headerlink" href="#randomize-on-draw" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
 </dd>
 </dl>
@@ -113,16 +115,16 @@ use this parameter in conjuction with a <a class="reference internal" href="fram
 </div>
 </section>
 <section id="deferred">
-<h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
+<h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list">
-<dt class="field-odd">Options</dt>
+<dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">no</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">yes</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">explicit</span></code></div>
 </div>
 </dd>
-<dt class="field-even">Default</dt>
+<dt class="field-even">Default<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">no</span></code></p>
 </dd>
 </dl>
@@ -130,8 +132,8 @@ use this parameter in conjuction with a <a class="reference internal" href="fram
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto docutils align-default">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
 <td><p>Yes</p></td>
@@ -190,7 +192,7 @@ use this parameter in conjuction with a <a class="reference internal" href="fram
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -216,7 +218,7 @@ use this parameter in conjuction with a <a class="reference internal" href="fram
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

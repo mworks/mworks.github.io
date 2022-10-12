@@ -15,7 +15,12 @@ Pause Sound
 
 Description
 -----------
-Pause a `Sound Stimulus`
+Pause a `sound <Sounds>`.
+
+If the sound is `playing <Play Sound>`, playback will pause and not resume
+until the sound is played again.  If the sound is not playing or already
+paused, this action does nothing.
+
 
 
 Signature
@@ -29,7 +34,7 @@ Required Parameters
 sound
 ^^^^^
 
-Name of the sound to pause
+Name of the sound
 
 
 

@@ -15,7 +15,13 @@ Play Sound
 
 Description
 -----------
-Play a `Sound Stimulus`
+Play a `sound <Sounds>`.
+
+If the sound is not playing, it will begin playing immediately.  If the sound
+is `paused <Pause Sound>`, it will resume playing from the point at which it
+was paused.  If the sound is playing and not paused, this action does
+nothing.
+
 
 
 Signature
@@ -29,7 +35,22 @@ Required Parameters
 sound
 ^^^^^
 
-Name of the sound to play
+Name of the sound
+
+
+
+Optional Parameters
+-------------------
+
+start_time
+^^^^^^^^^^
+:Examples: | ``now() + 5s``
+           | ``next_frame_time()``
+
+Experiment time at which to start playing the sound (microseconds).
+
+If omitted, the sound will start playing immediately.
+
 
 
 

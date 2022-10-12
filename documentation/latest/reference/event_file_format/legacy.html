@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Legacy Event File Format (MWK) &#8212; MWorks 0.12.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -14,7 +14,9 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -50,9 +52,9 @@
           <div class="body" role="main">
             
   <section id="legacy-event-file-format-mwk">
-<span id="legacy-event-file-format"></span><h1>Legacy Event File Format (MWK)<a class="headerlink" href="#legacy-event-file-format-mwk" title="Permalink to this headline">¶</a></h1>
+<span id="legacy-event-file-format"></span><h1>Legacy Event File Format (MWK)<a class="headerlink" href="#legacy-event-file-format-mwk" title="Permalink to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>MWorks’ legacy event file format uses the file extension <code class="docutils literal notranslate"><span class="pre">.mwk</span></code>.</p>
 <p>An MWK file is a simple stream of MWorks events.  Each event is encoded as a list in the <a class="reference external" href="https://github.com/mworks/mworks/blob/master/supporting_libs/scarab/Scarab-0.1.00d19/c/encoding_ldo.c">LDO format</a> defined by the <a class="reference external" href="https://github.com/mworks/mworks/tree/master/supporting_libs/scarab/Scarab-0.1.00d19">Scarab library</a>.  The list contains the code, time, and data associated with the event.  (The only exception is the <a class="reference internal" href="../sysvars.html#system-event-codes"><span class="std std-ref">RESERVED_TERMINATION_CODE</span></a> event that ends the event file, which has no associated data and is encoded as a two-element list.)</p>
 <p>The first time an MWK file is opened using MWorks’ standard <a class="reference internal" href="../../guide/data_analysis.html#analyzing-experimental-data"><span class="std std-ref">data analysis tools</span></a>, it is converted into a directory containing both the original, unmodified MWK file and an index file.  For example:</p>
@@ -70,7 +72,7 @@ total 16400
 <p>If the <code class="docutils literal notranslate"><span class="pre">.mwk.idx</span></code> file is deleted, the data tools will recreate it the next time the event file is opened.</p>
 </section>
 <section id="example-code">
-<h2>Example Code<a class="headerlink" href="#example-code" title="Permalink to this headline">¶</a></h2>
+<h2>Example Code<a class="headerlink" href="#example-code" title="Permalink to this heading">¶</a></h2>
 <p>The following <a class="reference external" href="https://www.python.org">Python</a> code demonstrates the MWK format in detail by a implementing a reader for <code class="docutils literal notranslate"><span class="pre">.mwk</span></code> files:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span>
 <span class="kn">import</span> <span class="nn">struct</span>
@@ -254,7 +256,7 @@ total 16400
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -279,7 +281,7 @@ total 16400
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

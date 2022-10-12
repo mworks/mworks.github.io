@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Current Event File Format (MWK2) &#8212; MWorks 0.12.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -14,7 +14,9 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -50,9 +52,9 @@
           <div class="body" role="main">
             
   <section id="current-event-file-format-mwk2">
-<span id="current-event-file-format"></span><h1>Current Event File Format (MWK2)<a class="headerlink" href="#current-event-file-format-mwk2" title="Permalink to this headline">¶</a></h1>
+<span id="current-event-file-format"></span><h1>Current Event File Format (MWK2)<a class="headerlink" href="#current-event-file-format-mwk2" title="Permalink to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>MWorks’ current event file format uses the file extension <code class="docutils literal notranslate"><span class="pre">.mwk2</span></code>.</p>
 <p>Each event file is a standalone <a class="reference external" href="https://sqlite.org">SQLite</a> database.  The database contains a single table (<code class="docutils literal notranslate"><span class="pre">events</span></code>) with three columns: <code class="docutils literal notranslate"><span class="pre">code</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>, and <code class="docutils literal notranslate"><span class="pre">data</span></code>, corresponding to the three elements of an MWorks event.</p>
 <p>In a given row of the <code class="docutils literal notranslate"><span class="pre">events</span></code> table, the <code class="docutils literal notranslate"><span class="pre">code</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code> values are always integers, while the type of the <code class="docutils literal notranslate"><span class="pre">data</span></code> value can be any of SQLite’s <a class="reference external" href="https://sqlite.org/datatype3.html">supported datatypes</a>.  A <code class="docutils literal notranslate"><span class="pre">data</span></code> value of type NULL, INTEGER, REAL, or TEXT represents the data for a single event.  A  <code class="docutils literal notranslate"><span class="pre">data</span></code> value of type BLOB contains <a class="reference external" href="https://msgpack.org">MessagePack</a>-encoded data for one or more events (all with the same code and time), in one of the following forms:</p>
@@ -63,7 +65,7 @@
 </ol>
 </section>
 <section id="example-code">
-<h2>Example Code<a class="headerlink" href="#example-code" title="Permalink to this headline">¶</a></h2>
+<h2>Example Code<a class="headerlink" href="#example-code" title="Permalink to this heading">¶</a></h2>
 <p>The following <a class="reference external" href="https://www.python.org">Python</a> code demonstrates the MWK2 format in detail by a implementing a simple reader for <code class="docutils literal notranslate"><span class="pre">.mwk2</span></code> files.  Apart from the <a class="reference external" href="https://pypi.org/project/msgpack/">msgpack</a> package, it requires only the Python <a class="reference external" href="https://docs.python.org/3/library/index.html">standard library</a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span>
 <span class="kn">import</span> <span class="nn">sqlite3</span>
@@ -175,7 +177,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -200,7 +202,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

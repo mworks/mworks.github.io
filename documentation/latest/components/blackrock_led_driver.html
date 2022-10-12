@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Blackrock LED Driver &#8212; MWorks 0.12.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,7 +14,9 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -51,49 +53,49 @@
           <div class="body" role="main">
             
   <section id="blackrock-led-driver">
-<span id="index-0"></span><span id="id1"></span><h1>Blackrock LED Driver<a class="headerlink" href="#blackrock-led-driver" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Blackrock LED Driver<a class="headerlink" href="#blackrock-led-driver" title="Permalink to this heading">¶</a></h1>
 <p><em>Available on macOS</em></p>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>Interface to a Blackrock LED array driver</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/blackrock_led_driver</span></code></p>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
 <section id="running">
-<h3>running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h3>
+<h3>running<a class="headerlink" href="#running" title="Permalink to this heading">¶</a></h3>
 <p>Variable to set to true when the LED program starts running, false when it stops</p>
 </section>
 <section id="temp-a">
-<h3>temp_a<a class="headerlink" href="#temp-a" title="Permalink to this headline">¶</a></h3>
+<h3>temp_a<a class="headerlink" href="#temp-a" title="Permalink to this heading">¶</a></h3>
 <p>Variable in which to store thermistor readout from bank A</p>
 </section>
 <section id="temp-b">
-<h3>temp_b<a class="headerlink" href="#temp-b" title="Permalink to this headline">¶</a></h3>
+<h3>temp_b<a class="headerlink" href="#temp-b" title="Permalink to this heading">¶</a></h3>
 <p>Variable in which to store thermistor readout from bank B</p>
 </section>
 <section id="temp-c">
-<h3>temp_c<a class="headerlink" href="#temp-c" title="Permalink to this headline">¶</a></h3>
+<h3>temp_c<a class="headerlink" href="#temp-c" title="Permalink to this heading">¶</a></h3>
 <p>Variable in which to store thermistor readout from bank C</p>
 </section>
 <section id="temp-d">
-<h3>temp_d<a class="headerlink" href="#temp-d" title="Permalink to this headline">¶</a></h3>
+<h3>temp_d<a class="headerlink" href="#temp-d" title="Permalink to this heading">¶</a></h3>
 <p>Variable in which to store thermistor readout from bank D</p>
 </section>
 <section id="temp-calc">
-<h3>temp_calc<a class="headerlink" href="#temp-calc" title="Permalink to this headline">¶</a></h3>
+<h3>temp_calc<a class="headerlink" href="#temp-calc" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list">
-<dt class="field-odd">Options</dt>
+<dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">5k</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">10k</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">none</span></code></div>
 </div>
 </dd>
-<dt class="field-even">Default</dt>
+<dt class="field-even">Default<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">none</span></code></p>
 </dd>
 </dl>
@@ -104,18 +106,18 @@ connector type.  If <code class="docutils literal notranslate"><span class="pre"
 (divided by 1000) are reported.</p>
 </section>
 <section id="simulate-device">
-<h3>simulate_device<a class="headerlink" href="#simulate-device" title="Permalink to this headline">¶</a></h3>
+<h3>simulate_device<a class="headerlink" href="#simulate-device" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, simulation mode will be enabled.  In this mode, the actual LED driver hardware is not required (and will be ignored if present). All LED driver actions will execute, although communication with the driver hardware will be omitted, and <a class="reference internal" href="#running">running</a> will be updated at the appropriate times.  However, <a class="reference internal" href="read_blackrock_led_driver_temperatures.html#read-blackrock-led-driver-temperatures"><span class="std std-ref">thermistor readout requests</span></a> will <em>not</em> update the corresponding variables.  If you need to test your experiment’s response to temperature changes, you must assign values to the temperature variables yourself.</p>
 </section>
 <section id="autostart">
-<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
+<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
 </dd>
 </dl>
@@ -125,13 +127,13 @@ implicit <a class="reference internal" href="start_io_device.html#start-io-devic
 stops running, irrespective of this setting.</p>
 </section>
 <section id="alt">
-<h3>alt<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h3>
+<h3>alt<a class="headerlink" href="#alt" title="Permalink to this heading">¶</a></h3>
 <p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto docutils align-default">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
 <td><p>Yes</p></td>
@@ -194,7 +196,7 @@ stops running, irrespective of this setting.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -220,7 +222,7 @@ stops running, irrespective of this setting.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

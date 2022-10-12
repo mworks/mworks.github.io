@@ -15,7 +15,13 @@ Stop Sound
 
 Description
 -----------
-Stop playing a `Sound Stimulus`
+Stop a `sound <Sounds>`.
+
+If the sound is `playing <Play Sound>` or `paused <Pause Sound>`, playback
+will end immediately, and the next playback will start at the beginning of
+the sound.  If the sound is neither playing nor paused, this action does
+nothing.
+
 
 
 Signature
@@ -29,7 +35,7 @@ Required Parameters
 sound
 ^^^^^
 
-Name of the sound to stop
+Name of the sound
 
 
 

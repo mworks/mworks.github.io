@@ -1,0 +1,104 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Audio File Stimulus
+   single: Sounds; Audio File Stimulus
+
+.. _Audio File Stimulus:
+
+Audio File Stimulus
+===================
+
+
+Description
+-----------
+A simple file-based sound stimulus
+
+
+
+Signature
+---------
+``sound/audio_file``
+
+:Alias: ``sound/wav_file``
+
+
+Required Parameters
+-------------------
+
+path
+^^^^
+:Examples: | ``sounds/sound1.wav``
+           | ``/path/to/sound.m4a``
+
+Filesystem path to the sound file
+
+
+
+Optional Parameters
+-------------------
+
+loop
+^^^^
+:Default: ``NO``
+
+If ``YES``, the sound will repeat indefinitely (or until `Stop Sound` is invoked)
+
+
+repeats
+^^^^^^^
+:Default: ``0``
+
+Number of times to repeat the sound.  Note that the sound will always
+play at least once, even if this value is less than one.
+
+If `loop`_ is ``YES``, this parameter is ignored.
+
+
+ended
+^^^^^
+
+Variable that will be set to true after the sound finishes playing.
+
+If `repeats`_ is greater than zero, the variable will be set only once,
+after all play-throughs complete.  If `loop`_ is ``YES``, or if the
+sound is stopped explicitly with `Stop Sound` before playback
+completes, the variable will never be set.
+
+
+amplitude
+^^^^^^^^^
+:Default: ``1.0``
+
+Controls the volume at which the sound plays.  ``1.0`` is full volume, while ``0.0`` is silent.
+
+
+pan
+^^^
+:Default: ``0.0``
+
+Controls the stereo panning of the sound.  Acceptable values range from ``-1.0`` (left channel only) to ``1.0`` (right channel only).  A value of ``0.0`` produces an even balance of the left and right channels.
+
+
+autoload
+^^^^^^^^
+:Default: ``YES``
+
+If true, the sound will be loaded automatically at experiment load time. Otherwise, the experiment must load the sound explicitly with `Load Sound`.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `List Replicator`, `Range Replicator`, `Sound Group`

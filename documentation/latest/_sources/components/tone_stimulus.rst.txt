@@ -1,0 +1,91 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Tone Stimulus
+   single: Sounds; Tone Stimulus
+
+.. _Tone Stimulus:
+
+Tone Stimulus
+=============
+
+
+Description
+-----------
+A simple tone sound stimulus
+
+
+
+Signature
+---------
+``sound/tone``
+
+
+Required Parameters
+-------------------
+
+frequency
+^^^^^^^^^
+:Example: ``440.0``
+
+Frequency of the tone (hertz)
+
+
+
+Optional Parameters
+-------------------
+
+duration
+^^^^^^^^
+:Default: ``0``
+:Example: ``2s``
+
+Duration of the tone (microseconds).  If less than or equal to zero, the tone will continue playing until stopped explicitly with `Stop Sound`.
+
+
+ended
+^^^^^
+
+Variable that will be set to true after the tone finishes playing.
+
+If `duration`_ is less than or equal to zero, or if the tone is stopped
+explicitly with `Stop Sound` before playback completes, the variable
+will never be set.
+
+
+amplitude
+^^^^^^^^^
+:Default: ``1.0``
+
+Controls the volume at which the sound plays.  ``1.0`` is full volume, while ``0.0`` is silent.
+
+
+pan
+^^^
+:Default: ``0.0``
+
+Controls the stereo panning of the sound.  Acceptable values range from ``-1.0`` (left channel only) to ``1.0`` (right channel only).  A value of ``0.0`` produces an even balance of the left and right channels.
+
+
+autoload
+^^^^^^^^
+:Default: ``YES``
+
+If true, the sound will be loaded automatically at experiment load time. Otherwise, the experiment must load the sound explicitly with `Load Sound`.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `List Replicator`, `Range Replicator`, `Sound Group`

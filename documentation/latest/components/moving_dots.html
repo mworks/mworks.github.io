@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Moving Dots &#8212; MWorks 0.12.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,7 +14,9 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -51,94 +53,94 @@
           <div class="body" role="main">
             
   <section id="moving-dots">
-<span id="index-0"></span><span id="id1"></span><h1>Moving Dots<a class="headerlink" href="#moving-dots" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Moving Dots<a class="headerlink" href="#moving-dots" title="Permalink to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>A moving dot field (aka dynamic random dots) stimulus</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">stimulus/moving_dots</span></code></p>
 </section>
 <section id="required-parameters">
-<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this heading">¶</a></h2>
 <section id="field-radius">
-<h3>field_radius<a class="headerlink" href="#field-radius" title="Permalink to this headline">¶</a></h3>
+<h3>field_radius<a class="headerlink" href="#field-radius" title="Permalink to this heading">¶</a></h3>
 <p>Field radius (degrees)</p>
 </section>
 <section id="dot-density">
-<h3>dot_density<a class="headerlink" href="#dot-density" title="Permalink to this headline">¶</a></h3>
+<h3>dot_density<a class="headerlink" href="#dot-density" title="Permalink to this heading">¶</a></h3>
 <p>Number of dots per square degree</p>
 </section>
 <section id="dot-size">
-<h3>dot_size<a class="headerlink" href="#dot-size" title="Permalink to this headline">¶</a></h3>
+<h3>dot_size<a class="headerlink" href="#dot-size" title="Permalink to this heading">¶</a></h3>
 <p>Dot diameter (degrees)</p>
 </section>
 <section id="speed">
-<h3>speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h3>
+<h3>speed<a class="headerlink" href="#speed" title="Permalink to this heading">¶</a></h3>
 <p>Dot speed (degrees per second)</p>
 </section>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
 <section id="field-center-x">
-<h3>field_center_x<a class="headerlink" href="#field-center-x" title="Permalink to this headline">¶</a></h3>
+<h3>field_center_x<a class="headerlink" href="#field-center-x" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
 <p>Field horizontal center position (degrees)</p>
 </section>
 <section id="field-center-y">
-<h3>field_center_y<a class="headerlink" href="#field-center-y" title="Permalink to this headline">¶</a></h3>
+<h3>field_center_y<a class="headerlink" href="#field-center-y" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
 <p>Field vertical center position (degrees)</p>
 </section>
 <section id="color">
-<h3>color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h3>
+<h3>color<a class="headerlink" href="#color" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0,1.0,1.0</span></code></p>
 </dd>
 </dl>
 <p>Dot color, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).</p>
 </section>
 <section id="alpha-multiplier">
-<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
+<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
 </dd>
 </dl>
 <p>Controls the transparency of the dots.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is fully opaque, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is fully tranparent.</p>
 </section>
 <section id="direction">
-<h3>direction<a class="headerlink" href="#direction" title="Permalink to this headline">¶</a></h3>
+<h3>direction<a class="headerlink" href="#direction" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
 <p>Direction of movement for coherent dots (degrees)</p>
 </section>
 <section id="coherence">
-<h3>coherence<a class="headerlink" href="#coherence" title="Permalink to this headline">¶</a></h3>
+<h3>coherence<a class="headerlink" href="#coherence" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
 </dd>
 </dl>
 <p>Fraction of dots that move in the specified <a class="reference internal" href="#direction">direction</a>.  Non-coherent dots receive random directions.</p>
 </section>
 <section id="lifetime">
-<h3>lifetime<a class="headerlink" href="#lifetime" title="Permalink to this headline">¶</a></h3>
+<h3>lifetime<a class="headerlink" href="#lifetime" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
@@ -147,19 +149,19 @@ is removed and replaced by a new dot in a random location.</p>
 <p>If set to zero, dots have an infinite lifetime.</p>
 </section>
 <section id="rand-seed">
-<h3>rand_seed<a class="headerlink" href="#rand-seed" title="Permalink to this headline">¶</a></h3>
+<h3>rand_seed<a class="headerlink" href="#rand-seed" title="Permalink to this heading">¶</a></h3>
 <p>Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.</p>
 </section>
 <section id="max-num-dots">
-<h3>max_num_dots<a class="headerlink" href="#max-num-dots" title="Permalink to this headline">¶</a></h3>
+<h3>max_num_dots<a class="headerlink" href="#max-num-dots" title="Permalink to this heading">¶</a></h3>
 <p>Maximum number of dots.</p>
 <p>If omitted, the maximum number of dots is determined by the values of
 <a class="reference internal" href="#field-radius">field_radius</a> and <a class="reference internal" href="#dot-density">dot_density</a> when the stimulus is loaded.</p>
 </section>
 <section id="announce-dots">
-<h3>announce_dots<a class="headerlink" href="#announce-dots" title="Permalink to this headline">¶</a></h3>
+<h3>announce_dots<a class="headerlink" href="#announce-dots" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
 </dd>
 </dl>
@@ -172,25 +174,25 @@ coordinates are scaled to lie in the range [-1,1] and rotated so that
 the direction of coherent motion is zero degrees.</p>
 </section>
 <section id="deferred">
-<h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
+<h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list">
-<dt class="field-odd">Options</dt>
+<dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">no</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">yes</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">explicit</span></code></div>
 </div>
 </dd>
-<dt class="field-even">Default</dt>
+<dt class="field-even">Default<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">no</span></code></p>
 </dd>
 </dl>
 <p>Controls when the stimulus is loaded.  If <code class="docutils literal notranslate"><span class="pre">no</span></code>, the stimulus is loaded at experiment load time.  If <code class="docutils literal notranslate"><span class="pre">yes</span></code>, the stimulus is loaded the first time it is <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a>.  If <code class="docutils literal notranslate"><span class="pre">explicit</span></code>, the stimulus must be loaded explictly with <a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">Load Stimulus</span></a>.</p>
 </section>
 <section id="autoplay">
-<h3>autoplay<a class="headerlink" href="#autoplay" title="Permalink to this headline">¶</a></h3>
+<h3>autoplay<a class="headerlink" href="#autoplay" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
 </dd>
 </dl>
@@ -198,8 +200,8 @@ the direction of coherent motion is zero degrees.</p>
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto docutils align-default">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
 <td><p>Yes</p></td>
@@ -272,7 +274,7 @@ the direction of coherent motion is zero degrees.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -298,7 +300,7 @@ the direction of coherent motion is zero degrees.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

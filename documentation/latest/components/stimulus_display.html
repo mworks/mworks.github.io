@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Stimulus Display &#8212; MWorks 0.12.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,7 +14,9 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -51,9 +53,9 @@
           <div class="body" role="main">
             
   <section id="stimulus-display">
-<span id="index-0"></span><span id="id1"></span><h1>Stimulus Display<a class="headerlink" href="#stimulus-display" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Stimulus Display<a class="headerlink" href="#stimulus-display" title="Permalink to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>A stimulus display device.</p>
 <p>At present, MWorks creates one (and only one) of these automatically when
 needed, regardless of whether the experiment file defines one.  By including
@@ -63,24 +65,24 @@ background color and configure its run-time behavior.</p>
 on this device.</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/stimulus_display</span></code></p>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
 <section id="background-color">
-<h3>background_color<a class="headerlink" href="#background-color" title="Permalink to this headline">¶</a></h3>
+<h3>background_color<a class="headerlink" href="#background-color" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.5,0.5,0.5</span></code></p>
 </dd>
 </dl>
 <p>The background color, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).</p>
 </section>
 <section id="background-alpha-multiplier">
-<h3>background_alpha_multiplier<a class="headerlink" href="#background-alpha-multiplier" title="Permalink to this headline">¶</a></h3>
+<h3>background_alpha_multiplier<a class="headerlink" href="#background-alpha-multiplier" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
 </dd>
 </dl>
@@ -91,34 +93,34 @@ display window fully transparent, set this parameter and all components
 of <a class="reference internal" href="#background-color">background_color</a> to 0.</p>
 </section>
 <section id="redraw-on-every-refresh">
-<h3>redraw_on_every_refresh<a class="headerlink" href="#redraw-on-every-refresh" title="Permalink to this headline">¶</a></h3>
+<h3>redraw_on_every_refresh<a class="headerlink" href="#redraw-on-every-refresh" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the display will be redrawn during every refresh cycle.  If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, the display will be redrawn only when needed or when explicitly requested via <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a>.</p>
 </section>
 <section id="announce-stimuli-on-implicit-updates">
-<h3>announce_stimuli_on_implicit_updates<a class="headerlink" href="#announce-stimuli-on-implicit-updates" title="Permalink to this headline">¶</a></h3>
+<h3>announce_stimuli_on_implicit_updates<a class="headerlink" href="#announce-stimuli-on-implicit-updates" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
 </dd>
 </dl>
 <p>Controls the announcement of stimuli during “implicit” display updates (i.e. updates requested by running dynamic stimuli and <em>not</em> triggered by an explicit <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action).  If set to <code class="docutils literal notranslate"><span class="pre">NO</span></code>, <a class="reference internal" href="../reference/sysvars.html#stimdisplayupdate-var"><span class="std std-ref">#stimDisplayUpdate</span></a> events for implicit updates will contain only the number of stimuli displayed (in place of the usual list of stimulus parameters).</p>
 </section>
 <section id="capture-format">
-<h3>capture_format<a class="headerlink" href="#capture-format" title="Permalink to this headline">¶</a></h3>
+<h3>capture_format<a class="headerlink" href="#capture-format" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list">
-<dt class="field-odd">Options</dt>
+<dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">none</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">JPEG</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">PNG</span></code></div>
 </div>
 </dd>
-<dt class="field-even">Default</dt>
+<dt class="field-even">Default<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">none</span></code></p>
 </dd>
 </dl>
@@ -130,9 +132,9 @@ resolution determined by <a class="reference internal" href="#capture-height-pix
 data) in the variable <a class="reference internal" href="../reference/sysvars.html#stimdisplaycapture-var"><span class="std std-ref">#stimDisplayCapture</span></a>.</p>
 </section>
 <section id="capture-height-pixels">
-<h3>capture_height_pixels<a class="headerlink" href="#capture-height-pixels" title="Permalink to this headline">¶</a></h3>
+<h3>capture_height_pixels<a class="headerlink" href="#capture-height-pixels" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
 </dd>
 </dl>
@@ -147,9 +149,9 @@ captured frames.  If you experience performance issues with capture
 enabled, try reducing the value of this parameter.</p>
 </section>
 <section id="capture-enabled">
-<h3>capture_enabled<a class="headerlink" href="#capture-enabled" title="Permalink to this headline">¶</a></h3>
+<h3>capture_enabled<a class="headerlink" href="#capture-enabled" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
 </dd>
 </dl>
@@ -162,9 +164,9 @@ value, respectively, to the variable.  This allows you to capture frames
 only when needed.</p>
 </section>
 <section id="autostart">
-<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this headline">¶</a></h3>
+<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
 </dd>
 </dl>
@@ -174,13 +176,13 @@ implicit <a class="reference internal" href="start_io_device.html#start-io-devic
 stops running, irrespective of this setting.</p>
 </section>
 <section id="alt">
-<h3>alt<a class="headerlink" href="#alt" title="Permalink to this headline">¶</a></h3>
+<h3>alt<a class="headerlink" href="#alt" title="Permalink to this heading">¶</a></h3>
 <p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto docutils align-default">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
 <td><p>Yes</p></td>
@@ -243,7 +245,7 @@ stops running, irrespective of this setting.</p>
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -269,7 +271,7 @@ stops running, irrespective of this setting.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

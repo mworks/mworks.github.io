@@ -35,4 +35,4 @@ Placement
    * - Allowed at top level:
      - Yes
    * - Allowed children:
-     - `Calibrator <Filters>`, `Filter <Filters>`, `IODevice <Input/Output>`, `List Replicator`, `Optimizer <Optimizers and Variable Monitors>`, `Range Replicator`, `Resource <Resources>`, `Selection Variable`, `Sound Stimulus`, `Stimulus <Stimuli>`, `Stimulus Group`, `Variable`
+     - `Calibrator <Filters>`, `Filter <Filters>`, `IODevice <Input/Output>`, `List Replicator`, `Optimizer <Optimizers and Variable Monitors>`, `Range Replicator`, `Resource <Resources>`, `Selection Variable`, `Sound Group`, `Sound Stimulus <Sounds>`, `Stimulus <Stimuli>`, `Stimulus Group`, `Variable`

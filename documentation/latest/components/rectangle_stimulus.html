@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Rectangle Stimulus &#8212; MWorks 0.12.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,7 +14,9 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -51,30 +53,30 @@
           <div class="body" role="main">
             
   <section id="rectangle-stimulus">
-<span id="index-0"></span><span id="id1"></span><h1>Rectangle Stimulus<a class="headerlink" href="#rectangle-stimulus" title="Permalink to this headline">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Rectangle Stimulus<a class="headerlink" href="#rectangle-stimulus" title="Permalink to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>A rectangle stimulus</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this headline">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">stimulus/rectangle</span></code></p>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
 <section id="color">
-<h3>color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h3>
+<h3>color<a class="headerlink" href="#color" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0,1.0,1.0</span></code></p>
 </dd>
 </dl>
 <p>The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).</p>
 </section>
 <section id="alpha-multiplier">
-<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this headline">¶</a></h3>
+<h3>alpha_multiplier<a class="headerlink" href="#alpha-multiplier" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
 </dd>
 </dl>
@@ -84,9 +86,9 @@ stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</spa
 <a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a> can alter how (or if) the alpha multiplier is used.</p>
 </section>
 <section id="source-blend-factor">
-<h3>source_blend_factor<a class="headerlink" href="#source-blend-factor" title="Permalink to this headline">¶</a></h3>
+<h3>source_blend_factor<a class="headerlink" href="#source-blend-factor" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list">
-<dt class="field-odd">Options</dt>
+<dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">zero</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">one</span></code></div>
@@ -100,7 +102,7 @@ stimulus.  <code class="docutils literal notranslate"><span class="pre">1.0</spa
 <div class="line"><code class="docutils literal notranslate"><span class="pre">one_minus_dest_alpha</span></code></div>
 </div>
 </dd>
-<dt class="field-even">Default</dt>
+<dt class="field-even">Default<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">source_alpha</span></code></p>
 </dd>
 </dl>
@@ -119,30 +121,30 @@ different blend factor options.</p>
 is always <code class="docutils literal notranslate"><span class="pre">GL_FUNC_ADD</span></code>.</p>
 </section>
 <section id="dest-blend-factor">
-<h3>dest_blend_factor<a class="headerlink" href="#dest-blend-factor" title="Permalink to this headline">¶</a></h3>
+<h3>dest_blend_factor<a class="headerlink" href="#dest-blend-factor" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">one_minus_source_alpha</span></code></p>
 </dd>
 </dl>
 <p>Destination blending factor.  Accepts the same values as <a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
 </section>
 <section id="source-alpha-blend-factor">
-<h3>source_alpha_blend_factor<a class="headerlink" href="#source-alpha-blend-factor" title="Permalink to this headline">¶</a></h3>
+<h3>source_alpha_blend_factor<a class="headerlink" href="#source-alpha-blend-factor" title="Permalink to this heading">¶</a></h3>
 <p>Source alpha blending factor.  Accepts the same values as
 <a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
 <p>If omitted, the value of <a class="reference internal" href="#source-blend-factor">source_blend_factor</a> is used.</p>
 </section>
 <section id="dest-alpha-blend-factor">
-<h3>dest_alpha_blend_factor<a class="headerlink" href="#dest-alpha-blend-factor" title="Permalink to this headline">¶</a></h3>
+<h3>dest_alpha_blend_factor<a class="headerlink" href="#dest-alpha-blend-factor" title="Permalink to this heading">¶</a></h3>
 <p>Destination alpha blending factor.  Accepts the same values as
 <a class="reference internal" href="#source-blend-factor">source_blend_factor</a>.</p>
 <p>If omitted, the value of <a class="reference internal" href="#dest-blend-factor">dest_blend_factor</a> is used.</p>
 </section>
 <section id="x-size">
-<h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this headline">¶</a></h3>
+<h3>x_size<a class="headerlink" href="#x-size" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Example</dt>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5.0</span></code></p>
 </dd>
 </dl>
@@ -151,9 +153,9 @@ is always <code class="docutils literal notranslate"><span class="pre">GL_FUNC_A
 x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
 </section>
 <section id="y-size">
-<h3>y_size<a class="headerlink" href="#y-size" title="Permalink to this headline">¶</a></h3>
+<h3>y_size<a class="headerlink" href="#y-size" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Example</dt>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5.0</span></code></p>
 </dd>
 </dl>
@@ -162,52 +164,52 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 x_size and y_size (unless <a class="reference internal" href="#fullscreen">fullscreen</a> is <code class="docutils literal notranslate"><span class="pre">YES</span></code>).</p>
 </section>
 <section id="x-position">
-<h3>x_position<a class="headerlink" href="#x-position" title="Permalink to this headline">¶</a></h3>
+<h3>x_position<a class="headerlink" href="#x-position" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
 <p>Horizontal center position (degrees)</p>
 </section>
 <section id="y-position">
-<h3>y_position<a class="headerlink" href="#y-position" title="Permalink to this headline">¶</a></h3>
+<h3>y_position<a class="headerlink" href="#y-position" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
 <p>Vertical center position (degrees)</p>
 </section>
 <section id="rotation">
-<h3>rotation<a class="headerlink" href="#rotation" title="Permalink to this headline">¶</a></h3>
+<h3>rotation<a class="headerlink" href="#rotation" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
 <p>Rotation (degrees)</p>
 </section>
 <section id="fullscreen">
-<h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this headline">¶</a></h3>
+<h3>fullscreen<a class="headerlink" href="#fullscreen" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default</dt>
+<dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus is sized to fill the display.  In this mode, <a class="reference internal" href="#x-size">x_size</a>, <a class="reference internal" href="#y-size">y_size</a>, <a class="reference internal" href="#x-position">x_position</a>, <a class="reference internal" href="#y-position">y_position</a>, and <a class="reference internal" href="#rotation">rotation</a> are ignored.</p>
 </section>
 <section id="deferred">
-<h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this headline">¶</a></h3>
+<h3>deferred<a class="headerlink" href="#deferred" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list">
-<dt class="field-odd">Options</dt>
+<dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">no</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">yes</span></code></div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">explicit</span></code></div>
 </div>
 </dd>
-<dt class="field-even">Default</dt>
+<dt class="field-even">Default<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">no</span></code></p>
 </dd>
 </dl>
@@ -215,8 +217,8 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this headline">¶</a></h2>
-<table class="colwidths-auto docutils align-default">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
 <td><p>Yes</p></td>
@@ -283,7 +285,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -309,7 +311,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

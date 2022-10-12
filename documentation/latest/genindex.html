@@ -2,7 +2,7 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +13,9 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
@@ -108,6 +110,8 @@
 </li>
         <li><a href="components/live_queue_stimulus.html#index-0">Live Queue Stimulus</a>
 </li>
+        <li><a href="components/load_sound.html#index-0">Load Sound</a>
+</li>
         <li><a href="components/load_stimulus.html#index-0">Load Stimulus</a>
 </li>
         <li><a href="components/move_mouse_cursor.html#index-0">Move Mouse Cursor</a>
@@ -176,6 +180,8 @@
 </li>
         <li><a href="components/unconditionally_execute_actions_else.html#index-0">Unconditionally Execute Actions (else)</a>
 </li>
+        <li><a href="components/unload_sound.html#index-0">Unload Sound</a>
+</li>
         <li><a href="components/unload_stimulus.html#index-0">Unload Stimulus</a>
 </li>
         <li><a href="components/unpause_dynamic_stimulus.html#index-0">Unpause Dynamic Stimulus</a>
@@ -196,6 +202,8 @@
       <li><a href="components/assert.html#index-0">Assert</a>
 </li>
       <li><a href="components/assign_variable.html#index-0">Assign Variable</a>
+</li>
+      <li><a href="components/audio_file_stimulus.html#index-0">Audio File Stimulus</a>
 </li>
   </ul></td>
 </tr></table>
@@ -519,10 +527,10 @@
 </li>
       <li><a href="components/labjack_ljm_quadrature_input_channel.html#index-0">LabJack LJM Quadrature Input Channel</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="components/labjack_ljm_word_input_channel.html#index-0">LabJack LJM Word Input Channel</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="components/labjack_ljm_word_output_channel.html#index-0">LabJack LJM Word Output Channel</a>
 </li>
       <li><a href="components/layer_stimulus.html#index-0">Layer Stimulus</a>
@@ -534,6 +542,8 @@
       <li><a href="components/list_replicator.html#index-0">List Replicator</a>
 </li>
       <li><a href="components/live_queue_stimulus.html#index-0">Live Queue Stimulus</a>
+</li>
+      <li><a href="components/load_sound.html#index-0">Load Sound</a>
 </li>
       <li><a href="components/load_stimulus.html#index-0">Load Stimulus</a>
 </li>
@@ -723,13 +733,17 @@
 </li>
       <li><a href="components/simple_staircase_optimizer.html#index-0">Simple Staircase Optimizer</a>
 </li>
-      <li><a href="components/sound_stimulus.html#index-0">Sound Stimulus</a>
+      <li><a href="components/sound_group.html#index-0">Sound Group</a>
 </li>
       <li>
     Sounds
 
       <ul>
-        <li><a href="components/sound_stimulus.html#index-0">Sound Stimulus</a>
+        <li><a href="components/audio_file_stimulus.html#index-0">Audio File Stimulus</a>
+</li>
+        <li><a href="components/sound_group.html#index-0">Sound Group</a>
+</li>
+        <li><a href="components/tone_stimulus.html#index-0">Tone Stimulus</a>
 </li>
       </ul></li>
       <li><a href="components/start_io_device.html#index-0">Start IO Device</a>
@@ -811,6 +825,8 @@
 </li>
       <li><a href="components/timer_expired_transition.html#index-0">Timer Expired Transition</a>
 </li>
+      <li><a href="components/tone_stimulus.html#index-0">Tone Stimulus</a>
+</li>
       <li><a href="components/touch_input_device.html#index-0">Touch Input Device</a>
 </li>
   </ul></td>
@@ -839,6 +855,8 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="components/unconditionally_execute_actions_else.html#index-0">Unconditionally Execute Actions (else)</a>
+</li>
+      <li><a href="components/unload_sound.html#index-0">Unload Sound</a>
 </li>
       <li><a href="components/unload_stimulus.html#index-0">Unload Stimulus</a>
 </li>
@@ -925,7 +943,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -942,7 +960,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

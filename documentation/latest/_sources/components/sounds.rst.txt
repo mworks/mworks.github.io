@@ -13,4 +13,6 @@ Auditory stimuli
 .. toctree::
    :maxdepth: 1
 
-   sound_stimulus
+   audio_file_stimulus
+   sound_group
+   tone_stimulus

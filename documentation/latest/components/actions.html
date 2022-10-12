@@ -2,10 +2,10 @@
 
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Actions &#8212; MWorks 0.12.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,7 +14,9 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,7 +52,7 @@
           <div class="body" role="main">
             
   <section id="actions">
-<span id="id1"></span><h1>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Actions<a class="headerlink" href="#actions" title="Permalink to this heading">¶</a></h1>
 <p>Actions are the smallest unit of execution logic within an experiment. They initiate a single operation or event (e.g. playing a sound, showing a visual stimulus, or assigning a value to a variable).</p>
 <div class="toctree-wrapper compound">
 <ul>
@@ -71,6 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="fake_monkey_saccade.html">Fake Monkey Saccade</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fake_monkey_saccade_and_fixate.html">Fake Monkey Saccade and Fixate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_queue_stimulus.html">Live Queue Stimulus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="load_sound.html">Load Sound</a></li>
 <li class="toctree-l1"><a class="reference internal" href="load_stimulus.html">Load Stimulus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="move_mouse_cursor.html">Move Mouse Cursor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="next_selection.html">Next Selection</a></li>
@@ -105,6 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="stop_sound.html">Stop Sound</a></li>
 <li class="toctree-l1"><a class="reference internal" href="take_calibration_sample.html">Take Calibration Sample</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unconditionally_execute_actions_else.html">Unconditionally Execute Actions (else)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unload_sound.html">Unload Sound</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unload_stimulus.html">Unload Stimulus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unpause_dynamic_stimulus.html">Unpause Dynamic Stimulus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="update_calibration.html">Update Calibration</a></li>
@@ -141,7 +145,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -166,7 +170,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

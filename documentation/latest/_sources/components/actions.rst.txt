@@ -31,6 +31,7 @@ Actions are the smallest unit of execution logic within an experiment. They init
    fake_monkey_saccade
    fake_monkey_saccade_and_fixate
    live_queue_stimulus
+   load_sound
    load_stimulus
    move_mouse_cursor
    next_selection
@@ -65,6 +66,7 @@ Actions are the smallest unit of execution logic within an experiment. They init
    stop_sound
    take_calibration_sample
    unconditionally_execute_actions_else
+   unload_sound
    unload_stimulus
    unpause_dynamic_stimulus
    update_calibration
