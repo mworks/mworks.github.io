@@ -52,12 +52,6 @@ autoreset
 If ``YES``, `Reset Selections` will be invoked automatically when all selections have been exhausted
 
 
-groups
-^^^^^^
-
-Comma-separated list containing the names of groups to which the variable belongs.  Variable groups are displayed as expandable sections in MWClient's variables window.
-
-
 selection
 ^^^^^^^^^
 :Options: | ``sequential``
@@ -83,6 +77,19 @@ sampling_method
 :Default: ``cycles``
 
 Controls the interpretation of `nsamples`_.  If set to ``cycles``, *all* possible selections must be made to complete one sample.  If set to ``samples``, each individual selection counts as a sample.
+
+
+groups
+^^^^^^
+
+Comma-separated list containing the names of groups to which the variable belongs.  Variable groups are displayed as expandable sections in MWClient's variables window.
+
+
+description
+^^^^^^^^^^^
+:Alias: desc
+
+Description of the variable's meaning or intended usage.  Variable descriptions are displayed as tooltips in MWClient's variables window.
 
 
 

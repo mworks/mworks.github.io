@@ -89,10 +89,6 @@
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, <a class="reference internal" href="reset_selections.html#reset-selections"><span class="std std-ref">Reset Selections</span></a> will be invoked automatically when all selections have been exhausted</p>
 </section>
-<section id="groups">
-<h3>groups<a class="headerlink" href="#groups" title="Permalink to this heading">¶</a></h3>
-<p>Comma-separated list containing the names of groups to which the variable belongs.  Variable groups are displayed as expandable sections in MWClient’s variables window.</p>
-</section>
 <section id="selection">
 <h3>selection<a class="headerlink" href="#selection" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list">
@@ -135,6 +131,19 @@
 </dl>
 <p>Controls the interpretation of <a class="reference internal" href="#nsamples">nsamples</a>.  If set to <code class="docutils literal notranslate"><span class="pre">cycles</span></code>, <em>all</em> possible selections must be made to complete one sample.  If set to <code class="docutils literal notranslate"><span class="pre">samples</span></code>, each individual selection counts as a sample.</p>
 </section>
+<section id="groups">
+<h3>groups<a class="headerlink" href="#groups" title="Permalink to this heading">¶</a></h3>
+<p>Comma-separated list containing the names of groups to which the variable belongs.  Variable groups are displayed as expandable sections in MWClient’s variables window.</p>
+</section>
+<section id="id2">
+<h3>description<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Alias<span class="colon">:</span></dt>
+<dd class="field-odd"><p>desc</p>
+</dd>
+</dl>
+<p>Description of the variable’s meaning or intended usage.  Variable descriptions are displayed as tooltips in MWClient’s variables window.</p>
+</section>
 </section>
 <section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
@@ -171,10 +180,11 @@
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
 <li><a class="reference internal" href="#advance-on-accept">advance_on_accept</a></li>
 <li><a class="reference internal" href="#autoreset">autoreset</a></li>
-<li><a class="reference internal" href="#groups">groups</a></li>
 <li><a class="reference internal" href="#selection">selection</a></li>
 <li><a class="reference internal" href="#nsamples">nsamples</a></li>
 <li><a class="reference internal" href="#sampling-method">sampling_method</a></li>
+<li><a class="reference internal" href="#groups">groups</a></li>
+<li><a class="reference internal" href="#id2">description</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#placement">Placement</a></li>
@@ -228,7 +238,7 @@
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

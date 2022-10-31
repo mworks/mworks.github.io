@@ -117,11 +117,14 @@ everywhere.</p>
 </dl>
 <p>Determines when the variable’s value is written to the event stream (and thereby the data file)</p>
 </section>
-<section id="persistant">
-<h3>persistant<a class="headerlink" href="#persistant" title="Permalink to this heading">¶</a></h3>
+<section id="persistent">
+<h3>persistent<a class="headerlink" href="#persistent" title="Permalink to this heading">¶</a></h3>
 <dl class="field-list simple">
-<dt class="field-odd">Default<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+<dt class="field-odd">Alias<span class="colon">:</span></dt>
+<dd class="field-odd"><p>saved</p>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
 </dd>
 </dl>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, then the variable’s value is included in saved variable sets created via MWClient</p>
@@ -138,6 +141,15 @@ everywhere.</p>
 <section id="groups">
 <h3>groups<a class="headerlink" href="#groups" title="Permalink to this heading">¶</a></h3>
 <p>Comma-separated list containing the names of groups to which the variable belongs.  Variable groups are displayed as expandable sections in MWClient’s variables window.</p>
+</section>
+<section id="id2">
+<h3>description<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Alias<span class="colon">:</span></dt>
+<dd class="field-odd"><p>desc</p>
+</dd>
+</dl>
+<p>Description of the variable’s meaning or intended usage.  Variable descriptions are displayed as tooltips in MWClient’s variables window.</p>
 </section>
 </section>
 <section id="deprecated-parameters">
@@ -200,9 +212,10 @@ everywhere.</p>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
 <li><a class="reference internal" href="#scope">scope</a></li>
 <li><a class="reference internal" href="#logging">logging</a></li>
-<li><a class="reference internal" href="#persistant">persistant</a></li>
+<li><a class="reference internal" href="#persistent">persistent</a></li>
 <li><a class="reference internal" href="#exclude-from-data-file">exclude_from_data_file</a></li>
 <li><a class="reference internal" href="#groups">groups</a></li>
+<li><a class="reference internal" href="#id2">description</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#deprecated-parameters">Deprecated Parameters</a><ul>
@@ -260,7 +273,7 @@ everywhere.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
     </div>
   </body>
 </html>

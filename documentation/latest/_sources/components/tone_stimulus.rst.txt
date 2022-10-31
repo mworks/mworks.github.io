@@ -56,8 +56,9 @@ explicitly with `Stop Sound` before playback completes, the variable
 will never be set.
 
 
-amplitude
-^^^^^^^^^
+volume
+^^^^^^
+:Alias: amplitude
 :Default: ``1.0``
 
 Controls the volume at which the sound plays.  ``1.0`` is full volume, while ``0.0`` is silent.

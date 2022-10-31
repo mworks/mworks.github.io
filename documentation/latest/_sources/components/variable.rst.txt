@@ -67,8 +67,9 @@ logging
 Determines when the variable's value is written to the event stream (and thereby the data file)
 
 
-persistant
+persistent
 ^^^^^^^^^^
+:Alias: saved
 :Default: ``NO``
 
 If ``YES``, then the variable's value is included in saved variable sets created via MWClient
@@ -85,6 +86,13 @@ groups
 ^^^^^^
 
 Comma-separated list containing the names of groups to which the variable belongs.  Variable groups are displayed as expandable sections in MWClient's variables window.
+
+
+description
+^^^^^^^^^^^
+:Alias: desc
+
+Description of the variable's meaning or intended usage.  Variable descriptions are displayed as tooltips in MWClient's variables window.
 
 
 
