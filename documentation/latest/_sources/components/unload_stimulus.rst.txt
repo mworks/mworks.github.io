@@ -30,7 +30,7 @@ Required Parameters
 stimulus
 ^^^^^^^^
 
-Stimulus to unload
+Name of the stimulus
 
 
 

@@ -12,9 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/bizstyle.js"></script>
@@ -61,7 +58,7 @@
 </section>
 <section id="mainscreeninfo">
 <span id="mainscreeninfo-var"></span><h3>#mainScreenInfo<a class="headerlink" href="#mainscreeninfo" title="Permalink to this heading">¶</a></h3>
-<p>The value of this variable is a dictionary whose key/value pairs describe and configure the stimulus display.</p>
+<p>The value of this variable is a dictionary whose key/value pairs describe and configure the default stimulus display.</p>
 <p>The following keys are recognized.  If a key is omitted, the default value is used:</p>
 <table class="docutils align-default">
 <thead>
@@ -88,8 +85,8 @@
 <td></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">refresh_rate_hz</span></code></p></td>
-<td><p>Refresh rate of the main display in hertz (required, but currently unused)</p></td>
-<td></td>
+<td><p>Refresh rate of the main display in hertz (currently unused)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">60.0</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">always_display_mirror_window</span></code></p></td>
 <td><p>True or false, indicating whether the stimulus display mirror window should be enabled or disabled.  When enabled, the mirror window “mirrors” the main stimulus display, allowing you to observe the stimulus presentation even if the main display is in another room or otherwise not visible.</p></td>
@@ -381,8 +378,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+        &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

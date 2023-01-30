@@ -65,6 +65,13 @@ Actions are the smallest unit of execution logic within an experiment. They init
    stop_io_device
    stop_sound
    take_calibration_sample
+   trackpixx_begin_calibration
+   trackpixx_begin_pupil_size_calibration
+   trackpixx_end_calibration
+   trackpixx_end_pupil_size_calibration
+   trackpixx_load_calibration
+   trackpixx_load_pupil_size_calibration
+   trackpixx_take_calibration_sample
    unconditionally_execute_actions_else
    unload_sound
    unload_stimulus

@@ -29,7 +29,7 @@ Required Parameters
 stimulus
 ^^^^^^^^
 
-Stimulus to move
+Name of the stimulus
 
 
 

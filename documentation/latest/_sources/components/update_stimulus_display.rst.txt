@@ -39,6 +39,12 @@ Signature
 Optional Parameters
 -------------------
 
+display
+^^^^^^^
+
+Name of the display.  If omitted, the default display (if available) will be used.
+
+
 predicted_output_time
 ^^^^^^^^^^^^^^^^^^^^^
 

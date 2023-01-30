@@ -17,13 +17,43 @@ Description
 -----------
 A stimulus display device.
 
-At present, MWorks creates one (and only one) of these automatically when
-needed, regardless of whether the experiment file defines one.  By including
-a definition in your experiment file, you can change the display's default
-background color and configure its run-time behavior.
+By including a stimulus display device definition in your experiment file,
+you can configure the default display or create one or more non-default
+displays.  (See below for more information.)
 
 *Note*: `Start IO Device`, `Stop IO Device`, and `autostart`_ have no effect
 on this device.
+
+.. rubric:: Default Display
+
+If an experiment requires a stimulus display (e.g. because it includes one
+or more `stimuli <Stimuli>`) but does not define a stimulus display device,
+it will create a display automatically.  This display is called the
+:term:`default stimulus display`.
+
+If you want to configure the default display (e.g. change its background
+color or enable frame capture), add a stimulus display device with no
+`display_info`_ parameter to your experiment, and set its other parameters
+as desired.  Note that only one stimulus display device can configure the
+default display.
+
+.. rubric:: Non-Default Displays
+
+If your experiment defines one or more stimulus display devices with
+non-empty `display_info`_ parameters, it will *not* create a default
+stimulus display.  Instead, each stimulus display definition will create
+and configure a non-default display.
+
+Because the default display is not available, all `stimulus <Stimuli>`
+definitions and display-related actions (e.g. `Update Stimulus Display`)
+must specify explicitly which display to use.  If not, the experiment will
+fail to load.
+
+Note that if an experiment that defines non-default displays includes a
+stimulus display device with no `display_info`_ parameter, that device will
+*not* configure the default display (which does not exist). Instead, it
+will create another non-default display that takes its configuration
+information from `mainScreenInfo var`.
 
 
 
@@ -34,6 +64,16 @@ Signature
 
 Optional Parameters
 -------------------
+
+display_info
+^^^^^^^^^^^^
+:Example: ``{'display_to_use': 1, 'width': 400, 'height': 300, 'distance': 200}``
+
+Dictionary containing configuration information for the display.  The
+keys and values are the same as those used with `mainScreenInfo var`.
+
+If omitted, the value of `mainScreenInfo var` is used.
+
 
 background_color
 ^^^^^^^^^^^^^^^^
@@ -49,10 +89,10 @@ background_alpha_multiplier
 Controls the transparency of the background.  ``1.0`` is fully opaque,
 while ``0.0`` is fully tranparent.
 
-*Note*: To enable background transparency, you must set `mainScreenInfo
-var`'s  ``make_window_opaque`` key to ``false``.  To make the stimulus
-display window fully transparent, set this parameter and all components
-of `background_color`_ to 0.
+*Note*: To enable background transparency, you must set
+`display_info`_'s  ``make_window_opaque`` key to ``false``.  To make
+the stimulus display window fully transparent, set this parameter and
+all components of `background_color`_ to 0.
 
 
 redraw_on_every_refresh
@@ -66,7 +106,17 @@ announce_stimuli_on_implicit_updates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :Default: ``YES``
 
-Controls the announcement of stimuli during "implicit" display updates (i.e. updates requested by running dynamic stimuli and *not* triggered by an explicit `Update Stimulus Display` action).  If set to ``NO``, `stimDisplayUpdate var` events for implicit updates will contain only the number of stimuli displayed (in place of the usual list of stimulus parameters).
+Controls the announcement of stimuli during "implicit" display updates (i.e. updates requested by running dynamic stimuli and *not* triggered by an explicit `Update Stimulus Display` action).  If set to ``NO``, values assigned to `update_variable`_ for implicit updates will contain only the number of stimuli displayed (in place of the usual list of stimulus parameters).
+
+
+update_variable
+^^^^^^^^^^^^^^^
+
+Variable in which to store update announcements for the display.  The
+announcements have the same format as those assigned to
+`stimDisplayUpdate var`.
+
+If omitted, `stimDisplayUpdate var` is used.
 
 
 capture_format
@@ -82,7 +132,7 @@ If ``none``, display frames will not be captured.  Otherwise, for every
 display redraw for which `capture_enabled`_ evaluates to true, the
 contents of the display will be captured in the specified format, at the
 resolution determined by `capture_height_pixels`_, and stored (as binary
-data) in the variable `stimDisplayCapture var`.
+data) in the variable specified by `capture_variable`_.
 
 
 capture_height_pixels
@@ -114,6 +164,13 @@ By setting this parameter to the name of a variable, your experiment can
 dynamically enable or disable frame capture by assigning a true or false
 value, respectively, to the variable.  This allows you to capture frames
 only when needed.
+
+
+capture_variable
+^^^^^^^^^^^^^^^^
+
+Variable in which to store captured display frames.  If omitted,
+`stimDisplayCapture var` is used.
 
 
 autostart

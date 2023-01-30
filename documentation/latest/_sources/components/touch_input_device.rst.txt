@@ -57,6 +57,12 @@ Variable in which to store the touch state (true if a touch is in progress, fals
 Optional Parameters
 -------------------
 
+display
+^^^^^^^
+
+Name of the display on which to track touches. If omitted, the default display (if available) will be used.
+
+
 autostart
 ^^^^^^^^^
 :Default: ``NO``

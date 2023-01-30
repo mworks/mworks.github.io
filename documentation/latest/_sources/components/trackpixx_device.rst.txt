@@ -1,0 +1,158 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: TRACKPixx Device
+   single: Input/Output; TRACKPixx Device
+
+.. _TRACKPixx Device:
+
+TRACKPixx Device
+================
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to a `TRACKPixx3 <https://vpixx.com/products/trackpixx/>`_ device
+
+
+
+Signature
+---------
+``iodevice/trackpixx``
+
+
+Required Parameters
+-------------------
+
+update_interval
+^^^^^^^^^^^^^^^
+:Example: ``3ms``
+
+MWorks will poll the device for new input data every ``update_interval`` microseconds
+
+
+
+
+Optional Parameters
+-------------------
+
+clock_offset_nanos
+^^^^^^^^^^^^^^^^^^
+
+Variable in which to store the computed offset (in nanoseconds) between
+the device clock and MWorks' clock.
+
+The clock offset is recomputed once per second and is used to convert
+DATAPixx event and sample times to MWorks times.  Use this parameter if
+you want a record of the computed clock offsets in your event file.
+
+
+enable_dout_pixel_mode
+^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the digital output port will be used to output the RGB value
+of the first upper left pixel of the screen.
+
+In this mode, the digital output port cannot be used for `bit output
+<DATAPixx Bit Output Channel>` or `word output <DATAPixx Word Output
+Channel>` channels.  However, these channels may still be configured on
+the digital input port.
+
+
+enable_dout_vsync_mode
+^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the VSYNC signal will be output on bit 23 of the digital
+output port.
+
+This mode cannot be enabled if `enable_dout_pixel_mode`_ is set to
+``YES``.
+
+
+enable_din_stabilize
+^^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, digital input transitions are recognized only after the entire digital input bus has been stable for 80 nanoseconds
+
+
+enable_din_debounce
+^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, after a digital input transitions, further transitions will be ignored for the next 30 milliseconds
+
+
+enable_dout_din_loopback
+^^^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, digital output bits are looped back to the corresponding digital input bits.  This is useful primarily for testing the device.
+
+
+din_event_buffer_size
+^^^^^^^^^^^^^^^^^^^^^
+:Default: ``100``
+
+Transitions on digital input bits 0-15 are logged to an on-device buffer and read by MWorks at the rate specified by `update_interval`_. This parameter sets the maximum size (in number of events) of the buffer.  If the buffer is too small, writes will "wrap", and new events will overwrite old ones.
+
+
+analog_input_data_interval
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+:Example: ``1ms``
+
+Interval between acquired samples on analog input channels (microseconds)
+
+
+enable_dac_adc_loopback
+^^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, analog outputs are looped back to analog inputs as follows::
+
+    DAC_DATA0 → ADC_DATA0/2/4/6/8/10/12/14
+    DAC_DATA1 → ADC_DATA1/3/5/7/9/11/13/15
+    DAC_DATA2 → ADC_REF0
+    DAC_DATA3 → ADC_REF1
+
+This is useful primarily for testing the device.
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
+   * - Allowed children:
+     - `DATAPixx Analog Input Channel`, `DATAPixx Analog Output Channel`, `DATAPixx Bit Input Channel`, `DATAPixx Bit Output Channel`, `DATAPixx Word Input Channel`, `DATAPixx Word Output Channel`

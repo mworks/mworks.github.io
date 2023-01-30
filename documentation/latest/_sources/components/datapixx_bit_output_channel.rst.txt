@@ -71,4 +71,4 @@ Placement
    * - Allowed at top level:
      - No
    * - Allowed parent:
-     - `DATAPixx Device`
+     - `DATAPixx Device`, `TRACKPixx Device`

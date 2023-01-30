@@ -59,6 +59,7 @@ Input/output (I/O) devices
    server_side_event_conduit
    stimulus_display
    touch_input_device
+   trackpixx_device
    usb_hid_device
    usb_hid_input_channel
    ximea_camera_device

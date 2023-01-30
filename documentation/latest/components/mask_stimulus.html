@@ -12,9 +12,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
     
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/bizstyle.js"></script>
@@ -236,6 +233,10 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 </dl>
 <p>Controls when the stimulus is loaded.  If <code class="docutils literal notranslate"><span class="pre">no</span></code>, the stimulus is loaded at experiment load time.  If <code class="docutils literal notranslate"><span class="pre">yes</span></code>, the stimulus is loaded the first time it is <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a>.  If <code class="docutils literal notranslate"><span class="pre">explicit</span></code>, the stimulus must be loaded explictly with <a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">Load Stimulus</span></a>.</p>
 </section>
+<section id="display">
+<h3>display<a class="headerlink" href="#display" title="Permalink to this heading">¶</a></h3>
+<p>Name of the display on which the stimulus will be presented.  If omitted, the default display (if available) will be used.</p>
+</section>
 </section>
 <section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
@@ -282,6 +283,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <li><a class="reference internal" href="#rotation">rotation</a></li>
 <li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
 <li><a class="reference internal" href="#deferred">deferred</a></li>
+<li><a class="reference internal" href="#display">display</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#placement">Placement</a></li>
@@ -334,8 +336,8 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2022, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+        &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
     </div>
   </body>
 </html>

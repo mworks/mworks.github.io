@@ -266,6 +266,12 @@ eye_time
 
 Variable in which to store time of sample (on EyeLink clock)
 
+display
+^^^^^^^
+
+Name of the display on which to perform tracker-driven calibration. If omitted, the default display (if available) will be used.
+
+
 autostart
 ^^^^^^^^^
 :Default: ``NO``

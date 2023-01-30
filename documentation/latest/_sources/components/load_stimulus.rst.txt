@@ -30,7 +30,7 @@ Required Parameters
 stimulus
 ^^^^^^^^
 
-Stimulus to load
+Name of the stimulus
 
 
 

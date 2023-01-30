@@ -30,7 +30,7 @@ Required Parameters
 stimulus
 ^^^^^^^^
 
-Stimulus to queue
+Name of the stimulus
 
 
 
