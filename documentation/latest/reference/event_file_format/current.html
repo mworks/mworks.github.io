@@ -64,27 +64,19 @@
 <section id="example-code">
 <h2>Example Code<a class="headerlink" href="#example-code" title="Permalink to this heading">¶</a></h2>
 <p>The following <a class="reference external" href="https://www.python.org">Python</a> code demonstrates the MWK2 format in detail by a implementing a simple reader for <code class="docutils literal notranslate"><span class="pre">.mwk2</span></code> files.  Apart from the <a class="reference external" href="https://pypi.org/project/msgpack/">msgpack</a> package, it requires only the Python <a class="reference external" href="https://docs.python.org/3/library/index.html">standard library</a>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span>
-<span class="kn">import</span> <span class="nn">sqlite3</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
 <span class="kn">import</span> <span class="nn">zlib</span>
 
 <span class="kn">import</span> <span class="nn">msgpack</span>
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">buffer</span>
-<span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
-    <span class="c1"># Python 3</span>
-    <span class="n">buffer</span> <span class="o">=</span> <span class="nb">bytes</span>
 
-
-<span class="k">class</span> <span class="nc">MWK2Reader</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">MWK2Reader</span><span class="p">:</span>
 
     <span class="n">_compressed_text_type_code</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">_compressed_msgpack_stream_type_code</span> <span class="o">=</span> <span class="mi">2</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_unpacker</span> <span class="o">=</span> <span class="n">msgpack</span><span class="o">.</span><span class="n">Unpacker</span><span class="p">(</span><span class="n">raw</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">strict_map_key</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -100,31 +92,21 @@
         <span class="k">return</span> <span class="n">zlib</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">unpacker</span> <span class="o">=</span> <span class="n">msgpack</span><span class="o">.</span><span class="n">Unpacker</span><span class="p">(</span><span class="n">strict_map_key</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">code</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM events&#39;</span><span class="p">):</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">buffer</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
                 <span class="k">yield</span> <span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="n">obj</span> <span class="o">=</span> <span class="n">msgpack</span><span class="o">.</span><span class="n">unpackb</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-                <span class="k">except</span> <span class="n">msgpack</span><span class="o">.</span><span class="n">ExtraData</span><span class="p">:</span>
-                    <span class="c1"># Multiple values, so not valid compressed data</span>
-                    <span class="k">pass</span>
-                <span class="k">else</span><span class="p">:</span>
+                <span class="n">unpacker</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">unpacker</span><span class="p">:</span>
                     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">msgpack</span><span class="o">.</span><span class="n">ExtType</span><span class="p">):</span>
                         <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compressed_text_type_code</span><span class="p">:</span>
-                            <span class="k">yield</span> <span class="p">(</span><span class="n">code</span><span class="p">,</span>
-                                   <span class="n">time</span><span class="p">,</span>
-                                   <span class="bp">self</span><span class="o">.</span><span class="n">_decompress</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
-                            <span class="k">continue</span>
+                            <span class="n">obj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompress</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
                         <span class="k">elif</span> <span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span>
                               <span class="bp">self</span><span class="o">.</span><span class="n">_compressed_msgpack_stream_type_code</span><span class="p">):</span>
-                            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decompress</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_unpacker</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-                <span class="k">try</span><span class="p">:</span>
-                    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-                        <span class="k">yield</span> <span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unpacker</span><span class="o">.</span><span class="n">unpack</span><span class="p">())</span>
-                <span class="k">except</span> <span class="n">msgpack</span><span class="o">.</span><span class="n">OutOfData</span><span class="p">:</span>
-                    <span class="k">pass</span>
+                            <span class="n">unpacker</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decompress</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+                            <span class="k">continue</span>
+                    <span class="k">yield</span> <span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">obj</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">MWK2Reader</span></code> class defined above can be used as follows:</p>
