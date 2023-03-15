@@ -17,7 +17,7 @@ TRACKPixx Load Calibration
 
 Description
 -----------
-Load the calibration saved to a `TRACKPixx Device`.
+Load the calibration saved to a `TRACKPixx Device`
 
 
 

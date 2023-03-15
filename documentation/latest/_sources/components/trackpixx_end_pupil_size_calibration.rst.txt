@@ -17,7 +17,7 @@ TRACKPixx End Pupil Size Calibration
 
 Description
 -----------
-End pupil size calibration on a `TRACKPixx Device`.
+End pupil size calibration on a `TRACKPixx Device`
 
 
 

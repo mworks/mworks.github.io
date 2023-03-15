@@ -17,7 +17,7 @@ TRACKPixx End Calibration
 
 Description
 -----------
-End calibration of a `TRACKPixx Device`.
+End calibration on a `TRACKPixx Device`
 
 
 

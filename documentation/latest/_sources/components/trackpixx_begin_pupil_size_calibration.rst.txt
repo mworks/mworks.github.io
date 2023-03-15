@@ -17,7 +17,7 @@ TRACKPixx Begin Pupil Size Calibration
 
 Description
 -----------
-Begin pupil size calibration on a `TRACKPixx Device`.
+Begin pupil size calibration on a `TRACKPixx Device`
 
 
 

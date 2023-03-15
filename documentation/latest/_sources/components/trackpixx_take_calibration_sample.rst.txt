@@ -17,7 +17,7 @@ TRACKPixx Take Calibration Sample
 
 Description
 -----------
-Take a calibration sample on a `TRACKPixx Device`.
+Take a calibration sample on a `TRACKPixx Device`
 
 
 
@@ -29,10 +29,37 @@ Signature
 Required Parameters
 -------------------
 
+screen_x
+^^^^^^^^
+
+x coordinate of the fixation target (in degrees)
+
+screen_y
+^^^^^^^^
+
+y coordinate of the fixation target (in degrees)
+
 device
 ^^^^^^
 
 Name of the TRACKPixx device
+
+
+
+Optional Parameters
+-------------------
+
+left_eye
+^^^^^^^^
+:Default: ``YES``
+
+Enable data verification for left eye
+
+right_eye
+^^^^^^^^^
+:Default: ``YES``
+
+Enable data verification for right eye
 
 
 

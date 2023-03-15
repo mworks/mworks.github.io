@@ -17,7 +17,14 @@ TRACKPixx Device
 
 Description
 -----------
-Interface to a `TRACKPixx3 <https://vpixx.com/products/trackpixx/>`_ device
+Interface to a `TRACKPixx3 <https://vpixx.com/products/trackpixx/>`_
+device.
+
+This component also exposes the functions of the `DATAPixx3
+<https://vpixx.com/products/datapixx3/>`_ device to which the TRACKPixx is
+connected.  To use both the TRACKPixx and DATAPixx in an experiment, create
+a single TRACKPixx Device.  To use the DATAPixx without the TRACKPixx,
+create a `DATAPixx Device` instead.
 
 
 
@@ -28,6 +35,28 @@ Signature
 
 Required Parameters
 -------------------
+
+distance
+^^^^^^^^
+:Example: ``100``
+
+Distance from subject's eyes to camera lens (in centimeters)
+
+
+lens_type
+^^^^^^^^^
+:Options: | ``25mm``
+          | ``50mm``
+          | ``75mm``
+
+Camera lens type
+
+iris_expected_size
+^^^^^^^^^^^^^^^^^^
+:Example: ``100``
+
+Expected size of the subject's iris in the camera image (in pixels)
+
 
 update_interval
 ^^^^^^^^^^^^^^^
@@ -40,6 +69,171 @@ MWorks will poll the device for new input data every ``update_interval`` microse
 
 Optional Parameters
 -------------------
+
+show_overlay
+^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the console monitor (i.e. the display connected to DATAPixx3 DisplayPort OUT2) will show the camera image and pupil center tracking positions in an overlay window
+
+
+tracker_window_brightness
+^^^^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``200``
+
+Brightness of the overlay window enabled by `show_overlay`_. Must be an integer between 0 and 255 (inclusive).
+
+
+ir_illuminator_intensity
+^^^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``8``
+
+Intensity of the infrared illuminator. Must be an integer between 0 and 8 (inclusive).
+
+
+fixation_speed
+^^^^^^^^^^^^^^
+:Default: ``20``
+
+Eye velocity threshold below which to classify fixations (in eye position units per second)
+
+
+fixation_samples
+^^^^^^^^^^^^^^^^
+:Default: ``25``
+
+Minimum number of consecutive samples required to classify a fixation event
+
+
+saccade_speed
+^^^^^^^^^^^^^
+:Default: ``60``
+
+Eye velocity threshold above which to classify saccades (in eye position units per second)
+
+
+saccade_samples
+^^^^^^^^^^^^^^^
+:Default: ``10``
+
+Minimum number of consecutive samples required to classify a saccade event
+
+
+species
+^^^^^^^
+:Options: | ``human``
+          | ``nhp``
+:Default: ``human``
+
+Subject species
+
+tracking_mode
+^^^^^^^^^^^^^
+:Options: | ``standard``
+          | ``headfixed_nhp``
+:Default: ``standard``
+
+Tracking mode
+
+tracker_time_seconds
+^^^^^^^^^^^^^^^^^^^^
+
+Variable in which to store time of sample (in seconds) on TRACKPixx clock
+
+
+screen_lx
+^^^^^^^^^
+
+Variable in which to store Cartesian screen coordinate for x component of left eye
+
+
+screen_ly
+^^^^^^^^^
+
+Variable in which to store Cartesian screen coordinate for y component of left eye
+
+
+pupil_size_l
+^^^^^^^^^^^^
+
+Variable in which to store diameter of left eye pupil
+
+screen_rx
+^^^^^^^^^
+
+Variable in which to store Cartesian screen coordinate for x component of right eye
+
+
+screen_ry
+^^^^^^^^^
+
+Variable in which to store Cartesian screen coordinate for y component of right eye
+
+
+pupil_size_r
+^^^^^^^^^^^^
+
+Variable in which to store diameter of right eye pupil
+
+blink_l
+^^^^^^^
+
+Variable in which to store left eye blink state (true when blinking, false otherwise)
+
+
+blink_r
+^^^^^^^
+
+Variable in which to store right eye blink state (true when blinking, false otherwise)
+
+
+fixation_l
+^^^^^^^^^^
+
+Variable in which to store left eye fixation state (true when fixating, false otherwise)
+
+
+fixation_r
+^^^^^^^^^^
+
+Variable in which to store right eye fixation state (true when fixating, false otherwise)
+
+
+saccade_l
+^^^^^^^^^
+
+Variable in which to store left eye saccade state (true when in saccade, false otherwise)
+
+
+saccade_r
+^^^^^^^^^
+
+Variable in which to store right eye saccade state (true when in saccade, false otherwise)
+
+
+raw_lx
+^^^^^^
+
+Variable in which to store pupil-to-corneal reflection vector x component for left eye
+
+
+raw_ly
+^^^^^^
+
+Variable in which to store pupil-to-corneal reflection vector y component for left eye
+
+
+raw_rx
+^^^^^^
+
+Variable in which to store pupil-to-corneal reflection vector x component for right eye
+
+
+raw_ry
+^^^^^^
+
+Variable in which to store pupil-to-corneal reflection vector y component for right eye
+
 
 clock_offset_nanos
 ^^^^^^^^^^^^^^^^^^

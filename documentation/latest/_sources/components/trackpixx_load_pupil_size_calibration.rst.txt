@@ -17,7 +17,7 @@ TRACKPixx Load Pupil Size Calibration
 
 Description
 -----------
-Load the pupil size calibration saved to a `TRACKPixx Device`.
+Load the pupil size calibration saved to a `TRACKPixx Device`
 
 
 

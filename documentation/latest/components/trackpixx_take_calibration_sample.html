@@ -54,7 +54,7 @@
 <p><em>Available on macOS</em></p>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
-<p>Take a calibration sample on a <a class="reference internal" href="trackpixx_device.html#trackpixx-device"><span class="std std-ref">TRACKPixx Device</span></a>.</p>
+<p>Take a calibration sample on a <a class="reference internal" href="trackpixx_device.html#trackpixx-device"><span class="std std-ref">TRACKPixx Device</span></a></p>
 </section>
 <section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
@@ -62,9 +62,38 @@
 </section>
 <section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this heading">¶</a></h2>
+<section id="screen-x">
+<h3>screen_x<a class="headerlink" href="#screen-x" title="Permalink to this heading">¶</a></h3>
+<p>x coordinate of the fixation target (in degrees)</p>
+</section>
+<section id="screen-y">
+<h3>screen_y<a class="headerlink" href="#screen-y" title="Permalink to this heading">¶</a></h3>
+<p>y coordinate of the fixation target (in degrees)</p>
+</section>
 <section id="device">
 <h3>device<a class="headerlink" href="#device" title="Permalink to this heading">¶</a></h3>
 <p>Name of the TRACKPixx device</p>
+</section>
+</section>
+<section id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
+<section id="left-eye">
+<h3>left_eye<a class="headerlink" href="#left-eye" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
+</dd>
+</dl>
+<p>Enable data verification for left eye</p>
+</section>
+<section id="right-eye">
+<h3>right_eye<a class="headerlink" href="#right-eye" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
+</dd>
+</dl>
+<p>Enable data verification for right eye</p>
 </section>
 </section>
 <section id="placement">
@@ -96,7 +125,14 @@
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#screen-x">screen_x</a></li>
+<li><a class="reference internal" href="#screen-y">screen_y</a></li>
 <li><a class="reference internal" href="#device">device</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#left-eye">left_eye</a></li>
+<li><a class="reference internal" href="#right-eye">right_eye</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#placement">Placement</a></li>
