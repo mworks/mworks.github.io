@@ -1,0 +1,173 @@
+---
+layout: post
+title: MWorks 0.12 released
+author: cstawarz
+---
+
+MWorks 0.12 is now available for [Mac](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.12.dmg) and [iPad](https://apps.apple.com/app/mworks/id1389408331).  Highlights of this release include:
+
+* Major overhaul and modernization of [audio stimuli](/documentation/0.12/components/sounds.html)
+* Support for multiple [stimulus displays](/documentation/0.12/components/stimulus_display.html) in a single experiment
+* [Parametric shape stimulus](/documentation/0.12/components/parametric_shape_stimulus.html)
+* Support for [LabJack T4 and T7](/documentation/0.12/components/labjack_ljm_device.html) devices
+* Support for [TRACKPixx3](/documentation/0.12/components/trackpixx_device.html) eye trackers
+* Support for the UW Quad Channel Laser Modulator ([QCUALOR](/documentation/0.12/components/qcualor_device.html))
+* [Conditional inclusion](/documentation/0.12/mwel/index.html#conditional-inclusion) and [required macros](/documentation/0.12/mwel/index.html#requiring-macros) in MWEL
+* Pure-Python [MWK2 file reader](https://raw.githubusercontent.com/mworks/mworks/master/tools/python/Modules/mwk2reader.py) (for analyzing event files on non-Mac systems)
+
+MWorks 0.12 requires a Mac running macOS Big Sur (11.0) or later or an iPad running iPadOS 16.0 or later.  It was tested on macOS 11, 12, and 13 and iPadOS 16.
+
+For a full list of changes in this release, please see the release notes below.
+
+
+### Core
+
+
+#### Audio Stimuli
+
+MWorks' support for [audio stimuli](/documentation/0.12/components/sounds.html) has undergone a major overhaul and modernization:
+
+* [Audio File Stimulus](/documentation/0.12/components/audio_file_stimulus.html) (formerly Sound Stimulus) now supports any audio file format readable by the operating system
+
+* Audio files can now be configured to [loop](/documentation/0.12/components/audio_file_stimulus.html#loop) indefinitely or [repeat](/documentation/0.12/components/audio_file_stimulus.html#repeats) a fixed number of times
+
+* Added [Tone Stimulus](/documentation/0.12/components/tone_stimulus.html) for generating simple tones
+
+* Audio stimuli now support dynamic changes to [volume](/documentation/0.12/components/audio_file_stimulus.html#volume) and [stereo panning](/documentation/0.12/components/audio_file_stimulus.html#pan) and can notify the experiment when they have [ended](/documentation/0.12/components/audio_file_stimulus.html#ended)
+
+* [Play Sound](/documentation/0.12/components/play_sound.html) now supports specifying a [start time](/documentation/0.12/components/play_sound.html#start-time) for playback, which enables synchronization of playback start with other sounds or events in the experiment
+
+* Audio stimuli can now be [loaded](/documentation/0.12/components/load_sound.html) and [unloaded](/documentation/0.12/components/unload_sound.html) by a running experiment
+
+* Audio stimuli can now be placed in a [Sound Group](/documentation/0.12/components/sound_group.html), which should make it easier to manage large sets of stimuli
+
+For more information, see [this discussion](https://mworks.discourse.group/t/audio-improvements/835).
+
+
+#### Visual Stimuli
+
+* Added support for using multiple, independent [stimulus displays](/documentation/0.12/components/stimulus_display.html) in a single experiment ([more info](https://mworks.discourse.group/t/request-for-multi-monitor-experiment-in-mworks/92/9))
+
+* Added [Parametric Shape Stimulus](/documentation/0.12/components/parametric_shape_stimulus.html)
+
+* Fixation point stimuli (both [rectangular](/documentation/0.12/components/fixation_point_stimulus.html) and [circular](/documentation/0.12/components/circular_fixation_point_stimulus.html)) now report active fixation only when on screen
+
+* [Stimuli](/documentation/0.12/components/stimuli.html) and display-related actions (e.g. [Update Stimulus Display](/documentation/0.12/components/update_stimulus_display.html)) can now specify the display with which they are associated (required when using multiple displays)
+
+* Exceptions raised during [Load Stimulus](/documentation/0.12/components/load_stimulus.html) execution no longer cause the experiment to stop or crash
+
+* [Stimulus Display](/documentation/0.12/components/stimulus_display.html) device now supports setting custom [update](/documentation/0.12/components/stimulus_display.html#update-variable) and [capture](/documentation/0.12/components/stimulus_display.html#capture-variable) variables
+
+* On macOS, fixed a bug that prevented color management from being fully disabled
+
+
+#### I/O Devices
+
+* Added support for [LabJack LJM](/documentation/0.12/components/labjack_ljm_device.html) devices (specifically the [T4](https://labjack.com/products/labjack-t4) and [T7](https://labjack.com/products/labjack-t7))
+
+* Added support for the University of Washington Quad Channel Laser Modulator ([QCUALOR](/documentation/0.12/components/qcualor_device.html))
+
+* Added support for [TRACKPixx3 eye trackers](/documentation/0.12/components/trackpixx_device.html)
+
+* [DATAPixx](/documentation/0.12/components/datapixx_device.html) devices are now compatible with the VPixx Device Server.  An unfortunate consequence of this is that the MWorks' DATAPixx interface now supports only x86_64 (Intel) processors.  Support for arm64 (Apple silicon) processors will be re-added if/when the underlying libraries support it.
+
+* [ISCAN](/documentation/0.12/components/iscan_device.html) devices now handle omission of the [serial_port](/documentation/0.12/components/iscan_device.html#serial-port) parameter correctly
+
+* Added `display` parameter to [EyeLink](/documentation/0.12/components/eyelink_device.html), [mouse input](/documentation/0.12/components/mouse_input_device.html), and [touch input](/documentation/0.12/components/touch_input_device.html) devices (required when using multiple stimulus displays)
+
+* [XIMEA camera](/documentation/0.12/components/ximea_camera_device.html) now supports both arm64 (Apple silicon) and x86_64 (Intel) processors
+
+* Removed support for ITC-18 and NI-DAQ devices, because their vendor-provided drivers are incompatible with macOS 11 and later
+
+* Removed legacy MSSWGamepad plugin, as it crashed MWServer on recent macOS releases and is fully replaced by the [USB HID device](/documentation/0.12/components/usb_hid_device.html)
+
+
+#### MWEL
+
+* Added support for [conditional code inclusion](/documentation/0.12/mwel/index.html#conditional-inclusion)
+
+* Added support for [requiring macro definitions](/documentation/0.12/mwel/index.html#requiring-macros)
+
+* `%define x` is now accepted as shorthand for `%define x = true`
+
+* Parser now waits to load [included](/documentation/0.12/mwel/index.html#includes) files until after the entire including file has been parsed
+
+
+#### Other
+
+* Expression parser [functions](/documentation/0.12/expressions/index.html#functions) `refresh_rate`, `next_frame_time`, and `display_bounds` now support non-default displays
+
+* Added support for component parameter name aliases
+
+  * Variable parameter "persistant" is now named [persistent](/documentation/0.12/components/variable.html#persistent); "persistant" and "saved" are accepted as aliases
+  * Audio file parameter "amplitude" is now named [volume](/documentation/0.12/components/audio_file_stimulus.html#volume); "amplitude" is still accepted as an alias
+
+* Experiment-defined [variables](/documentation/0.12/components/variable.html) and [selection variables](/documentation/0.12/components/selection_variable.html) can now include [descriptions](/documentation/0.12/components/variable.html#id2) ([more info](https://mworks.discourse.group/t/feature-request/99/10))
+
+* Improved run-time descriptions of [system variables](/documentation/0.12/reference/sysvars.html)
+
+* Warnings and non-fatal errors are now silenced when evaluating expressions at load time
+
+* [#mainScreenInfo](/documentation/0.12/reference/sysvars.html#mainscreeninfo) is no longer required to contain the key `refresh_rate_hz` (which is currently unused)
+
+
+### Applications
+
+* Updated Mac app icons to match current macOS style
+
+
+#### MWServer
+
+* Display-selection menu now shows localized display names (e.g. "Built-in Retina Display", "LED Cinema Display") instead of generic names (e.g. "Main display", "Display 2")
+
+* Mirror window location is now preserved between sessions
+
+
+#### MWClient
+
+* Eye calibrator window now supports preserving hidden parameters on update
+
+* Variables window now uses variable descriptions as tooltips for variable names
+
+
+### Python and MATLAB Tools
+
+* Python plugin now embeds Python 3.10 (instead of 3.9)
+
+* Python tools now require Python 3.7 or later
+
+* Added [mwk2reader.py](https://raw.githubusercontent.com/mworks/mworks/master/tools/python/Modules/mwk2reader.py), which provides pure-Python tools for reading MWK2 files ([more info](https://mworks.discourse.group/t/analyze-mworks-on-linux/873/4))
+
+* Added `get_version` and `require_version` functions and `__version__` attribute to Python mworks module ([more info](https://mworks.discourse.group/t/mworks-python-version-attribute/64/4))
+
+* MATLAB tools now require MATLAB R2020b or later
+
+* Added MATLAB [MWKFile class](/documentation/0.12/guide/data_analysis.html#id4), which supports extracting events from an event file one at a time in order to avoid filling up system memory
+
+
+### Internals/Development
+
+* Upgraded to new versions of many supporting libraries:
+
+  * boost: 1.77.0 ➞ 1.81.0
+  * libffi: 3.4.2 ➞ 3.4.4
+  * libusb: 1.0.24 ➞ 1.0.26
+  * msgpack: 4.0.3 ➞ 4.1.1
+  * numpy: 1.21.4 ➞ 1.23.3
+  * openssl: 1.1.1l ➞ 3.0.7
+  * python: 3.9.9 ➞ 3.10.7
+  * sqlite: 3.37.0 ➞ 3.40.0
+
+* C++ code is now compiled using the C++20 language standard
+
+* The default C/C++ optimization level is now "3" (instead of "s")
+
+* Moved most of Sound's implementation into new LegacySound class.  OpenALSound now derives from LegacySound.
+
+* Moved contents of StandardSounds.h and StandardSounds.cpp into corresponding LegacySounds.* files.
+
+* Added MWClientPluginViewControllerFactory protocol and MWClientPluginViewController class to MWorksCocoa
+
+* Client plugin window controllers can now subclass NSViewController (in addition to NSWindowController)
+
+* MWorksCocoa can now be imported as a module
