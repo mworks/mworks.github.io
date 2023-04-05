@@ -54,6 +54,7 @@ Input/output (I/O) devices
    ne_500_syringe_pump_network
    open_ephys_interface
    open_ephys_network_events_client
+   qcualor_device
    rcb_lvds_device
    rcb_lvds_digital_input_channel
    server_side_event_conduit
