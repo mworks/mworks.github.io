@@ -1,0 +1,179 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: QCUALOR Device
+   single: Input/Output; QCUALOR Device
+
+.. _QCUALOR Device:
+
+QCUALOR Device
+==============
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to a University of Washington Quad Channel Laser Modulator
+(QCUALOR) device.
+
+This component allows an MWorks experiment to configure the modulator and,
+optionally, active/deactivate it.  See `meg_state`_ for more information.
+
+
+
+Signature
+---------
+``iodevice/qcualor``
+
+
+Optional Parameters
+-------------------
+
+serial_port
+^^^^^^^^^^^
+:Example: ``/dev/cu.usbmodem11201``
+
+Filesystem path that represents the serial port to which the QCUALOR
+device is connected.
+
+If omitted, MWorks looks for a single, connected serial device.  If it
+finds one, it assumes it to be the desired QCUALOR device and attempts
+to connect.
+
+
+mode_1
+^^^^^^
+:Options: | ``continuous``
+          | ``sinusoidal``
+          | ``inverse_sinusoidal``
+          | ``square``
+          | ``off``
+:Default: ``off``
+
+Mode (i.e. waveform) for channel 1
+
+mode_2
+^^^^^^
+:Default: ``off``
+
+Mode (i.e. waveform) for channel 2.  Support the same options as `mode_1`_.
+
+
+mode_3
+^^^^^^
+:Default: ``off``
+
+Mode (i.e. waveform) for channel 3.  Support the same options as `mode_1`_.
+
+
+mode_4
+^^^^^^
+:Default: ``off``
+
+Mode (i.e. waveform) for channel 4.  Support the same options as `mode_1`_.
+
+
+modulation_frequency
+^^^^^^^^^^^^^^^^^^^^
+:Default: ``0.5``
+
+Modulation frequency (in hertz).  Must be between 0.5 and 500.
+
+The modulator supports a fixed set of modulation frequencies, indexed by
+integers ranging from 0 to 255.  MWorks converts the requested
+frequency to an index via the following equation, where ``log`` is the
+natural logarithm::
+
+    index = round(255.0 * log(frequency / 0.5) / log(500.0 / 0.5))
+
+
+gain_1
+^^^^^^
+:Default: ``0.0``
+
+Gain (i.e. amplitude) for channel 1.  Must be between 0 and `max_gain`_.
+
+
+gain_2
+^^^^^^
+:Default: ``0.0``
+
+Gain (i.e. amplitude) for channel 2.  Must be between 0 and `max_gain`_.
+
+
+gain_3
+^^^^^^
+:Default: ``0.0``
+
+Gain (i.e. amplitude) for channel 3.  Must be between 0 and `max_gain`_.
+
+
+gain_4
+^^^^^^
+:Default: ``0.0``
+
+Gain (i.e. amplitude) for channel 4.  Must be between 0 and `max_gain`_.
+
+
+max_gain
+^^^^^^^^
+:Default: ``0.8``
+
+Maximum allowed gain for each channel.  Must be between 0 and 1.
+
+
+meg_state
+^^^^^^^^^
+
+Variable which is set to true by `Start IO Device` and false by `Stop IO
+Device`.
+
+If the same variable is used to set the state of a digital output line
+(e.g. via a `DATAPixx Bit Output Channel`), and said output line is
+connected to the QCUALOR device's Modulation Enable Gate (MEG), then
+`Start IO Device` will configure and activate the modulator, and
+`Stop IO Device` will deactivate it.
+
+If this parameter is omitted, or if the assigned variable does *not*
+control a digital output connected to the device's MEG input, then
+`Start IO Device` will send the configuration commands to the
+modulator, but the experiment must explicitly set the MEG state to high
+to apply the configuration and activate the device.  Similarly, `Stop
+IO Device` will send commmands to set all channel modes to "off" and
+gains to zero, but the experiment must explicitly set the MEG state to
+low to deactivate the modulator.
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

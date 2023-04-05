@@ -1,0 +1,18 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Optimizers and Variable Monitors:
+
+Optimizers and Variable Monitors
+================================
+
+Components that watch variable values, automatically perform computations, and output results
+
+
+.. toctree::
+   :maxdepth: 1
+
+   bias_monitor
+   simple_staircase_optimizer

@@ -1,0 +1,98 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: NE-500 Syringe Pump Network
+   single: Input/Output; NE-500 Syringe Pump Network
+
+.. _NE-500 Syringe Pump Network:
+
+NE-500 Syringe Pump Network
+===========================
+
+*Available on macOS*
+
+
+Description
+-----------
+Used for interfacing to a network of `NE-500 syringe pumps <http://www.syringepump.com/oem.php#aa>`_, accessed via a serial-to-ethernet bridge or a USB-to-serial adapter
+
+
+
+Signature
+---------
+``iodevice/ne500``
+
+
+Optional Parameters
+-------------------
+
+address
+^^^^^^^
+:Examples: | ``"10.0.254.254"``
+           | ``/dev/cu.usbserial-FTH1RRH5``
+
+If `port`_ is provided, the address is taken to be a host name,
+and MWorks attempts to connect to the pump network via a
+`TCP <https://en.wikipedia.org/wiki/Transmission_Control_Protocol>`_
+socket.  Otherwise, the address is assumed to be a filesystem path that
+represents a serial port.
+
+If neither address nor port is provided, MWorks looks for a single,
+connected serial device.  If it finds one, it assumes it to be the
+desired pump network and attempts to connect.
+
+
+port
+^^^^
+:Example: ``100``
+
+Port number for TCP connections
+
+response_timeout
+^^^^^^^^^^^^^^^^
+:Default: ``100ms``
+
+Maximum time to wait for responses to pump commands (microseconds).  If no response is received in the allotted time, issue an error message.
+
+
+log_pump_commands
+^^^^^^^^^^^^^^^^^
+:Default: ``YES``
+
+If ``YES``, log all commands sent to and responses received from the pump network to the MWorks event stream and server console
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
+   * - Allowed children:
+     - `NE-500 Syringe Pump`

@@ -1,0 +1,71 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: LabJack LJM Word Input Channel
+   single: Input/Output; LabJack LJM Word Input Channel
+
+.. _LabJack LJM Word Input Channel:
+
+LabJack LJM Word Input Channel
+==============================
+
+*Available on macOS*
+
+
+Description
+-----------
+Word input channel on a `LabJack LJM Device`
+
+
+Signature
+---------
+``iochannel/labjack_ljm_word_input``
+
+
+Required Parameters
+-------------------
+
+first_line
+^^^^^^^^^^
+:Examples: | ``FIO4``
+           | ``eio7``
+           | ``DIO16``
+
+Name of the digital line from which to read the first (least significant)
+bit of words stored in `value`_.  Subsequent bits are read from the
+lines following the first, up to the total number of lines specified by
+`num_lines`_.
+
+For example, if the first line is FIO6, and the number of lines is 4,
+then lines FIO6, FIO7, EIO0, and EIO1 will provide bits 0, 1, 2, and 3,
+respectively, of the input word, where bit 0 is least significant and
+bit 3 is most significant.
+
+
+num_lines
+^^^^^^^^^
+:Examples: | ``4``
+           | ``8``
+
+Number of digital lines comprising the input word
+
+value
+^^^^^
+
+Variable in which to store input word (an integer)
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `LabJack LJM Device`

@@ -1,0 +1,105 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Data File
+   single: Input/Output; Data File
+
+.. _Data File:
+
+Data File
+=========
+
+
+Description
+-----------
+By default, opening and closing of data files (aka event files) is
+controlled via MWClient.  By including a data file device in your
+experiment, you can transfer responsibility for data-file management to the
+experiment itself.
+
+If an experiment includes a data file device, a data file will be opened
+automatically when the experiment starts running.  If a data file with the
+specified `filename`_ is already open (e.g. because this is the second run
+of a protocol), then the existing file remains open.  If a data file with a
+different name is open, that file is closed before the new file is created.
+If a data file with the specified filename already exists and is not
+currently open, the existing file will *not* be overwritten.  If opening the
+data file fails for this or any other reason, the experiment will not start.
+
+While an experiment with a data file device is loaded, data files cannot be
+opened or closed via MWClient.  However, the client will still
+display the name of the current data file.
+
+*Note*: An experiment can include only one data file device.  Also, `Start
+IO Device`, `Stop IO Device`, and `autostart`_ have no effect on this
+device.
+
+
+
+Signature
+---------
+``iodevice/data_file``
+
+
+Required Parameters
+-------------------
+
+filename
+^^^^^^^^
+:Examples: | ``my_file``
+           | ``my_experiment/${subject}/run-${run_counter}``
+           | ``/Volumes/Data/exp1/$(date("%Y%m%d-%H%M%S"))``
+
+Filesystem path and name for the data file, excluding the file
+extension (``.mwk2``), which is appended automatically.
+
+If the filename is a relative path (i.e. it does not begin with ``/``),
+then the `standard data-file directory <Accessing the Event File>` is
+prepended to it before the file is created.  Absolute paths are not
+modified.
+
+Typically, the filename will make use of `variable and/or expression
+interpolation <Variable and Expression Interpolation>` to ensure that
+each experimental session produces a unique data file.  The interpolated
+components of the filename are re-evaluated each time the experiment
+starts, so changes to variable values and expression results between
+runs in a given session will result in different filenames for each run.
+
+
+
+
+Optional Parameters
+-------------------
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

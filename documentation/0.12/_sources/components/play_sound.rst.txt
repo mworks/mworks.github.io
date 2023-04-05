@@ -1,0 +1,66 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Play Sound
+   single: Actions; Play Sound
+
+.. _Play Sound:
+
+Play Sound
+==========
+
+
+Description
+-----------
+Play a `sound <Sounds>`.
+
+If the sound is not playing, it will begin playing immediately.  If the sound
+is `paused <Pause Sound>`, it will resume playing from the point at which it
+was paused.  If the sound is playing and not paused, this action does
+nothing.
+
+
+
+Signature
+---------
+``action/play_sound``
+
+
+Required Parameters
+-------------------
+
+sound
+^^^^^
+
+Name of the sound
+
+
+
+Optional Parameters
+-------------------
+
+start_time
+^^^^^^^^^^
+:Examples: | ``now() + 5s``
+           | ``next_frame_time()``
+
+Experiment time at which to start playing the sound (microseconds).
+
+If omitted, the sound will start playing immediately.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Render Actions`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

@@ -1,0 +1,295 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Python Image Stimulus
+   single: Stimuli; Python Image Stimulus
+
+.. _Python Image Stimulus:
+
+Python Image Stimulus
+=====================
+
+
+Description
+-----------
+An image stimulus whose content is generated dynamically by Python code.
+
+Every time the stimulus draws, it evaluates the Python expression provided
+in `pixel_buffer_expr`_.  The result of evaluating the expression must be a
+`bytes-like object
+<https://docs.python.org/3/glossary.html#term-bytes-like-object>`_,
+typically a `bytes object
+<https://docs.python.org/3/library/stdtypes.html#bytes-objects>`_ or a
+C-style, contiguous `NumPy array
+<https://numpy.org/doc/stable/reference/arrays.ndarray.html>`_.  The raw
+bytes associated with the object must contain the image data, whose layout
+is specified by `pixel_buffer_format`_, `pixel_buffer_width`_, and
+`pixel_buffer_height`_.
+
+For information on the modules and functions available to your Python code,
+see `Run Python File`.
+
+*Note*:  To preserve the image's aspect ratio on screen, `x_size`_ and
+`y_size`_ must be equal.  When drawn, the larger dimension spans the full
+specified size, while the smaller dimension is scaled to maintain the
+aspect ratio.
+
+
+
+Signature
+---------
+``stimulus/python_image``
+
+
+Required Parameters
+-------------------
+
+pixel_buffer_format
+^^^^^^^^^^^^^^^^^^^
+:Options: | ``RGB8``
+          | ``sRGB8``
+          | ``RGBA8``
+          | ``sRGBA8``
+          | ``RGBA16F``
+
+Pixel buffer format.
+
+The specified format determines how the stimulus interprets the data
+obtained by evaluating `pixel_buffer_expr`_.  The format name indicates
+the number and order of each pixel's color components.  ``R``, ``G``,
+and ``B`` refer to the pixel's red, green, and blue components,
+respectively, while ``A`` denotes the pixel's alpha channel, if any.
+The following table provides details on each supported format:
+
+=========== ==================== =================== ===================
+Format      Number of components Bytes per component Component data type
+=========== ==================== =================== ===================
+RGB8        3                    1                   Unsigned integer
+sRGB8       3                    1                   Unsigned integer
+RGBA8       4                    1                   Unsigned integer
+sRGBA8      4                    1                   Unsigned integer
+RGBA16F     4                    2                   Floating point
+=========== ==================== =================== ===================
+
+The total size, in bytes, of the data buffer provided by
+`pixel_buffer_expr`_ must be equal to the product of
+`pixel_buffer_width`_, `pixel_buffer_height`_, the number of components
+per pixel, and the number of bytes per component.  For example, if the
+format is ``RGBA16F``, the width is 400, and the height is 300, then the
+buffer size in bytes must be 400 * 300 * 4 * 2 = 960,000.
+
+1-byte, unsigned integer components must have values between 0 and 255,
+inclusive.  The values of floating-point components must lie between
+0.0 and 1.0, inclusive.  Multi-byte component values must be in native
+`byte order <https://en.wikipedia.org/wiki/Endianness>`_.
+
+A leading ``s`` in the format name indicates that the red, green, and
+blue component values are specified in the `sRGB color space
+<https://en.wikipedia.org/wiki/SRGB>`_.  Before these component values
+are used to draw the image, they are converted from sRGB's non-linear
+gamma to linear gamma.  Such formats should be preferred when using
+integer-valued pixels with color management enabled(see `mainScreenInfo
+var`).  When using integer-valued pixels with color management
+disabled, the non-``s`` formats should be used. Floating-point-valued
+pixels may be used with or without color management enabled.
+
+
+pixel_buffer_width
+^^^^^^^^^^^^^^^^^^
+:Example: ``512``
+
+Width of generated image in pixels
+
+pixel_buffer_height
+^^^^^^^^^^^^^^^^^^^
+:Example: ``512``
+
+Height of generated image in pixels
+
+pixel_buffer_expr
+^^^^^^^^^^^^^^^^^
+:Examples: | ``render_scene()``
+           | ``img.update()``
+
+Pixel buffer expression.
+
+Must evaluate to either a `bytes-like object
+<https://docs.python.org/3/glossary.html#term-bytes-like-object>`_
+containing the current image data or ``None``.  If ``None``, the most
+recently provided image data is reused.
+
+
+
+
+Optional Parameters
+-------------------
+
+elapsed_time
+^^^^^^^^^^^^
+
+Name of a variable in which to store the elapsed time (in microseconds)
+since the stimulus started playing (either implicitly due to `autoplay`_
+being ``YES`` or via an explicit `Play Dynamic Stimulus` action).
+
+If the stimulus has been paused (e.g. via `Pause Dynamic Stimulus` or
+`Pause Experiment`), the time elapsed while paused is excluded from the
+reported elapsed time.
+
+
+autoplay
+^^^^^^^^
+:Default: ``YES``
+
+If ``YES``, the stimulus will start playing automatically (as if by an implicit `Play Dynamic Stimulus` action) after it has been `queued <Queue Stimulus>` and `Update Stimulus Display` has been invoked.  It will also stop playing automatically (as if by an implicit `Stop Dynamic Stimulus` action) after it has been `dequeued <Dequeue Stimulus>` and `Update Stimulus Display` is invoked.
+
+
+alpha_multiplier
+^^^^^^^^^^^^^^^^
+:Default: ``1.0``
+
+By default, the alpha multiplier controls the transparency of the
+stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+Changes to the parameters `source_blend_factor`_ and
+`dest_blend_factor`_ can alter how (or if) the alpha multiplier is used.
+
+*Note*:  If the image contains an `alpha channel
+<https://en.wikipedia.org/wiki/Alpha_compositing>`_, the embedded alpha
+value for each pixel is multiplied by the value of this parameter.
+
+
+source_blend_factor
+^^^^^^^^^^^^^^^^^^^
+:Options: | ``zero``
+          | ``one``
+          | ``source_color``
+          | ``one_minus_source_color``
+          | ``dest_color``
+          | ``one_minus_dest_color``
+          | ``source_alpha``
+          | ``one_minus_source_alpha``
+          | ``dest_alpha``
+          | ``one_minus_dest_alpha``
+:Default: ``source_alpha``
+
+Source blending factor.
+
+The parameters `source_blend_factor`_, `dest_blend_factor`_,
+`source_alpha_blend_factor`_, and `dest_alpha_blend_factor`_ provide
+detailed control over how the color components and alpha multiplier of
+each fragment of the stimulus (the "source") are combined with the color
+and alpha values already present in the framebuffer (the "destination"),
+which in turn result from blending the stimulus display background with
+any stimuli drawn beneath the source stimulus.  These parameters
+correspond directly to the four arguments of the `OpenGL
+<https://www.opengl.org>`_ function `glBlendFuncSeparate
+<https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendFuncSeparate.xhtml>`_.
+Please refer to that function's reference page for explanations of the
+different blend factor options.
+
+*Note*:  Irrespective of the blend factors used, the `blend equation
+<https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendEquation.xhtml>`_
+is always ``GL_FUNC_ADD``.
+
+
+dest_blend_factor
+^^^^^^^^^^^^^^^^^
+:Default: ``one_minus_source_alpha``
+
+Destination blending factor.  Accepts the same values as `source_blend_factor`_.
+
+
+source_alpha_blend_factor
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Source alpha blending factor.  Accepts the same values as
+`source_blend_factor`_.
+
+If omitted, the value of `source_blend_factor`_ is used.
+
+
+dest_alpha_blend_factor
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Destination alpha blending factor.  Accepts the same values as
+`source_blend_factor`_.
+
+If omitted, the value of `dest_blend_factor`_ is used.
+
+
+x_size
+^^^^^^
+:Example: ``5.0``
+
+Horizontal size (degrees).
+
+If omitted, the value of `y_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
+y_size
+^^^^^^
+:Example: ``5.0``
+
+Vertical size (degrees).
+
+If omitted, the value of `x_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
+x_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Horizontal center position (degrees)
+
+y_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Vertical center position (degrees)
+
+rotation
+^^^^^^^^
+:Default: ``0.0``
+
+Rotation (degrees)
+
+fullscreen
+^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus is sized to fill the display.  In this mode, `x_size`_, `y_size`_, `x_position`_, `y_position`_, and `rotation`_ are ignored.
+
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+display
+^^^^^^^
+
+Name of the display on which the stimulus will be presented.  If omitted, the default display (if available) will be used.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

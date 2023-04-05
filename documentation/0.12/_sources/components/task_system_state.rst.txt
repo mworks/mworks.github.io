@@ -1,0 +1,52 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Task System State
+   single: Paradigm Components; Task System State
+
+.. _Task System State:
+
+Task System State
+=================
+
+
+Description
+-----------
+A paradigm component defining a state within a `finite state machine <https://en.wikipedia.org/wiki/Finite-state_machine>`_. It is contained within a `Task System` and specifies a list of `Actions`, which are executed when the state first gains control, and a list of `Transitions`, which are evaluated repeatedly until one of them succeeds and selects the next state.
+
+
+
+Signature
+---------
+``task_system_state``
+
+:Alias: ``state`` *(MWEL only)*
+
+
+Optional Parameters
+-------------------
+
+interruptible
+^^^^^^^^^^^^^
+:Default: ``YES``
+
+If ``NO``, then any request to pause or stop the experiment while this component is executing will be deferred until said execution completes. This behavior is inherited by the component's children, making them non-interruptible as well.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Task System`
+   * - Allowed children:
+     - `Action <Actions>`, `Transition <Transitions>`

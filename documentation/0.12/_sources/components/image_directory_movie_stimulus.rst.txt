@@ -1,0 +1,109 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Image Directory Movie Stimulus
+   single: Stimuli; Image Directory Movie Stimulus
+
+.. _Image Directory Movie Stimulus:
+
+Image Directory Movie Stimulus
+==============================
+
+
+Description
+-----------
+A movie stimulus that gets its frames from a directory of image files.
+
+*Note*:  In addition to the parameters described below, this stimulus also
+accepts all the parameters of `Image Stimulus` (excluding ``path``).
+
+
+
+Signature
+---------
+``stimulus/image_directory_movie``
+
+
+Required Parameters
+-------------------
+
+directory_path
+^^^^^^^^^^^^^^
+
+Filesystem path to the directory containing the image files.
+
+*All* non-hidden files in this directory must be images.  The frames are
+ordered according to the lexical sort order of the file names.
+
+
+frames_per_second
+^^^^^^^^^^^^^^^^^
+
+Rate at which to display the movie's frames
+
+
+
+Optional Parameters
+-------------------
+
+ended
+^^^^^
+
+Variable that will be set to true after the last frame has displayed. (Specifically, it will be set to true at the time that the next frame *after* the last would have been drawn, if there were one.)
+
+
+loop
+^^^^
+:Default: ``NO``
+
+If ``YES``, the presentation will repeat indefinitely (or until `Stop Dynamic Stimulus` is invoked)
+
+
+repeats
+^^^^^^^
+:Default: ``0``
+
+Number of times to repeat the presentation.  Note that the presentation
+will always run at least once, even if this value is less than one.
+
+If `loop`_ is ``YES``, this parameter is ignored.
+
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+display
+^^^^^^^
+
+Name of the display on which the stimulus will be presented.  If omitted, the default display (if available) will be used.
+
+
+autoplay
+^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus will start playing automatically (as if by an implicit `Play Dynamic Stimulus` action) after it has been `queued <Queue Stimulus>` and `Update Stimulus Display` has been invoked.  It will also stop playing automatically (as if by an implicit `Stop Dynamic Stimulus` action) after it has been `dequeued <Dequeue Stimulus>` and `Update Stimulus Display` is invoked.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`

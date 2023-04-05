@@ -1,0 +1,68 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Firmata Digital Output Pulse Channel
+   single: Input/Output; Firmata Digital Output Pulse Channel
+
+.. _Firmata Digital Output Pulse Channel:
+
+Firmata Digital Output Pulse Channel
+====================================
+
+
+Description
+-----------
+Digital output pulse channel on a `Firmata Device`.
+
+A digital output pulse channel triggers output "pulses" on its associated
+pin.  Whenever a pulse duration is assigned to `value`_, MWorks sends a
+pulse command to the Firmata device.  Upon receiving the command, the device
+sets the pin to high/true.  Once the requested interval (as measured by the
+device's onboard clock) has elapsed, the device sets the pin back to
+low/false.
+
+*Note*: Firmata devices require pulse durations to be specified in
+milliseconds.  MWorks converts durations assigned to `value`_ from
+microseconds to milliseconds before sending them to the device.
+
+
+
+Signature
+---------
+``iochannel/firmata_digital_output_pulse``
+
+
+Required Parameters
+-------------------
+
+pin_number
+^^^^^^^^^^
+:Example: ``4``
+
+Output pin number
+
+value
+^^^^^
+
+Variable from which to read pulse duration (in microseconds). 
+`Assigning <Assign Variable>` a value to the variable causes the pulse
+to begin immediately.
+
+*Note*: Pulse durations must be whole numbers of milliseconds.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Firmata Device`

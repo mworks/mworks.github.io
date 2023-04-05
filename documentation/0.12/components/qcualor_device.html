@@ -1,0 +1,319 @@
+
+
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>QCUALOR Device &#8212; MWorks 0.12 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RCB-LVDS Device" href="rcb_lvds_device.html" />
+    <link rel="prev" title="Open Ephys Network Events Client" href="open_ephys_network_events_client.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="rcb_lvds_device.html" title="RCB-LVDS Device"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="open_ephys_network_events_client.html" title="Open Ephys Network Events Client"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.12 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" accesskey="U">Input/Output</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">QCUALOR Device</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="qcualor-device">
+<span id="index-0"></span><span id="id1"></span><h1>QCUALOR Device<a class="headerlink" href="#qcualor-device" title="Permalink to this heading">¶</a></h1>
+<p><em>Available on macOS</em></p>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<p>Interface to a University of Washington Quad Channel Laser Modulator
+(QCUALOR) device.</p>
+<p>This component allows an MWorks experiment to configure the modulator and,
+optionally, active/deactivate it.  See <a class="reference internal" href="#meg-state">meg_state</a> for more information.</p>
+</section>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">iodevice/qcualor</span></code></p>
+</section>
+<section id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
+<section id="serial-port">
+<h3>serial_port<a class="headerlink" href="#serial-port" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">/dev/cu.usbmodem11201</span></code></p>
+</dd>
+</dl>
+<p>Filesystem path that represents the serial port to which the QCUALOR
+device is connected.</p>
+<p>If omitted, MWorks looks for a single, connected serial device.  If it
+finds one, it assumes it to be the desired QCUALOR device and attempts
+to connect.</p>
+</section>
+<section id="mode-1">
+<h3>mode_1<a class="headerlink" href="#mode-1" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Options<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">continuous</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sinusoidal</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">inverse_sinusoidal</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">square</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">off</span></code></div>
+</div>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">off</span></code></p>
+</dd>
+</dl>
+<p>Mode (i.e. waveform) for channel 1</p>
+</section>
+<section id="mode-2">
+<h3>mode_2<a class="headerlink" href="#mode-2" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">off</span></code></p>
+</dd>
+</dl>
+<p>Mode (i.e. waveform) for channel 2.  Support the same options as <a class="reference internal" href="#mode-1">mode_1</a>.</p>
+</section>
+<section id="mode-3">
+<h3>mode_3<a class="headerlink" href="#mode-3" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">off</span></code></p>
+</dd>
+</dl>
+<p>Mode (i.e. waveform) for channel 3.  Support the same options as <a class="reference internal" href="#mode-1">mode_1</a>.</p>
+</section>
+<section id="mode-4">
+<h3>mode_4<a class="headerlink" href="#mode-4" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">off</span></code></p>
+</dd>
+</dl>
+<p>Mode (i.e. waveform) for channel 4.  Support the same options as <a class="reference internal" href="#mode-1">mode_1</a>.</p>
+</section>
+<section id="modulation-frequency">
+<h3>modulation_frequency<a class="headerlink" href="#modulation-frequency" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.5</span></code></p>
+</dd>
+</dl>
+<p>Modulation frequency (in hertz).  Must be between 0.5 and 500.</p>
+<p>The modulator supports a fixed set of modulation frequencies, indexed by
+integers ranging from 0 to 255.  MWorks converts the requested
+frequency to an index via the following equation, where <code class="docutils literal notranslate"><span class="pre">log</span></code> is the
+natural logarithm:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>index = round(255.0 * log(frequency / 0.5) / log(500.0 / 0.5))
+</pre></div>
+</div>
+</section>
+<section id="gain-1">
+<h3>gain_1<a class="headerlink" href="#gain-1" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+</dd>
+</dl>
+<p>Gain (i.e. amplitude) for channel 1.  Must be between 0 and <a class="reference internal" href="#max-gain">max_gain</a>.</p>
+</section>
+<section id="gain-2">
+<h3>gain_2<a class="headerlink" href="#gain-2" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+</dd>
+</dl>
+<p>Gain (i.e. amplitude) for channel 2.  Must be between 0 and <a class="reference internal" href="#max-gain">max_gain</a>.</p>
+</section>
+<section id="gain-3">
+<h3>gain_3<a class="headerlink" href="#gain-3" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+</dd>
+</dl>
+<p>Gain (i.e. amplitude) for channel 3.  Must be between 0 and <a class="reference internal" href="#max-gain">max_gain</a>.</p>
+</section>
+<section id="gain-4">
+<h3>gain_4<a class="headerlink" href="#gain-4" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+</dd>
+</dl>
+<p>Gain (i.e. amplitude) for channel 4.  Must be between 0 and <a class="reference internal" href="#max-gain">max_gain</a>.</p>
+</section>
+<section id="max-gain">
+<h3>max_gain<a class="headerlink" href="#max-gain" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.8</span></code></p>
+</dd>
+</dl>
+<p>Maximum allowed gain for each channel.  Must be between 0 and 1.</p>
+</section>
+<section id="meg-state">
+<h3>meg_state<a class="headerlink" href="#meg-state" title="Permalink to this heading">¶</a></h3>
+<p>Variable which is set to true by <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> and false by <a class="reference internal" href="stop_io_device.html#stop-io-device"><span class="std std-ref">Stop IO Device</span></a>.</p>
+<p>If the same variable is used to set the state of a digital output line
+(e.g. via a <a class="reference internal" href="datapixx_bit_output_channel.html#datapixx-bit-output-channel"><span class="std std-ref">DATAPixx Bit Output Channel</span></a>), and said output line is
+connected to the QCUALOR device’s Modulation Enable Gate (MEG), then
+<a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> will configure and activate the modulator, and
+<a class="reference internal" href="stop_io_device.html#stop-io-device"><span class="std std-ref">Stop IO Device</span></a> will deactivate it.</p>
+<p>If this parameter is omitted, or if the assigned variable does <em>not</em>
+control a digital output connected to the device’s MEG input, then
+<a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> will send the configuration commands to the
+modulator, but the experiment must explicitly set the MEG state to high
+to apply the configuration and activate the device.  Similarly, <a class="reference internal" href="stop_io_device.html#stop-io-device"><span class="std std-ref">Stop IO Device</span></a> will send commmands to set all channel modes to “off” and
+gains to zero, but the experiment must explicitly set the MEG state to
+low to deactivate the modulator.</p>
+</section>
+<section id="autostart">
+<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the device will start I/O automatically (as if by an
+implicit <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> action) when the experiment starts running.</p>
+<p><em>Note</em>: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.</p>
+</section>
+<section id="alt">
+<h3>alt<a class="headerlink" href="#alt" title="Permalink to this heading">¶</a></h3>
+<p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
+</section>
+</section>
+<section id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">QCUALOR Device</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#serial-port">serial_port</a></li>
+<li><a class="reference internal" href="#mode-1">mode_1</a></li>
+<li><a class="reference internal" href="#mode-2">mode_2</a></li>
+<li><a class="reference internal" href="#mode-3">mode_3</a></li>
+<li><a class="reference internal" href="#mode-4">mode_4</a></li>
+<li><a class="reference internal" href="#modulation-frequency">modulation_frequency</a></li>
+<li><a class="reference internal" href="#gain-1">gain_1</a></li>
+<li><a class="reference internal" href="#gain-2">gain_2</a></li>
+<li><a class="reference internal" href="#gain-3">gain_3</a></li>
+<li><a class="reference internal" href="#gain-4">gain_4</a></li>
+<li><a class="reference internal" href="#max-gain">max_gain</a></li>
+<li><a class="reference internal" href="#meg-state">meg_state</a></li>
+<li><a class="reference internal" href="#autostart">autostart</a></li>
+<li><a class="reference internal" href="#alt">alt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="open_ephys_network_events_client.html"
+                          title="previous chapter">Open Ephys Network Events Client</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="rcb_lvds_device.html"
+                          title="next chapter">RCB-LVDS Device</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="rcb_lvds_device.html" title="RCB-LVDS Device"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="open_ephys_network_events_client.html" title="Open Ephys Network Events Client"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.12 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" >Input/Output</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">QCUALOR Device</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    </div>
+  </body>
+</html>

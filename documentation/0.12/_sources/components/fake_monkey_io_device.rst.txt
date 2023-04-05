@@ -1,0 +1,69 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Fake Monkey IO Device
+   single: Input/Output; Fake Monkey IO Device
+
+.. _Fake Monkey IO Device:
+
+Fake Monkey IO Device
+=====================
+
+*Available on macOS*
+
+
+Description
+-----------
+A simulated monkey that has the ability to generate spikes and continuous eye position data
+
+
+
+Signature
+---------
+``iodevice/fake_monkey``
+
+
+Optional Parameters
+-------------------
+
+spike_rate
+^^^^^^^^^^
+:Default: ``25``
+
+Average rate of spike generation (spikes per second).  The actual times between individual spikes are drawn from an `exponential distribution <https://en.wikipedia.org/wiki/Exponential_distribution>`_ with lambda equal to the specified spike rate.
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
+   * - Allowed children:
+     - `Fake Monkey Eye Channel`, `Fake Monkey Juice Channel`, `Fake Monkey Spike Channel`

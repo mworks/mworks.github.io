@@ -1,0 +1,62 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: LabJack LJM Counter Channel
+   single: Input/Output; LabJack LJM Counter Channel
+
+.. _LabJack LJM Counter Channel:
+
+LabJack LJM Counter Channel
+===========================
+
+*Available on macOS*
+
+
+Description
+-----------
+Counter channel on a `LabJack LJM Device`.
+
+Counts the rising edge of pulses on the selected digital line.  Supports
+both `high-speed
+<https://labjack.com/support/datasheets/t-series/digital-io/extended-features/high-speed-counter>`_
+and `interrupt
+<https://labjack.com/support/datasheets/t-series/digital-io/extended-features/interrupt-counter>`_
+counters.
+
+
+
+Signature
+---------
+``iochannel/labjack_ljm_counter``
+
+
+Required Parameters
+-------------------
+
+line
+^^^^
+:Examples: | ``CIO1``
+           | ``fio6``
+
+Digital line name
+
+value
+^^^^^
+
+Variable in which to store edge counts
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `LabJack LJM Device`
