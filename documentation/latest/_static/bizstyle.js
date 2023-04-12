@@ -23,7 +23,7 @@ const initialiseBizStyle = () => {
 }
 
 window.addEventListener("resize",
-  () => (document.querySelector("li.nav-item-0 a").innerText = (window.innerWidth <= 776) ? "Top" : "MWorks 0.12.dev documentation")
+  () => (document.querySelector("li.nav-item-0 a").innerText = (window.innerWidth <= 776) ? "Top" : "MWorks 0.13.dev documentation")
 )
 
 if (document.readyState !== "loading") initialiseBizStyle()
