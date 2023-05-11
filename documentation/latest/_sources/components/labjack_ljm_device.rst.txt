@@ -18,14 +18,15 @@ LabJack LJM Device
 Description
 -----------
 Interface to devices compatible with the `LabJack LJM library
-<https://labjack.com/ljm>`_.  Currently, the LabJack `T4
-<https://labjack.com/products/t4>`_ and `T7
-<https://labjack.com/products/t7>`_ are supported.
+<https://labjack.com/pages/support?doc=/software-driver/ljm-users-guide/>`_.
+Currently, the LabJack `T4 <https://labjack.com/products/labjack-t4>`_ ,
+`T7 <https://labjack.com/products/labjack-t7>`_, and `T8
+<https://labjack.com/products/t8>`_ are supported.
 
 For information on acceptable values for the parameters `device_type`_,
 `connection_type`_, and `identifier`_, see the documentation for the
 `LJM_OpenS function
-<https://labjack.com/support/software/api/ljm/function-reference/ljmopens>`_.
+<https://labjack.com/pages/support/?doc=/software-driver/ljm-users-guide/opens>`_.
 
 
 
@@ -54,6 +55,7 @@ device_type
 :Default: ``ANY``
 :Examples: | ``T4``
            | ``T7``
+           | ``T8``
 
 Desired device type
 

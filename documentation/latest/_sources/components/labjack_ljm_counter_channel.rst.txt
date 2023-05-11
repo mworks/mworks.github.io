@@ -21,9 +21,9 @@ Counter channel on a `LabJack LJM Device`.
 
 Counts the rising edge of pulses on the selected digital line.  Supports
 both `high-speed
-<https://labjack.com/support/datasheets/t-series/digital-io/extended-features/high-speed-counter>`_
+<https://labjack.com/pages/support/?doc=/datasheets/t-series-datasheet/1328-high-speed-counter-t-series-datasheet>`_
 and `interrupt
-<https://labjack.com/support/datasheets/t-series/digital-io/extended-features/interrupt-counter>`_
+<https://labjack.com/pages/support/?doc=/datasheets/t-series-datasheet/1329-interrupt-counter-t-series-datasheet>`_
 counters.
 
 

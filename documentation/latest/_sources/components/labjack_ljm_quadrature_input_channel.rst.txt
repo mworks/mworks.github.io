@@ -40,7 +40,7 @@ will be phase B.
 Note that only specific pairs of digital lines can be used for
 quadrature input.  For more information, see the `LabJack T-series
 datasheet
-<https://labjack.com/support/datasheets/t-series/digital-io/extended-features/quadrature>`_.
+<https://labjack.com/pages/support/?doc=/datasheets/t-series-datasheet/13211-quadrature-in-t-series-datasheet>`_.
 
 
 value
