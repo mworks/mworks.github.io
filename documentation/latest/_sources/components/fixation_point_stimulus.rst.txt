@@ -54,16 +54,24 @@ subject's gaze (as reported by `trigger_watch_x`_ and
 true.  When the subject's gaze leaves the fixation window, the variable
 is set to false.
 
-*Note*: Fixation is reported only when the fixation point is on screen
-(i.e. after it has been `queued <Queue Stimulus>` and the display has
-been `updated <Update Stimulus Display>`).  If you need a hidden
-fixation point, set `alpha_multiplier`_ to zero.
+*Note*: By default, fixation is reported only when the fixation point is
+on screen (i.e. after it has been `queued <Queue Stimulus>` and the
+display has been `updated <Update Stimulus Display>`).  If you need a
+hidden fixation point, set `alpha_multiplier`_ to zero or
+`active_when_hidden`_ to true.
 
 
 
 
 Optional Parameters
 -------------------
+
+active_when_hidden
+^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, fixation is reported even if the fixation point is not on screen
+
 
 color
 ^^^^^

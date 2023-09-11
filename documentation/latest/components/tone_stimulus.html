@@ -2,18 +2,19 @@
 
 <!doctype html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Tone Stimulus &#8212; MWorks 0.13.dev documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=76bb57fb"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,19 +51,19 @@
           <div class="body" role="main">
             
   <section id="tone-stimulus">
-<span id="index-0"></span><span id="id1"></span><h1>Tone Stimulus<a class="headerlink" href="#tone-stimulus" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Tone Stimulus<a class="headerlink" href="#tone-stimulus" title="Link to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>A simple tone sound stimulus</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">sound/tone</span></code></p>
 </section>
 <section id="required-parameters">
-<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Link to this heading">¶</a></h2>
 <section id="frequency">
-<h3>frequency<a class="headerlink" href="#frequency" title="Permalink to this heading">¶</a></h3>
+<h3>frequency<a class="headerlink" href="#frequency" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">440.0</span></code></p>
@@ -72,9 +73,9 @@
 </section>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
 <section id="duration">
-<h3>duration<a class="headerlink" href="#duration" title="Permalink to this heading">¶</a></h3>
+<h3>duration<a class="headerlink" href="#duration" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
@@ -86,14 +87,14 @@
 <p>Duration of the tone (microseconds).  If less than or equal to zero, the tone will continue playing until stopped explicitly with <a class="reference internal" href="stop_sound.html#stop-sound"><span class="std std-ref">Stop Sound</span></a>.</p>
 </section>
 <section id="ended">
-<h3>ended<a class="headerlink" href="#ended" title="Permalink to this heading">¶</a></h3>
+<h3>ended<a class="headerlink" href="#ended" title="Link to this heading">¶</a></h3>
 <p>Variable that will be set to true after the tone finishes playing.</p>
 <p>If <a class="reference internal" href="#duration">duration</a> is less than or equal to zero, or if the tone is stopped
 explicitly with <a class="reference internal" href="stop_sound.html#stop-sound"><span class="std std-ref">Stop Sound</span></a> before playback completes, the variable
 will never be set.</p>
 </section>
 <section id="volume">
-<h3>volume<a class="headerlink" href="#volume" title="Permalink to this heading">¶</a></h3>
+<h3>volume<a class="headerlink" href="#volume" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Alias<span class="colon">:</span></dt>
 <dd class="field-odd"><p>amplitude</p>
@@ -105,7 +106,7 @@ will never be set.</p>
 <p>Controls the volume at which the sound plays.  <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is full volume, while <code class="docutils literal notranslate"><span class="pre">0.0</span></code> is silent.</p>
 </section>
 <section id="pan">
-<h3>pan<a class="headerlink" href="#pan" title="Permalink to this heading">¶</a></h3>
+<h3>pan<a class="headerlink" href="#pan" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
@@ -114,7 +115,7 @@ will never be set.</p>
 <p>Controls the stereo panning of the sound.  Acceptable values range from <code class="docutils literal notranslate"><span class="pre">-1.0</span></code> (left channel only) to <code class="docutils literal notranslate"><span class="pre">1.0</span></code> (right channel only).  A value of <code class="docutils literal notranslate"><span class="pre">0.0</span></code> produces an even balance of the left and right channels.</p>
 </section>
 <section id="autoload">
-<h3>autoload<a class="headerlink" href="#autoload" title="Permalink to this heading">¶</a></h3>
+<h3>autoload<a class="headerlink" href="#autoload" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
@@ -124,7 +125,7 @@ will never be set.</p>
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
@@ -213,8 +214,8 @@ will never be set.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2023, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.0.
+    &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
     </div>
   </body>
 </html>

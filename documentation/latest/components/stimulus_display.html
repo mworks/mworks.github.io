@@ -2,18 +2,19 @@
 
 <!doctype html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Stimulus Display &#8212; MWorks 0.13.dev documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=76bb57fb"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,9 +51,9 @@
           <div class="body" role="main">
             
   <section id="stimulus-display">
-<span id="index-0"></span><span id="id1"></span><h1>Stimulus Display<a class="headerlink" href="#stimulus-display" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Stimulus Display<a class="headerlink" href="#stimulus-display" title="Link to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>A stimulus display device.</p>
 <p>By including a stimulus display device definition in your experiment file,
 you can configure the default display or create one or more non-default
@@ -85,13 +86,13 @@ will create another non-default display that takes its configuration
 information from <a class="reference internal" href="../reference/sysvars.html#mainscreeninfo-var"><span class="std std-ref">#mainScreenInfo</span></a>.</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/stimulus_display</span></code></p>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
 <section id="display-info">
-<h3>display_info<a class="headerlink" href="#display-info" title="Permalink to this heading">¶</a></h3>
+<h3>display_info<a class="headerlink" href="#display-info" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">{'display_to_use':</span> <span class="pre">1,</span> <span class="pre">'width':</span> <span class="pre">400,</span> <span class="pre">'height':</span> <span class="pre">300,</span> <span class="pre">'distance':</span> <span class="pre">200}</span></code></p>
@@ -102,7 +103,7 @@ keys and values are the same as those used with <a class="reference internal" hr
 <p>If omitted, the value of <a class="reference internal" href="../reference/sysvars.html#mainscreeninfo-var"><span class="std std-ref">#mainScreenInfo</span></a> is used.</p>
 </section>
 <section id="background-color">
-<h3>background_color<a class="headerlink" href="#background-color" title="Permalink to this heading">¶</a></h3>
+<h3>background_color<a class="headerlink" href="#background-color" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.5,0.5,0.5</span></code></p>
@@ -111,7 +112,7 @@ keys and values are the same as those used with <a class="reference internal" hr
 <p>The background color, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).</p>
 </section>
 <section id="background-alpha-multiplier">
-<h3>background_alpha_multiplier<a class="headerlink" href="#background-alpha-multiplier" title="Permalink to this heading">¶</a></h3>
+<h3>background_alpha_multiplier<a class="headerlink" href="#background-alpha-multiplier" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
@@ -125,7 +126,7 @@ the stimulus display window fully transparent, set this parameter and
 all components of <a class="reference internal" href="#background-color">background_color</a> to 0.</p>
 </section>
 <section id="redraw-on-every-refresh">
-<h3>redraw_on_every_refresh<a class="headerlink" href="#redraw-on-every-refresh" title="Permalink to this heading">¶</a></h3>
+<h3>redraw_on_every_refresh<a class="headerlink" href="#redraw-on-every-refresh" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -134,7 +135,7 @@ all components of <a class="reference internal" href="#background-color">backgro
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the display will be redrawn during every refresh cycle.  If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, the display will be redrawn only when needed or when explicitly requested via <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a>.</p>
 </section>
 <section id="announce-stimuli-on-implicit-updates">
-<h3>announce_stimuli_on_implicit_updates<a class="headerlink" href="#announce-stimuli-on-implicit-updates" title="Permalink to this heading">¶</a></h3>
+<h3>announce_stimuli_on_implicit_updates<a class="headerlink" href="#announce-stimuli-on-implicit-updates" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
@@ -143,14 +144,14 @@ all components of <a class="reference internal" href="#background-color">backgro
 <p>Controls the announcement of stimuli during “implicit” display updates (i.e. updates requested by running dynamic stimuli and <em>not</em> triggered by an explicit <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action).  If set to <code class="docutils literal notranslate"><span class="pre">NO</span></code>, values assigned to <a class="reference internal" href="#update-variable">update_variable</a> for implicit updates will contain only the number of stimuli displayed (in place of the usual list of stimulus parameters).</p>
 </section>
 <section id="update-variable">
-<h3>update_variable<a class="headerlink" href="#update-variable" title="Permalink to this heading">¶</a></h3>
+<h3>update_variable<a class="headerlink" href="#update-variable" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store update announcements for the display.  The
 announcements have the same format as those assigned to
 <a class="reference internal" href="../reference/sysvars.html#stimdisplayupdate-var"><span class="std std-ref">#stimDisplayUpdate</span></a>.</p>
 <p>If omitted, <a class="reference internal" href="../reference/sysvars.html#stimdisplayupdate-var"><span class="std std-ref">#stimDisplayUpdate</span></a> is used.</p>
 </section>
 <section id="capture-format">
-<h3>capture_format<a class="headerlink" href="#capture-format" title="Permalink to this heading">¶</a></h3>
+<h3>capture_format<a class="headerlink" href="#capture-format" title="Link to this heading">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
@@ -171,7 +172,7 @@ resolution determined by <a class="reference internal" href="#capture-height-pix
 data) in the variable specified by <a class="reference internal" href="#capture-variable">capture_variable</a>.</p>
 </section>
 <section id="capture-height-pixels">
-<h3>capture_height_pixels<a class="headerlink" href="#capture-height-pixels" title="Permalink to this heading">¶</a></h3>
+<h3>capture_height_pixels<a class="headerlink" href="#capture-height-pixels" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
@@ -188,7 +189,7 @@ captured frames.  If you experience performance issues with capture
 enabled, try reducing the value of this parameter.</p>
 </section>
 <section id="capture-enabled">
-<h3>capture_enabled<a class="headerlink" href="#capture-enabled" title="Permalink to this heading">¶</a></h3>
+<h3>capture_enabled<a class="headerlink" href="#capture-enabled" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
@@ -203,12 +204,12 @@ value, respectively, to the variable.  This allows you to capture frames
 only when needed.</p>
 </section>
 <section id="capture-variable">
-<h3>capture_variable<a class="headerlink" href="#capture-variable" title="Permalink to this heading">¶</a></h3>
+<h3>capture_variable<a class="headerlink" href="#capture-variable" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store captured display frames.  If omitted,
 <a class="reference internal" href="../reference/sysvars.html#stimdisplaycapture-var"><span class="std std-ref">#stimDisplayCapture</span></a> is used.</p>
 </section>
 <section id="autostart">
-<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this heading">¶</a></h3>
+<h3>autostart<a class="headerlink" href="#autostart" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -220,12 +221,12 @@ implicit <a class="reference internal" href="start_io_device.html#start-io-devic
 stops running, irrespective of this setting.</p>
 </section>
 <section id="alt">
-<h3>alt<a class="headerlink" href="#alt" title="Permalink to this heading">¶</a></h3>
+<h3>alt<a class="headerlink" href="#alt" title="Link to this heading">¶</a></h3>
 <p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
@@ -317,8 +318,8 @@ stops running, irrespective of this setting.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2023, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.0.
+    &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
     </div>
   </body>
 </html>

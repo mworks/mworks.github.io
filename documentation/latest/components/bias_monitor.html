@@ -2,18 +2,19 @@
 
 <!doctype html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Bias Monitor &#8212; MWorks 0.13.dev documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=76bb57fb"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,48 +51,48 @@
           <div class="body" role="main">
             
   <section id="bias-monitor">
-<span id="index-0"></span><span id="id1"></span><h1>Bias Monitor<a class="headerlink" href="#bias-monitor" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Bias Monitor<a class="headerlink" href="#bias-monitor" title="Link to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>An object that watches parameters of a behavioral task and assesses the probability that the subject is adopting some form of biased strategy</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">bias_monitor</span></code></p>
 </section>
 <section id="required-parameters">
-<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Link to this heading">¶</a></h2>
 <section id="success">
-<h3>success<a class="headerlink" href="#success" title="Permalink to this heading">¶</a></h3>
+<h3>success<a class="headerlink" href="#success" title="Link to this heading">¶</a></h3>
 <p>Variable that indicates task success/failure (via a value of 1 or 0, respectively)</p>
 </section>
 <section id="response-index">
-<h3>response_index<a class="headerlink" href="#response-index" title="Permalink to this heading">¶</a></h3>
+<h3>response_index<a class="headerlink" href="#response-index" title="Link to this heading">¶</a></h3>
 <p>Variable that indicates e.g. physical response location (relevant value is when success changes)</p>
 </section>
 <section id="task-correlation">
-<h3>task_correlation<a class="headerlink" href="#task-correlation" title="Permalink to this heading">¶</a></h3>
+<h3>task_correlation<a class="headerlink" href="#task-correlation" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store extent to which responses are consistent with the task</p>
 </section>
 <section id="response-bias-correlation">
-<h3>response_bias_correlation<a class="headerlink" href="#response-bias-correlation" title="Permalink to this heading">¶</a></h3>
+<h3>response_bias_correlation<a class="headerlink" href="#response-bias-correlation" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store extent to which responses are consistent with a response bias</p>
 </section>
 <section id="alternation-correlation">
-<h3>alternation_correlation<a class="headerlink" href="#alternation-correlation" title="Permalink to this heading">¶</a></h3>
+<h3>alternation_correlation<a class="headerlink" href="#alternation-correlation" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store extent to which responses are consistent with alternation</p>
 </section>
 <section id="history">
-<h3>history<a class="headerlink" href="#history" title="Permalink to this heading">¶</a></h3>
+<h3>history<a class="headerlink" href="#history" title="Link to this heading">¶</a></h3>
 <p>Number of observations to average over</p>
 </section>
 <section id="grace-period">
-<h3>grace_period<a class="headerlink" href="#grace-period" title="Permalink to this heading">¶</a></h3>
+<h3>grace_period<a class="headerlink" href="#grace-period" title="Link to this heading">¶</a></h3>
 <p>Don’t do anything unless you have at least this many observations</p>
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
@@ -178,8 +179,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2023, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.0.
+    &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
     </div>
   </body>
 </html>

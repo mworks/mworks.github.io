@@ -2,18 +2,19 @@
 
 <!doctype html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Expressions &#8212; MWorks 0.13.dev documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=76bb57fb"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -48,10 +49,10 @@
           <div class="body" role="main">
             
   <section id="expressions">
-<span id="id1"></span><h1>Expressions<a class="headerlink" href="#expressions" title="Permalink to this heading">¶</a></h1>
+<span id="id1"></span><h1>Expressions<a class="headerlink" href="#expressions" title="Link to this heading">¶</a></h1>
 <p>MWorks’ expression language should feel familiar to anyone who has used programming or scripting languages before.  The following sections describe it in detail.</p>
 <section id="literals">
-<h2>Literals<a class="headerlink" href="#literals" title="Permalink to this heading">¶</a></h2>
+<h2>Literals<a class="headerlink" href="#literals" title="Link to this heading">¶</a></h2>
 <p>The expression parser recognizes literal values for a variety of data types.</p>
 <table class="docutils align-default">
 <thead>
@@ -126,7 +127,7 @@ NO
 </table>
 </section>
 <section id="operators">
-<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this heading">¶</a></h2>
+<h2>Operators<a class="headerlink" href="#operators" title="Link to this heading">¶</a></h2>
 <p>The expression parser supports a number of mathematical, logical, comparison, and other operators.</p>
 <table class="docutils align-default">
 <thead>
@@ -297,22 +298,22 @@ NO
 <p>Note that the unit operators and the plain-English logical operators (<code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, and <code class="docutils literal notranslate"><span class="pre">or</span></code>) are not case-sensitive.  However, the type-conversion operators and all operators that begin with <code class="docutils literal notranslate"><span class="pre">#</span></code> (<code class="docutils literal notranslate"><span class="pre">#LT</span></code>, <code class="docutils literal notranslate"><span class="pre">#AND</span></code>, etc.) <em>are</em> case-sensitive.</p>
 <p>Also, be aware that the division operator (<code class="docutils literal notranslate"><span class="pre">/</span></code>) always produces a floating-point result, even if both of its operands are integers.  For example, <code class="docutils literal notranslate"><span class="pre">1/2</span></code> evaluates to 0.5, not 0 (as it does in some programming languages).</p>
 <section id="units">
-<h3>Units<a class="headerlink" href="#units" title="Permalink to this heading">¶</a></h3>
+<h3>Units<a class="headerlink" href="#units" title="Link to this heading">¶</a></h3>
 <p>Since MWorks does not provide true support for quantities with associated units, the unit operators are simply shorthand for multiplication operations.  In the case of time units (<code class="docutils literal notranslate"><span class="pre">us</span></code>, <code class="docutils literal notranslate"><span class="pre">ms</span></code>, and <code class="docutils literal notranslate"><span class="pre">s</span></code>), the operators multiply by a factor suitable for converting to microseconds (1, 1000, and 1000000, respectively).</p>
 </section>
 <section id="subscripting">
-<h3>Subscripting<a class="headerlink" href="#subscripting" title="Permalink to this heading">¶</a></h3>
+<h3>Subscripting<a class="headerlink" href="#subscripting" title="Link to this heading">¶</a></h3>
 <p>If the expression <code class="docutils literal notranslate"><span class="pre">exp</span></code> evaluates to a list, then <code class="docutils literal notranslate"><span class="pre">exp[n]</span></code> returns the element at index <em>n</em>.  If <em>n</em> is out of bounds, the expression evaluates to zero, and the parser issues an error message.  (Note that the first element of a list is at index 0, <em>not</em> 1.)</p>
 <p>If the expression <code class="docutils literal notranslate"><span class="pre">exp</span></code> evaluates to a dictionary, then <code class="docutils literal notranslate"><span class="pre">exp[k]</span></code> returns the value associated with key <em>k</em> in the dictionary.  If the dictionary has no matching key, the expression evaluates to zero, and the parser issues an error message.</p>
 </section>
 <section id="precedence">
-<h3>Precedence<a class="headerlink" href="#precedence" title="Permalink to this heading">¶</a></h3>
+<h3>Precedence<a class="headerlink" href="#precedence" title="Link to this heading">¶</a></h3>
 <p>The above table lists the operators from highest precedence (1) to lowest precedence (9).  Operator precedence determines the order of operations in expressions, as higher-precedence operations are evaluated before lower-precedence ones.</p>
 <p>The order of operations can be altered by wrapping sub-expressions in parentheses, which have higher precedence than all other operators.  For example, <code class="docutils literal notranslate"><span class="pre">*</span></code> has higher precedence than <code class="docutils literal notranslate"><span class="pre">+</span></code>, so <code class="docutils literal notranslate"><span class="pre">1+2*3</span></code> evaluates to 7, but <code class="docutils literal notranslate"><span class="pre">(1+2)*3</span></code> evaluates to 9.</p>
 </section>
 </section>
 <section id="ranges">
-<span id="range-expressions"></span><h2>Ranges<a class="headerlink" href="#ranges" title="Permalink to this heading">¶</a></h2>
+<span id="range-expressions"></span><h2>Ranges<a class="headerlink" href="#ranges" title="Link to this heading">¶</a></h2>
 <p>A range expression is a compact representation of an evenly-spaced, ordered sequence of integers.</p>
 <p>The general form of a range expression is <em>start:stop:step</em>, where <em>start</em>, <em>stop</em>, and <em>step</em> are expressions that evaluate to integers.  <em>step</em> is optional.  If provided, it must evaluate to a positive integer; if omitted, it defaults to 1.  If <em>start</em> is less than <em>stop</em>, the sequence will be increasing; otherwise, it will be decreasing.  <em>start</em> is always included in the sequence.  If <em>start</em> and <em>stop</em> are separated by a multiple of <em>step</em>, <em>stop</em> will be included as well.</p>
 <p>List literals, function calls, and <a class="reference internal" href="../components/selection_variable.html#selection-variable"><span class="std std-ref">selection variable</span></a> value lists can all incorporate range expressions.  In all cases, range expressions can be mixed with other expressions, so long as all items are separated by commas.</p>
@@ -346,21 +347,21 @@ NO
 </table>
 </section>
 <section id="variables">
-<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">¶</a></h2>
+<h2>Variables<a class="headerlink" href="#variables" title="Link to this heading">¶</a></h2>
 <p>MWorks variables can be incorporated into expressions by referencing each variable by its name.  For example, if your experiment defines two variables, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, which hold the values 1 and 2, respectively, then the expression <code class="docutils literal notranslate"><span class="pre">3*x+y</span></code> will evaluate to 5.</p>
 <p>Variable names are case-sensitive, so <code class="docutils literal notranslate"><span class="pre">myvar</span></code>, <code class="docutils literal notranslate"><span class="pre">MYVAR</span></code>, and <code class="docutils literal notranslate"><span class="pre">MyVar</span></code> all refer to different variables.</p>
 <section id="selection">
-<h3>Selection<a class="headerlink" href="#selection" title="Permalink to this heading">¶</a></h3>
+<h3>Selection<a class="headerlink" href="#selection" title="Link to this heading">¶</a></h3>
 <p>When used in an expression, a <a class="reference internal" href="../components/selection_variable.html#selection-variable"><span class="std std-ref">selection variable</span></a> evaluates to the currently-selected value.  If no selections have been made on the variable, the first one is made automatically, and its value is returned.</p>
 </section>
 <section id="timer">
-<h3>Timer<a class="headerlink" href="#timer" title="Permalink to this heading">¶</a></h3>
+<h3>Timer<a class="headerlink" href="#timer" title="Link to this heading">¶</a></h3>
 <p>MWorks <a class="reference internal" href="../components/start_timer.html#start-timer"><span class="std std-ref">timers</span></a> are implemented as variables.  When used in an expression, the name of a timer evaluates to true if the timer has expired, false otherwise.</p>
 <p><em>Note</em>: <code class="docutils literal notranslate"><span class="pre">timer_expired</span></code> (see <a class="reference internal" href="#time-related">Time-Related</a> functions below) actually just passes its input value unchanged.  However, using it may help to clarify the intent of an expression.</p>
 </section>
 </section>
 <section id="variable-and-expression-interpolation">
-<span id="id2"></span><h2>Variable and Expression Interpolation<a class="headerlink" href="#variable-and-expression-interpolation" title="Permalink to this heading">¶</a></h2>
+<span id="id2"></span><h2>Variable and Expression Interpolation<a class="headerlink" href="#variable-and-expression-interpolation" title="Link to this heading">¶</a></h2>
 <p>A string literal can incorporate the value of one or more variables via variable interpolation.  When a string literal containing placeholder text of the form <code class="docutils literal notranslate"><span class="pre">$var</span></code> or <code class="docutils literal notranslate"><span class="pre">${var}</span></code> is evaluated, the placeholder is replaced with the current value of variable <code class="docutils literal notranslate"><span class="pre">var</span></code> (converted to a string).  For example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var greeting = &#39;Hello&#39;
 var subject = &#39;World&#39;
@@ -383,10 +384,10 @@ text = &#39;$(round(pi())) is a magic number&#39;  // text contains &quot;3 is a
 </div>
 </section>
 <section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
 <p>The expression parser recognizes a number of pre-defined functions, many of which are found in other programming or scripting languages.  Note that function names are <em>not</em> case sensitive, so <code class="docutils literal notranslate"><span class="pre">now()</span></code>, <code class="docutils literal notranslate"><span class="pre">NOW()</span></code>, and <code class="docutils literal notranslate"><span class="pre">Now()</span></code> are all equivalent.</p>
 <section id="mathematical">
-<h3>Mathematical<a class="headerlink" href="#mathematical" title="Permalink to this heading">¶</a></h3>
+<h3>Mathematical<a class="headerlink" href="#mathematical" title="Link to this heading">¶</a></h3>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">abs(x)</span></code></dt><dd><p>Absolute value of <em>x</em></p>
 </dd>
@@ -429,7 +430,7 @@ text = &#39;$(round(pi())) is a magic number&#39;  // text contains &quot;3 is a
 </dl>
 </section>
 <section id="random-number-generators">
-<h3>Random Number Generators<a class="headerlink" href="#random-number-generators" title="Permalink to this heading">¶</a></h3>
+<h3>Random Number Generators<a class="headerlink" href="#random-number-generators" title="Link to this heading">¶</a></h3>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">rand()</span></code></dt><dd><p>Random floating-point value uniformly distributed in the range <em>[0..1)</em></p>
 </dd>
@@ -444,7 +445,7 @@ text = &#39;$(round(pi())) is a magic number&#39;  // text contains &quot;3 is a
 </dl>
 </section>
 <section id="time-related">
-<h3>Time-Related<a class="headerlink" href="#time-related" title="Permalink to this heading">¶</a></h3>
+<h3>Time-Related<a class="headerlink" href="#time-related" title="Link to this heading">¶</a></h3>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">next_frame_time()</span></code></dt><dd><p>Returns the anticipated output time (in microseconds) of the frame currently being rendered by the default stimulus display (if available)</p>
 </dd>
@@ -461,7 +462,7 @@ text = &#39;$(round(pi())) is a magic number&#39;  // text contains &quot;3 is a
 </dl>
 </section>
 <section id="other">
-<h3>Other<a class="headerlink" href="#other" title="Permalink to this heading">¶</a></h3>
+<h3>Other<a class="headerlink" href="#other" title="Link to this heading">¶</a></h3>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">date(fmt)</span></code></dt><dd><p>Returns the current date/time as a string, formatted according to format string <em>fmt</em>.  The format string can contain any of the conversion specifiers supported by <a class="reference external" href="https://en.cppreference.com/w/c/chrono/strftime">strftime</a>, as well as arbitrary text.</p>
 </dd>
@@ -575,8 +576,8 @@ text = &#39;$(round(pi())) is a magic number&#39;  // text contains &quot;3 is a
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2023, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.0.
+    &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
     </div>
   </body>
 </html>

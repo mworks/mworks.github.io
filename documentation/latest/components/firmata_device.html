@@ -2,18 +2,19 @@
 
 <!doctype html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Firmata Device &#8212; MWorks 0.13.dev documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=76bb57fb"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,9 +51,9 @@
           <div class="body" role="main">
             
   <section id="firmata-device">
-<span id="index-0"></span><span id="id1"></span><h1>Firmata Device<a class="headerlink" href="#firmata-device" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Firmata Device<a class="headerlink" href="#firmata-device" title="Link to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>Interface to a microcontroller that supports the
 <a class="reference external" href="https://github.com/firmata/protocol">Firmata protocol</a>.</p>
 <p>Most <a class="reference external" href="https://www.arduino.cc/">Arduino</a> boards and compatible devices
@@ -65,13 +66,13 @@ single, connected serial device.  If it finds one, it assumes it to be the
 desired Firmata device and attempts to connect.</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/firmata</span></code></p>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
 <section id="serial-port">
-<h3>serial_port<a class="headerlink" href="#serial-port" title="Permalink to this heading">¶</a></h3>
+<h3>serial_port<a class="headerlink" href="#serial-port" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">/dev/cu.usbmodem31</span></code></p>
@@ -81,7 +82,7 @@ desired Firmata device and attempts to connect.</p>
 specifies the filesystem path that represents the serial port</p>
 </section>
 <section id="bluetooth-local-name">
-<h3>bluetooth_local_name<a class="headerlink" href="#bluetooth-local-name" title="Permalink to this heading">¶</a></h3>
+<h3>bluetooth_local_name<a class="headerlink" href="#bluetooth-local-name" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">FIRMATA</span></code></p>
@@ -91,7 +92,7 @@ specifies the filesystem path that represents the serial port</p>
 parameter specifies its local name</p>
 </section>
 <section id="data-interval">
-<h3>data_interval<a class="headerlink" href="#data-interval" title="Permalink to this heading">¶</a></h3>
+<h3>data_interval<a class="headerlink" href="#data-interval" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5ms</span></code></p>
@@ -100,7 +101,7 @@ parameter specifies its local name</p>
 <p>Sampling interval for analog inputs.  Must be a whole number of milliseconds.</p>
 </section>
 <section id="connected">
-<h3>connected<a class="headerlink" href="#connected" title="Permalink to this heading">¶</a></h3>
+<h3>connected<a class="headerlink" href="#connected" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store connection state of the Firmata device (true
 if currently connected, false otherwise).</p>
 <p>Normally, the device should be connected at all times.  However, by
@@ -108,7 +109,7 @@ monitoring the value of the specified variable, you can detect and
 respond to unexpected disconnections.</p>
 </section>
 <section id="reconnect-interval">
-<h3>reconnect_interval<a class="headerlink" href="#reconnect-interval" title="Permalink to this heading">¶</a></h3>
+<h3>reconnect_interval<a class="headerlink" href="#reconnect-interval" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
@@ -128,7 +129,7 @@ another 10 seconds, then try again, and so on.</p>
 reconnect.</p>
 </section>
 <section id="autostart">
-<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this heading">¶</a></h3>
+<h3>autostart<a class="headerlink" href="#autostart" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -140,12 +141,12 @@ implicit <a class="reference internal" href="start_io_device.html#start-io-devic
 stops running, irrespective of this setting.</p>
 </section>
 <section id="alt">
-<h3>alt<a class="headerlink" href="#alt" title="Permalink to this heading">¶</a></h3>
+<h3>alt<a class="headerlink" href="#alt" title="Link to this heading">¶</a></h3>
 <p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
@@ -235,8 +236,8 @@ stops running, irrespective of this setting.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2023, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.0.
+    &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
     </div>
   </body>
 </html>

@@ -2,18 +2,19 @@
 
 <!doctype html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>TRACKPixx Device &#8212; MWorks 0.13.dev documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=76bb57fb"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,10 +51,10 @@
           <div class="body" role="main">
             
   <section id="trackpixx-device">
-<span id="index-0"></span><span id="id1"></span><h1>TRACKPixx Device<a class="headerlink" href="#trackpixx-device" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>TRACKPixx Device<a class="headerlink" href="#trackpixx-device" title="Link to this heading">¶</a></h1>
 <p><em>Available on macOS</em></p>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>Interface to a <a class="reference external" href="https://vpixx.com/products/trackpixx/">TRACKPixx3</a>
 device.</p>
 <p>This component also exposes the functions of the <a class="reference external" href="https://vpixx.com/products/datapixx3/">DATAPixx3</a> device to which the TRACKPixx is
@@ -62,13 +63,13 @@ a single TRACKPixx Device.  To use the DATAPixx without the TRACKPixx,
 create a <a class="reference internal" href="datapixx_device.html#datapixx-device"><span class="std std-ref">DATAPixx Device</span></a> instead.</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/trackpixx</span></code></p>
 </section>
 <section id="required-parameters">
-<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Link to this heading">¶</a></h2>
 <section id="distance">
-<h3>distance<a class="headerlink" href="#distance" title="Permalink to this heading">¶</a></h3>
+<h3>distance<a class="headerlink" href="#distance" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">100</span></code></p>
@@ -77,7 +78,7 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>Distance from subject’s eyes to camera lens (in centimeters)</p>
 </section>
 <section id="lens-type">
-<h3>lens_type<a class="headerlink" href="#lens-type" title="Permalink to this heading">¶</a></h3>
+<h3>lens_type<a class="headerlink" href="#lens-type" title="Link to this heading">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
@@ -90,7 +91,7 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>Camera lens type</p>
 </section>
 <section id="iris-expected-size">
-<h3>iris_expected_size<a class="headerlink" href="#iris-expected-size" title="Permalink to this heading">¶</a></h3>
+<h3>iris_expected_size<a class="headerlink" href="#iris-expected-size" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">100</span></code></p>
@@ -99,7 +100,7 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>Expected size of the subject’s iris in the camera image (in pixels)</p>
 </section>
 <section id="update-interval">
-<h3>update_interval<a class="headerlink" href="#update-interval" title="Permalink to this heading">¶</a></h3>
+<h3>update_interval<a class="headerlink" href="#update-interval" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">3ms</span></code></p>
@@ -109,9 +110,9 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 </section>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
 <section id="show-overlay">
-<h3>show_overlay<a class="headerlink" href="#show-overlay" title="Permalink to this heading">¶</a></h3>
+<h3>show_overlay<a class="headerlink" href="#show-overlay" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -120,7 +121,7 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the console monitor (i.e. the display connected to DATAPixx3 DisplayPort OUT2) will show the camera image and pupil center tracking positions in an overlay window</p>
 </section>
 <section id="tracker-window-brightness">
-<h3>tracker_window_brightness<a class="headerlink" href="#tracker-window-brightness" title="Permalink to this heading">¶</a></h3>
+<h3>tracker_window_brightness<a class="headerlink" href="#tracker-window-brightness" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">200</span></code></p>
@@ -129,7 +130,7 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>Brightness of the overlay window enabled by <a class="reference internal" href="#show-overlay">show_overlay</a>. Must be an integer between 0 and 255 (inclusive).</p>
 </section>
 <section id="ir-illuminator-intensity">
-<h3>ir_illuminator_intensity<a class="headerlink" href="#ir-illuminator-intensity" title="Permalink to this heading">¶</a></h3>
+<h3>ir_illuminator_intensity<a class="headerlink" href="#ir-illuminator-intensity" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">8</span></code></p>
@@ -138,7 +139,7 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>Intensity of the infrared illuminator. Must be an integer between 0 and 8 (inclusive).</p>
 </section>
 <section id="fixation-speed">
-<h3>fixation_speed<a class="headerlink" href="#fixation-speed" title="Permalink to this heading">¶</a></h3>
+<h3>fixation_speed<a class="headerlink" href="#fixation-speed" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">20</span></code></p>
@@ -147,7 +148,7 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>Eye velocity threshold below which to classify fixations (in eye position units per second)</p>
 </section>
 <section id="fixation-samples">
-<h3>fixation_samples<a class="headerlink" href="#fixation-samples" title="Permalink to this heading">¶</a></h3>
+<h3>fixation_samples<a class="headerlink" href="#fixation-samples" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">25</span></code></p>
@@ -156,7 +157,7 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>Minimum number of consecutive samples required to classify a fixation event</p>
 </section>
 <section id="saccade-speed">
-<h3>saccade_speed<a class="headerlink" href="#saccade-speed" title="Permalink to this heading">¶</a></h3>
+<h3>saccade_speed<a class="headerlink" href="#saccade-speed" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">60</span></code></p>
@@ -165,7 +166,7 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>Eye velocity threshold above which to classify saccades (in eye position units per second)</p>
 </section>
 <section id="saccade-samples">
-<h3>saccade_samples<a class="headerlink" href="#saccade-samples" title="Permalink to this heading">¶</a></h3>
+<h3>saccade_samples<a class="headerlink" href="#saccade-samples" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p>
@@ -174,7 +175,7 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>Minimum number of consecutive samples required to classify a saccade event</p>
 </section>
 <section id="species">
-<h3>species<a class="headerlink" href="#species" title="Permalink to this heading">¶</a></h3>
+<h3>species<a class="headerlink" href="#species" title="Link to this heading">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
@@ -189,7 +190,7 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>Subject species</p>
 </section>
 <section id="tracking-mode">
-<h3>tracking_mode<a class="headerlink" href="#tracking-mode" title="Permalink to this heading">¶</a></h3>
+<h3>tracking_mode<a class="headerlink" href="#tracking-mode" title="Link to this heading">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
@@ -204,75 +205,75 @@ create a <a class="reference internal" href="datapixx_device.html#datapixx-devic
 <p>Tracking mode</p>
 </section>
 <section id="tracker-time-seconds">
-<h3>tracker_time_seconds<a class="headerlink" href="#tracker-time-seconds" title="Permalink to this heading">¶</a></h3>
+<h3>tracker_time_seconds<a class="headerlink" href="#tracker-time-seconds" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store time of sample (in seconds) on TRACKPixx clock</p>
 </section>
 <section id="screen-lx">
-<h3>screen_lx<a class="headerlink" href="#screen-lx" title="Permalink to this heading">¶</a></h3>
+<h3>screen_lx<a class="headerlink" href="#screen-lx" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store Cartesian screen coordinate for x component of left eye</p>
 </section>
 <section id="screen-ly">
-<h3>screen_ly<a class="headerlink" href="#screen-ly" title="Permalink to this heading">¶</a></h3>
+<h3>screen_ly<a class="headerlink" href="#screen-ly" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store Cartesian screen coordinate for y component of left eye</p>
 </section>
 <section id="pupil-size-l">
-<h3>pupil_size_l<a class="headerlink" href="#pupil-size-l" title="Permalink to this heading">¶</a></h3>
+<h3>pupil_size_l<a class="headerlink" href="#pupil-size-l" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store diameter of left eye pupil</p>
 </section>
 <section id="screen-rx">
-<h3>screen_rx<a class="headerlink" href="#screen-rx" title="Permalink to this heading">¶</a></h3>
+<h3>screen_rx<a class="headerlink" href="#screen-rx" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store Cartesian screen coordinate for x component of right eye</p>
 </section>
 <section id="screen-ry">
-<h3>screen_ry<a class="headerlink" href="#screen-ry" title="Permalink to this heading">¶</a></h3>
+<h3>screen_ry<a class="headerlink" href="#screen-ry" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store Cartesian screen coordinate for y component of right eye</p>
 </section>
 <section id="pupil-size-r">
-<h3>pupil_size_r<a class="headerlink" href="#pupil-size-r" title="Permalink to this heading">¶</a></h3>
+<h3>pupil_size_r<a class="headerlink" href="#pupil-size-r" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store diameter of right eye pupil</p>
 </section>
 <section id="blink-l">
-<h3>blink_l<a class="headerlink" href="#blink-l" title="Permalink to this heading">¶</a></h3>
+<h3>blink_l<a class="headerlink" href="#blink-l" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye blink state (true when blinking, false otherwise)</p>
 </section>
 <section id="blink-r">
-<h3>blink_r<a class="headerlink" href="#blink-r" title="Permalink to this heading">¶</a></h3>
+<h3>blink_r<a class="headerlink" href="#blink-r" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye blink state (true when blinking, false otherwise)</p>
 </section>
 <section id="fixation-l">
-<h3>fixation_l<a class="headerlink" href="#fixation-l" title="Permalink to this heading">¶</a></h3>
+<h3>fixation_l<a class="headerlink" href="#fixation-l" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye fixation state (true when fixating, false otherwise)</p>
 </section>
 <section id="fixation-r">
-<h3>fixation_r<a class="headerlink" href="#fixation-r" title="Permalink to this heading">¶</a></h3>
+<h3>fixation_r<a class="headerlink" href="#fixation-r" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye fixation state (true when fixating, false otherwise)</p>
 </section>
 <section id="saccade-l">
-<h3>saccade_l<a class="headerlink" href="#saccade-l" title="Permalink to this heading">¶</a></h3>
+<h3>saccade_l<a class="headerlink" href="#saccade-l" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye saccade state (true when in saccade, false otherwise)</p>
 </section>
 <section id="saccade-r">
-<h3>saccade_r<a class="headerlink" href="#saccade-r" title="Permalink to this heading">¶</a></h3>
+<h3>saccade_r<a class="headerlink" href="#saccade-r" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye saccade state (true when in saccade, false otherwise)</p>
 </section>
 <section id="raw-lx">
-<h3>raw_lx<a class="headerlink" href="#raw-lx" title="Permalink to this heading">¶</a></h3>
+<h3>raw_lx<a class="headerlink" href="#raw-lx" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store pupil-to-corneal reflection vector x component for left eye</p>
 </section>
 <section id="raw-ly">
-<h3>raw_ly<a class="headerlink" href="#raw-ly" title="Permalink to this heading">¶</a></h3>
+<h3>raw_ly<a class="headerlink" href="#raw-ly" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store pupil-to-corneal reflection vector y component for left eye</p>
 </section>
 <section id="raw-rx">
-<h3>raw_rx<a class="headerlink" href="#raw-rx" title="Permalink to this heading">¶</a></h3>
+<h3>raw_rx<a class="headerlink" href="#raw-rx" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store pupil-to-corneal reflection vector x component for right eye</p>
 </section>
 <section id="raw-ry">
-<h3>raw_ry<a class="headerlink" href="#raw-ry" title="Permalink to this heading">¶</a></h3>
+<h3>raw_ry<a class="headerlink" href="#raw-ry" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store pupil-to-corneal reflection vector y component for right eye</p>
 </section>
 <section id="clock-offset-nanos">
-<h3>clock_offset_nanos<a class="headerlink" href="#clock-offset-nanos" title="Permalink to this heading">¶</a></h3>
+<h3>clock_offset_nanos<a class="headerlink" href="#clock-offset-nanos" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store the computed offset (in nanoseconds) between
 the device clock and MWorks’ clock.</p>
 <p>The clock offset is recomputed once per second and is used to convert
@@ -280,7 +281,7 @@ DATAPixx event and sample times to MWorks times.  Use this parameter if
 you want a record of the computed clock offsets in your event file.</p>
 </section>
 <section id="enable-dout-pixel-mode">
-<h3>enable_dout_pixel_mode<a class="headerlink" href="#enable-dout-pixel-mode" title="Permalink to this heading">¶</a></h3>
+<h3>enable_dout_pixel_mode<a class="headerlink" href="#enable-dout-pixel-mode" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -292,7 +293,7 @@ of the first upper left pixel of the screen.</p>
 the digital input port.</p>
 </section>
 <section id="enable-dout-vsync-mode">
-<h3>enable_dout_vsync_mode<a class="headerlink" href="#enable-dout-vsync-mode" title="Permalink to this heading">¶</a></h3>
+<h3>enable_dout_vsync_mode<a class="headerlink" href="#enable-dout-vsync-mode" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -304,7 +305,7 @@ output port.</p>
 <code class="docutils literal notranslate"><span class="pre">YES</span></code>.</p>
 </section>
 <section id="enable-din-stabilize">
-<h3>enable_din_stabilize<a class="headerlink" href="#enable-din-stabilize" title="Permalink to this heading">¶</a></h3>
+<h3>enable_din_stabilize<a class="headerlink" href="#enable-din-stabilize" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -313,7 +314,7 @@ output port.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, digital input transitions are recognized only after the entire digital input bus has been stable for 80 nanoseconds</p>
 </section>
 <section id="enable-din-debounce">
-<h3>enable_din_debounce<a class="headerlink" href="#enable-din-debounce" title="Permalink to this heading">¶</a></h3>
+<h3>enable_din_debounce<a class="headerlink" href="#enable-din-debounce" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -322,7 +323,7 @@ output port.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, after a digital input transitions, further transitions will be ignored for the next 30 milliseconds</p>
 </section>
 <section id="enable-dout-din-loopback">
-<h3>enable_dout_din_loopback<a class="headerlink" href="#enable-dout-din-loopback" title="Permalink to this heading">¶</a></h3>
+<h3>enable_dout_din_loopback<a class="headerlink" href="#enable-dout-din-loopback" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -331,7 +332,7 @@ output port.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, digital output bits are looped back to the corresponding digital input bits.  This is useful primarily for testing the device.</p>
 </section>
 <section id="din-event-buffer-size">
-<h3>din_event_buffer_size<a class="headerlink" href="#din-event-buffer-size" title="Permalink to this heading">¶</a></h3>
+<h3>din_event_buffer_size<a class="headerlink" href="#din-event-buffer-size" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">100</span></code></p>
@@ -340,7 +341,7 @@ output port.</p>
 <p>Transitions on digital input bits 0-15 are logged to an on-device buffer and read by MWorks at the rate specified by <a class="reference internal" href="#update-interval">update_interval</a>. This parameter sets the maximum size (in number of events) of the buffer.  If the buffer is too small, writes will “wrap”, and new events will overwrite old ones.</p>
 </section>
 <section id="analog-input-data-interval">
-<h3>analog_input_data_interval<a class="headerlink" href="#analog-input-data-interval" title="Permalink to this heading">¶</a></h3>
+<h3>analog_input_data_interval<a class="headerlink" href="#analog-input-data-interval" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1ms</span></code></p>
@@ -349,7 +350,7 @@ output port.</p>
 <p>Interval between acquired samples on analog input channels (microseconds)</p>
 </section>
 <section id="enable-dac-adc-loopback">
-<h3>enable_dac_adc_loopback<a class="headerlink" href="#enable-dac-adc-loopback" title="Permalink to this heading">¶</a></h3>
+<h3>enable_dac_adc_loopback<a class="headerlink" href="#enable-dac-adc-loopback" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -365,7 +366,7 @@ DAC_DATA3 → ADC_REF1
 <p>This is useful primarily for testing the device.</p>
 </section>
 <section id="autostart">
-<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this heading">¶</a></h3>
+<h3>autostart<a class="headerlink" href="#autostart" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -377,12 +378,12 @@ implicit <a class="reference internal" href="start_io_device.html#start-io-devic
 stops running, irrespective of this setting.</p>
 </section>
 <section id="alt">
-<h3>alt<a class="headerlink" href="#alt" title="Permalink to this heading">¶</a></h3>
+<h3>alt<a class="headerlink" href="#alt" title="Link to this heading">¶</a></h3>
 <p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
@@ -509,8 +510,8 @@ stops running, irrespective of this setting.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2023, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.0.
+    &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
     </div>
   </body>
 </html>

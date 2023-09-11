@@ -2,18 +2,19 @@
 
 <!doctype html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Open Ephys Network Events Client &#8212; MWorks 0.13.dev documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=76bb57fb"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,20 +51,20 @@
           <div class="body" role="main">
             
   <section id="open-ephys-network-events-client">
-<span id="index-0"></span><span id="id1"></span><h1>Open Ephys Network Events Client<a class="headerlink" href="#open-ephys-network-events-client" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Open Ephys Network Events Client<a class="headerlink" href="#open-ephys-network-events-client" title="Link to this heading">¶</a></h1>
 <p><em>Available on macOS</em></p>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>Interface to a <a class="reference external" href="https://open-ephys.atlassian.net/wiki/display/OEW/Network+Events">Network Events</a> module in the <a class="reference external" href="http://www.open-ephys.org/gui/">Open Ephys GUI</a> application</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/open_ephys_network_events_client</span></code></p>
 </section>
 <section id="required-parameters">
-<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Link to this heading">¶</a></h2>
 <section id="hostname">
-<h3>hostname<a class="headerlink" href="#hostname" title="Permalink to this heading">¶</a></h3>
+<h3>hostname<a class="headerlink" href="#hostname" title="Link to this heading">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Examples<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
@@ -75,7 +76,7 @@
 <p>Hostname of the computer running the Open Ephys GUI</p>
 </section>
 <section id="port">
-<h3>port<a class="headerlink" href="#port" title="Permalink to this heading">¶</a></h3>
+<h3>port<a class="headerlink" href="#port" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">5556</span></code></p>
@@ -84,7 +85,7 @@
 <p>TCP port used by the Network Events module</p>
 </section>
 <section id="request">
-<h3>request<a class="headerlink" href="#request" title="Permalink to this heading">¶</a></h3>
+<h3>request<a class="headerlink" href="#request" title="Link to this heading">¶</a></h3>
 <p>Variable from which to read messages to send to the Network Events
 module.</p>
 <p><a class="reference internal" href="assign_variable.html#assign-variable"><span class="std std-ref">Assigning</span></a> a value to the variable causes the message
@@ -93,14 +94,14 @@ response is received or an error or timeout occurs.</p>
 <p>Non-string values are converted to strings before being sent.</p>
 </section>
 <section id="response">
-<h3>response<a class="headerlink" href="#response" title="Permalink to this heading">¶</a></h3>
+<h3>response<a class="headerlink" href="#response" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store responses from the Network Events module. Response values are always strings.</p>
 </section>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
 <section id="autostart">
-<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this heading">¶</a></h3>
+<h3>autostart<a class="headerlink" href="#autostart" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -112,12 +113,12 @@ implicit <a class="reference internal" href="start_io_device.html#start-io-devic
 stops running, irrespective of this setting.</p>
 </section>
 <section id="alt">
-<h3>alt<a class="headerlink" href="#alt" title="Permalink to this heading">¶</a></h3>
+<h3>alt<a class="headerlink" href="#alt" title="Link to this heading">¶</a></h3>
 <p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
@@ -206,8 +207,8 @@ stops running, irrespective of this setting.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2023, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.0.
+    &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
     </div>
   </body>
 </html>

@@ -2,18 +2,19 @@
 
 <!doctype html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>EyeLink Device &#8212; MWorks 0.13.dev documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=76bb57fb"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,10 +51,10 @@
           <div class="body" role="main">
             
   <section id="eyelink-device">
-<span id="index-0"></span><span id="id1"></span><h1>EyeLink Device<a class="headerlink" href="#eyelink-device" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>EyeLink Device<a class="headerlink" href="#eyelink-device" title="Link to this heading">¶</a></h1>
 <p><em>Available on macOS</em></p>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>Digital interface to an <a class="reference external" href="https://www.sr-research.com">EyeLink</a>
 eye tracker.  Tested with the <a class="reference external" href="https://www.sr-research.com/products/eyelink-1000-plus/">EyeLink 1000/1000 Plus</a>
 and <a class="reference external" href="https://www.sr-research.com/products/eyelink-ii/">EyeLink II</a>
@@ -121,13 +122,13 @@ iodevice/eyelink eyelink (
 </div>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">iodevice/eyelink</span></code></p>
 </section>
 <section id="required-parameters">
-<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Link to this heading">¶</a></h2>
 <section id="tracker-ip">
-<h3>tracker_ip<a class="headerlink" href="#tracker-ip" title="Permalink to this heading">¶</a></h3>
+<h3>tracker_ip<a class="headerlink" href="#tracker-ip" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">100.1.1.1</span></code></p>
@@ -136,7 +137,7 @@ iodevice/eyelink eyelink (
 <p>The tracker’s IP address</p>
 </section>
 <section id="data-interval">
-<h3>data_interval<a class="headerlink" href="#data-interval" title="Permalink to this heading">¶</a></h3>
+<h3>data_interval<a class="headerlink" href="#data-interval" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1ms</span></code></p>
@@ -146,9 +147,9 @@ iodevice/eyelink eyelink (
 </section>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
 <section id="tracking-dist">
-<h3>tracking_dist<a class="headerlink" href="#tracking-dist" title="Permalink to this heading">¶</a></h3>
+<h3>tracking_dist<a class="headerlink" href="#tracking-dist" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1024</span></code></p>
@@ -159,119 +160,119 @@ iodevice/eyelink eyelink (
 <p>Required to compute <a class="reference internal" href="#eye-x">eye_x</a>, <a class="reference internal" href="#eye-y">eye_y</a>, and <a class="reference internal" href="#eye-z">eye_z</a>.</p>
 </section>
 <section id="eye-rx">
-<h3>eye_rx<a class="headerlink" href="#eye-rx" title="Permalink to this heading">¶</a></h3>
+<h3>eye_rx<a class="headerlink" href="#eye-rx" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye screen gaze x</p>
 </section>
 <section id="eye-ry">
-<h3>eye_ry<a class="headerlink" href="#eye-ry" title="Permalink to this heading">¶</a></h3>
+<h3>eye_ry<a class="headerlink" href="#eye-ry" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye screen gaze y</p>
 </section>
 <section id="eye-lx">
-<h3>eye_lx<a class="headerlink" href="#eye-lx" title="Permalink to this heading">¶</a></h3>
+<h3>eye_lx<a class="headerlink" href="#eye-lx" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye screen gaze x</p>
 </section>
 <section id="eye-ly">
-<h3>eye_ly<a class="headerlink" href="#eye-ly" title="Permalink to this heading">¶</a></h3>
+<h3>eye_ly<a class="headerlink" href="#eye-ly" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye screen gaze y</p>
 </section>
 <section id="eye-x">
-<h3>eye_x<a class="headerlink" href="#eye-x" title="Permalink to this heading">¶</a></h3>
+<h3>eye_x<a class="headerlink" href="#eye-x" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store computed <code class="docutils literal notranslate"><span class="pre">eye_x</span></code> (described above)</p>
 </section>
 <section id="eye-y">
-<h3>eye_y<a class="headerlink" href="#eye-y" title="Permalink to this heading">¶</a></h3>
+<h3>eye_y<a class="headerlink" href="#eye-y" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store computed <code class="docutils literal notranslate"><span class="pre">eye_y</span></code> (described above)</p>
 </section>
 <section id="eye-z">
-<h3>eye_z<a class="headerlink" href="#eye-z" title="Permalink to this heading">¶</a></h3>
+<h3>eye_z<a class="headerlink" href="#eye-z" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store computed <code class="docutils literal notranslate"><span class="pre">eye_z</span></code> (described above)</p>
 </section>
 <section id="href-rx">
-<h3>href_rx<a class="headerlink" href="#href-rx" title="Permalink to this heading">¶</a></h3>
+<h3>href_rx<a class="headerlink" href="#href-rx" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye headref x</p>
 </section>
 <section id="href-ry">
-<h3>href_ry<a class="headerlink" href="#href-ry" title="Permalink to this heading">¶</a></h3>
+<h3>href_ry<a class="headerlink" href="#href-ry" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye headref y</p>
 </section>
 <section id="href-lx">
-<h3>href_lx<a class="headerlink" href="#href-lx" title="Permalink to this heading">¶</a></h3>
+<h3>href_lx<a class="headerlink" href="#href-lx" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye headref x</p>
 </section>
 <section id="href-ly">
-<h3>href_ly<a class="headerlink" href="#href-ly" title="Permalink to this heading">¶</a></h3>
+<h3>href_ly<a class="headerlink" href="#href-ly" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye headref y</p>
 </section>
 <section id="pupil-rx">
-<h3>pupil_rx<a class="headerlink" href="#pupil-rx" title="Permalink to this heading">¶</a></h3>
+<h3>pupil_rx<a class="headerlink" href="#pupil-rx" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye pupil x</p>
 </section>
 <section id="pupil-ry">
-<h3>pupil_ry<a class="headerlink" href="#pupil-ry" title="Permalink to this heading">¶</a></h3>
+<h3>pupil_ry<a class="headerlink" href="#pupil-ry" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye pupil y</p>
 </section>
 <section id="pupil-lx">
-<h3>pupil_lx<a class="headerlink" href="#pupil-lx" title="Permalink to this heading">¶</a></h3>
+<h3>pupil_lx<a class="headerlink" href="#pupil-lx" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye pupil x</p>
 </section>
 <section id="pupil-ly">
-<h3>pupil_ly<a class="headerlink" href="#pupil-ly" title="Permalink to this heading">¶</a></h3>
+<h3>pupil_ly<a class="headerlink" href="#pupil-ly" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye pupil y</p>
 </section>
 <section id="pupil-size-r">
-<h3>pupil_size_r<a class="headerlink" href="#pupil-size-r" title="Permalink to this heading">¶</a></h3>
+<h3>pupil_size_r<a class="headerlink" href="#pupil-size-r" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right pupil size or area</p>
 </section>
 <section id="pupil-size-l">
-<h3>pupil_size_l<a class="headerlink" href="#pupil-size-l" title="Permalink to this heading">¶</a></h3>
+<h3>pupil_size_l<a class="headerlink" href="#pupil-size-l" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left pupil size or area</p>
 </section>
 <section id="blink-r">
-<h3>blink_r<a class="headerlink" href="#blink-r" title="Permalink to this heading">¶</a></h3>
+<h3>blink_r<a class="headerlink" href="#blink-r" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye blink state (true when blinking, false otherwise)</p>
 </section>
 <section id="blink-l">
-<h3>blink_l<a class="headerlink" href="#blink-l" title="Permalink to this heading">¶</a></h3>
+<h3>blink_l<a class="headerlink" href="#blink-l" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye blink state (true when blinking, false otherwise)</p>
 </section>
 <section id="saccade-r">
-<h3>saccade_r<a class="headerlink" href="#saccade-r" title="Permalink to this heading">¶</a></h3>
+<h3>saccade_r<a class="headerlink" href="#saccade-r" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye saccade state (true when in saccade, false otherwise)</p>
 </section>
 <section id="saccade-l">
-<h3>saccade_l<a class="headerlink" href="#saccade-l" title="Permalink to this heading">¶</a></h3>
+<h3>saccade_l<a class="headerlink" href="#saccade-l" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye saccade state (true when in saccade, false otherwise)</p>
 </section>
 <section id="fixation-r">
-<h3>fixation_r<a class="headerlink" href="#fixation-r" title="Permalink to this heading">¶</a></h3>
+<h3>fixation_r<a class="headerlink" href="#fixation-r" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store right eye fixation state (true when fixating, false otherwise)</p>
 </section>
 <section id="fixation-l">
-<h3>fixation_l<a class="headerlink" href="#fixation-l" title="Permalink to this heading">¶</a></h3>
+<h3>fixation_l<a class="headerlink" href="#fixation-l" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store left eye fixation state (true when fixating, false otherwise)</p>
 </section>
 <section id="cal-target-x">
-<h3>cal_target_x<a class="headerlink" href="#cal-target-x" title="Permalink to this heading">¶</a></h3>
+<h3>cal_target_x<a class="headerlink" href="#cal-target-x" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store calibration target x coordinate</p>
 </section>
 <section id="cal-target-y">
-<h3>cal_target_y<a class="headerlink" href="#cal-target-y" title="Permalink to this heading">¶</a></h3>
+<h3>cal_target_y<a class="headerlink" href="#cal-target-y" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store calibration target y coordinate</p>
 </section>
 <section id="cal-target-visible">
-<h3>cal_target_visible<a class="headerlink" href="#cal-target-visible" title="Permalink to this heading">¶</a></h3>
+<h3>cal_target_visible<a class="headerlink" href="#cal-target-visible" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store calibration target visibility state (true when the target should be visible, false when it should be hidden)</p>
 </section>
 <section id="eye-time">
-<h3>eye_time<a class="headerlink" href="#eye-time" title="Permalink to this heading">¶</a></h3>
+<h3>eye_time<a class="headerlink" href="#eye-time" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store time of sample (on EyeLink clock)</p>
 </section>
 <section id="display">
-<h3>display<a class="headerlink" href="#display" title="Permalink to this heading">¶</a></h3>
+<h3>display<a class="headerlink" href="#display" title="Link to this heading">¶</a></h3>
 <p>Name of the display on which to perform tracker-driven calibration. If omitted, the default display (if available) will be used.</p>
 </section>
 <section id="autostart">
-<h3>autostart<a class="headerlink" href="#autostart" title="Permalink to this heading">¶</a></h3>
+<h3>autostart<a class="headerlink" href="#autostart" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -283,12 +284,12 @@ implicit <a class="reference internal" href="start_io_device.html#start-io-devic
 stops running, irrespective of this setting.</p>
 </section>
 <section id="alt">
-<h3>alt<a class="headerlink" href="#alt" title="Permalink to this heading">¶</a></h3>
+<h3>alt<a class="headerlink" href="#alt" title="Link to this heading">¶</a></h3>
 <p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
@@ -404,8 +405,8 @@ stops running, irrespective of this setting.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2023, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.0.
+    &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
     </div>
   </body>
 </html>

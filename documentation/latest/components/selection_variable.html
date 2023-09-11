@@ -2,18 +2,19 @@
 
 <!doctype html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Selection Variable &#8212; MWorks 0.13.dev documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=76bb57fb"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -50,26 +51,26 @@
           <div class="body" role="main">
             
   <section id="selection-variable">
-<span id="index-0"></span><span id="id1"></span><h1>Selection Variable<a class="headerlink" href="#selection-variable" title="Permalink to this heading">¶</a></h1>
+<span id="index-0"></span><span id="id1"></span><h1>Selection Variable<a class="headerlink" href="#selection-variable" title="Link to this heading">¶</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>A variable whose current value is drawn from a list of possible values.  The order and number of selected values are determined by <a class="reference internal" href="#selection">selection</a>, <a class="reference internal" href="#nsamples">nsamples</a>, and <a class="reference internal" href="#sampling-method">sampling_method</a>.  Use <a class="reference internal" href="next_selection.html#next-selection"><span class="std std-ref">Next Selection</span></a> to advance to the next value.</p>
 </section>
 <section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading">¶</a></h2>
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">variable/selection</span></code></p>
 </section>
 <section id="required-parameters">
-<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Link to this heading">¶</a></h2>
 <section id="values">
-<h3>values<a class="headerlink" href="#values" title="Permalink to this heading">¶</a></h3>
+<h3>values<a class="headerlink" href="#values" title="Link to this heading">¶</a></h3>
 <p>Comma-separated list of values from which the variable’s current value is drawn.  May include <a class="reference internal" href="../expressions/index.html#range-expressions"><span class="std std-ref">range expressions</span></a>.</p>
 </section>
 </section>
 <section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
 <section id="advance-on-accept">
-<h3>advance_on_accept<a class="headerlink" href="#advance-on-accept" title="Permalink to this heading">¶</a></h3>
+<h3>advance_on_accept<a class="headerlink" href="#advance-on-accept" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -78,7 +79,7 @@
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, <a class="reference internal" href="accept_selections.html#accept-selections"><span class="std std-ref">Accept Selections</span></a> will automatically invoke <a class="reference internal" href="next_selection.html#next-selection"><span class="std std-ref">Next Selection</span></a> (unless all selections have been exhausted)</p>
 </section>
 <section id="autoreset">
-<h3>autoreset<a class="headerlink" href="#autoreset" title="Permalink to this heading">¶</a></h3>
+<h3>autoreset<a class="headerlink" href="#autoreset" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
@@ -87,7 +88,7 @@
 <p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, <a class="reference internal" href="reset_selections.html#reset-selections"><span class="std std-ref">Reset Selections</span></a> will be invoked automatically when all selections have been exhausted</p>
 </section>
 <section id="selection">
-<h3>selection<a class="headerlink" href="#selection" title="Permalink to this heading">¶</a></h3>
+<h3>selection<a class="headerlink" href="#selection" title="Link to this heading">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
@@ -105,7 +106,7 @@
 <p>Order in which to draw selections</p>
 </section>
 <section id="nsamples">
-<h3>nsamples<a class="headerlink" href="#nsamples" title="Permalink to this heading">¶</a></h3>
+<h3>nsamples<a class="headerlink" href="#nsamples" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p>
@@ -114,7 +115,7 @@
 <p>Number of samples to allow before <a class="reference internal" href="reset_selections.html#reset-selections"><span class="std std-ref">Reset Selections</span></a> is required</p>
 </section>
 <section id="sampling-method">
-<h3>sampling_method<a class="headerlink" href="#sampling-method" title="Permalink to this heading">¶</a></h3>
+<h3>sampling_method<a class="headerlink" href="#sampling-method" title="Link to this heading">¶</a></h3>
 <dl class="field-list">
 <dt class="field-odd">Options<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="line-block">
@@ -129,11 +130,11 @@
 <p>Controls the interpretation of <a class="reference internal" href="#nsamples">nsamples</a>.  If set to <code class="docutils literal notranslate"><span class="pre">cycles</span></code>, <em>all</em> possible selections must be made to complete one sample.  If set to <code class="docutils literal notranslate"><span class="pre">samples</span></code>, each individual selection counts as a sample.</p>
 </section>
 <section id="groups">
-<h3>groups<a class="headerlink" href="#groups" title="Permalink to this heading">¶</a></h3>
+<h3>groups<a class="headerlink" href="#groups" title="Link to this heading">¶</a></h3>
 <p>Comma-separated list containing the names of groups to which the variable belongs.  Variable groups are displayed as expandable sections in MWClient’s variables window.</p>
 </section>
 <section id="id2">
-<h3>description<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<h3>description<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Alias<span class="colon">:</span></dt>
 <dd class="field-odd"><p>desc</p>
@@ -143,7 +144,7 @@
 </section>
 </section>
 <section id="placement">
-<h2>Placement<a class="headerlink" href="#placement" title="Permalink to this heading">¶</a></h2>
+<h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
 <table class="docutils align-default">
 <tbody>
 <tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
@@ -234,8 +235,8 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2016-2023, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.0.
+    &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.5.
     </div>
   </body>
 </html>
