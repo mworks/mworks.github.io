@@ -1,0 +1,62 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: LabJack LJM Quadrature Input Channel
+   single: Input/Output; LabJack LJM Quadrature Input Channel
+
+.. _LabJack LJM Quadrature Input Channel:
+
+LabJack LJM Quadrature Input Channel
+====================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Quadrature input channel on a `LabJack LJM Device`
+
+
+Signature
+---------
+``iochannel/labjack_ljm_quadrature_input``
+
+
+Required Parameters
+-------------------
+
+first_line
+^^^^^^^^^^
+:Examples: | ``FIO2``
+           | ``eio0``
+
+Name of the digital line to use as the phase A input.  The next digital
+line will be used for phase B.  For example, if FIO6 is phase A, FIO7
+will be phase B.
+
+Note that only specific pairs of digital lines can be used for
+quadrature input.  For more information, see the `LabJack T-series
+datasheet
+<https://labjack.com/pages/support/?doc=/datasheets/t-series-datasheet/13211-quadrature-in-t-series-datasheet>`_.
+
+
+value
+^^^^^
+
+Variable in which to store quadrature count
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `LabJack LJM Device`

@@ -1,0 +1,18 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. _Sounds:
+
+Sounds
+======
+
+Auditory stimuli
+
+.. toctree::
+   :maxdepth: 1
+
+   audio_file_stimulus
+   sound_group
+   tone_stimulus

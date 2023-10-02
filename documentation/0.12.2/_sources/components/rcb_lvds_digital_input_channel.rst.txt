@@ -1,0 +1,69 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: RCB-LVDS Digital Input Channel
+   single: Input/Output; RCB-LVDS Digital Input Channel
+
+.. _RCB-LVDS Digital Input Channel:
+
+RCB-LVDS Digital Input Channel
+==============================
+
+
+Description
+-----------
+Digital input channel on a `RCB-LVDS Device`.
+
+*Note*: RCB-LVDS digital channels are inputs from the perspective of the
+device, in that their values are recorded along with the amplifier channel
+data and streamed to the recording software.  However, from MWorks'
+perspective, they function as outputs and can be used to add time stamps or
+other information to the RCB-LVDS data stream.
+
+
+
+Signature
+---------
+``iochannel/rcb_lvds_digital_input``
+
+
+Required Parameters
+-------------------
+
+channel
+^^^^^^^
+:Examples: | ``3``
+           | ``0,2,6``
+           | ``1:4``
+           | ``7,11:13,15``
+
+Channel number(s) to control via assignment to the variable provided in `value`_.  Each channel number must be between 0 and 15 (inclusive).
+
+
+value
+^^^^^
+
+Variable from which to read channel state.  `Assigning <Assign
+Variable>` a value to the variable causes the channel state to be
+changed immediately.
+
+The state value is treated as a multi-bit word.  The least significant
+bit controls the state of the first channel specified in `channel`_ (0
+for low, 1 for high), the next bit controls the second channel, etc.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `RCB-LVDS Device`

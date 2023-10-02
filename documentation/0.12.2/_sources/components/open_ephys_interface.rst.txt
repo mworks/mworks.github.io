@@ -1,0 +1,146 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Open Ephys Interface
+   single: Input/Output; Open Ephys Interface
+
+.. _Open Ephys Interface:
+
+Open Ephys Interface
+====================
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to the `Open Ephys GUI <http://www.open-ephys.org/gui/>`_
+application.  Requires an Open Ephys Event Broadcaster module listening on
+the specified `hostname`_ and `port`_.
+
+The primary function of this component is to compute the offset between the
+Open Ephys and MWorks clocks.  To enable this, your experiment must send
+periodic synchronization words to TTL inputs on the Open Ephys acquisition
+board.  Although this component does not send the synchronization signals
+itself, it must be made aware of them via the `sync`_ and `sync_channels`_
+parameters.
+
+Additionally, this component can receive information on `spikes`_ detected
+by an Open Ephys `Spike Detector <https://open-
+ephys.atlassian.net/wiki/display/OEW/Spike+Detector>`_ or `Spike Sorter
+<https://open-ephys.atlassian.net/wiki/display/OEW/Spike+Sorter>`_ module.
+(Note that the Event Broadcaster must appear *after* the spike detection
+module in the signal chain.)
+
+
+
+Signature
+---------
+``iodevice/open_ephys_interface``
+
+
+Required Parameters
+-------------------
+
+hostname
+^^^^^^^^
+:Examples: | ``localhost``
+           | ``dicarlo-open-ephys-12.mit.edu``
+
+Hostname of the computer running the Open Ephys GUI
+
+
+port
+^^^^
+:Example: ``5557``
+
+TCP port used by the Event Broadcaster module
+
+
+sync
+^^^^
+
+Variable from which to read synchronization words sent to TTL inputs on the Open Ephys acquisition board.  Assigning to the variable should also initiate transmission of the TTL signals (e.g. by associating it with a digital output channel on another `Input/Output` device).
+
+
+sync_channels
+^^^^^^^^^^^^^
+:Examples: | ``0,1``
+           | ``4:7``
+           | ``1,4:6,7``
+
+TTL input channels on the Open Ephys acquisition board to which synchronization words are sent.  The first channel should receive the least significant bit, the last channel the most significant.
+
+
+
+
+Optional Parameters
+-------------------
+
+clock_offset
+^^^^^^^^^^^^
+
+Variable in which to store computed offsets between the Open Ephys and MWorks clocks.
+Dividing an Open Ephys time (i.e. sample number) by the sampling rate and adding this offset (reported in microseconds) yields the corresponding MWorks time.
+
+
+spikes
+^^^^^^
+
+Variable in which to store information on detected spikes.
+
+For every spike event it receives from Open Ephys, MWorks will assign a
+new value to this variable.  The value will be a dictionary with the
+following fields:
+
+oe_timestamp
+  Timestamp on Open Ephys clock (i.e. sample number)
+
+sorted_id
+  Sorted unit ID (or 0 if unsorted)
+
+electrode_id
+  Electrode ID
+
+channel
+  Channel in which threshold crossing was detected (relevant only for
+  stereotrodes and tetrodes)
+
+The MWorks timestamp on the value (i.e. the time recorded in the event
+file) will be the Open Ephys timestamp converted to MWorks' clock (using
+the computed clock offset).  This enables direct comparison of spike
+times with the times of other events.
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

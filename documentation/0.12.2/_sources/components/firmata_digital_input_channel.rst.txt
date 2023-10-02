@@ -1,0 +1,52 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Firmata Digital Input Channel
+   single: Input/Output; Firmata Digital Input Channel
+
+.. _Firmata Digital Input Channel:
+
+Firmata Digital Input Channel
+=============================
+
+
+Description
+-----------
+Digital input channel on a `Firmata Device`
+
+
+Signature
+---------
+``iochannel/firmata_digital_input``
+
+
+Required Parameters
+-------------------
+
+pin_number
+^^^^^^^^^^
+:Example: ``13``
+
+Input pin number
+
+value
+^^^^^
+
+Variable in which to store input state (true or false)
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Firmata Device`

@@ -1,0 +1,55 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Firmata Word Output Channel
+   single: Input/Output; Firmata Word Output Channel
+
+.. _Firmata Word Output Channel:
+
+Firmata Word Output Channel
+===========================
+
+
+Description
+-----------
+Word output channel on a `Firmata Device`
+
+
+Signature
+---------
+``iochannel/firmata_word_output``
+
+
+Required Parameters
+-------------------
+
+pin_numbers
+^^^^^^^^^^^
+:Examples: | ``2,3,4``
+           | ``5:8``
+           | ``a5,10:12,A3``
+
+Pins used to output the individual bits of words assigned to `value`_. The first pin receives the least significant bit, the last pin the most significant.
+
+
+value
+^^^^^
+
+Variable from which to read output word (an integer).  `Assigning <Assign Variable>` a value to the variable causes the state of the pins specified in `pin_numbers`_ to be changed immediately.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Firmata Device`

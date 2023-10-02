@@ -1,0 +1,80 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: List
+   single: Paradigm Components; List
+
+.. _List:
+
+List
+====
+
+
+Description
+-----------
+A container paradigm component.
+
+The execution order and number of repetitions of a list's sub-components are
+determined by `selection`_, `nsamples`_, and `sampling_method`_.
+
+
+
+Signature
+---------
+``list``
+
+
+Optional Parameters
+-------------------
+
+interruptible
+^^^^^^^^^^^^^
+:Default: ``YES``
+
+If ``NO``, then any request to pause or stop the experiment while this component is executing will be deferred until said execution completes. This behavior is inherited by the component's children, making them non-interruptible as well.
+
+
+selection
+^^^^^^^^^
+:Options: | ``sequential``
+          | ``sequential_ascending``
+          | ``sequential_descending``
+          | ``random_without_replacement``
+          | ``random_with_replacement``
+:Default: ``sequential``
+
+Order in which to draw selections
+
+nsamples
+^^^^^^^^
+:Default: ``1``
+
+Number of samples to allow before `Reset Selections` is required
+
+
+sampling_method
+^^^^^^^^^^^^^^^
+:Options: | ``cycles``
+          | ``samples``
+:Default: ``cycles``
+
+Controls the interpretation of `nsamples`_.  If set to ``cycles``, *all* possible selections must be made to complete one sample.  If set to ``samples``, each individual selection counts as a sample.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `List`, `List Replicator`, `Protocol`, `Range Replicator`, `Trial`
+   * - Allowed children:
+     - `Action <Actions>`, `Block`, `List`, `List Replicator`, `Range Replicator`, `Task System`, `Trial`

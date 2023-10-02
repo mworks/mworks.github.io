@@ -1,0 +1,70 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: USB HID Input Channel
+   single: Input/Output; USB HID Input Channel
+
+.. _USB HID Input Channel:
+
+USB HID Input Channel
+=====================
+
+*Available on macOS*
+
+
+Description
+-----------
+Input channel on a `USB HID Device`.  Typically, a channel corresponds to a
+specific input (e.g. key, button, joystick axis) on the device.
+
+Appropriate values for the `usage_page`_ and `usage`_ parameters can be
+found in the `HID Usage Tables
+<http://www.usb.org/developers/hidpage#HID_Usage>`_.  However, in many
+cases, an easier method for determining the correct values is to set the
+device's ``log_all_input_values`` parameter to ``YES``, exercise the
+input(s) of interest, and record the usage page and usage values reported in
+the corresponding log messages.
+
+
+
+Signature
+---------
+``iochannel/usbhid_generic_input_channel``
+
+
+Required Parameters
+-------------------
+
+usage_page
+^^^^^^^^^^
+:Example: ``7``
+
+HID usage page for the input
+
+usage
+^^^^^
+:Example: ``44``
+
+HID usage for the input
+
+value
+^^^^^
+
+Variable in which to store values received from the input.  Input values are always converted to an integer representation before being stored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `USB HID Device`

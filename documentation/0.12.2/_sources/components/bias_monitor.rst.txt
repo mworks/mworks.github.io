@@ -1,0 +1,82 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Bias Monitor
+   single: Optimizers and Variable Monitors; Bias Monitor
+
+.. _Bias Monitor:
+
+Bias Monitor
+============
+
+
+Description
+-----------
+An object that watches parameters of a behavioral task and assesses the probability that the subject is adopting some form of biased strategy
+
+
+
+Signature
+---------
+``bias_monitor``
+
+
+Required Parameters
+-------------------
+
+success
+^^^^^^^
+
+Variable that indicates task success/failure (via a value of 1 or 0, respectively)
+
+
+response_index
+^^^^^^^^^^^^^^
+
+Variable that indicates e.g. physical response location (relevant value is when success changes)
+
+
+task_correlation
+^^^^^^^^^^^^^^^^
+
+Variable in which to store extent to which responses are consistent with the task
+
+
+response_bias_correlation
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Variable in which to store extent to which responses are consistent with a response bias
+
+
+alternation_correlation
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Variable in which to store extent to which responses are consistent with alternation
+
+
+history
+^^^^^^^
+
+Number of observations to average over
+
+grace_period
+^^^^^^^^^^^^
+
+Don't do anything unless you have at least this many observations
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

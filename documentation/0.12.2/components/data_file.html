@@ -1,0 +1,216 @@
+
+
+<!doctype html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data File &#8212; MWorks 0.12.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
+    
+    <script src="../_static/documentation_options.js?v=f24cbf82"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="DATAPixx Analog Input Channel" href="datapixx_analog_input_channel.html" />
+    <link rel="prev" title="Blackrock LED Driver" href="blackrock_led_driver.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="datapixx_analog_input_channel.html" title="DATAPixx Analog Input Channel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="blackrock_led_driver.html" title="Blackrock LED Driver"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.12.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" accesskey="U">Input/Output</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Data File</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="data-file">
+<span id="index-0"></span><span id="id1"></span><h1>Data File<a class="headerlink" href="#data-file" title="Link to this heading">¶</a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>By default, opening and closing of data files (aka event files) is
+controlled via MWClient.  By including a data file device in your
+experiment, you can transfer responsibility for data-file management to the
+experiment itself.</p>
+<p>If an experiment includes a data file device, a data file will be opened
+automatically when the experiment starts running.  If a data file with the
+specified <a class="reference internal" href="#filename">filename</a> is already open (e.g. because this is the second run
+of a protocol), then the existing file remains open.  If a data file with a
+different name is open, that file is closed before the new file is created.
+If a data file with the specified filename already exists and is not
+currently open, the existing file will <em>not</em> be overwritten.  If opening the
+data file fails for this or any other reason, the experiment will not start.</p>
+<p>While an experiment with a data file device is loaded, data files cannot be
+opened or closed via MWClient.  However, the client will still
+display the name of the current data file.</p>
+<p><em>Note</em>: An experiment can include only one data file device.  Also, <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a>, <a class="reference internal" href="stop_io_device.html#stop-io-device"><span class="std std-ref">Stop IO Device</span></a>, and <a class="reference internal" href="#autostart">autostart</a> have no effect on this
+device.</p>
+</section>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">iodevice/data_file</span></code></p>
+</section>
+<section id="required-parameters">
+<h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Link to this heading">¶</a></h2>
+<section id="filename">
+<h3>filename<a class="headerlink" href="#filename" title="Link to this heading">¶</a></h3>
+<dl class="field-list">
+<dt class="field-odd">Examples<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">my_file</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">my_experiment/${subject}/run-${run_counter}</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">/Volumes/Data/exp1/$(date(&quot;%Y%m%d-%H%M%S&quot;))</span></code></div>
+</div>
+</dd>
+</dl>
+<p>Filesystem path and name for the data file, excluding the file
+extension (<code class="docutils literal notranslate"><span class="pre">.mwk2</span></code>), which is appended automatically.</p>
+<p>If the filename is a relative path (i.e. it does not begin with <code class="docutils literal notranslate"><span class="pre">/</span></code>),
+then the <a class="reference internal" href="../guide/data_analysis.html#accessing-the-event-file"><span class="std std-ref">standard data-file directory</span></a> is
+prepended to it before the file is created.  Absolute paths are not
+modified.</p>
+<p>Typically, the filename will make use of <a class="reference internal" href="../expressions/index.html#variable-and-expression-interpolation"><span class="std std-ref">variable and/or expression
+interpolation</span></a> to ensure that
+each experimental session produces a unique data file.  The interpolated
+components of the filename are re-evaluated each time the experiment
+starts, so changes to variable values and expression results between
+runs in a given session will result in different filenames for each run.</p>
+</section>
+</section>
+<section id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
+<section id="autostart">
+<h3>autostart<a class="headerlink" href="#autostart" title="Link to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the device will start I/O automatically (as if by an
+implicit <a class="reference internal" href="start_io_device.html#start-io-device"><span class="std std-ref">Start IO Device</span></a> action) when the experiment starts running.</p>
+<p><em>Note</em>: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.</p>
+</section>
+<section id="alt">
+<h3>alt<a class="headerlink" href="#alt" title="Link to this heading">¶</a></h3>
+<p>Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If <code class="docutils literal notranslate"><span class="pre">#allowAltFailover</span></code> is set to 0 or false, this parameter is ignored.</p>
+</section>
+</section>
+<section id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Data File</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
+<li><a class="reference internal" href="#filename">filename</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#autostart">autostart</a></li>
+<li><a class="reference internal" href="#alt">alt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="blackrock_led_driver.html"
+                          title="previous chapter">Blackrock LED Driver</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="datapixx_analog_input_channel.html"
+                          title="next chapter">DATAPixx Analog Input Channel</a></p>
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="datapixx_analog_input_channel.html" title="DATAPixx Analog Input Channel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="blackrock_led_driver.html" title="Blackrock LED Driver"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.12.2 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="input_output.html" >Input/Output</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Data File</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2016-2023, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    </div>
+  </body>
+</html>
