@@ -1,0 +1,15 @@
+---
+layout: post
+title: MWorks 0.12.2 released
+author: cstawarz
+---
+
+MWorks 0.12.2 is now available for [Mac](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.12.2.dmg) and [iPad](https://apps.apple.com/app/mworks/id1389408331).  This release includes the following changes:
+
+* Fixed [an issue](https://mworks.discourse.group/t/eyelink-crashes-mwserver/909/7) that caused MWServer to crash when loading an experiment that contains an [EyeLink](/documentation/0.12.2/components/eyelink_device.html) device
+* Added `active_when_hidden` parameter to [rectangular](/documentation/0.12.2/components/fixation_point_stimulus.html) and [circular](/documentation/0.12.2/components/circular_fixation_point_stimulus.html) fixation points, which can be used to restore their pre-0.12 behavior when off screen
+* Reduced the start-up latency of [sound](/documentation/0.12.2/components/sounds.html) playback ([more info](https://mworks.discourse.group/t/mworks-sound-issue/888)), and fixed a few issues revealed by this change
+* Added support for the [LabJack T8](https://labjack.com/products/t8) to the [LabJack LJM](/documentation/0.12.2/components/labjack_ljm_device.html) interface
+* [LabJack LJM](/documentation/0.12.2/components/labjack_ljm_device.html) and [EyeLink](/documentation/0.12.2/components/eyelink_device.html) interfaces now support both arm64 (Apple silicon) and x86_64 (Intel) processors
+
+MWorks 0.12.2 requires a Mac running macOS Big Sur (11.0) or later or an iPad running iPadOS 16.0 or later.  It was tested on macOS 11, 12, and 13 and iPadOS 16.
