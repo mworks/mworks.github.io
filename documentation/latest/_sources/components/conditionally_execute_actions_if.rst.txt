@@ -44,6 +44,6 @@ Placement
    * - Allowed at top level:
      - No
    * - Allowed parent:
-     - `Block`, `Conditional Branching (if/else)`, `Conditionally Execute Actions (if)`, `List`, `Protocol`, `Render Actions`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`
+     - `Block`, `Conditional Branching (if/else)`, `Conditionally Execute Actions (if)`, `List`, `On Exit`, `Protocol`, `Render Actions`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`
    * - Allowed children:
      - `Action <Actions>`

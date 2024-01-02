@@ -35,6 +35,7 @@ Actions are the smallest unit of execution logic within an experiment. They init
    load_stimulus
    move_mouse_cursor
    next_selection
+   on_exit
    pause_dynamic_stimulus
    pause_experiment
    pause_sound
