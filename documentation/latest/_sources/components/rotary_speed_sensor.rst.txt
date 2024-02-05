@@ -1,0 +1,106 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Rotary Speed Sensor
+   single: Input/Output; Rotary Speed Sensor
+
+.. _Rotary Speed Sensor:
+
+Rotary Speed Sensor
+===================
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to a rotary speed sensor
+
+
+Signature
+---------
+``iodevice/rotary_speed_sensor``
+
+
+Required Parameters
+-------------------
+
+direction
+^^^^^^^^^
+
+Variable in which to store the direction reported by the sensor.  The direction value is always 0 or 1.
+
+
+rpm
+^^^
+
+Variable in which to store the rotational speed reported by the sensor. The rotational speed value is an integer ranging from 0 to 254 (inclusive) in units of revolutions per minute (RPM).
+
+
+
+
+Optional Parameters
+-------------------
+
+serial_port
+^^^^^^^^^^^
+:Example: ``/dev/cu.usbmodem23301``
+
+Filesystem path that represents the serial port to which the rotary
+speed sensor is connected.
+
+If omitted, MWorks looks for a single, connected serial device.  If it
+finds one, it assumes it to be the desired rotary speed sensor and
+attempts to connect.
+
+
+reconnect_interval
+^^^^^^^^^^^^^^^^^^
+:Default: ``0``
+:Example: ``10s``
+
+If the rotary speed sensor disconnects unexpectedly (e.g. due to power
+failure), and the value of this parameter is greater than zero, then
+MWorks will attempt to reconnect at this interval.
+
+For example, if this parameter is set to ``10s``, then, upon
+disconnection, MWorks will wait for 10 seconds and then try to
+reconnect.  If the reconnection attempt fails, MWorks will wait for
+another 10 seconds, then try again, and so on.
+
+If the value of this parameter is zero, MWorks will never attempt to
+reconnect.
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

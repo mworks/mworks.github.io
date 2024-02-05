@@ -57,6 +57,7 @@ Input/output (I/O) devices
    qcualor_device
    rcb_lvds_device
    rcb_lvds_digital_input_channel
+   rotary_speed_sensor
    server_side_event_conduit
    stimulus_display
    touch_input_device
