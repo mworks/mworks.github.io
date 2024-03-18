@@ -42,6 +42,7 @@ Input/output (I/O) devices
    iscan_device
    labjack_ljm_analog_input_channel
    labjack_ljm_analog_output_channel
+   labjack_ljm_analog_waveform_channel
    labjack_ljm_counter_channel
    labjack_ljm_device
    labjack_ljm_digital_input_channel

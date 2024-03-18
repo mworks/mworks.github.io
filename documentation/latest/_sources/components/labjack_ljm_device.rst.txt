@@ -77,6 +77,36 @@ identifier
 
 Desired device identifier
 
+analog_waveform_data_interval
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``0``
+:Example: ``1ms``
+
+Interval at which the device will output samples on a `LabJack LJM Analog Waveform Channel`.  This is a device-level parameter, because all analog waveform channels must use the same data interval.
+
+
+analog_waveform_trigger_line
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:Example: ``FIO6``
+
+Name of the digital line that triggers the start of output on a `LabJack
+LJM Analog Waveform Channel`.  The line must support the `Conditional
+Reset
+<https://labjack.com/pages/support/?doc=/datasheets/t-series-datasheet/13213-conditional-reset-t-series-datasheet/>`_
+extended feature.
+
+When a trigger line is specified,
+`LabJack LJM Start Analog Waveform Output` configures the device and
+uploads all output samples but does *not* start the actual output.
+Instead, output begins when the device detects a rising edge on the
+trigger line.  Subsequent trigger signals will have no effect until
+analog waveform output is
+`stopped <LabJack LJM Stop Analog Waveform Output>` and restarted.
+
+This is a device-level parameter, because all analog waveform channels
+share a single trigger line.
+
+
 autostart
 ^^^^^^^^^
 :Default: ``NO``
@@ -107,4 +137,4 @@ Placement
    * - Allowed parent:
      - `Folder`
    * - Allowed children:
-     - `LabJack LJM Analog Input Channel`, `LabJack LJM Analog Output Channel`, `LabJack LJM Counter Channel`, `LabJack LJM Digital Input Channel`, `LabJack LJM Digital Output Channel`, `LabJack LJM Quadrature Input Channel`, `LabJack LJM Word Input Channel`, `LabJack LJM Word Output Channel`
+     - `LabJack LJM Analog Input Channel`, `LabJack LJM Analog Output Channel`, `LabJack LJM Analog Waveform Channel`, `LabJack LJM Counter Channel`, `LabJack LJM Digital Input Channel`, `LabJack LJM Digital Output Channel`, `LabJack LJM Quadrature Input Channel`, `LabJack LJM Word Input Channel`, `LabJack LJM Word Output Channel`

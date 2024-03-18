@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Live Queue Stimulus &#8212; MWorks 0.13.dev documentation</title>
+    <title>LabJack LJM Stop Analog Waveform Output &#8212; MWorks 0.13.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
@@ -18,8 +18,8 @@
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Load Sound" href="load_sound.html" />
-    <link rel="prev" title="LabJack LJM Stop Analog Waveform Output" href="labjack_ljm_stop_analog_waveform_output.html" />
+    <link rel="next" title="Live Queue Stimulus" href="live_queue_stimulus.html" />
+    <link rel="prev" title="LabJack LJM Start Analog Waveform Output" href="labjack_ljm_start_analog_waveform_output.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
@@ -32,16 +32,16 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="load_sound.html" title="Load Sound"
+          <a href="live_queue_stimulus.html" title="Live Queue Stimulus"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="labjack_ljm_stop_analog_waveform_output.html" title="LabJack LJM Stop Analog Waveform Output"
+          <a href="labjack_ljm_start_analog_waveform_output.html" title="LabJack LJM Start Analog Waveform Output"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.13.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="actions.html" accesskey="U">Actions</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Live Queue Stimulus</a></li> 
+        <li class="nav-item nav-item-this"><a href="">LabJack LJM Stop Analog Waveform Output</a></li> 
       </ul>
     </div>  
 
@@ -50,21 +50,24 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="live-queue-stimulus">
-<span id="index-0"></span><span id="id1"></span><h1>Live Queue Stimulus<a class="headerlink" href="#live-queue-stimulus" title="Link to this heading">¶</a></h1>
+  <section id="labjack-ljm-stop-analog-waveform-output">
+<span id="index-0"></span><span id="id1"></span><h1>LabJack LJM Stop Analog Waveform Output<a class="headerlink" href="#labjack-ljm-stop-analog-waveform-output" title="Link to this heading">¶</a></h1>
+<p><em>Available on macOS</em></p>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-<p>Place a stimulus into the display queue, ready to be displayed when the next <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action is issued.  Differs from <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">Queue Stimulus</span></a> in that values for variables controlling the appearance of the stimulus will remain malleable right up until the moment that the display is updated.</p>
+<p>Stop analog waveform output on a <a class="reference internal" href="labjack_ljm_device.html#labjack-ljm-device"><span class="std std-ref">LabJack LJM Device</span></a>.</p>
+<p>This action stops the output of <em>every</em> <a class="reference internal" href="labjack_ljm_analog_waveform_channel.html#labjack-ljm-analog-waveform-channel"><span class="std std-ref">LabJack LJM Analog Waveform Channel</span></a> defined by the experiment.</p>
+<p>If analog waveform output is already stopped, this action does nothing.</p>
 </section>
 <section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">action/live_queue_stimulus</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">action/labjack_ljm_stop_analog_waveform_output</span></code></p>
 </section>
 <section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Link to this heading">¶</a></h2>
-<section id="stimulus">
-<h3>stimulus<a class="headerlink" href="#stimulus" title="Link to this heading">¶</a></h3>
-<p>Name of the stimulus</p>
+<section id="device">
+<h3>device<a class="headerlink" href="#device" title="Link to this heading">¶</a></h3>
+<p>Device name</p>
 </section>
 </section>
 <section id="placement">
@@ -92,11 +95,11 @@
   <div>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Live Queue Stimulus</a><ul>
+<li><a class="reference internal" href="#">LabJack LJM Stop Analog Waveform Output</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
-<li><a class="reference internal" href="#stimulus">stimulus</a></li>
+<li><a class="reference internal" href="#device">device</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#placement">Placement</a></li>
@@ -107,13 +110,13 @@
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="labjack_ljm_stop_analog_waveform_output.html"
-                          title="previous chapter">LabJack LJM Stop Analog Waveform Output</a></p>
+    <p class="topless"><a href="labjack_ljm_start_analog_waveform_output.html"
+                          title="previous chapter">LabJack LJM Start Analog Waveform Output</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="load_sound.html"
-                          title="next chapter">Load Sound</a></p>
+    <p class="topless"><a href="live_queue_stimulus.html"
+                          title="next chapter">Live Queue Stimulus</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -136,16 +139,16 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="load_sound.html" title="Load Sound"
+          <a href="live_queue_stimulus.html" title="Live Queue Stimulus"
              >next</a> |</li>
         <li class="right" >
-          <a href="labjack_ljm_stop_analog_waveform_output.html" title="LabJack LJM Stop Analog Waveform Output"
+          <a href="labjack_ljm_start_analog_waveform_output.html" title="LabJack LJM Start Analog Waveform Output"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.13.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="actions.html" >Actions</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Live Queue Stimulus</a></li> 
+        <li class="nav-item nav-item-this"><a href="">LabJack LJM Stop Analog Waveform Output</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

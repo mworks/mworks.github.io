@@ -30,6 +30,8 @@ Actions are the smallest unit of execution logic within an experiment. They init
    fake_monkey_fixate
    fake_monkey_saccade
    fake_monkey_saccade_and_fixate
+   labjack_ljm_start_analog_waveform_output
+   labjack_ljm_stop_analog_waveform_output
    live_queue_stimulus
    load_sound
    load_stimulus
