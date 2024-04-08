@@ -25,6 +25,7 @@ Visual stimuli
    mask_stimulus
    movie_stimulus
    moving_dots
+   optic_flow_field_stimulus
    parametric_shape_stimulus
    python_image_stimulus
    rectangle_stimulus

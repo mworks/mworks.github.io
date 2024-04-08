@@ -148,6 +148,13 @@ gains to zero, but the experiment must explicitly set the MEG state to
 low to deactivate the modulator.
 
 
+log_commands
+^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, log all commands sent to and responses received from the device to the MWorks event stream and server console
+
+
 autostart
 ^^^^^^^^^
 :Default: ``NO``

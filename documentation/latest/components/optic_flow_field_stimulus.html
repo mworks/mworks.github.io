@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Parametric Shape Stimulus &#8212; MWorks 0.13.dev documentation</title>
+    <title>Optic Flow Field Stimulus &#8212; MWorks 0.13.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=532c1bf3" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
@@ -18,8 +18,8 @@
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python Image Stimulus" href="python_image_stimulus.html" />
-    <link rel="prev" title="Optic Flow Field Stimulus" href="optic_flow_field_stimulus.html" />
+    <link rel="next" title="Parametric Shape Stimulus" href="parametric_shape_stimulus.html" />
+    <link rel="prev" title="Moving Dots" href="moving_dots.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
@@ -32,16 +32,16 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="python_image_stimulus.html" title="Python Image Stimulus"
+          <a href="parametric_shape_stimulus.html" title="Parametric Shape Stimulus"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="optic_flow_field_stimulus.html" title="Optic Flow Field Stimulus"
+          <a href="moving_dots.html" title="Moving Dots"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.13.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="stimuli.html" accesskey="U">Stimuli</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Parametric Shape Stimulus</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Optic Flow Field Stimulus</a></li> 
       </ul>
     </div>  
 
@@ -50,115 +50,120 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="parametric-shape-stimulus">
-<span id="index-0"></span><span id="id1"></span><h1>Parametric Shape Stimulus<a class="headerlink" href="#parametric-shape-stimulus" title="Link to this heading">¶</a></h1>
+  <section id="optic-flow-field-stimulus">
+<span id="index-0"></span><span id="id1"></span><h1>Optic Flow Field Stimulus<a class="headerlink" href="#optic-flow-field-stimulus" title="Link to this heading">¶</a></h1>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-<p>A user-defined, two-dimensional shape stimulus.</p>
-<p>The shape is defined by a list of <a class="reference internal" href="#vertices">vertices</a>.  By default, the outline of
-the shape is computed via a cubic B-spline approximation, for which the
-vertices serve as control points, resulting in a smooth edge.  However, if
-<a class="reference internal" href="#spline-resolution">spline_resolution</a> is set to zero, the provided vertices are used as-is
-and connected with straight line segments, producing a polygon.  Once the
-shape’s outline has been established, the interior is filled with the
-specified <a class="reference internal" href="#color">color</a>.</p>
-<p><em>Note</em>: The outline of the shape is determined when the stimulus is loaded.
-To change the value of <a class="reference internal" href="#vertices">vertices</a> or <a class="reference internal" href="#spline-resolution">spline_resolution</a> while the
-experiment is running, you must <a class="reference internal" href="unload_stimulus.html#unload-stimulus"><span class="std std-ref">unload</span></a> the stimulus,
-change the desired parameter, then <a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">reload</span></a> the stimulus.</p>
-<p class="rubric">Vertex Coordinates</p>
-<p>The coordinate grid on which the shape’s vertices lie is a square with
-center given by <a class="reference internal" href="#vertex-coord-center-x">vertex_coord_center_x</a> and <a class="reference internal" href="#vertex-coord-center-y">vertex_coord_center_y</a> and
-edge length given by <a class="reference internal" href="#vertex-coord-range">vertex_coord_range</a>.  If any of these parameters is
-omitted, its value is inferred from the other parameters (if present) and
-the bounding box of the shape, i.e. the smallest rectangle that encloses
-the entire shape.  Note that if <a class="reference internal" href="#spline-resolution">spline_resolution</a> is non-zero, the
-bounding box is determined from the spline approximation of the shape edge,
-not the raw vertices.</p>
-<p><em>Note</em>: Since the coordinate grid is always square, setting <a class="reference internal" href="#x-size">x_size</a> and
-<a class="reference internal" href="#y-size">y_size</a> to different values will stretch the shape along the larger
-dimension.</p>
+<p>A stimulus that simulates the view of an observer moving through a
+three-dimensional field of dots (or, equivalently, the view of a stationary
+observer in a field of moving dots).</p>
+<p>The dot field is implemented as a sphere with the observer at the center.
+<a class="reference external" href="https://en.wikipedia.org/wiki/3D_projection#Perspective_projection">Perspective projection</a> is
+used to map the dots on to the two-dimensional screen. The observer’s field
+of view is the <a class="reference external" href="https://en.wikipedia.org/wiki/Viewing_frustum">viewing frustum</a> defined by <a class="reference internal" href="#x-size">x_size</a>,
+<a class="reference internal" href="#y-size">y_size</a>, <a class="reference internal" href="#z-near">z_near</a>, and <a class="reference internal" href="#z-far">z_far</a>; the vertices of the far base of the
+frustum lie on the sphere.  The apparent direction of motion is specified
+in <a class="reference external" href="https://en.wikipedia.org/wiki/Horizontal_coordinate_system">horizontal coordinates</a> by
+<a class="reference internal" href="#direction-altitude">direction_altitude</a> and <a class="reference internal" href="#direction-azimuth">direction_azimuth</a>.</p>
 </section>
 <section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">stimulus/parametric_shape</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">stimulus/optic_flow_field</span></code></p>
 </section>
 <section id="required-parameters">
 <h2>Required Parameters<a class="headerlink" href="#required-parameters" title="Link to this heading">¶</a></h2>
-<section id="vertices">
-<h3>vertices<a class="headerlink" href="#vertices" title="Link to this heading">¶</a></h3>
+<section id="z-near">
+<h3>z_near<a class="headerlink" href="#z-near" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">[[-2,</span> <span class="pre">-2],</span> <span class="pre">[0,</span> <span class="pre">2],</span> <span class="pre">[0,</span> <span class="pre">0],</span> <span class="pre">[2,</span> <span class="pre">-2],</span> <span class="pre">[0,</span> <span class="pre">-1],</span> <span class="pre">[-2,</span> <span class="pre">-2]]</span></code></p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p>
 </dd>
 </dl>
-<p>Set of points that define the shape, in arbitrary coordinates
-(see above).  Must be a list of two or more sub-lists, with each
-sub-list containing two numbers.</p>
+<p>Distance to the near plane of the <a class="reference external" href="https://en.wikipedia.org/wiki/Viewing_frustum">viewing frustum</a> (degrees, i.e. same
+units as <a class="reference internal" href="#x-size">x_size</a> and <a class="reference internal" href="#y-size">y_size</a>)</p>
+</section>
+<section id="z-far">
+<h3>z_far<a class="headerlink" href="#z-far" title="Link to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">30</span></code></p>
+</dd>
+</dl>
+<p>Distance to the far plane of the <a class="reference external" href="https://en.wikipedia.org/wiki/Viewing_frustum">viewing frustum</a> (degrees, i.e. same
+units as <a class="reference internal" href="#x-size">x_size</a> and <a class="reference internal" href="#y-size">y_size</a>)</p>
+</section>
+<section id="dot-density">
+<h3>dot_density<a class="headerlink" href="#dot-density" title="Link to this heading">¶</a></h3>
+<p>Average number of dots per square degree on screen</p>
+</section>
+<section id="dot-size">
+<h3>dot_size<a class="headerlink" href="#dot-size" title="Link to this heading">¶</a></h3>
+<p>Dot diameter (degrees)</p>
+</section>
+<section id="speed">
+<h3>speed<a class="headerlink" href="#speed" title="Link to this heading">¶</a></h3>
+<p>Dot speed (degrees per second)</p>
 </section>
 </section>
 <section id="optional-parameters">
 <h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
-<section id="spline-resolution">
-<h3>spline_resolution<a class="headerlink" href="#spline-resolution" title="Link to this heading">¶</a></h3>
+<section id="direction-altitude">
+<h3>direction_altitude<a class="headerlink" href="#direction-altitude" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">50</span></code></p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
-<p>Number of points in the cubic B-spline approximation computed from
-<a class="reference internal" href="#vertices">vertices</a>.  Higher values will produce a smoother edge.</p>
-<p>Must be greater than or equal to zero.  If zero, no spline approximation
-is computed, and the provided vertices are connected with straight
-line segments.</p>
+<p>Altitude angle of direction of motion, in degrees between -90 and 90
+(inclusive).</p>
+<p>Along with <a class="reference internal" href="#direction-azimuth">direction_azimuth</a>, this parameter specifies the direction
+of motion (or, more precisely, the direction from which coherent dots
+come) in <a class="reference external" href="https://en.wikipedia.org/wiki/Horizontal_coordinate_system">horizontal coordinates</a>.  If the
+alititude and azimuth are both zero, the motion is directly in to the
+screen (or, equivalently, the dots come directly <em>out</em> of the screen).</p>
 </section>
-<section id="vertex-coord-center-x">
-<h3>vertex_coord_center_x<a class="headerlink" href="#vertex-coord-center-x" title="Link to this heading">¶</a></h3>
-<p>x coordinate of the center of the vertex coordinate grid (see above for details)</p>
-</section>
-<section id="vertex-coord-center-y">
-<h3>vertex_coord_center_y<a class="headerlink" href="#vertex-coord-center-y" title="Link to this heading">¶</a></h3>
-<p>y coordinate of the center of the vertex coordinate grid (see above for details)</p>
-</section>
-<section id="vertex-coord-range">
-<h3>vertex_coord_range<a class="headerlink" href="#vertex-coord-range" title="Link to this heading">¶</a></h3>
-<p>Edge length of the vertex coordinate grid (see above for details)</p>
-</section>
-<section id="margin-pixels">
-<h3>margin_pixels<a class="headerlink" href="#margin-pixels" title="Link to this heading">¶</a></h3>
+<section id="direction-azimuth">
+<h3>direction_azimuth<a class="headerlink" href="#direction-azimuth" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
-<p>Number of pixels at the edge of the stimulus rectangle (i.e. the region
-specified by <a class="reference internal" href="#x-size">x_size</a>, <a class="reference internal" href="#y-size">y_size</a> <a class="reference internal" href="#x-position">x_position</a>, <a class="reference internal" href="#y-position">y_position</a>, and
-<a class="reference internal" href="#rotation">rotation</a>) that are <em>not</em> drawn on.  Must be a floating-point number
-greater than or equal to zero.</p>
-<p>If parts of the shape at the edge of the vertex coordinate grid appear
-rough or truncated, increasing the number of margin pixels may
-eliminate the issue.</p>
+<p>Azimuth angle of direction of motion, in degrees between -180 and 180
+(inclusive).</p>
+<p>For more information, see <a class="reference internal" href="#direction-altitude">direction_altitude</a>.</p>
 </section>
-<section id="use-antialiasing">
-<h3>use_antialiasing<a class="headerlink" href="#use-antialiasing" title="Link to this heading">¶</a></h3>
+<section id="coherence">
+<h3>coherence<a class="headerlink" href="#coherence" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
 <dt class="field-odd">Default<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
 </dd>
 </dl>
-<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, anti-aliasing will be used to smooth the rendered edges of the shape</p>
+<p>Fraction of dots that appear to come from the direction specified by <a class="reference internal" href="#direction-altitude">direction_altitude</a> and <a class="reference internal" href="#direction-azimuth">direction_azimuth</a>.  Non-coherent dots receive random directions.</p>
 </section>
-<section id="max-size-x">
-<h3>max_size_x<a class="headerlink" href="#max-size-x" title="Link to this heading">¶</a></h3>
-<p>Maximum horizontal size (degrees).</p>
-<p>If omitted, the maximum horizontal size is set to the value of <a class="reference internal" href="#x-size">x_size</a>
-when the stimulus is loaded.</p>
+<section id="lifetime">
+<h3>lifetime<a class="headerlink" href="#lifetime" title="Link to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+</dd>
+</dl>
+<p>Dot lifetime (seconds).  When a dot reaches the end of its lifetime, it
+is removed and replaced by a new dot in a random location.</p>
+<p>If set to zero, dots have an infinite lifetime.</p>
 </section>
-<section id="max-size-y">
-<h3>max_size_y<a class="headerlink" href="#max-size-y" title="Link to this heading">¶</a></h3>
-<p>Maximum vertical size (degrees).</p>
-<p>If omitted, the maximum vertical size is set to the value of <a class="reference internal" href="#y-size">y_size</a>
-when the stimulus is loaded.</p>
+<section id="max-num-dots">
+<h3>max_num_dots<a class="headerlink" href="#max-num-dots" title="Link to this heading">¶</a></h3>
+<p>Maximum number of dots.</p>
+<p>If omitted, the maximum number of dots is computed from the other
+parameters when the stimulus is loaded.  Setting it explicitly to a
+larger value makes it possible to increase dot density or stimulus size
+while the experiment is running.</p>
+</section>
+<section id="rand-seed">
+<h3>rand_seed<a class="headerlink" href="#rand-seed" title="Link to this heading">¶</a></h3>
+<p>Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.</p>
 </section>
 <section id="color">
 <h3>color<a class="headerlink" href="#color" title="Link to this heading">¶</a></h3>
@@ -315,6 +320,15 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <h3>display<a class="headerlink" href="#display" title="Link to this heading">¶</a></h3>
 <p>Name of the display on which the stimulus will be presented.  If omitted, the default display (if available) will be used.</p>
 </section>
+<section id="autoplay">
+<h3>autoplay<a class="headerlink" href="#autoplay" title="Link to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Default<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
+</dd>
+</dl>
+<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus will start playing automatically (as if by an implicit <a class="reference internal" href="play_dynamic_stimulus.html#play-dynamic-stimulus"><span class="std std-ref">Play Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> has been invoked.  It will also stop playing automatically (as if by an implicit <a class="reference internal" href="stop_dynamic_stimulus.html#stop-dynamic-stimulus"><span class="std std-ref">Stop Dynamic Stimulus</span></a> action) after it has been <a class="reference internal" href="dequeue_stimulus.html#dequeue-stimulus"><span class="std std-ref">dequeued</span></a> and <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> is invoked.</p>
+</section>
 </section>
 <section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
@@ -341,22 +355,24 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
   <div>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Parametric Shape Stimulus</a><ul>
+<li><a class="reference internal" href="#">Optic Flow Field Stimulus</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
-<li><a class="reference internal" href="#vertices">vertices</a></li>
+<li><a class="reference internal" href="#z-near">z_near</a></li>
+<li><a class="reference internal" href="#z-far">z_far</a></li>
+<li><a class="reference internal" href="#dot-density">dot_density</a></li>
+<li><a class="reference internal" href="#dot-size">dot_size</a></li>
+<li><a class="reference internal" href="#speed">speed</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
-<li><a class="reference internal" href="#spline-resolution">spline_resolution</a></li>
-<li><a class="reference internal" href="#vertex-coord-center-x">vertex_coord_center_x</a></li>
-<li><a class="reference internal" href="#vertex-coord-center-y">vertex_coord_center_y</a></li>
-<li><a class="reference internal" href="#vertex-coord-range">vertex_coord_range</a></li>
-<li><a class="reference internal" href="#margin-pixels">margin_pixels</a></li>
-<li><a class="reference internal" href="#use-antialiasing">use_antialiasing</a></li>
-<li><a class="reference internal" href="#max-size-x">max_size_x</a></li>
-<li><a class="reference internal" href="#max-size-y">max_size_y</a></li>
+<li><a class="reference internal" href="#direction-altitude">direction_altitude</a></li>
+<li><a class="reference internal" href="#direction-azimuth">direction_azimuth</a></li>
+<li><a class="reference internal" href="#coherence">coherence</a></li>
+<li><a class="reference internal" href="#lifetime">lifetime</a></li>
+<li><a class="reference internal" href="#max-num-dots">max_num_dots</a></li>
+<li><a class="reference internal" href="#rand-seed">rand_seed</a></li>
 <li><a class="reference internal" href="#color">color</a></li>
 <li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
 <li><a class="reference internal" href="#source-blend-factor">source_blend_factor</a></li>
@@ -371,6 +387,7 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
 <li><a class="reference internal" href="#fullscreen">fullscreen</a></li>
 <li><a class="reference internal" href="#deferred">deferred</a></li>
 <li><a class="reference internal" href="#display">display</a></li>
+<li><a class="reference internal" href="#autoplay">autoplay</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#placement">Placement</a></li>
@@ -381,13 +398,13 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="optic_flow_field_stimulus.html"
-                          title="previous chapter">Optic Flow Field Stimulus</a></p>
+    <p class="topless"><a href="moving_dots.html"
+                          title="previous chapter">Moving Dots</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="python_image_stimulus.html"
-                          title="next chapter">Python Image Stimulus</a></p>
+    <p class="topless"><a href="parametric_shape_stimulus.html"
+                          title="next chapter">Parametric Shape Stimulus</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -410,16 +427,16 @@ x_size and y_size (unless <a class="reference internal" href="#fullscreen">fulls
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="python_image_stimulus.html" title="Python Image Stimulus"
+          <a href="parametric_shape_stimulus.html" title="Parametric Shape Stimulus"
              >next</a> |</li>
         <li class="right" >
-          <a href="optic_flow_field_stimulus.html" title="Optic Flow Field Stimulus"
+          <a href="moving_dots.html" title="Moving Dots"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.13.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="stimuli.html" >Stimuli</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Parametric Shape Stimulus</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Optic Flow Field Stimulus</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

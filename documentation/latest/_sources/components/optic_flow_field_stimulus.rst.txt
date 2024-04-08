@@ -1,0 +1,297 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Optic Flow Field Stimulus
+   single: Stimuli; Optic Flow Field Stimulus
+
+.. _Optic Flow Field Stimulus:
+
+Optic Flow Field Stimulus
+=========================
+
+
+Description
+-----------
+A stimulus that simulates the view of an observer moving through a
+three-dimensional field of dots (or, equivalently, the view of a stationary
+observer in a field of moving dots).
+
+The dot field is implemented as a sphere with the observer at the center.
+`Perspective projection
+<https://en.wikipedia.org/wiki/3D_projection#Perspective_projection>`_ is
+used to map the dots on to the two-dimensional screen. The observer's field
+of view is the `viewing frustum
+<https://en.wikipedia.org/wiki/Viewing_frustum>`_ defined by `x_size`_,
+`y_size`_, `z_near`_, and `z_far`_; the vertices of the far base of the
+frustum lie on the sphere.  The apparent direction of motion is specified
+in `horizontal coordinates
+<https://en.wikipedia.org/wiki/Horizontal_coordinate_system>`_ by
+`direction_altitude`_ and `direction_azimuth`_.
+
+
+
+Signature
+---------
+``stimulus/optic_flow_field``
+
+
+Required Parameters
+-------------------
+
+z_near
+^^^^^^
+:Example: ``10``
+
+Distance to the near plane of the `viewing frustum
+<https://en.wikipedia.org/wiki/Viewing_frustum>`_ (degrees, i.e. same
+units as `x_size`_ and `y_size`_)
+
+
+z_far
+^^^^^
+:Example: ``30``
+
+Distance to the far plane of the `viewing frustum
+<https://en.wikipedia.org/wiki/Viewing_frustum>`_ (degrees, i.e. same
+units as `x_size`_ and `y_size`_)
+
+
+dot_density
+^^^^^^^^^^^
+
+Average number of dots per square degree on screen
+
+dot_size
+^^^^^^^^
+
+Dot diameter (degrees)
+
+speed
+^^^^^
+
+Dot speed (degrees per second)
+
+
+
+Optional Parameters
+-------------------
+
+direction_altitude
+^^^^^^^^^^^^^^^^^^
+:Default: ``0.0``
+
+Altitude angle of direction of motion, in degrees between -90 and 90
+(inclusive).
+
+Along with `direction_azimuth`_, this parameter specifies the direction
+of motion (or, more precisely, the direction from which coherent dots
+come) in `horizontal coordinates
+<https://en.wikipedia.org/wiki/Horizontal_coordinate_system>`_.  If the
+alititude and azimuth are both zero, the motion is directly in to the
+screen (or, equivalently, the dots come directly *out* of the screen).
+
+
+direction_azimuth
+^^^^^^^^^^^^^^^^^
+:Default: ``0.0``
+
+Azimuth angle of direction of motion, in degrees between -180 and 180
+(inclusive).
+
+For more information, see `direction_altitude`_.
+
+
+coherence
+^^^^^^^^^
+:Default: ``1.0``
+
+Fraction of dots that appear to come from the direction specified by `direction_altitude`_ and `direction_azimuth`_.  Non-coherent dots receive random directions.
+
+
+lifetime
+^^^^^^^^
+:Default: ``0.0``
+
+Dot lifetime (seconds).  When a dot reaches the end of its lifetime, it
+is removed and replaced by a new dot in a random location.
+
+If set to zero, dots have an infinite lifetime.
+
+
+max_num_dots
+^^^^^^^^^^^^
+
+Maximum number of dots.
+
+If omitted, the maximum number of dots is computed from the other
+parameters when the stimulus is loaded.  Setting it explicitly to a
+larger value makes it possible to increase dot density or stimulus size
+while the experiment is running.
+
+
+rand_seed
+^^^^^^^^^
+
+Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.
+
+
+color
+^^^^^
+:Default: ``1.0,1.0,1.0``
+
+The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).
+
+
+alpha_multiplier
+^^^^^^^^^^^^^^^^
+:Default: ``1.0``
+
+By default, the alpha multiplier controls the transparency of the
+stimulus.  ``1.0`` is fully opaque, while ``0.0`` is fully tranparent.
+
+Changes to the parameters `source_blend_factor`_ and
+`dest_blend_factor`_ can alter how (or if) the alpha multiplier is used.
+
+
+source_blend_factor
+^^^^^^^^^^^^^^^^^^^
+:Options: | ``zero``
+          | ``one``
+          | ``source_color``
+          | ``one_minus_source_color``
+          | ``dest_color``
+          | ``one_minus_dest_color``
+          | ``source_alpha``
+          | ``one_minus_source_alpha``
+          | ``dest_alpha``
+          | ``one_minus_dest_alpha``
+:Default: ``source_alpha``
+
+Source blending factor.
+
+The parameters `source_blend_factor`_, `dest_blend_factor`_,
+`source_alpha_blend_factor`_, and `dest_alpha_blend_factor`_ provide
+detailed control over how the color components and alpha multiplier of
+each fragment of the stimulus (the "source") are combined with the color
+and alpha values already present in the framebuffer (the "destination"),
+which in turn result from blending the stimulus display background with
+any stimuli drawn beneath the source stimulus.  These parameters
+correspond directly to the four arguments of the `OpenGL
+<https://www.opengl.org>`_ function `glBlendFuncSeparate
+<https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendFuncSeparate.xhtml>`_.
+Please refer to that function's reference page for explanations of the
+different blend factor options.
+
+*Note*:  Irrespective of the blend factors used, the `blend equation
+<https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/glBlendEquation.xhtml>`_
+is always ``GL_FUNC_ADD``.
+
+
+dest_blend_factor
+^^^^^^^^^^^^^^^^^
+:Default: ``one_minus_source_alpha``
+
+Destination blending factor.  Accepts the same values as `source_blend_factor`_.
+
+
+source_alpha_blend_factor
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Source alpha blending factor.  Accepts the same values as
+`source_blend_factor`_.
+
+If omitted, the value of `source_blend_factor`_ is used.
+
+
+dest_alpha_blend_factor
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Destination alpha blending factor.  Accepts the same values as
+`source_blend_factor`_.
+
+If omitted, the value of `dest_blend_factor`_ is used.
+
+
+x_size
+^^^^^^
+:Example: ``5.0``
+
+Horizontal size (degrees).
+
+If omitted, the value of `y_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
+y_size
+^^^^^^
+:Example: ``5.0``
+
+Vertical size (degrees).
+
+If omitted, the value of `x_size`_ is used.  It is an error to omit both
+x_size and y_size (unless `fullscreen`_ is ``YES``).
+
+
+x_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Horizontal center position (degrees)
+
+y_position
+^^^^^^^^^^
+:Default: ``0.0``
+
+Vertical center position (degrees)
+
+rotation
+^^^^^^^^
+:Default: ``0.0``
+
+Rotation (degrees)
+
+fullscreen
+^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus is sized to fill the display.  In this mode, `x_size`_, `y_size`_, `x_position`_, `y_position`_, and `rotation`_ are ignored.
+
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+display
+^^^^^^^
+
+Name of the display on which the stimulus will be presented.  If omitted, the default display (if available) will be used.
+
+
+autoplay
+^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the stimulus will start playing automatically (as if by an implicit `Play Dynamic Stimulus` action) after it has been `queued <Queue Stimulus>` and `Update Stimulus Display` has been invoked.  It will also stop playing automatically (as if by an implicit `Stop Dynamic Stimulus` action) after it has been `dequeued <Dequeue Stimulus>` and `Update Stimulus Display` is invoked.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`
