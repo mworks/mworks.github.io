@@ -1,0 +1,51 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Stop Sound
+   single: Actions; Stop Sound
+
+.. _Stop Sound:
+
+Stop Sound
+==========
+
+
+Description
+-----------
+Stop a `sound <Sounds>`.
+
+If the sound is `playing <Play Sound>` or `paused <Pause Sound>`, playback
+will end immediately, and the next playback will start at the beginning of
+the sound.  If the sound is neither playing nor paused, this action does
+nothing.
+
+
+
+Signature
+---------
+``action/stop_sound``
+
+
+Required Parameters
+-------------------
+
+sound
+^^^^^
+
+Name of the sound
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `On Exit`, `Protocol`, `Render Actions`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

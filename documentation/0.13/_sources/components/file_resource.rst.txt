@@ -1,0 +1,50 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: File Resource
+   single: Resources; File Resource
+
+.. _File Resource:
+
+File Resource
+=============
+
+
+Description
+-----------
+A file or set of files required by an experiment
+
+
+
+Signature
+---------
+``resource``
+
+
+Required Parameters
+-------------------
+
+path
+^^^^
+:Examples: | ``images/1.png``
+           | ``sounds``
+           | ``/shared/imagesets/01/``
+
+Filesystem path to the required file or directory.  If a directory, all non-hidden, regular files in the directory are copied, including those in nested subdirectories.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

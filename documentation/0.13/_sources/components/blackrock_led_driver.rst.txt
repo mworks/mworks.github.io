@@ -1,0 +1,111 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Blackrock LED Driver
+   single: Input/Output; Blackrock LED Driver
+
+.. _Blackrock LED Driver:
+
+Blackrock LED Driver
+====================
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to a Blackrock LED array driver
+
+
+Signature
+---------
+``iodevice/blackrock_led_driver``
+
+
+Optional Parameters
+-------------------
+
+running
+^^^^^^^
+
+Variable to set to true when the LED program starts running, false when it stops
+
+
+temp_a
+^^^^^^
+
+Variable in which to store thermistor readout from bank A
+
+
+temp_b
+^^^^^^
+
+Variable in which to store thermistor readout from bank B
+
+
+temp_c
+^^^^^^
+
+Variable in which to store thermistor readout from bank C
+
+
+temp_d
+^^^^^^
+
+Variable in which to store thermistor readout from bank D
+
+
+temp_calc
+^^^^^^^^^
+:Options: | ``5k``
+          | ``10k``
+          | ``none``
+:Default: ``none``
+
+Calculation to use to convert raw thermistor readouts to temperatures in
+degrees Celsius.
+
+Normally, either ``5k`` or ``10k`` should be used, depending on the
+connector type.  If ``none`` is specified, the raw thermistor readouts
+(divided by 1000) are reported.
+
+
+simulate_device
+^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, simulation mode will be enabled.  In this mode, the actual LED driver hardware is not required (and will be ignored if present). All LED driver actions will execute, although communication with the driver hardware will be omitted, and `running`_ will be updated at the appropriate times.  However, `thermistor readout requests <Read Blackrock LED Driver Temperatures>` will *not* update the corresponding variables.  If you need to test your experiment's response to temperature changes, you must assign values to the temperature variables yourself.
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

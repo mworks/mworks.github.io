@@ -1,0 +1,54 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Stop Blackrock LED Driver
+   single: Actions; Stop Blackrock LED Driver
+
+.. _Stop Blackrock LED Driver:
+
+Stop Blackrock LED Driver
+=========================
+
+*Available on macOS*
+
+
+Description
+-----------
+Stop a `Blackrock LED Driver`.  If the driver is not running, this action
+has no effect.
+
+*Note*: Under normal circumstances, there is no need to use this action, as
+the driver will stop automatically after running for the duration specified
+by `Run Blackrock LED Driver`.  An explicit stop is required only when you
+want to stop the driver early, before the active run completes.
+
+
+
+Signature
+---------
+``action/blackrock_led_driver_stop``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Device name
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `On Exit`, `Protocol`, `Render Actions`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

@@ -1,0 +1,94 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Eye Monitor
+   single: Filters; Eye Monitor
+
+.. _Eye Monitor:
+
+Eye Monitor
+===========
+
+
+Description
+-----------
+A filter that takes in an eye signal and outputs basic parameters, such as velocity, saccade state, etc.
+
+
+
+Signature
+---------
+``filter/basic_eye_monitor``
+
+
+Required Parameters
+-------------------
+
+eyeh_calibrated
+^^^^^^^^^^^^^^^
+
+Variable from which to read horizontal eye position
+
+
+eyev_calibrated
+^^^^^^^^^^^^^^^
+
+Variable from which to read vertical eye position
+
+
+eye_state
+^^^^^^^^^
+
+Variable in which to store computed eye state (0 for fixation, 1 for saccade)
+
+
+width_samples
+^^^^^^^^^^^^^
+
+Number of samples to store in internal `boxcar filters <Box-car Filter>` that are applied to computed velocity components
+
+
+saccade_entry_speed
+^^^^^^^^^^^^^^^^^^^
+
+A computed eye speed greater than this speed denotes a saccade (units per second)
+
+
+saccade_exit_speed
+^^^^^^^^^^^^^^^^^^
+
+A computed eye speed less than or equal to this speed indicates fixation (units per second)
+
+
+
+
+Optional Parameters
+-------------------
+
+eye_velocity_h
+^^^^^^^^^^^^^^
+
+Variable in which to store computed horizontal eye velocity (units per second)
+
+
+eye_velocity_v
+^^^^^^^^^^^^^^
+
+Variable in which to store computed vertical eye velocity (units per second)
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

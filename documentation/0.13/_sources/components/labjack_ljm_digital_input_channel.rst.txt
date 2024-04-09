@@ -1,0 +1,55 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: LabJack LJM Digital Input Channel
+   single: Input/Output; LabJack LJM Digital Input Channel
+
+.. _LabJack LJM Digital Input Channel:
+
+LabJack LJM Digital Input Channel
+=================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Digital input channel on a `LabJack LJM Device`
+
+
+Signature
+---------
+``iochannel/labjack_ljm_digital_input``
+
+
+Required Parameters
+-------------------
+
+line
+^^^^
+:Examples: | ``FIO4``
+           | ``eio7``
+           | ``DIO16``
+
+Digital line name
+
+value
+^^^^^
+
+Variable in which to store input state (true or false)
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `LabJack LJM Device`

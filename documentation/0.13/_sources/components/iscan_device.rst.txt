@@ -1,0 +1,119 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: ISCAN Device
+   single: Input/Output; ISCAN Device
+
+.. _ISCAN Device:
+
+ISCAN Device
+============
+
+*Available on macOS*
+
+
+Description
+-----------
+Interface to an `ISCAN <http://www.iscaninc.com/>`_ eye tracking system.
+
+On the device, the serial I/O baud rate must be set to 115200, and a
+binary output format must be selected.
+
+
+
+Signature
+---------
+``iodevice/iscan``
+
+
+Optional Parameters
+-------------------
+
+serial_port
+^^^^^^^^^^^
+:Example: ``/dev/tty.usbserial-FTH1RRH5``
+
+Filesystem path that represents the serial port to which the ISCAN
+device is connected.
+
+If omitted, MWorks looks for a single, connected serial device.  If it
+finds one, it assumes it to be the desired ISCAN device and attempts to
+connect.
+
+
+output_01
+^^^^^^^^^
+
+Variable in which to store output 1
+
+output_02
+^^^^^^^^^
+
+Variable in which to store output 2
+
+output_03
+^^^^^^^^^
+
+Variable in which to store output 3
+
+output_04
+^^^^^^^^^
+
+Variable in which to store output 4
+
+output_05
+^^^^^^^^^
+
+Variable in which to store output 5
+
+output_06
+^^^^^^^^^
+
+Variable in which to store output 6
+
+start_command
+^^^^^^^^^^^^^
+:Default: ``128``
+
+Command byte used to start recording.  On some systems, the correct value may be 132.
+
+
+stop_command
+^^^^^^^^^^^^
+:Default: ``129``
+
+Command byte used to stop recording.  On some systems, the correct value may be 136.
+
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

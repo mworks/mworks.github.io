@@ -1,0 +1,72 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: RCB-LVDS Device
+   single: Input/Output; RCB-LVDS Device
+
+.. _RCB-LVDS Device:
+
+RCB-LVDS Device
+===============
+
+
+Description
+-----------
+Interface to a DSP Wireless `RCB-LVDS module <http://www.dspwi.com/wifi- interfaces-for-ephys.html>`_
+
+
+
+Signature
+---------
+``iodevice/rcb_lvds``
+
+
+Required Parameters
+-------------------
+
+address
+^^^^^^^
+:Examples: | ``192.168.1.93``
+           | ``"10.0.1.93"``
+
+Network address (hostname or IP address) of the module
+
+
+
+Optional Parameters
+-------------------
+
+autostart
+^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, the device will start I/O automatically (as if by an
+implicit `Start IO Device` action) when the experiment starts running.
+
+*Note*: Device I/O will always stop automatically when the experiment
+stops running, irrespective of this setting.
+
+
+alt
+^^^
+
+Alternative device to use if this one fails to initialize (e.g. because the required hardware is not available).  If ``#allowAltFailover`` is set to 0 or false, this parameter is ignored.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`
+   * - Allowed children:
+     - `RCB-LVDS Digital Input Channel`

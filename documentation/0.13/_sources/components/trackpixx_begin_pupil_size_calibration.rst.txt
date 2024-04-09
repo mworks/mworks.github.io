@@ -1,0 +1,48 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: TRACKPixx Begin Pupil Size Calibration
+   single: Actions; TRACKPixx Begin Pupil Size Calibration
+
+.. _TRACKPixx Begin Pupil Size Calibration:
+
+TRACKPixx Begin Pupil Size Calibration
+======================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Begin pupil size calibration on a `TRACKPixx Device`
+
+
+
+Signature
+---------
+``action/trackpixx_begin_pupil_size_calibration``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Name of the TRACKPixx device
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `On Exit`, `Protocol`, `Render Actions`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

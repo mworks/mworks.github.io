@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Conditional Branching (if/else) &#8212; MWorks 0.13 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=658d757c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
+    
+    <script src="../_static/documentation_options.js?v=9bec1924"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Conditionally Execute Actions (if)" href="conditionally_execute_actions_if.html" />
+    <link rel="prev" title="Clear Stimulus Display" href="clear_stimulus_display.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="conditionally_execute_actions_if.html" title="Conditionally Execute Actions (if)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="clear_stimulus_display.html" title="Clear Stimulus Display"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="actions.html" accesskey="U">Actions</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Conditional Branching (if/else)</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="conditional-branching-if-else">
+<span id="index-0"></span><span id="id1"></span><h1>Conditional Branching (if/else)<a class="headerlink" href="#conditional-branching-if-else" title="Link to this heading">¶</a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>Given a list of <a class="reference internal" href="conditionally_execute_actions_if.html#conditionally-execute-actions-if"><span class="std std-ref">Conditionally Execute Actions (if)</span></a> actions, executes the first one whose condition is true, or none if all conditions are false.  The list may include a single <a class="reference internal" href="unconditionally_execute_actions_else.html#unconditionally-execute-actions-else"><span class="std std-ref">Unconditionally Execute Actions (else)</span></a> action, which will be executed only if all the conditions are false.</p>
+</section>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">action/if_else</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Alias<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">action/choose</span></code></p>
+</dd>
+</dl>
+</section>
+<section id="placement">
+<h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><th class="stub"><p>Allowed at top level:</p></th>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
+<td><p><a class="reference internal" href="block.html#block"><span class="std std-ref">Block</span></a>, <a class="reference internal" href="conditionally_execute_actions_if.html#conditionally-execute-actions-if"><span class="std std-ref">Conditionally Execute Actions (if)</span></a>, <a class="reference internal" href="list.html#list"><span class="std std-ref">List</span></a>, <a class="reference internal" href="on_exit.html#on-exit"><span class="std std-ref">On Exit</span></a>, <a class="reference internal" href="protocol.html#protocol"><span class="std std-ref">Protocol</span></a>, <a class="reference internal" href="render_actions.html#render-actions"><span class="std std-ref">Render Actions</span></a>, <a class="reference internal" href="repeat_actions_while.html#repeat-actions-while"><span class="std std-ref">Repeat Actions (while)</span></a>, <a class="reference internal" href="schedule_actions.html#schedule-actions"><span class="std std-ref">Schedule Actions</span></a>, <a class="reference internal" href="task_system_state.html#task-system-state"><span class="std std-ref">Task System State</span></a>, <a class="reference internal" href="trial.html#trial"><span class="std std-ref">Trial</span></a>, <a class="reference internal" href="unconditionally_execute_actions_else.html#unconditionally-execute-actions-else"><span class="std std-ref">Unconditionally Execute Actions (else)</span></a>, <a class="reference internal" href="variable.html#variable"><span class="std std-ref">Variable</span></a></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Allowed children:</p></th>
+<td><p><a class="reference internal" href="conditionally_execute_actions_if.html#conditionally-execute-actions-if"><span class="std std-ref">Conditionally Execute Actions (if)</span></a>, <a class="reference internal" href="unconditionally_execute_actions_else.html#unconditionally-execute-actions-else"><span class="std std-ref">Unconditionally Execute Actions (else)</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Conditional Branching (if/else)</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#signature">Signature</a></li>
+<li><a class="reference internal" href="#placement">Placement</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="clear_stimulus_display.html"
+                          title="previous chapter">Clear Stimulus Display</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="conditionally_execute_actions_if.html"
+                          title="next chapter">Conditionally Execute Actions (if)</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="conditionally_execute_actions_if.html" title="Conditionally Execute Actions (if)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="clear_stimulus_display.html" title="Clear Stimulus Display"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="actions.html" >Actions</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Conditional Branching (if/else)</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2016-2024, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    </div>
+  </body>
+</html>

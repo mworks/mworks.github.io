@@ -1,0 +1,56 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Box-car Filter
+   single: Filters; Box-car Filter
+
+.. _Box-car Filter:
+
+Box-car Filter
+==============
+
+
+Description
+-----------
+A basic 1-D boxcar (moving average) filter
+
+
+Signature
+---------
+``filter/boxcar_filter_1d``
+
+
+Required Parameters
+-------------------
+
+in1
+^^^
+
+Variable from which to read input values
+
+out1
+^^^^
+
+Variable in which to store output values
+
+width_samples
+^^^^^^^^^^^^^
+
+Number of samples to store in memory and average over
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

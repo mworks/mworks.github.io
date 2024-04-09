@@ -1,0 +1,54 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: LabJack LJM Analog Input Channel
+   single: Input/Output; LabJack LJM Analog Input Channel
+
+.. _LabJack LJM Analog Input Channel:
+
+LabJack LJM Analog Input Channel
+================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Analog input channel on a `LabJack LJM Device`
+
+
+Signature
+---------
+``iochannel/labjack_ljm_analog_input``
+
+
+Required Parameters
+-------------------
+
+line
+^^^^
+:Examples: | ``AIN0``
+           | ``ain3``
+
+Analog input line name
+
+value
+^^^^^
+
+Variable in which to store input voltage values
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `LabJack LJM Device`

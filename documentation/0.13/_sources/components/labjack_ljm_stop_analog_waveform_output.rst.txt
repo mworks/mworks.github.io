@@ -1,0 +1,53 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: LabJack LJM Stop Analog Waveform Output
+   single: Actions; LabJack LJM Stop Analog Waveform Output
+
+.. _LabJack LJM Stop Analog Waveform Output:
+
+LabJack LJM Stop Analog Waveform Output
+=======================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Stop analog waveform output on a `LabJack LJM Device`.
+
+This action stops the output of *every* `LabJack LJM Analog Waveform
+Channel` defined by the experiment.
+
+If analog waveform output is already stopped, this action does nothing.
+
+
+
+Signature
+---------
+``action/labjack_ljm_stop_analog_waveform_output``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Device name
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `On Exit`, `Protocol`, `Render Actions`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

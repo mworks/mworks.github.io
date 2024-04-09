@@ -1,0 +1,90 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Simple Staircase Optimizer
+   single: Optimizers and Variable Monitors; Simple Staircase Optimizer
+
+.. _Simple Staircase Optimizer:
+
+Simple Staircase Optimizer
+==========================
+
+
+Description
+-----------
+An object that watches a variable (e.g. a flag reporting success in a behavioral task) and moves another variable up and down according to some criteria
+
+
+
+Signature
+---------
+``staircase``
+
+
+Required Parameters
+-------------------
+
+watch
+^^^^^
+
+Variable to watch
+
+output
+^^^^^^
+
+Variable to vary
+
+lower_limit
+^^^^^^^^^^^
+
+Lower bound for output
+
+upper_limit
+^^^^^^^^^^^
+
+Upper bound for output
+
+up_criterion
+^^^^^^^^^^^^
+
+If watched variable value is greater than or equal to this value, output steps up
+
+
+down_criterion
+^^^^^^^^^^^^^^
+
+If watched variable value is less than or equal to this value, output steps down
+
+
+step_size
+^^^^^^^^^
+
+Step size for changing output
+
+grace_period
+^^^^^^^^^^^^
+
+Don't step anywhere unless watched variable has been updated at least this many times
+
+
+history
+^^^^^^^
+
+Number of samples to store in internal `boxcar filter <Box-car Filter>` used to average watched variable values
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Folder`

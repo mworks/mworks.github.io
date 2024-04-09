@@ -1,0 +1,69 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Fake Monkey Eye Channel
+   single: Input/Output; Fake Monkey Eye Channel
+
+.. _Fake Monkey Eye Channel:
+
+Fake Monkey Eye Channel
+=======================
+
+*Available on macOS*
+
+
+Description
+-----------
+Provides simulated raw horizontal and vertical eye position data from a `Fake Monkey IO Device`
+
+
+
+Signature
+---------
+``iochannel/eye_movement``
+
+
+Required Parameters
+-------------------
+
+eye_h
+^^^^^
+
+Variable in which to store simulated horizontal eye position (in degrees)
+
+
+eye_v
+^^^^^
+
+Variable in which to store simulated vertical eye position (in degrees)
+
+
+data_interval
+^^^^^^^^^^^^^
+:Example: ``1ms``
+
+Interval between simulated eye position samples (microseconds)
+
+
+update_interval
+^^^^^^^^^^^^^^^
+:Example: ``10ms``
+
+Interval between eye position updates (microseconds).  If larger than `data_interval`_, multiple eye positions will be generated during each update.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Fake Monkey IO Device`

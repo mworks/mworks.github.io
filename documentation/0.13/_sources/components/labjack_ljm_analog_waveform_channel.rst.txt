@@ -1,0 +1,100 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: LabJack LJM Analog Waveform Channel
+   single: Input/Output; LabJack LJM Analog Waveform Channel
+
+.. _LabJack LJM Analog Waveform Channel:
+
+LabJack LJM Analog Waveform Channel
+===================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Analog waveform channel on a `LabJack LJM Device`.
+
+An analog waveform channel outputs a user-defined analog waveform on an
+analog output (i.e. DAC) line.  Samples are output at the rate specified
+by the device-level parameter ``analog_waveform_data_interval``.  All analog
+waveform channels are started and stopped simultaneously, via the
+`LabJack LJM Start Analog Waveform Output` and
+`LabJack LJM Stop Analog Waveform Output` actions, respectively.
+
+
+
+Signature
+---------
+``iochannel/labjack_ljm_analog_waveform``
+
+
+Required Parameters
+-------------------
+
+line
+^^^^
+:Examples: | ``DAC0``
+           | ``dac1``
+
+Analog output line name
+
+value
+^^^^^
+:Alias: data
+
+Variable from which to read output voltage values (i.e. samples).  The
+values are output at the rate specified by the
+`device <LabJack LJM Device>`-level parameter
+``analog_waveform_data_interval``.
+
+The output values must be provided as either a list of numbers or as a
+string containing the bytes of a double-precision floating-point array
+in native byte order.  The latter format can be created, for example,
+with the `tobytes method
+<https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tobytes.html>`_
+of a `NumPy <https://numpy.org>`_ array.
+
+The output values are read when
+`LabJack LJM Start Analog Waveform Output` executes.  Therefore, they
+can be changed at any time during the experiment, with the latest values
+being read the next time waveform output is started.
+
+
+
+
+Optional Parameters
+-------------------
+
+loop
+^^^^
+:Default: ``NO``
+
+If ``YES``, the samples provided in `value`_ are output repeatedly in a
+loop, producing a periodic waveform.  Otherwise, the samples are output
+only once.
+
+If the waveform does not loop, then once all the samples have been
+output, the specified `line`_ will remain active with the value given
+by the last sample until analog waveform output is `stopped <LabJack
+LJM Stop Analog Waveform Output>`.  To make the output go to zero as
+soon as the waveform ends, provide a value of zero for the last
+sample.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `LabJack LJM Device`

@@ -1,0 +1,75 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: TRACKPixx Take Calibration Sample
+   single: Actions; TRACKPixx Take Calibration Sample
+
+.. _TRACKPixx Take Calibration Sample:
+
+TRACKPixx Take Calibration Sample
+=================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Take a calibration sample on a `TRACKPixx Device`
+
+
+
+Signature
+---------
+``action/trackpixx_take_calibration_sample``
+
+
+Required Parameters
+-------------------
+
+screen_x
+^^^^^^^^
+
+x coordinate of the fixation target (in degrees)
+
+screen_y
+^^^^^^^^
+
+y coordinate of the fixation target (in degrees)
+
+device
+^^^^^^
+
+Name of the TRACKPixx device
+
+
+
+Optional Parameters
+-------------------
+
+left_eye
+^^^^^^^^
+:Default: ``YES``
+
+Enable data verification for left eye
+
+right_eye
+^^^^^^^^^
+:Default: ``YES``
+
+Enable data verification for right eye
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `On Exit`, `Protocol`, `Render Actions`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

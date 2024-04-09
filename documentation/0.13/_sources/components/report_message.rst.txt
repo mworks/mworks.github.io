@@ -1,0 +1,50 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Report / Message
+   single: Actions; Report / Message
+
+.. _Report / Message:
+
+Report / Message
+================
+
+
+Description
+-----------
+Write a message to the console and event stream
+
+
+Signature
+---------
+``action/report``
+
+
+Required Parameters
+-------------------
+
+message
+^^^^^^^
+
+Message text.
+
+To include the values of variables or arbitrary expressions in the
+message, you can use `variable and expression interpolation <Variable and
+Expression Interpolation>` (e.g. ``x = $x, y = ${y}, x+y = $(x+y)``).
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `On Exit`, `Protocol`, `Render Actions`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

@@ -1,0 +1,56 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: LabJack LJM Digital Output Channel
+   single: Input/Output; LabJack LJM Digital Output Channel
+
+.. _LabJack LJM Digital Output Channel:
+
+LabJack LJM Digital Output Channel
+==================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Digital output channel on a `LabJack LJM Device`
+
+
+Signature
+---------
+``iochannel/labjack_ljm_digital_output``
+
+
+Required Parameters
+-------------------
+
+line
+^^^^
+:Examples: | ``FIO4``
+           | ``eio7``
+           | ``DIO16``
+
+Digital line name
+
+value
+^^^^^
+
+Variable from which to read output state (true or false).  `Assigning <Assign Variable>` a value to the variable causes the output state to be changed immediately.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `LabJack LJM Device`

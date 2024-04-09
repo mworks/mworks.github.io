@@ -1,0 +1,55 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: LabJack LJM Start Analog Waveform Output
+   single: Actions; LabJack LJM Start Analog Waveform Output
+
+.. _LabJack LJM Start Analog Waveform Output:
+
+LabJack LJM Start Analog Waveform Output
+========================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Start analog waveform output on a `LabJack LJM Device`.
+
+This action starts the output of *every* `LabJack LJM Analog Waveform
+Channel` defined by the experiment.  Periodic waveforms will output
+continuously until `LabJack LJM Stop Analog Waveform Output` is called or
+the device is `stopped <Stop IO Device>`.
+
+If analog waveform output is already started, this action does nothing.
+
+
+
+Signature
+---------
+``action/labjack_ljm_start_analog_waveform_output``
+
+
+Required Parameters
+-------------------
+
+device
+^^^^^^
+
+Device name
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `On Exit`, `Protocol`, `Render Actions`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

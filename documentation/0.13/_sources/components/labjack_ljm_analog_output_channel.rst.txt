@@ -1,0 +1,55 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: LabJack LJM Analog Output Channel
+   single: Input/Output; LabJack LJM Analog Output Channel
+
+.. _LabJack LJM Analog Output Channel:
+
+LabJack LJM Analog Output Channel
+=================================
+
+*Available on macOS*
+
+
+Description
+-----------
+Analog output channel on a `LabJack LJM Device`
+
+
+Signature
+---------
+``iochannel/labjack_ljm_analog_output``
+
+
+Required Parameters
+-------------------
+
+line
+^^^^
+:Examples: | ``DAC0``
+           | ``dac1``
+
+Analog output line name
+
+value
+^^^^^
+
+Variable from which to read output voltage values.  `Assigning <Assign Variable>` a value to the variable causes the output voltage to be changed immediately.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `LabJack LJM Device`

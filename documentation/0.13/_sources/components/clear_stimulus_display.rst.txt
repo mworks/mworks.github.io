@@ -1,0 +1,63 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Clear Stimulus Display
+   single: Actions; Clear Stimulus Display
+
+.. _Clear Stimulus Display:
+
+Clear Stimulus Display
+======================
+
+
+Description
+-----------
+Remove all stimuli from the display queue, and trigger a redraw of the
+stimulus display.  On the next display refresh, only the default background
+will be drawn.
+
+*Note*: Before completing, this action waits for all drawing commands to be
+submitted to the graphics hardware.  However, it does *not* wait for the
+actual display update to occur.  If your experiment must coordinate other
+actions with the actual display update, it will need to wait until the time
+provided by `predicted_output_time`_.
+
+
+
+Signature
+---------
+``action/clear_stimulus_display``
+
+:Alias: ``action/clear_display``
+
+
+Optional Parameters
+-------------------
+
+display
+^^^^^^^
+
+Name of the display.  If omitted, the default display (if available) will be used.
+
+
+predicted_output_time
+^^^^^^^^^^^^^^^^^^^^^
+
+Name of a variable in which to store the predicted output time of the frame in which the action will take effect.  This time is the operating system's best guess for when the rendered frame will start to appear on screen.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Block`, `Conditionally Execute Actions (if)`, `List`, `On Exit`, `Protocol`, `Render Actions`, `Repeat Actions (while)`, `Schedule Actions`, `Task System State`, `Trial`, `Unconditionally Execute Actions (else)`, `Variable`

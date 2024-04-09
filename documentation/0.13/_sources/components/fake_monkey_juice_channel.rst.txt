@@ -1,0 +1,49 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Fake Monkey Juice Channel
+   single: Input/Output; Fake Monkey Juice Channel
+
+.. _Fake Monkey Juice Channel:
+
+Fake Monkey Juice Channel
+=========================
+
+*Available on macOS*
+
+
+Description
+-----------
+Simulates dispensing juice to a `Fake Monkey IO Device`
+
+
+
+Signature
+---------
+``iochannel/juice``
+
+
+Required Parameters
+-------------------
+
+variable
+^^^^^^^^
+
+Variable used to trigger simulated juice dispensing.  Whenever the variable's value changes, MWorks logs a message (to the event stream and server console) indicating that juice was dispensed.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - No
+   * - Allowed parent:
+     - `Fake Monkey IO Device`
