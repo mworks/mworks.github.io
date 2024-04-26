@@ -107,6 +107,23 @@ This is a device-level parameter, because all analog waveform channels
 share a single trigger line.
 
 
+read_inputs_while_stopped
+^^^^^^^^^^^^^^^^^^^^^^^^^
+:Default: ``NO``
+
+If ``YES``, MWorks will start reading and reporting input data when the
+experiment loads and will continue to do so until the experiment is
+unloaded. `Stop IO Device` will not halt collection of input data, and
+`Start IO Device` will not reset the values of
+`counter <LabJack LJM Counter Channel>` and
+`quadrature <LabJack LJM Quadrature Input Channel>` inputs.
+
+If ``NO``, MWorks will start reading and reporting input data when
+`Start IO Device` is invoked and stop when `Stop IO Device` is
+called or the experiment stops running.  Stopping and restarting the
+device *will* reset the values of counter and quadrature inputs.
+
+
 autostart
 ^^^^^^^^^
 :Default: ``NO``
