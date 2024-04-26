@@ -1,0 +1,103 @@
+---
+layout: post
+title: MWorks 0.13 released
+author: cstawarz
+---
+
+MWorks 0.13 is now available for [Mac](https://s3.amazonaws.com/mworks-downloads/release/MWorks-0.13.dmg) and [iPad](https://apps.apple.com/app/mworks/id1389408331).  Highlights of this release include:
+
+* [Optic flow field](/documentation/0.13/components/optic_flow_field_stimulus.html) stimulus
+* [Exit actions](/documentation/0.13/components/on_exit.html)
+* [Analog waveform output](/documentation/0.13/components/labjack_ljm_analog_waveform_channel.html) on [LabJack LJM](/documentation/0.13/components/labjack_ljm_device.html) devices
+* [Rotary speed sensor](/documentation/0.13/components/rotary_speed_sensor.html) device
+* Experiment loading no longer requires all media files to fit in RAM simultaneously
+* MATLAB tools now support both arm64 (Apple silicon) and x86_64 (Intel) processors
+
+MWorks 0.13 requires a Mac running macOS Monterey (12.0) or later or an iPad running iPadOS 17.0 or later.  It was tested on macOS 12, 13, and 14 and iPadOS 17.
+
+For a full list of changes in this release, please see the release notes below.
+
+
+### Core
+
+* Added [Optic Flow Field](/documentation/0.13/components/optic_flow_field_stimulus.html) stimulus
+
+* Added [exit actions](/documentation/0.13/components/on_exit.html).  These can be used to perform work in a [Task System State](/documentation/0.13/components/task_system_state.html) *after* a transition succeeds or to run unconditional shutdown or cleanup code (similar to Python's [try/finally](https://docs.python.org/3/tutorial/errors.html#defining-clean-up-actions) or Swift's [defer](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/statements/#Defer-Statement)).
+
+* Experiment media files are now sent one at a time from client to server.  This eliminates the need for all media files to fit in RAM simultaneously, which was particularly problematic on iPad's.
+
+
+#### Variables
+
+* Variable notifications and announcement now happen atomically within assignments.  This means that a variable's [attached actions](/documentation/0.13/guide/designing.html#variable-attached-actions) cannot execute on more than one thread simultaneously (and therefore cannot interfere or overlap with actions executing on another thread).
+
+* Element assigments to variables now perform notifications and announce only if the assignment succeeds
+
+* Resolved an issue where client-side code lookups for experiment-defined
+ variables would continue to succeed after the experiment was unloaded
+
+
+#### I/O Devices
+
+* Added support for [analog waveform output](/documentation/0.13/components/labjack_ljm_analog_waveform_channel.html) to [LabJack LJM](/documentation/0.13/components/labjack_ljm_device.html) devices
+
+* Added [Rotary Speed Sensor](/documentation/0.13/components/rotary_speed_sensor.html) device
+
+* [QCUALOR](/documentation/0.13/components/qcualor_device.html) device
+
+  * [Start IO Device](/documentation/0.13/components/start_io_device.html) now configures active channels only ([more info](https://mworks.discourse.group/t/the-timing-between-turning-laser-on-and-stimulus-on/951/37))
+
+  * Added [log_commands](/documentation/0.13/components/qcualor_device.html#log-commands) parameter
+
+* Setting [#allowAltFailover](/documentation/0.13/reference/sysvars.html#allowaltfailover) to false now actually works as intended
+
+* Attempting to make an I/O device its own "alt" object is now an error
+
+
+### Applications
+
+* Workspace files: Accept [JSON5](https://json5.org) on input.  Sort keys and don't escape slashes on output.
+
+* Fixed a potential crash on macOS 14.1
+
+
+### Python and MATLAB Tools
+
+* Python plugin now embeds Python 3.11 (instead of 3.10)
+
+* Python tools now require Python 3.8 or later
+
+* MATLAB tools now require MATLAB R2022a or later
+
+* MATLAB tools now support both arm64 (Apple silicon) and x86_64 (Intel) processors
+
+
+### Internals/Development
+
+* Upgraded to new versions of many supporting libraries:
+
+  * boost: 1.81.0 ➞ 1.83.0
+  * msgpack: 4.1.1 ➞ 6.1.0
+  * numpy: 1.23.3 ➞ 1.26.2
+  * openssl: 3.0.7 ➞ 3.1.4
+  * python: 3.10.7 ➞ 3.11.3
+  * sqlite: 3.40.0 ➞ 3.44.0
+  * zeromq: 4.3.4 ➞ 4.3.5
+
+* Added StateSystem::executeAction.  Use a singleton State instance (the "end state") to indicate that there are no more states to execute.  ActionVariableNotification, ScheduledActions, and RenderActions now use StateSystem::executeAction to execute their associated actions.  Wait, WaitForCondition, and StimulusDisplayAction no longer have special-case code to handle execution outside of the state system.  Action::execute is now pure virtual and private.
+
+* State::next now tries to return its parent's next state (instead of the parent itself), in order to avoid an unnecessary invocation of the parent's action
+
+* Removed Action::setName and all calls to setName in State subclasses, because any name set that way is overwritten during experiment loading by ComponentRegistry::registerObject (either directly or via ComponentRegistry::registerNewObject)
+
+* Added ContainerAction.  If, Else, IfElse, and While now derive from ContainerAction.
+
+* Renamed global variable `currentState` to `announceCurrentState`
+
+* Added Swift ClientPluginCoordinator and ClientPluginViewController classes to MWorksCocoa
+
+* Added ReadWriteVariable class.  GlobalVariable and ScopedVariable now inherit from ReadWriteVariable
+
+* Use SQLite exclusive locking mode when reading MWK2 files
+
+* Removed OpenALContextManager, LegacySound and its subclasses, alut, and all usage of OpenAL
