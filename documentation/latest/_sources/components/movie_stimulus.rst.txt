@@ -109,6 +109,6 @@ Placement
    * - Allowed at top level:
      - Yes
    * - Allowed parent:
-     - `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`
+     - `Compound Stimulus`, `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`
    * - Allowed children:
      - `List Replicator`, `Range Replicator`, `Stimulus <Stimuli>`

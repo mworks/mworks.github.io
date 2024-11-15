@@ -15,13 +15,15 @@ Reset Selections
 
 Description
 -----------
-Reset all selections on a selectable object, including any that were previously accepted.  From the point of view of the selectable object, it will be as if no selections were never made.
+Reset all selections on a selectable object, including any that were previously accepted.  From the point of view of the selectable object, it will be as if no selections were ever made.
 
 
 
 Signature
 ---------
 ``action/reset_selection``
+
+:Alias: ``action/reset_selections``
 
 
 Required Parameters

@@ -1,0 +1,95 @@
+..
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+   WARNING:  This is a generated file.  Do not edit it manually!
+   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+.. index::
+   single: Compound Stimulus
+   single: Stimuli; Compound Stimulus
+
+.. _Compound Stimulus:
+
+Compound Stimulus
+=================
+
+
+Description
+-----------
+A compound stimulus is a container for other stimuli.  When displayed, it
+simply renders its child stimuli.  For example, the following compound
+stimulus reproduces the `flag of Ireland
+<https://en.wikipedia.org/wiki/Flag_of_Ireland>`_::
+
+    compound irish_flag {
+        rectangle green_rect (
+            color = 0.0075, 0.3278, 0.1221
+            x_size = 4
+            y_size = 6
+            x_position = -4
+            )
+    
+        rectangle white_rect (
+            color = 1.0, 1.0, 1.0
+            x_size = 4
+            y_size = 6
+            x_position = 0
+            )
+    
+        rectangle orange_rect (
+            color = 1.0, 0.2462, 0.0482
+            x_size = 4
+            y_size = 6
+            x_position = +4
+            )
+    }
+
+Compound stimuli simplify management of groups of stimuli that should always
+be displayed together.  Instead of `loading <Load Stimulus>`, `unloading
+<Unload Stimulus>`, `queuing <Queue Stimulus>`, or `dequeuing <Dequeue
+Stimulus>` each member of a group individually, you can load, unload, queue,
+or dequeue just the compound stimulus that contains them.  For example, you
+can display the above stimulus as follows::
+
+    queue_stimulus (irish_flag)
+    update_display ()
+
+
+
+Signature
+---------
+``stimulus/compound``
+
+
+Optional Parameters
+-------------------
+
+deferred
+^^^^^^^^
+:Options: | ``no``
+          | ``yes``
+          | ``explicit``
+:Default: ``no``
+
+Controls when the stimulus is loaded.  If ``no``, the stimulus is loaded at experiment load time.  If ``yes``, the stimulus is loaded the first time it is `queued <Queue Stimulus>`.  If ``explicit``, the stimulus must be loaded explictly with `Load Stimulus`.
+
+
+display
+^^^^^^^
+
+Name of the display on which the stimulus will be presented.  If omitted, the default display (if available) will be used.
+
+
+
+
+Placement
+---------
+.. list-table::
+   :widths: auto
+   :stub-columns: 1
+
+   * - Allowed at top level:
+     - Yes
+   * - Allowed parent:
+     - `Compound Stimulus`, `Folder`, `Frame List Stimulus`, `Layer Stimulus`, `List Replicator`, `Movie Stimulus`, `Range Replicator`, `Stimulus Group`
+   * - Allowed children:
+     - `Stimulus <Stimuli>`

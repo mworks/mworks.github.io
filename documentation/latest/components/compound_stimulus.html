@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>White Noise Background &#8212; MWorks 0.14.dev documentation</title>
+    <title>Compound Stimulus &#8212; MWorks 0.14.dev documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
@@ -17,8 +17,8 @@
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Transitions" href="transitions.html" />
-    <link rel="prev" title="Video Stimulus" href="video_stimulus.html" />
+    <link rel="next" title="Drifting Grating Stimulus" href="drifting_grating_stimulus.html" />
+    <link rel="prev" title="Circular Fixation Point Stimulus" href="circular_fixation_point_stimulus.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
@@ -31,16 +31,16 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="transitions.html" title="Transitions"
+          <a href="drifting_grating_stimulus.html" title="Drifting Grating Stimulus"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="video_stimulus.html" title="Video Stimulus"
+          <a href="circular_fixation_point_stimulus.html" title="Circular Fixation Point Stimulus"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.14.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="stimuli.html" accesskey="U">Stimuli</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">White Noise Background</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Compound Stimulus</a></li> 
       </ul>
     </div>  
 
@@ -49,68 +49,52 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="white-noise-background">
-<span id="index-0"></span><span id="id1"></span><h1>White Noise Background<a class="headerlink" href="#white-noise-background" title="Link to this heading">¶</a></h1>
+  <section id="compound-stimulus">
+<span id="index-0"></span><span id="id1"></span><h1>Compound Stimulus<a class="headerlink" href="#compound-stimulus" title="Link to this heading">¶</a></h1>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-<p>White noise background stimulus.</p>
-<p>Fills the display with random noise drawn from a uniform distribution.  The
-experiment can re-randomize the noise via the <a class="reference internal" href="randomize_white_noise_background.html#randomize-white-noise-background"><span class="std std-ref">Randomize White Noise Background</span></a> action.</p>
-</section>
-<section id="signature">
-<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">stimulus/white_noise_background</span></code></p>
-</section>
-<section id="optional-parameters">
-<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
-<section id="grayscale">
-<h3>grayscale<a class="headerlink" href="#grayscale" title="Link to this heading">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Default<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">YES</span></code></p>
-</dd>
-</dl>
-<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, all three color channels (red, green, and blue) of a given noise grain will be assigned the same random value.  If <code class="docutils literal notranslate"><span class="pre">NO</span></code>, each color channel will be set to an independent random value, thereby producing colored noise.</p>
-</section>
-<section id="grain-size">
-<h3>grain_size<a class="headerlink" href="#grain-size" title="Link to this heading">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Default<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
-</dd>
-</dl>
-<p>Noise grain size (degrees).</p>
-<p>The number of grains in each dimension is rounded to the nearest
-integer.  Grain sizes less than or equal to the size of one pixel will
-result in per-pixel randomization.</p>
-</section>
-<section id="rand-seed">
-<h3>rand_seed<a class="headerlink" href="#rand-seed" title="Link to this heading">¶</a></h3>
-<p>Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.</p>
-</section>
-<section id="randomize-on-draw">
-<h3>randomize_on_draw<a class="headerlink" href="#randomize-on-draw" title="Link to this heading">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">Default<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">NO</span></code></p>
-</dd>
-</dl>
-<p>If <code class="docutils literal notranslate"><span class="pre">YES</span></code>, the stimulus will re-randomize itself every time it draws.
-Drawing may be triggered either explicitly (via an <a class="reference internal" href="update_stimulus_display.html#update-stimulus-display"><span class="std std-ref">Update Stimulus Display</span></a> action) or implicitly (e.g. at the request of a running dynamic
-stimulus).</p>
-<p>To generate dynamic white noise that updates on every display refresh,
-use this parameter in conjuction with a <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>frame_list dynamic_noise (
-    loop = true
-    autoplay = true
-    ) {
-    white_noise_background (
-        randomize_on_draw = true
+<p>A compound stimulus is a container for other stimuli.  When displayed, it
+simply renders its child stimuli.  For example, the following compound
+stimulus reproduces the <a class="reference external" href="https://en.wikipedia.org/wiki/Flag_of_Ireland">flag of Ireland</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>compound irish_flag {
+    rectangle green_rect (
+        color = 0.0075, 0.3278, 0.1221
+        x_size = 4
+        y_size = 6
+        x_position = -4
+        )
+
+    rectangle white_rect (
+        color = 1.0, 1.0, 1.0
+        x_size = 4
+        y_size = 6
+        x_position = 0
+        )
+
+    rectangle orange_rect (
+        color = 1.0, 0.2462, 0.0482
+        x_size = 4
+        y_size = 6
+        x_position = +4
         )
 }
 </pre></div>
 </div>
+<p>Compound stimuli simplify management of groups of stimuli that should always
+be displayed together.  Instead of <a class="reference internal" href="load_stimulus.html#load-stimulus"><span class="std std-ref">loading</span></a>, <a class="reference internal" href="unload_stimulus.html#unload-stimulus"><span class="std std-ref">unloading</span></a>, <a class="reference internal" href="queue_stimulus.html#queue-stimulus"><span class="std std-ref">queuing</span></a>, or <a class="reference internal" href="dequeue_stimulus.html#dequeue-stimulus"><span class="std std-ref">dequeuing</span></a> each member of a group individually, you can load, unload, queue,
+or dequeue just the compound stimulus that contains them.  For example, you
+can display the above stimulus as follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>queue_stimulus (irish_flag)
+update_display ()
+</pre></div>
+</div>
 </section>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">stimulus/compound</span></code></p>
+</section>
+<section id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
 <section id="deferred">
 <h3>deferred<a class="headerlink" href="#deferred" title="Link to this heading">¶</a></h3>
 <dl class="field-list">
@@ -140,7 +124,10 @@ use this parameter in conjuction with a <a class="reference internal" href="fram
 <td><p>Yes</p></td>
 </tr>
 <tr class="row-even"><th class="stub"><p>Allowed parent:</p></th>
-<td><p><a class="reference internal" href="compound_stimulus.html#compound-stimulus"><span class="std std-ref">Compound Stimulus</span></a>, <a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">Layer Stimulus</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="movie_stimulus.html#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></p></td>
+<td><p><a class="reference internal" href="#compound-stimulus"><span class="std std-ref">Compound Stimulus</span></a>, <a class="reference internal" href="folder.html#folder"><span class="std std-ref">Folder</span></a>, <a class="reference internal" href="frame_list_stimulus.html#frame-list-stimulus"><span class="std std-ref">Frame List Stimulus</span></a>, <a class="reference internal" href="layer_stimulus.html#layer-stimulus"><span class="std std-ref">Layer Stimulus</span></a>, <a class="reference internal" href="list_replicator.html#list-replicator"><span class="std std-ref">List Replicator</span></a>, <a class="reference internal" href="movie_stimulus.html#movie-stimulus"><span class="std std-ref">Movie Stimulus</span></a>, <a class="reference internal" href="range_replicator.html#range-replicator"><span class="std std-ref">Range Replicator</span></a>, <a class="reference internal" href="stimulus_group.html#stimulus-group"><span class="std std-ref">Stimulus Group</span></a></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Allowed children:</p></th>
+<td><p><a class="reference internal" href="stimuli.html#stimuli"><span class="std std-ref">Stimulus</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -157,14 +144,10 @@ use this parameter in conjuction with a <a class="reference internal" href="fram
   <div>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">White Noise Background</a><ul>
+<li><a class="reference internal" href="#">Compound Stimulus</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#signature">Signature</a></li>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
-<li><a class="reference internal" href="#grayscale">grayscale</a></li>
-<li><a class="reference internal" href="#grain-size">grain_size</a></li>
-<li><a class="reference internal" href="#rand-seed">rand_seed</a></li>
-<li><a class="reference internal" href="#randomize-on-draw">randomize_on_draw</a></li>
 <li><a class="reference internal" href="#deferred">deferred</a></li>
 <li><a class="reference internal" href="#display">display</a></li>
 </ul>
@@ -177,13 +160,13 @@ use this parameter in conjuction with a <a class="reference internal" href="fram
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="video_stimulus.html"
-                          title="previous chapter">Video Stimulus</a></p>
+    <p class="topless"><a href="circular_fixation_point_stimulus.html"
+                          title="previous chapter">Circular Fixation Point Stimulus</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="transitions.html"
-                          title="next chapter">Transitions</a></p>
+    <p class="topless"><a href="drifting_grating_stimulus.html"
+                          title="next chapter">Drifting Grating Stimulus</a></p>
   </div>
 <search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -206,16 +189,16 @@ use this parameter in conjuction with a <a class="reference internal" href="fram
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="transitions.html" title="Transitions"
+          <a href="drifting_grating_stimulus.html" title="Drifting Grating Stimulus"
              >next</a> |</li>
         <li class="right" >
-          <a href="video_stimulus.html" title="Video Stimulus"
+          <a href="circular_fixation_point_stimulus.html" title="Circular Fixation Point Stimulus"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">MWorks 0.14.dev documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../reference/index.html" >Reference Manual</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="index.html" >Components</a> &#187;</li>
           <li class="nav-item nav-item-3"><a href="stimuli.html" >Stimuli</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">White Noise Background</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Compound Stimulus</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

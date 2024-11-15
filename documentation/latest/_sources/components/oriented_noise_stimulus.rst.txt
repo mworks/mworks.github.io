@@ -4,78 +4,90 @@
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 .. index::
-   single: Video Stimulus
-   single: Stimuli; Video Stimulus
+   single: Oriented Noise Stimulus
+   single: Stimuli; Oriented Noise Stimulus
 
-.. _Video Stimulus:
+.. _Oriented Noise Stimulus:
 
-Video Stimulus
-==============
+Oriented Noise Stimulus
+=======================
 
 
 Description
 -----------
-A stimulus that plays a video stored in any `video file format
-<https://en.wikipedia.org/wiki/Video_file_format>`_ supported by the
-operating system.
-
-*Note*:  To preserve the video's aspect ratio on screen, `x_size`_ and
-`y_size`_ must be equal.  When drawn, the larger dimension spans the full
-specified size, while the smaller dimension is scaled to maintain the
-aspect ratio.
-
-*Note*:  If the video contains an `alpha channel
-<https://en.wikipedia.org/wiki/Alpha_compositing>`_, the embedded alpha
-value for each pixel is multiplied by the value of `alpha_multiplier`_.
+An oriented noise stimulus, as described in `Orientation discrimination in human vision: Psychophysics and modeling <https://doi.org/10.1016/j.visres.2005.10.016>`_ (Beaudot and Mullen, 2005).
 
 
 
 Signature
 ---------
-``stimulus/video``
+``stimulus/oriented_noise``
 
 
 Required Parameters
 -------------------
 
-path
-^^^^
+f_0
+^^^
 
-Filesystem path to the video file
+Peak spatial frequency.  Must be greater than or equal to zero.
+
+
+sigma_f
+^^^^^^^
+
+Standard deviation of spatial frequency around `f_0`_.  Must be greater than zero.
+
+
+theta_0
+^^^^^^^
+
+Peak orientation (degrees).  Must be between 0 and 180 (inclusive).
+
+
+sigma_theta
+^^^^^^^^^^^
+
+Standard deviation of orientation around `theta_0`_ (degrees).  Must be greater than zero and less than or equal to 90.
+
 
 
 
 Optional Parameters
 -------------------
 
-volume
-^^^^^^
-:Default: ``0.0``
+directory_path
+^^^^^^^^^^^^^^
 
-Output audio volume (floating-point value between 0 and 1, where 0 is muted and 1 is full system volume)
+Path to directory containing base noise images.  The images must be of
+uniform width and height. Additionally, the width and height (in pixels)
+of each image must be a power of two.
 
-
-loop
-^^^^
-:Default: ``NO``
-
-If ``YES``, the video will repeat indefinitely (or until `Stop Dynamic Stimulus` is invoked)
+If omitted, random base noise will be generated every time the stimulus
+is drawn.
 
 
-repeats
-^^^^^^^
-:Default: ``0``
+noise_image_selection
+^^^^^^^^^^^^^^^^^^^^^
+:Options: | ``sequential``
+          | ``random_with_replacement``
+          | ``random_without_replacement``
+:Default: ``random_with_replacement``
 
-Number of times to repeat the video.  Note that the video will always
-play at least once, even if this value is less than one.
-
-If `loop`_ is ``YES``, this parameter is ignored.
+Method used to select base noise images from `directory_path`_.  If ``sequential`` is specified, images will be selected in lexicographic order by filename.
 
 
-ended
+rand_seed
+^^^^^^^^^
+
+Seed value for the random number generator.  If omitted, the current system time in nanoseconds is used.
+
+
+color
 ^^^^^
+:Default: ``1.0,1.0,1.0``
 
-Variable that will be set to true after the video ends.  If `repeats`_ is greater than 1, the variable will be set only once, after all repetitions are complete.  If `loop`_ is ``YES``, the variable will never be set.
+The color of the stimulus, expressed as a comma-separated list of red, green, and blue components.  Each component may be described by any valid expression, but the expression must result in a value between 0 and 1 (inclusive).
 
 
 alpha_multiplier
