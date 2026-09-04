@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Analyzing Experimental Data &#8212; MWorks 0.14.dev documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
     
     <script src="../_static/documentation_options.js?v=e978e1ea"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -77,12 +77,12 @@
 <h4>Setup<a class="headerlink" href="#setup" title="Link to this heading">¶</a></h4>
 <p>To use MWorks’ data analysis tools for Python, you must first make the <code class="docutils literal notranslate"><span class="pre">mworks</span></code> package available to your Python code.  You can do this on a per-script basis by adding the directory <code class="docutils literal notranslate"><span class="pre">/Library/Application</span> <span class="pre">Support/MWorks/Scripting/Python</span></code> to the module search path:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import sys
-sys.path.insert(0, &#39;/Library/Application Support/MWorks/Scripting/Python&#39;)
+sys.path.insert(0, '/Library/Application Support/MWorks/Scripting/Python')
 </pre></div>
 </div>
 <p>If you want the <code class="docutils literal notranslate"><span class="pre">mworks</span></code> package to be available to <em>all</em> Python code you run, you can create an <code class="docutils literal notranslate"><span class="pre">mworks.pth</span></code> file in your per-user <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> directory.  For example, for Python 3.7, execute the following commands in a Terminal window:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/Library/Python/3.7/lib/python/site-packages
-echo &#39;/Library/Application Support/MWorks/Scripting/Python&#39; &gt; ~/Library/Python/3.7/lib/python/site-packages/mworks.pth
+echo '/Library/Application Support/MWorks/Scripting/Python' &gt; ~/Library/Python/3.7/lib/python/site-packages/mworks.pth
 </pre></div>
 </div>
 </section>
@@ -90,7 +90,7 @@ echo &#39;/Library/Application Support/MWorks/Scripting/Python&#39; &gt; ~/Libra
 <h4>Opening and Closing<a class="headerlink" href="#opening-and-closing" title="Link to this heading">¶</a></h4>
 <p>To open an event file, use the <code class="docutils literal notranslate"><span class="pre">MWKFile</span></code> class from the <code class="docutils literal notranslate"><span class="pre">mworks.data</span></code> module:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from mworks.data import MWKFile
-f = MWKFile(&#39;my_data.mwk2&#39;)
+f = MWKFile('my_data.mwk2')
 f.open()
 </pre></div>
 </div>
@@ -99,7 +99,7 @@ f.open()
 </pre></div>
 </div>
 <p>Alternatively, you can use the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#the-with-statement">with statement</a> to handle opening and closing of the file in an implicit, exception-safe fashion:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with MWKFile(&#39;my_data.mwk2&#39;) as f:
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with MWKFile('my_data.mwk2') as f:
     # Analysis code goes here
     ...
 </pre></div>
@@ -112,7 +112,7 @@ f.open()
 </pre></div>
 </div>
 <p>You can also use keyword arguments to filter events by code or time.  The <code class="docutils literal notranslate"><span class="pre">codes</span></code> argument takes a list of event codes or variable names and selects only events with matching codes.  For example, we can extract all events for the variables <code class="docutils literal notranslate"><span class="pre">red_selected</span></code>, <code class="docutils literal notranslate"><span class="pre">green_selected</span></code>, and <code class="docutils literal notranslate"><span class="pre">blue_selected</span></code> (which appear in the “Find the Circle” example in <a class="reference internal" href="running.html#running-an-experiment"><span class="std std-ref">Running an Experiment</span></a>) like this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = f.get_events(codes=[&#39;red_selected&#39;, &#39;green_selected&#39;, &#39;blue_selected&#39;])
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>events = f.get_events(codes=['red_selected', 'green_selected', 'blue_selected'])
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">time_range</span></code> argument takes a list containing a start time and stop time and selects only events whose time stamps fall within that range:</p>
@@ -140,9 +140,9 @@ f.open()
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">code</span></code> and <code class="docutils literal notranslate"><span class="pre">time</span></code> properties always have integer values.  However, the value of <code class="docutils literal notranslate"><span class="pre">data</span></code> can be of type boolean, integer, float, string, bytes, list, or dictionary:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; events = f.get_events(codes=[&#39;#announceMessage&#39;])
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; events = f.get_events(codes=['#announceMessage'])
 &gt;&gt;&gt; events[17].data
-{&#39;message&#39;: &#39;4 of 10 trials were correct (58293577)&#39;, &#39;origin&#39;: 1, &#39;type&#39;: 0, &#39;domain&#39;: 0}
+{'message': '4 of 10 trials were correct (58293577)', 'origin': 1, 'type': 0, 'domain': 0}
 </pre></div>
 </div>
 </section>
@@ -150,11 +150,11 @@ f.open()
 <h4>Using the Codec<a class="headerlink" href="#using-the-codec" title="Link to this heading">¶</a></h4>
 <p>To convert an event code to a variable name, use the <code class="docutils literal notranslate"><span class="pre">codec</span></code> property of the <code class="docutils literal notranslate"><span class="pre">MWKFile</span></code> object:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; f.codec[36]
-&#39;red_selected&#39;
+'red_selected'
 </pre></div>
 </div>
 <p>To convert a variable name to an event code, use the <code class="docutils literal notranslate"><span class="pre">reverse_codec</span></code> property:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; f.reverse_codec[&#39;red_selected&#39;]
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; f.reverse_codec['red_selected']
 36
 </pre></div>
 </div>
@@ -165,14 +165,14 @@ f.open()
 <section id="id3">
 <h4>Setup<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h4>
 <p>To use MWorks’ data analysis tools for MATLAB, you must first add the directory <code class="docutils literal notranslate"><span class="pre">/Library/Application</span> <span class="pre">Support/MWorks/Scripting/MATLAB</span></code> to the search path:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>addpath(&#39;/Library/Application Support/MWorks/Scripting/MATLAB&#39;)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>addpath('/Library/Application Support/MWorks/Scripting/MATLAB')
 </pre></div>
 </div>
 </section>
 <section id="id4">
 <h4>Opening and Closing<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h4>
 <p>To open an event file, use the <code class="docutils literal notranslate"><span class="pre">MWKFile</span></code> class from the <code class="docutils literal notranslate"><span class="pre">mworks</span></code> package:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = mworks.MWKFile(&#39;my_data.mwk2&#39;)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = mworks.MWKFile('my_data.mwk2')
 </pre></div>
 </div>
 <p>When you are done using the file, you should close it:</p>
@@ -248,7 +248,7 @@ ans =
 
   struct with fields:
 
-    message: &#39;4 of 10 trials were correct (58293577)&#39;
+    message: '4 of 10 trials were correct (58293577)'
      origin: 1
        type: 0
      domain: 0
@@ -262,11 +262,11 @@ ans =
 
 ans =
 
-    &#39;red_selected&#39;
+    'red_selected'
 </pre></div>
 </div>
 <p>To convert a variable name to an event code, use the <code class="docutils literal notranslate"><span class="pre">ReverseCodec</span></code> property:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; f.ReverseCodec(&#39;red_selected&#39;)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; f.ReverseCodec('red_selected')
 
 ans =
 
@@ -279,7 +279,7 @@ ans =
 <section id="alternative-function-based-interface">
 <h4>Alternative, Function-based Interface<a class="headerlink" href="#alternative-function-based-interface" title="Link to this heading">¶</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">MWKFile</span></code> class provides the most complete interface to MWorks event files.  However, MWorks also provides standalone functions that perform most of the same tasks.  These functions take the name of the event file as their first argument but otherwise accept the same inputs and return the same outputs as their method or property counterparts:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; events = getEvents(&#39;my_data.mwk2&#39;, [36, 37, 38])
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt; events = getEvents('my_data.mwk2', [36, 37, 38])
 
 events =
 
@@ -289,7 +289,7 @@ events =
     time_us
     data
 
-&gt;&gt; getCodec(&#39;my_data.mwk2&#39;)
+&gt;&gt; getCodec('my_data.mwk2')
 
 ans =
 
@@ -299,7 +299,7 @@ ans =
       KeyType: int64
     ValueType: char
 
-&gt;&gt; getReverseCodec(&#39;my_data.mwk2&#39;)
+&gt;&gt; getReverseCodec('my_data.mwk2')
 
 ans =
 
@@ -400,8 +400,8 @@ ans =
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2016-2024, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    &#169; Copyright 2016-2026, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>

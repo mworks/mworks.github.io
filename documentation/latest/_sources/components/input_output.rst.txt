@@ -53,6 +53,7 @@ Input/output (I/O) devices
    mouse_input_device
    ne_500_syringe_pump
    ne_500_syringe_pump_network
+   object_detector
    open_ephys_interface
    open_ephys_network_events_client
    qcualor_device

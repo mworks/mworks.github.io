@@ -4,34 +4,32 @@
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 .. index::
-   single: Face Recognizer
-   single: Input/Output; Face Recognizer
+   single: Object Detector
+   single: Input/Output; Object Detector
 
-.. _Face Recognizer:
+.. _Object Detector:
 
-Face Recognizer
+Object Detector
 ===============
 
 
 Description
 -----------
-A face recognizer captures images from a camera and uses a `Core ML
-<https://developer.apple.com/documentation/coreml>`_ model to classify them.
-Its intended use is to recognize the faces of specific experimental
-subjects, but the type of classification it performs depends entirely on the
-provided model.  For information on obtaining or creating a suitable model,
-see `Getting a Core ML Model
+An object detector captures images from a camera and uses a `Core ML
+<https://developer.apple.com/documentation/coreml>`_ model to locate and
+classify objects in them.  For information on obtaining or creating a
+suitable model, see `Getting a Core ML Model
 <https://developer.apple.com/documentation/coreml/getting-a-core-ml-model>`_.
 
-On macOS, a face recognizer can use any camera (internal or external) that
-is supported by the operating system.  On iOS, it always uses the built-in,
-front-facing, wide-angle camera.
+On macOS, an object detector can use any camera (internal or external) that
+is supported by the operating system.  On iOS, it always uses the
+built-in, front-facing, wide-angle camera.
 
 
 
 Signature
 ---------
-``iodevice/face_recognizer``
+``iodevice/object_detector``
 
 
 Required Parameters
@@ -40,7 +38,7 @@ Required Parameters
 model_path
 ^^^^^^^^^^
 
-Filesystem path to a Core ML image classification model (i.e. a
+Filesystem path to a Core ML object detection model (i.e. a
 ``.mlmodel`` file).
 
 *Note*: The experiment must also declare the model file as a `File
@@ -48,19 +46,37 @@ Resource`, e.g.::
 
     resource ('my_model.mlmodel')
 
-    iodevice/face_recognizer my_recognizer (
+    iodevice/object_detector my_detector (
         model_path = 'my_model.mlmodel'
         ...
         )
 
 
-identifier
-^^^^^^^^^^
+results
+^^^^^^^
 
-Variable in which to store the most recent classification result (as a
-string), subject to `minimum_confidence`_ and `required_matches`_.  If
-classification fails to produce a valid result, the variable is set to
-an empty string.
+Variable in which to store the most recent detection results (as a
+list), subject to `minimum_confidence`_.  Each element in the list is
+itself a list with the following three elements:
+
+1. The classification label assigned to the object (as a string).
+
+2. The bounding box of the object, specified as a four-element list
+   of the form ``[x_min, y_min, x_max, y_max]``, where *(x_min, y_min)*
+   and *(x_max, y_max)* are the coordinates of the lower-left and
+   upper-right corners, respectively, of the bounding box.  Each
+   coordinate is normalized to the dimensions of the image and lies
+   between 0.0 and 1.0 (inclusive).
+
+3. The confidence for the detection result.  Typically, the value will
+   be between 0.0 and 1.0 (inclusive), where 1 is most confident.
+
+   *Note*: The exact meaning of the confidence value depends on the
+   model.  If the model does not support confidence estimation, the
+   value will always be 1.
+
+If detection fails to produce any valid results, the variable is set to
+an empty list.
 
 
 image_capture_interval
@@ -74,40 +90,6 @@ Time interval between image captures.  Must be greater than zero.
 
 Optional Parameters
 -------------------
-
-result_history
-^^^^^^^^^^^^^^
-:Default: ``1``
-
-Number of most recent classifications to consider when applying
-`required_matches`_. Must be greater than or equal to 1.
-
-
-required_matches
-^^^^^^^^^^^^^^^^
-:Default: ``1``
-
-Number of most recent classifications that must give the same result in
-order for that result to be considered valid.  Must be between 1 and the
-value of `result_history`_ (inclusive).
-
-For example, if ``required_matches`` is 9, and ``result_history`` is 10,
-then 9 of the 10 most recent classification results must yield the same
-identifier in order for its value to be reported via the `identifier`_
-parameter.
-
-
-confidence
-^^^^^^^^^^
-
-Variable in which to store the reported confidence for the most recent
-classification result.  Typically, the value will be between 0.0 and
-1.0 (inclusive), where 1 is most confident.
-
-*Note*: The exact meaning of the confidence value depends on the model.
-If the model does not support confidence estimation, the value will
-always be 1.
-
 
 region_of_interest
 ^^^^^^^^^^^^^^^^^^

@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Experiment Language (MWEL) &#8212; MWorks 0.14.dev documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=6573aa41" />
     
     <script src="../_static/documentation_options.js?v=e978e1ea"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -100,15 +100,15 @@ A_Long_Name_With_Many_Words
 <span id="id3"></span><h2>Assignments<a class="headerlink" href="#assignments" title="Link to this heading">¶</a></h2>
 <p>An assignment changes the value of a <a class="reference internal" href="../components/variable.html#variable"><span class="std std-ref">variable</span></a>.  Assignments come in three different varieties.</p>
 <p>A simple assignment just replaces the old value with a new one:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a = &#39;foo&#39;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a = 'foo'
 b = [1,2,3]
 c = b + [4]  // c == [1, 2, 3, 4]
 </pre></div>
 </div>
 <p>If a variable’s current value is a list or dictionary, an index assignment assigns a new value to one of its elements:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>b[2] = {&#39;a&#39;: 1.5}       // b == [1, 2, {&quot;a&quot;: 1.5}]
-b[2][&#39;b&#39;] = [4,5,6]     // b == [1, 2, {&quot;a&quot;: 1.5, &quot;b&quot;: [4, 5, 6]}]
-b[2][&#39;b&#39;][3] = &#39;seven&#39;  // b == [1, 2, {&quot;a&quot;: 1.5, &quot;b&quot;: [4, 5, 6, &quot;seven&quot;]}]
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>b[2] = {'a': 1.5}       // b == [1, 2, {"a": 1.5}]
+b[2]['b'] = [4,5,6]     // b == [1, 2, {"a": 1.5, "b": [4, 5, 6]}]
+b[2]['b'][3] = 'seven'  // b == [1, 2, {"a": 1.5, "b": [4, 5, 6, "seven"]}]
 </pre></div>
 </div>
 <p>Finally, an augmented assignment performs a binary operation with the current value and another value and assigns the result to the variable:</p>
@@ -141,8 +141,8 @@ d /= 2  // d == 7.5
 <section id="parameters">
 <span id="component-declaration-parameters"></span><h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">¶</a></h3>
 <p>The signature and tag are followed by a list of parameter names and values, enclosed in parentheses.  For example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stimulus/video &#39;My Video&#39; (
-    path = &#39;my_video.mp4&#39;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>stimulus/video 'My Video' (
+    path = 'my_video.mp4'
     x_size = 15.0
     y_size = 15.0
     autoplay = true
@@ -162,10 +162,10 @@ d /= 2  // d == 7.5
 <h3>Children<a class="headerlink" href="#children" title="Link to this heading">¶</a></h3>
 <p>Most components are arranged in a parent/child hierarchy.  For example, a <a class="reference internal" href="../components/paradigm_components.html#paradigm-components"><span class="std std-ref">paradigm component</span></a> can have <a class="reference internal" href="../components/actions.html#actions"><span class="std std-ref">actions</span></a> and other paradigm components as children, and those children can have their own child components.</p>
 <p>In MWEL, a component’s children follow its parameters, enclosed in braces (aka curly brackets):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>protocol &#39;Protocol 1&#39; {
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>protocol 'Protocol 1' {
     trial (nsamples = 1000) {
         task_system {
-            task_system_state &#39;Acquire Fixation&#39; {
+            task_system_state 'Acquire Fixation' {
                 action/queue_stimulus (stimulus = fixation_point)
                 action/update_stimulus_display ()
                 action/start_timer (timer = MyTimer; duration = 500ms)
@@ -195,7 +195,7 @@ protocol C     // Not OK! (syntax error)
     image_index = 0
     action/while (condition = image_index &lt; num_images) {
         action/dequeue_stimulus (stimulus = images[image_index])
-        action/report (message = &#39;Dequeued image $image_index&#39;)
+        action/report (message = 'Dequeued image $image_index')
         image_index += 1
     }
     action/update_stimulus_display ()
@@ -207,7 +207,7 @@ protocol C     // Not OK! (syntax error)
     image_index = 0
     while (image_index &lt; num_images) {
         dequeue_stimulus (images[image_index])
-        report (&#39;Dequeued image $image_index&#39;)
+        report ('Dequeued image $image_index')
         image_index += 1
     }
     update_stimulus_display ()
@@ -227,13 +227,13 @@ protocol C     // Not OK! (syntax error)
 </pre></div>
 </div>
 <p>The default value can be any expression:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var b = &#39;Hello, world!&#39;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var b = 'Hello, world!'
 var c = 2*a + 3
 </pre></div>
 </div>
 <p>Variables declared in this way can still include parameters and/or child components:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>var x = 3 (persistent = true) {
-    report (&#39;x = $x&#39;)
+    report ('x = $x')
 }
 </pre></div>
 </div>
@@ -243,8 +243,8 @@ var c = 2*a + 3
 <span id="id6"></span><h2>Includes<a class="headerlink" href="#includes" title="Link to this heading">¶</a></h2>
 <p>To promote code reuse, or to simplify the management of a complex experiment, you may want to divide your experimental code in to multiple files.  MWEL supports this via the <code class="docutils literal notranslate"><span class="pre">%include</span></code> directive:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%include my_vars
-%include &#39;stims/setA.mwel&#39;
-%include &#39;/my_lab/shared/setup1_io.inc&#39;
+%include 'stims/setA.mwel'
+%include '/my_lab/shared/setup1_io.inc'
 </pre></div>
 </div>
 <p>When processing an include statement, the MWEL parser loads and parses the specified file and inserts the result in to the including file’s parse tree at the location of the statement.  The provided file path may be absolute or relative to the including file.  If the path does not include a file extension, <code class="docutils literal notranslate"><span class="pre">.mwel</span></code> is assumed.</p>
@@ -288,7 +288,7 @@ protocol {
     while (a &lt;= 100) {
         h = hypot(a, a+1)
         if (h_is_an_integer) {
-            report (&#39;hypot($a, $a+1) = $h&#39;)
+            report ('hypot($a, $a+1) = $h')
         }
         a += 1
     }
@@ -342,19 +342,19 @@ protocol {
     ...
     task {
         ...
-        state &#39;No Fixation&#39; {
+        state 'No Fixation' {
             no_fixation = true
-            goto (&#39;End Trial&#39;)
+            goto ('End Trial')
         }
-        state &#39;Fixation Broken&#39; {
+        state 'Fixation Broken' {
             fixation_broken = true
             dequeue_all_images ()
-            goto (&#39;End Trial&#39;)
+            goto ('End Trial')
         }
-        state &#39;Success&#39; {
+        state 'Success' {
             success = true
             dequeue_all_images ()
-            goto (&#39;End Trial&#39;)
+            goto ('End Trial')
         }
         ...
     }
@@ -377,10 +377,10 @@ long as the body does not include one).</p>
 %end
 
 // OK: invocation includes a tag, macro body does not
-reported_var x = 3 (message = &#39;x = $x&#39;)
+reported_var x = 3 (message = 'x = $x')
 
 // Not OK: invocation and macro body both include children
-reported_var y = 3 (message = &#39;y = $y&#39;) {
+reported_var y = 3 (message = 'y = $y') {
     z = 2*y
 }
 </pre></div>
@@ -575,8 +575,8 @@ reported_var y = 3 (message = &#39;y = $y&#39;) {
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2016-2024, The MWorks Project.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    &#169; Copyright 2016-2026, The MWorks Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>
 </html>
