@@ -90,6 +90,41 @@
 <h3>display<a class="headerlink" href="#display" title="Link to this heading">¶</a></h3>
 <p>Name of the display on which the stimulus will be presented.  If omitted, the default display (if available) will be used.</p>
 </section>
+<section id="schematic">
+<h3>schematic<a class="headerlink" href="#schematic" title="Link to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">{'color':</span> <span class="pre">[0.2,</span> <span class="pre">0.5,</span> <span class="pre">0.8],</span> <span class="pre">'line_width':</span> <span class="pre">3}</span></code></p>
+</dd>
+</dl>
+<p>This parameter has no influence on how the stimulus is presented on the
+stimulus display.  Instead, it affects how the schematic for the
+stimulus appears on MWClient’s eye window.</p>
+<p>If present, the parameter’s value must be a dictionary containing one
+or more of the following keys:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">'color'</span></code></dt><dd><p>Color of the schematic.  The value must be a list of three numbers
+between 0 and 1 (inclusive), respresenting the red, green, and blue
+components of the desired color.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">'line_width'</span></code></dt><dd><p>Width, in display points, of the lines used to draw the schematic.
+The value must be a non-negative number.  A value of zero means the
+lines should be as thin as possible.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">'hidden'</span></code></dt><dd><p>Visibility of the schematic.  The value must be a boolean, where
+false means the schematic should be visible, and true means it
+should be hidden.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">'fixation_window'</span></code></dt><dd><p>Parameters for the schematic of a fixation point’s fixation window.
+The value must be a dictionary containing one or more of the
+preceding keys.  (Note: For fixation points, by default the eye
+window draws a schematic for the fixation window but <em>not</em> the
+visible stimulus.  To show the visible stimulus, include key
+<code class="docutils literal notranslate"><span class="pre">'hidden'</span></code> with a false value at the top level of the schematic
+dictionary.)</p>
+</dd>
+</dl>
+</section>
 </section>
 <section id="placement">
 <h2>Placement<a class="headerlink" href="#placement" title="Link to this heading">¶</a></h2>
@@ -123,6 +158,7 @@
 <li><a class="reference internal" href="#color">color</a></li>
 <li><a class="reference internal" href="#deferred">deferred</a></li>
 <li><a class="reference internal" href="#display">display</a></li>
+<li><a class="reference internal" href="#schematic">schematic</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#placement">Placement</a></li>
