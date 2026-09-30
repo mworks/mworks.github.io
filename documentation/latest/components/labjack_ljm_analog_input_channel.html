@@ -54,7 +54,10 @@
 <p><em>Available on macOS</em></p>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
-<p>Analog input channel on a <a class="reference internal" href="labjack_ljm_device.html#labjack-ljm-device"><span class="std std-ref">LabJack LJM Device</span></a></p>
+<p>Analog input channel on a <a class="reference internal" href="labjack_ljm_device.html#labjack-ljm-device"><span class="std std-ref">LabJack LJM Device</span></a>.</p>
+<p>If both <a class="reference internal" href="#range-min">range_min</a> and <a class="reference internal" href="#range-max">range_max</a> are specified, the channel will use
+the narrowest supported analog-input range that includes the provided
+limits. Otherwise, the default analog-input range will be used.</p>
 </section>
 <section id="signature">
 <h2>Signature<a class="headerlink" href="#signature" title="Link to this heading">¶</a></h2>
@@ -77,6 +80,27 @@
 <section id="value">
 <h3>value<a class="headerlink" href="#value" title="Link to this heading">¶</a></h3>
 <p>Variable in which to store input voltage values</p>
+</section>
+</section>
+<section id="optional-parameters">
+<h2>Optional Parameters<a class="headerlink" href="#optional-parameters" title="Link to this heading">¶</a></h2>
+<section id="range-min">
+<h3>range_min<a class="headerlink" href="#range-min" title="Link to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">-10.0</span></code></p>
+</dd>
+</dl>
+<p>Minimum expected input voltage</p>
+</section>
+<section id="range-max">
+<h3>range_max<a class="headerlink" href="#range-max" title="Link to this heading">¶</a></h3>
+<dl class="field-list simple">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">10.0</span></code></p>
+</dd>
+</dl>
+<p>Maximum expected input voltage</p>
 </section>
 </section>
 <section id="placement">
@@ -110,6 +134,11 @@
 <li><a class="reference internal" href="#required-parameters">Required Parameters</a><ul>
 <li><a class="reference internal" href="#line">line</a></li>
 <li><a class="reference internal" href="#value">value</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
+<li><a class="reference internal" href="#range-min">range_min</a></li>
+<li><a class="reference internal" href="#range-max">range_max</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#placement">Placement</a></li>

@@ -17,7 +17,12 @@ LabJack LJM Analog Input Channel
 
 Description
 -----------
-Analog input channel on a `LabJack LJM Device`
+Analog input channel on a `LabJack LJM Device`.
+
+If both `range_min`_ and `range_max`_ are specified, the channel will use
+the narrowest supported analog-input range that includes the provided
+limits. Otherwise, the default analog-input range will be used.
+
 
 
 Signature
@@ -39,6 +44,23 @@ value
 ^^^^^
 
 Variable in which to store input voltage values
+
+
+
+Optional Parameters
+-------------------
+
+range_min
+^^^^^^^^^
+:Example: ``-10.0``
+
+Minimum expected input voltage
+
+range_max
+^^^^^^^^^
+:Example: ``10.0``
+
+Maximum expected input voltage
 
 
 

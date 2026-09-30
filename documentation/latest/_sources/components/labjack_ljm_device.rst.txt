@@ -18,7 +18,7 @@ LabJack LJM Device
 Description
 -----------
 Interface to devices compatible with the `LabJack LJM library
-<https://labjack.com/pages/support?doc=/software-driver/ljm-users-guide/>`_.
+<https://support.labjack.com/docs/ljm-library-overview>`_.
 Currently, the LabJack `T4 <https://labjack.com/products/labjack-t4>`_ ,
 `T7 <https://labjack.com/products/labjack-t7>`_, and `T8
 <https://labjack.com/products/t8>`_ are supported.
@@ -26,7 +26,7 @@ Currently, the LabJack `T4 <https://labjack.com/products/labjack-t4>`_ ,
 For information on acceptable values for the parameters `device_type`_,
 `connection_type`_, and `identifier`_, see the documentation for the
 `LJM_OpenS function
-<https://labjack.com/pages/support/?doc=/software-driver/ljm-users-guide/opens>`_.
+<https://support.labjack.com/docs/opens-ljm-user-s-guide>`_.
 
 
 
@@ -92,7 +92,7 @@ analog_waveform_trigger_line
 Name of the digital line that triggers the start of output on a `LabJack
 LJM Analog Waveform Channel`.  The line must support the `Conditional
 Reset
-<https://labjack.com/pages/support/?doc=/datasheets/t-series-datasheet/13213-conditional-reset-t-series-datasheet/>`_
+<https://support.labjack.com/docs/13-2-13-conditional-reset-t-series-datasheet>`_
 extended feature.
 
 When a trigger line is specified,
