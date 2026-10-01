@@ -63,6 +63,14 @@ field_center_y
 
 Field vertical center position (degrees)
 
+field_rotation
+^^^^^^^^^^^^^^
+
+Field rotation (degrees).
+
+If omitted, changes to `direction`_ will rotate the dot field.
+
+
 color
 ^^^^^
 :Default: ``1.0,1.0,1.0``
@@ -81,7 +89,13 @@ direction
 ^^^^^^^^^
 :Default: ``0.0``
 
-Direction of movement for coherent dots (degrees)
+Direction of movement for coherent dots (degrees).
+
+If `field_rotation`_ is provided (with any value, including zero),
+changes to direction will not affect dot positions.  Otherwise,
+direction will be treated as a field rotation, and changes to it will
+rotate dot positions accordingly.
+
 
 coherence
 ^^^^^^^^^

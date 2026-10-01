@@ -98,6 +98,11 @@
 </dl>
 <p>Field vertical center position (degrees)</p>
 </section>
+<section id="field-rotation">
+<h3>field_rotation<a class="headerlink" href="#field-rotation" title="Link to this heading">¶</a></h3>
+<p>Field rotation (degrees).</p>
+<p>If omitted, changes to <a class="reference internal" href="#direction">direction</a> will rotate the dot field.</p>
+</section>
 <section id="color">
 <h3>color<a class="headerlink" href="#color" title="Link to this heading">¶</a></h3>
 <dl class="field-list simple">
@@ -123,7 +128,11 @@
 <dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
 </dd>
 </dl>
-<p>Direction of movement for coherent dots (degrees)</p>
+<p>Direction of movement for coherent dots (degrees).</p>
+<p>If <a class="reference internal" href="#field-rotation">field_rotation</a> is provided (with any value, including zero),
+changes to direction will not affect dot positions.  Otherwise,
+direction will be treated as a field rotation, and changes to it will
+rotate dot positions accordingly.</p>
 </section>
 <section id="coherence">
 <h3>coherence<a class="headerlink" href="#coherence" title="Link to this heading">¶</a></h3>
@@ -273,6 +282,7 @@ dictionary.)</p>
 <li><a class="reference internal" href="#optional-parameters">Optional Parameters</a><ul>
 <li><a class="reference internal" href="#field-center-x">field_center_x</a></li>
 <li><a class="reference internal" href="#field-center-y">field_center_y</a></li>
+<li><a class="reference internal" href="#field-rotation">field_rotation</a></li>
 <li><a class="reference internal" href="#color">color</a></li>
 <li><a class="reference internal" href="#alpha-multiplier">alpha_multiplier</a></li>
 <li><a class="reference internal" href="#direction">direction</a></li>
